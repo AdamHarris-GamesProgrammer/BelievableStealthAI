@@ -24,7 +24,7 @@ public class FOVController : MonoBehaviour
     {
         if(_timeBetweenAditions >= _timeBetweenDuration)
         {
-            Debug.Log("Adding: " + increment);
+            //Debug.Log("Adding: " + increment);
             _detectedValue = Mathf.Min(_detectedValue + increment, _detectedThreshold);
 
             if (_detectedValue > _detectedThreshold)
