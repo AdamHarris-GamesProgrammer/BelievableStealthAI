@@ -32,35 +32,11 @@ public class FOVCollider : MonoBehaviour
             
         }
     }
-
-    private void OnTriggerStay(Collider other)
-    {
-
-    }
-
-    private void Update()
-    {
-    }
-
-    IEnumerator Test()
-    {
-        for(int i = 0; i < 100; i++)
-        {
-            Debug.Log(i);
-
-            yield return new WaitForEndOfFrame();
-        }
-    }
-
     private IEnumerator Raycast()
     {
-        Debug.Log("Raycast Method");
-
         while(_inside)
         {
             bool found = false;
-
-            Debug.Log("Raycast Method");
 
             foreach (Hitbox hitbox in _player.Hitboxes)
             {
@@ -80,6 +56,8 @@ public class FOVCollider : MonoBehaviour
                     }
                 }
 
+                yield return new WaitForEndOfFrame();
+                yield return new WaitForEndOfFrame();
                 yield return new WaitForEndOfFrame();
             }
 
