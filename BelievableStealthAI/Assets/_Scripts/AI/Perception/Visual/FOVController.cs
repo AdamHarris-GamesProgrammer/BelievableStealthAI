@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FOVController : MonoBehaviour
 {
@@ -8,13 +9,18 @@ public class FOVController : MonoBehaviour
     [SerializeField] private float _detectedValue;
     [SerializeField] bool _seen = false;
 
+
+
     float _lostVisibilityTimer = 0.0f;
     [SerializeField] float _lostVisibilityDuration = 0.5f;
 
     float _timeBetweenAditions;
     [SerializeField] float _timeBetweenDuration = 0.25f;
 
-     FOVCollider[] _colliderArr;
+    [Header("UI Test Stuff")]
+    [SerializeField] Image _detectionMeter;
+
+    FOVCollider[] _colliderArr;
 
     private void Awake()
     {
@@ -33,6 +39,8 @@ public class FOVController : MonoBehaviour
             }
 
             _timeBetweenAditions = 0.0f;
+
+            _detectionMeter.fillAmount = _detectedValue;
         }
     }
 
@@ -44,6 +52,8 @@ public class FOVController : MonoBehaviour
         {
             _seen = false;
         }
+
+        _detectionMeter.fillAmount = _detectedValue;
     }
 
     private void FixedUpdate()
