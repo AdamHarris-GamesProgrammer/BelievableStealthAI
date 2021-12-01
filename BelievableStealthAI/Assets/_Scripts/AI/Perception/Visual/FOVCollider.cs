@@ -40,7 +40,7 @@ public class FOVCollider : MonoBehaviour
 
             foreach (Hitbox hitbox in _player.Hitboxes)
             {
-                Debug.Log("Testing against: " + hitbox.name);
+                //Debug.Log("Testing against: " + hitbox.name);
 
                 RaycastHit hit;
                 Vector3 pos = hitbox.transform.position;
@@ -50,7 +50,7 @@ public class FOVCollider : MonoBehaviour
                 {
                     if (hit.transform.GetComponent<Hitbox>())
                     {
-                        Debug.Log("Hit: " + hit.transform.name);
+                        //Debug.Log("Hit: " + hit.transform.name);
                         found = true;
                         _fovController.AddValue(_detectionInrement * hitbox.DetectionMultiplier);
                     }

@@ -7241,6 +7241,7 @@ GameObject:
   - component: {fileID: 1259434297}
   - component: {fileID: 1259434296}
   - component: {fileID: 1259434295}
+  - component: {fileID: 1259434298}
   m_Layer: 0
   m_Name: 2x2m Door (4)
   m_TagString: Untagged
@@ -7256,7 +7257,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1259434293}
   m_LocalRotation: {x: -0.00000029763765, y: 0.70710695, z: 0.7071067, w: 0.00000035017726}
-  m_LocalPosition: {x: 0, y: 0.00000035762787, z: -2.0000002}
+  m_LocalPosition: {x: 0, y: 0, z: -2.0000002}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 8201790610599377936}
@@ -7326,6 +7327,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1259434293}
   m_Mesh: {fileID: -4453656346700697242, guid: 5ad11ff6c1738dd46a08a3bee089f48b, type: 3}
+--- !u!114 &1259434298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259434293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eeb5dc026fdf4b488bc7ae0138ab719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_StartPoint: {x: 0, y: -1, z: 0}
+  m_EndPoint: {x: 0, y: 1, z: 0}
+  m_Width: 0
+  m_CostModifier: -1
+  m_Bidirectional: 1
+  m_AutoUpdatePosition: 0
+  m_Area: 0
 --- !u!1 &1310431216
 GameObject:
   m_ObjectHideFlags: 0
@@ -9181,6 +9202,7 @@ GameObject:
   - component: {fileID: 1522142025}
   - component: {fileID: 1522142024}
   - component: {fileID: 1522142023}
+  - component: {fileID: 1522142026}
   m_Layer: 0
   m_Name: 2x2m Door (3)
   m_TagString: Untagged
@@ -9266,6 +9288,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522142021}
   m_Mesh: {fileID: -4453656346700697242, guid: 5ad11ff6c1738dd46a08a3bee089f48b, type: 3}
+--- !u!114 &1522142026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522142021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eeb5dc026fdf4b488bc7ae0138ab719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_StartPoint: {x: 0, y: -1, z: 0}
+  m_EndPoint: {x: 0, y: 1, z: 0}
+  m_Width: 0
+  m_CostModifier: -1
+  m_Bidirectional: 1
+  m_AutoUpdatePosition: 0
+  m_Area: 0
 --- !u!1 &1524320829
 GameObject:
   m_ObjectHideFlags: 0
@@ -11633,6 +11675,7 @@ GameObject:
   - component: {fileID: 1902581716}
   - component: {fileID: 1902581715}
   - component: {fileID: 1902581714}
+  - component: {fileID: 1902581717}
   m_Layer: 0
   m_Name: 2x2m Door (1)
   m_TagString: Untagged
@@ -11718,6 +11761,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902581712}
   m_Mesh: {fileID: -4453656346700697242, guid: 5ad11ff6c1738dd46a08a3bee089f48b, type: 3}
+--- !u!114 &1902581717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902581712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eeb5dc026fdf4b488bc7ae0138ab719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_StartPoint: {x: 0, y: -1, z: 0}
+  m_EndPoint: {x: 0, y: 1, z: 0}
+  m_Width: 0
+  m_CostModifier: -1
+  m_Bidirectional: 1
+  m_AutoUpdatePosition: 0
+  m_Area: 0
 --- !u!1 &1906039156
 GameObject:
   m_ObjectHideFlags: 0
@@ -11827,6 +11890,7 @@ GameObject:
   - component: {fileID: 1906223467}
   - component: {fileID: 1906223466}
   - component: {fileID: 1906223465}
+  - component: {fileID: 1906223468}
   m_Layer: 0
   m_Name: 2x2m Door (2)
   m_TagString: Untagged
@@ -11912,6 +11976,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1906223463}
   m_Mesh: {fileID: -4453656346700697242, guid: 5ad11ff6c1738dd46a08a3bee089f48b, type: 3}
+--- !u!114 &1906223468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906223463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eeb5dc026fdf4b488bc7ae0138ab719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_StartPoint: {x: 0, y: -1, z: 0}
+  m_EndPoint: {x: 0, y: 1, z: 0}
+  m_Width: 0
+  m_CostModifier: -1
+  m_Bidirectional: 1
+  m_AutoUpdatePosition: 0
+  m_Area: 0
 --- !u!1 &1906226013
 GameObject:
   m_ObjectHideFlags: 0
@@ -12149,6 +12233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heardValue: 0
   _heard: 0
+  _timeBeforeReducingValue: 1
 --- !u!195 &1931062371
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -13370,6 +13455,7 @@ GameObject:
   - component: {fileID: 1245596740387680580}
   - component: {fileID: 2671839403045775299}
   - component: {fileID: 4415362191408797546}
+  - component: {fileID: 6919149670400505571}
   m_Layer: 0
   m_Name: 2x2m Door
   m_TagString: Untagged
@@ -13377,6 +13463,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
   m_IsActive: 1
+--- !u!114 &6919149670400505571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6919149670400505570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eeb5dc026fdf4b488bc7ae0138ab719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_StartPoint: {x: 0, y: -1, z: 0}
+  m_EndPoint: {x: 0, y: 1, z: 0}
+  m_Width: 0
+  m_CostModifier: -1
+  m_Bidirectional: 1
+  m_AutoUpdatePosition: 0
+  m_Area: 0
 --- !u!1 &7709770330748013283
 GameObject:
   m_ObjectHideFlags: 0
