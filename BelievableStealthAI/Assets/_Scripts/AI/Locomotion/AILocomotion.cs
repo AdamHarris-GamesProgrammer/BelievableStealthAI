@@ -14,12 +14,32 @@ public class AILocomotion : MonoBehaviour
     bool _canUseDoor = false;
     public bool CanUseDoor { get => _canUseDoor; set => _canUseDoor = value; }
 
+    Transform _thisSide;
+    Transform _otherSide;
+
+    public void SetDoorSides(Transform current, Transform other)
+    {
+        _thisSide = current;
+        _otherSide = other;
+    }
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
 
         _agent.autoTraverseOffMeshLink = false;
+    }
+
+    IEnumerator MoveThroughDoor()
+    {
+        _agent.updateRotation = false;
+        transform.position = _thisSide.position;
+        transform.forward = _otherSide.forward;
+        _animator.SetTrigger("openDoor");
+        _canUseDoor = false;
+
+        yield return null;
     }
 
     void Update()
@@ -31,8 +51,7 @@ public class AILocomotion : MonoBehaviour
         {
             if(_canUseDoor)
             {
-                _animator.SetTrigger("openDoor");
-                
+                StartCoroutine(MoveThroughDoor());
             }
 
             //check if we are at door
@@ -52,6 +71,7 @@ public class AILocomotion : MonoBehaviour
     {
         Debug.Log("Finish Door");
         _agent.CompleteOffMeshLink();
+        _agent.updateRotation = true;
         _canUseDoor = false;
     }
 }

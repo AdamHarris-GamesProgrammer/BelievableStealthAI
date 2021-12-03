@@ -376,7 +376,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 39484265}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.00399, z: 0}
+  m_LocalPosition: {x: -0.0000000068711152, y: 0.007500001, z: -0.0000000023841857}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1902581713}
@@ -6806,7 +6806,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!1 &1143348836
 GameObject:
@@ -7697,6 +7697,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4abac983a416e214fa3d6f8fab348570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sideA: {fileID: 0}
+  sideB: {fileID: 0}
 --- !u!191 &1259434299
 OffMeshLink:
   m_ObjectHideFlags: 0
@@ -9670,6 +9672,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4abac983a416e214fa3d6f8fab348570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sideA: {fileID: 0}
+  sideB: {fileID: 0}
 --- !u!191 &1522142027
 OffMeshLink:
   m_ObjectHideFlags: 0
@@ -9904,13 +9908,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566496813}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.00397, z: -0}
+  m_LocalRotation: {x: -0.000000034808703, y: -0.00000020861623, z: 1, w: 0.0000006043362}
+  m_LocalPosition: {x: 0, y: -0.00741, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1902581713}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1001 &1581733958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14024,6 +14028,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4abac983a416e214fa3d6f8fab348570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sideA: {fileID: 39484266}
+  sideB: {fileID: 1566496814}
 --- !u!65 &1902581719
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14247,6 +14253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4abac983a416e214fa3d6f8fab348570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sideA: {fileID: 0}
+  sideB: {fileID: 0}
 --- !u!191 &1906223469
 OffMeshLink:
   m_ObjectHideFlags: 0
@@ -15673,6 +15681,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4abac983a416e214fa3d6f8fab348570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sideA: {fileID: 0}
+  sideB: {fileID: 0}
 --- !u!191 &6919149670400505572
 OffMeshLink:
   m_ObjectHideFlags: 0

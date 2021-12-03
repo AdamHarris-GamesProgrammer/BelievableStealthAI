@@ -4,14 +4,25 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    [SerializeField] Transform sideA;
+    [SerializeField] Transform sideB;
+
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Enemy"))
         {
             AILocomotion ai = other.GetComponent<AILocomotion>();
             ai.CanUseDoor = true;
-            Debug.Log("AI Can use door");
 
+            if(Vector3.Distance(transform.position, sideA.position) < Vector3.Distance(transform.position, sideB.position))
+            {
+                ai.SetDoorSides(sideA, sideB);
+            }
+            else
+            {
+                ai.SetDoorSides(sideB, sideA);
+            }
         }
     }
 
@@ -21,7 +32,6 @@ public class Door : MonoBehaviour
         {
             AILocomotion ai = other.GetComponent<AILocomotion>();
             ai.CanUseDoor = false;
-            Debug.Log("AI Cannot use door");
         }
     }
 }
