@@ -66,9 +66,6 @@ public class CharacterLocomotion : MonoBehaviour
         _animator.SetFloat("InputX", _input.x);
         _animator.SetFloat("InputY", _input.y);
 
-        if (_input != Vector2.zero)_player.IsStationary = false;
-        else _player.IsStationary = true;
-
         //Checks to see if we are jumping
         if (Input.GetKeyDown(KeyCode.Space)) Jump();
 

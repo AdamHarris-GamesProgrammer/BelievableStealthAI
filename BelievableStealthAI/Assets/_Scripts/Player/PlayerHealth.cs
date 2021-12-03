@@ -10,10 +10,6 @@ public class PlayerHealth : Health
     Animator _animator;
     PlayerController _player;
 
-    [SerializeField] GameObject _CRTCamera;
-    [SerializeField] GameObject _deathScreenUI;
-
-
     protected override void OnStart()
     {
         _aiming = GetComponent<CharacterAiming>();
@@ -40,14 +36,11 @@ public class PlayerHealth : Health
         _aiming.enabled = false;
 
         //Disables our cameras
-        GetComponent<PlayerController>().AimCam.SetActive(false);
         GetComponent<PlayerController>().FollowCam.SetActive(false);
 
         //Sets the dying animation trigger
         _animator.SetTrigger("isDead");
         //Enables the CRT camera and death screen
-        _CRTCamera.SetActive(true);
-        _deathScreenUI.SetActive(true);
     }
 
     protected override void OnDamage()

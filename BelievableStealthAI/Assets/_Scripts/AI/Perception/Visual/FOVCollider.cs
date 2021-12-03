@@ -55,15 +55,12 @@ public class FOVCollider : MonoBehaviour
                         _fovController.AddValue(_detectionInrement * hitbox.DetectionMultiplier);
                     }
                 }
-
-                yield return new WaitForEndOfFrame();
-                yield return new WaitForEndOfFrame();
-                yield return new WaitForEndOfFrame();
+                yield return new WaitForFixedUpdate();
             }
 
             _visible = found;
 
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForFixedUpdate();
         }
     }
 

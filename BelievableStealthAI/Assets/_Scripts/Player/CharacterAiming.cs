@@ -11,14 +11,11 @@ public class CharacterAiming : MonoBehaviour
 
     Camera _mainCamera;
 
-    PlayerController _controller;
-
     [SerializeField] GameObject _followCam;
     [SerializeField] GameObject _aimCam;
     // Start is called before the first frame update
     void Awake()
     {
-        _controller = GetComponent<PlayerController>();
         _mainCamera = Camera.main;
         //Debug.Log("Character Aiming cursor");
         Cursor.visible = false;
@@ -32,9 +29,6 @@ public class CharacterAiming : MonoBehaviour
     {
         //Gets the cameras Y euler angle
         float yawCamera = _mainCamera.transform.rotation.eulerAngles.y;
-
-        //Checks if we are in a kill animation
-        if (_controller.InKillAnimation) return;
 
         //Slerps towards that angle
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, yawCamera, 0), _turnSpeed * Time.fixedDeltaTime);
