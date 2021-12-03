@@ -35,7 +35,7 @@ public class AILocomotion : MonoBehaviour
     {
         _agent.updateRotation = false;
         transform.position = _thisSide.position;
-        transform.forward = _otherSide.forward;
+        transform.forward = _otherSide.up;
         _animator.SetTrigger("openDoor");
         _canUseDoor = false;
 
@@ -71,6 +71,7 @@ public class AILocomotion : MonoBehaviour
     {
         Debug.Log("Finish Door");
         _agent.CompleteOffMeshLink();
+        transform.position = _otherSide.position;
         _agent.updateRotation = true;
         _canUseDoor = false;
     }

@@ -17,11 +17,12 @@ public class Door : MonoBehaviour
 
             if(Vector3.Distance(transform.position, sideA.position) < Vector3.Distance(transform.position, sideB.position))
             {
-                ai.SetDoorSides(sideA, sideB);
+                
+                ai.SetDoorSides(sideB, sideA);
             }
             else
             {
-                ai.SetDoorSides(sideB, sideA);
+                ai.SetDoorSides(sideA, sideB);
             }
         }
     }
