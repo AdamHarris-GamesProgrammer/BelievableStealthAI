@@ -10,6 +10,10 @@ public class AILocomotion : MonoBehaviour
 
     [SerializeField] Transform _targetTransform;
 
+
+    bool _canUseDoor = false;
+    public bool CanUseDoor { get => _canUseDoor; set => _canUseDoor = value; }
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -25,7 +29,11 @@ public class AILocomotion : MonoBehaviour
 
         if(_agent.isOnOffMeshLink)
         {
-            _animator.SetTrigger("openDoor");
+            if(_canUseDoor)
+            {
+                _animator.SetTrigger("openDoor");
+                
+            }
 
             //check if we are at door
             //is door open
@@ -35,8 +43,6 @@ public class AILocomotion : MonoBehaviour
             //walk through door
             //else
             //at some other nav mesh link, like a window.
-
-            
         }
     }
 
@@ -46,5 +52,6 @@ public class AILocomotion : MonoBehaviour
     {
         Debug.Log("Finish Door");
         _agent.CompleteOffMeshLink();
+        _canUseDoor = false;
     }
 }
