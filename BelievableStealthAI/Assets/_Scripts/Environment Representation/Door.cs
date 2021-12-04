@@ -15,14 +15,14 @@ public class Door : MonoBehaviour
             AILocomotion ai = other.GetComponent<AILocomotion>();
             ai.CanUseDoor = true;
 
-            if(Vector3.Distance(transform.position, sideA.position) < Vector3.Distance(transform.position, sideB.position))
+            if(Vector3.Distance(other.transform.position, sideA.position) < Vector3.Distance(other.transform.position, sideB.position))
             {
                 
-                ai.SetDoorSides(sideB, sideA);
+                ai.SetDoorSides(sideA, sideB);
             }
             else
             {
-                ai.SetDoorSides(sideA, sideB);
+                ai.SetDoorSides(sideB, sideA);
             }
         }
     }

@@ -47,7 +47,7 @@ public class AILocomotion : MonoBehaviour
         _agent.SetDestination(_targetTransform.position);
         _animator.SetFloat("movementSpeed", _agent.velocity.magnitude);
 
-        if(_agent.isOnOffMeshLink)
+        if (_agent.isOnOffMeshLink)
         {
             if(_canUseDoor)
             {
