@@ -15,7 +15,8 @@ public class Door : ObservableObject
             AILocomotion ai = other.GetComponent<AILocomotion>();
             ai.CanUseDoor = true;
 
-            if (GetClosestDoorSide(other.transform.position))
+            ai.CurrentDoor = this;
+            if (GetClosestDoorSide(other.transform.position) == sideA)
             {
                 ai.SetDoorSides(sideA, sideB);
             }
@@ -45,8 +46,12 @@ public class Door : ObservableObject
     private Transform GetClosestDoorSide(Vector3 pos)
     {
         if (Vector3.Distance(pos, sideA.position) < Vector3.Distance(pos, sideB.position))
+        {
+            Debug.Log("Close to Side A");
             return sideA;
+        }
 
+        Debug.Log("Close to Side B");
         return sideB;
     }
 
