@@ -29,6 +29,7 @@ public class AILocomotion : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
 
         _agent.autoTraverseOffMeshLink = false;
+        _agent.SetDestination(_targetTransform.position);
     }
 
     IEnumerator MoveThroughDoor()
@@ -44,7 +45,6 @@ public class AILocomotion : MonoBehaviour
 
     void Update()
     {
-        _agent.SetDestination(_targetTransform.position);
         _animator.SetFloat("movementSpeed", _agent.velocity.magnitude);
 
         if (_agent.isOnOffMeshLink)
@@ -65,6 +65,12 @@ public class AILocomotion : MonoBehaviour
         }
     }
 
+    public void SetDestination(Vector3 position)
+    {
+        //TODO: Adjust the Agent speed based on the context of the game  (E.g. In combat, Patroling, idling, etc).
+
+        _agent.SetDestination(position);
+    }
 
     //Called by animation event    
     public void FinishDoor()

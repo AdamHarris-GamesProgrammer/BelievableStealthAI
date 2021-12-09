@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class Door : ObservableObject
 {
     [SerializeField] Transform sideA;
     [SerializeField] Transform sideB;
@@ -15,8 +15,7 @@ public class Door : MonoBehaviour
             AILocomotion ai = other.GetComponent<AILocomotion>();
             ai.CanUseDoor = true;
 
-
-            if(Vector3.Distance(other.transform.position, sideA.position) < Vector3.Distance(other.transform.position, sideB.position))
+            if (GetClosestDoorSide(other.transform.position))
             {
                 ai.SetDoorSides(sideA, sideB);
             }
@@ -25,6 +24,30 @@ public class Door : MonoBehaviour
                 ai.SetDoorSides(sideB, sideA);
             }
         }
+        else if(other.CompareTag("Player"))
+        {
+            //Open door
+            InteractWithObject();
+
+            if(GetClosestDoorSide(other.transform.position))
+            {
+                _startObservePosition = sideA.position;
+                _endObservePositon = sideB.position;
+            }
+            else
+            {
+                _startObservePosition = sideB.position;
+                _endObservePositon = sideA.position;
+            }
+        }
+    }
+
+    private Transform GetClosestDoorSide(Vector3 pos)
+    {
+        if (Vector3.Distance(pos, sideA.position) < Vector3.Distance(pos, sideB.position))
+            return sideA;
+
+        return sideB;
     }
 
     private void OnTriggerExit(Collider other)

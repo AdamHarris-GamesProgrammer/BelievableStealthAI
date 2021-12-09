@@ -17,6 +17,8 @@ public class FOVCollider : MonoBehaviour
     bool _visible = false;
     public bool Visible { get => _visible; }
 
+    public List<ObservableObject> _observedObjects;
+
     private void Awake()
     {
         _fovController = GetComponentInParent<FOVController>();
@@ -29,9 +31,39 @@ public class FOVCollider : MonoBehaviour
         {
             _inside = true;
             StartCoroutine("Raycast");
-            
+        }
+        else if(other.CompareTag("ObservableObject"))
+        {
+            _observedObjects.Add(other.GetComponent<ObservableObject>());
         }
     }
+
+    private void FixedUpdate()
+    {
+        if (_observedObjects.Count > 0)
+        {
+            foreach(ObservableObject obj in _observedObjects)
+            {
+                RaycastHit hit;
+                Vector3 pos = obj.transform.position;
+                Vector3 direction = (pos - _fovController.transform.position);
+                Debug.DrawRay(_fovController.transform.position, direction);
+                if (Physics.Raycast(_fovController.transform.position, direction, out hit, 25.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
+                {
+                    if (hit.transform.GetInstanceID() == obj.transform.GetInstanceID())
+                    {
+                        Debug.Log("Observing an object");
+                        if (obj.HasRecentlyChanged)
+                        {
+                            GetComponentInParent<AILocomotion>().SetDestination(obj.EndObservePosition);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     private IEnumerator Raycast()
     {
         while(_inside)
@@ -72,6 +104,10 @@ public class FOVCollider : MonoBehaviour
 
             _visible = false;
             StopCoroutine("Raycast");
+        }
+        else if(other.CompareTag("ObservableObject"))
+        {
+            _observedObjects.Remove(other.GetComponent<ObservableObject>());
         }
     }
 
