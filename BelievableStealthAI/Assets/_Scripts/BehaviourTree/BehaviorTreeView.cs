@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 
 public class BehaviorTreeView : GraphView
 {
+    public Action<NodeView> OnNodeSelected;
     public new class UxmlFactory : UxmlFactory<BehaviorTreeView, GraphView.UxmlTraits> { }
     BehaviorTree tree;
 
@@ -24,6 +25,11 @@ public class BehaviorTreeView : GraphView
         styleSheets.Add(styleSheet);
     }
 
+    NodeView FindNodeView(Node node)
+    {
+        return GetNodeByGuid(node.guid) as NodeView;
+    }
+
     internal void PopulateView(BehaviorTree tree)
     {
         this.tree = tree;
@@ -32,7 +38,27 @@ public class BehaviorTreeView : GraphView
         DeleteElements(graphElements);
         graphViewChanged += OnGraphViewChanged;
 
+        if(tree.rootNode == null)
+        {
+            tree.rootNode = tree.CreateNode(typeof(RootNode)) as RootNode;
+            EditorUtility.SetDirty(tree);
+            AssetDatabase.SaveAssets();
+        }
+
         tree.nodes.ForEach(n => CreateNodeView(n));
+
+        tree.nodes.ForEach(n =>
+        {
+            var children = tree.GetChildren(n);
+            children.ForEach(child =>
+            {
+                NodeView parentView = FindNodeView(n);
+                NodeView childView = FindNodeView(child);
+
+                Edge edge  = parentView.output.ConnectTo(childView.input);
+                AddElement(edge);
+            });
+        });
     }
 
     public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
@@ -51,6 +77,24 @@ public class BehaviorTreeView : GraphView
                 {
                     tree.DeleteNode(nodeView.node);
                 }
+
+                Edge edge = elem as Edge;
+                if (edge != null)
+                {
+                    NodeView parentView = edge.output.node as NodeView;
+                    NodeView childView = edge.input.node as NodeView;
+                    tree.RemoveChild(parentView.node, childView.node);
+                }
+            });
+        }
+
+        if(graphViewChange.edgesToCreate != null)
+        {
+            graphViewChange.edgesToCreate.ForEach(edge =>
+            {
+                NodeView parentView = edge.output.node as NodeView;
+                NodeView childView = edge.input.node as NodeView;
+                tree.AddChild(parentView.node, childView.node);
             });
         }
 
@@ -92,6 +136,7 @@ public class BehaviorTreeView : GraphView
     void CreateNodeView(Node node)
     {
         NodeView nodeView = new NodeView(node);
+        nodeView.OnNodeSelected = OnNodeSelected;
         AddElement(nodeView);
     }
 }

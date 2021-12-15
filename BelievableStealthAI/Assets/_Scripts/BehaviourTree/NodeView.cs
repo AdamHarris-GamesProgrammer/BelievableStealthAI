@@ -11,6 +11,7 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
     public Port input;
     public Port output;
 
+    public Action<NodeView> OnNodeSelected;
 
     public NodeView(Node node) {
         this.node = node;
@@ -38,6 +39,10 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
         {
             input = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Single, typeof(bool));
         }
+        else if(node is RootNode)
+        {
+            
+        }
 
         if(input != null)
         {
@@ -60,6 +65,10 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
         {
             output = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, typeof(bool));
         }
+        else if (node is RootNode)
+        {
+            output = InstantiatePort(Orientation.Horizontal, Direction.Output, Port.Capacity.Single, typeof(bool));
+        }
 
         if (output != null)
         {
@@ -68,7 +77,15 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
         }
     }
 
-    
+    public override void OnSelected()
+    {
+        base.OnSelected();
+        if(OnNodeSelected != null)
+        {
+            OnNodeSelected.Invoke(this);
+        }
+    }
+
 
     public override void SetPosition(Rect newPos)
     {
