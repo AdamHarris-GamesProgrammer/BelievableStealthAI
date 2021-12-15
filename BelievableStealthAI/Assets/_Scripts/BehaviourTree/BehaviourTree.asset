@@ -15,12 +15,16 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: e0edf038a8b2bd84689141eb21ce71d3
-  position: {x: 34.367474, y: 44.000004}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+  description: 
+  position: {x: -54.399994, y: -117.600006}
   children:
   - {fileID: 1598596047300486937}
   - {fileID: -793408650589746094}
   - {fileID: 6771486649706229791}
---- !u!114 &-6491225105483904350
+--- !u!114 &-8433132442954642932
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -34,9 +38,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   started: 0
-  guid: a9400ab71e2448446965ffed376d2f47
-  position: {x: 0, y: 0}
+  guid: 469f3e0f521f2ac4ead1b3e32fa4ea81
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+  description: 
+  position: {x: 188.84558, y: 363.99997}
   duration: 1
+--- !u!114 &-7801549808582962536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96eba8da78796e3479e7b3abfda6abf9, type: 3}
+  m_Name: DebugLogNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: ce5df00471e7a2f4fa8f8da79060c5d5
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+  description: 
+  position: {x: -403.99997, y: 379.99997}
+  message: 3
 --- !u!114 &-2687075563162140999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52,8 +81,12 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 2317ee09bf9712846abae9737cf962b2
-  position: {x: 816.13324, y: 44.000046}
-  message: Potato
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+  description: 
+  position: {x: -13.600151, y: 371.99997}
+  message: 1
 --- !u!114 &-793408650589746094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,9 +102,13 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 7b1099944f6f4dd4384dc1ba3592d446
-  position: {x: 344.79996, y: 68}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+  description: 
+  position: {x: -46.400013, y: 36.79999}
   child: {fileID: 1820955044241947387}
-  iterations: 5
+  iterations: 100
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,7 +131,12 @@ MonoBehaviour:
   - {fileID: 6771486649706229791}
   - {fileID: -2687075563162140999}
   - {fileID: 1820955044241947387}
-  - {fileID: -6491225105483904350}
+  - {fileID: -8433132442954642932}
+  - {fileID: 3627305687091036900}
+  - {fileID: -7801549808582962536}
+  blackboard:
+    moveToPosition: {x: 1, y: 2, z: 3}
+    moveToObject: {fileID: 0}
 --- !u!114 &1598596047300486937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +152,11 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 90a269d54d8b5ca4ab7463b349f877c5
-  position: {x: 326.6575, y: -64.8025}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+  description: 
+  position: {x: -260.8, y: 44.800003}
   message: Hello
 --- !u!114 &1820955044241947387
 MonoBehaviour:
@@ -127,9 +173,16 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 658aa717c972e6940a2980d21986fdd5
-  position: {x: 553.2, y: 144.80003}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+  description: 
+  position: {x: -54.400024, y: 168.39998}
   children:
+  - {fileID: -7801549808582962536}
+  - {fileID: 3627305687091036900}
   - {fileID: -2687075563162140999}
+  - {fileID: -8433132442954642932}
 --- !u!114 &2207741791602816963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,8 +198,33 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 9cdf5d04467f4174a860949ad52e8b01
-  position: {x: -177.22502, y: 44.000004}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+  description: 
+  position: {x: -45.59999, y: -258.80405}
   child: {fileID: -8779601849048164568}
+--- !u!114 &3627305687091036900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96eba8da78796e3479e7b3abfda6abf9, type: 3}
+  m_Name: DebugLogNode
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 4cb00ce67081f134cad998ef881698e5
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+  description: 
+  position: {x: -208.79999, y: 371.99997}
+  message: 2
 --- !u!114 &6771486649706229791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,5 +240,9 @@ MonoBehaviour:
   state: 0
   started: 0
   guid: 59e96e3db1cd52a4c92e581fdba73be2
-  position: {x: 344.79996, y: 292.2725}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+  description: 
+  position: {x: 140, y: 52.799988}
   message: Goodbye

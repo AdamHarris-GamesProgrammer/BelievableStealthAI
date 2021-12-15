@@ -5,13 +5,21 @@
     </uie:Toolbar>
     <SplitView fixed-pane-initial-dimension="300">
         <ui:VisualElement name="left-panel">
-            <InspectorView />
-            <ui:Label text="Inspector" display-tooltip-when-elided="true" style="-unity-background-image-tint-color: rgba(37, 37, 37, 255); background-color: rgba(37, 37, 37, 255);" />
+            <SplitView orientation="Vertical" fixed-pane-initial-dimension="300">
+                <InspectorView fixed-pane-initial-dimension="300" orientation="Vertical">
+                    <ui:Label text="Inspector" display-tooltip-when-elided="true" style="-unity-background-image-tint-color: rgb(37, 37, 37); background-color: rgb(37, 37, 37);" />
+                </InspectorView>
+                <ui:VisualElement name="blackboard-container">
+                    <ui:VisualElement name="blackboard-label">
+                        <ui:Label text="Blackboard" display-tooltip-when-elided="true" style="background-color: rgba(37, 37, 37, 255);" />
+                    </ui:VisualElement>
+                    <ui:IMGUIContainer />
+                </ui:VisualElement>
+            </SplitView>
         </ui:VisualElement>
         <ui:VisualElement name="right-panel" style="height: auto;">
-            <BehaviorTreeView focusable="true" style="flex-grow: 1;">
-                <ui:Label text="Tree View" display-tooltip-when-elided="true" style="background-color: rgba(37, 37, 37, 255);" />
-            </BehaviorTreeView>
+            <ui:Label text="Tree View" display-tooltip-when-elided="true" style="background-color: rgb(37, 37, 37);" />
+            <BehaviorTreeView focusable="true" style="flex-grow: 1;" />
         </ui:VisualElement>
     </SplitView>
 </ui:UXML>

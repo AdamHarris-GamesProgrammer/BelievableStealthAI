@@ -4,3 +4,8 @@ GridBackground {
     --thick-line-color: rgba(193, 196, 192, 0.1);
     --spacing: 15;
 }
+
+#description {
+    white-space: normal;
+    max-width: 150px;
+}

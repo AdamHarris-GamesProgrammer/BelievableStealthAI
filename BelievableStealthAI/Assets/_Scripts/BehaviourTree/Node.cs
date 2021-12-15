@@ -12,6 +12,10 @@ public abstract class Node : ScriptableObject
     [HideInInspector] public State state = State.Running;
     [HideInInspector] public bool started = false;
     [HideInInspector] public string guid;
+    [HideInInspector] public Blackboard blackboard;
+    [TextArea] public string description;
+
+    //TODO: Give Access to AI Controller here
 
     public Vector2 position;
 
