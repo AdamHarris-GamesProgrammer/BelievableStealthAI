@@ -6,33 +6,27 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="AI/Behavior Tree/New Behavior Tree")]
 public class BehaviorTree : ScriptableObject
 {
-    public Node rootNode;
+    public Node _rootNode;
 
-    public Node.State treeState = Node.State.Running;
-    public List<Node> nodes = new List<Node>();
+    public Node.State _treeState = Node.State.Running;
+    public List<Node> _nodes = new List<Node>();
 
-    public Blackboard blackboard = new Blackboard();
+    public Blackboard _blackboard = new Blackboard();
     public Node.State Update()
     {
-        if(rootNode.state == Node.State.Running)
-        {
-            treeState = rootNode.Update();
-        }
-        return treeState;
+        if(_rootNode._state == Node.State.Running) _treeState = _rootNode.Update();
+        return _treeState;
     }
 
     public Node CreateNode(System.Type type)
     {
         Node node = ScriptableObject.CreateInstance(type) as Node;
         node.name = type.Name;
-        node.guid = GUID.Generate().ToString();
+        node._guid = GUID.Generate().ToString();
         Undo.RecordObject(this, "Behaviour Tree (Create Node)");
-        nodes.Add(node);
+        _nodes.Add(node);
 
-        if (!Application.isPlaying)
-        {
-            AssetDatabase.AddObjectToAsset(node, this);
-        }
+        if (!Application.isPlaying) AssetDatabase.AddObjectToAsset(node, this);
         
         Undo.RegisterCreatedObjectUndo(node, "Behaviour Tree (Create Node");
         AssetDatabase.SaveAssets();
@@ -42,7 +36,7 @@ public class BehaviorTree : ScriptableObject
     public void DeleteNode(Node node)
     {
         Undo.RecordObject(this, "Behaviour Tree (Create Node)");
-        nodes.Remove(node);
+        _nodes.Remove(node);
         //AssetDatabase.RemoveObjectFromAsset(node);
         Undo.DestroyObjectImmediate(node);
         AssetDatabase.SaveAssets();
@@ -71,7 +65,7 @@ public class BehaviorTree : ScriptableObject
         if (composite)
         {
             Undo.RecordObject(composite, "Behaviour Tree (Add Child)");
-            composite.children.Add(child);
+            composite._children.Add(child);
             EditorUtility.SetDirty(composite);
         }
     }
@@ -98,7 +92,7 @@ public class BehaviorTree : ScriptableObject
         if (composite)
         {
             Undo.RecordObject(composite, "Behaviour Tree (Add Child)");
-            composite.children.Remove(child);
+            composite._children.Remove(child);
             EditorUtility.SetDirty(composite);
         }
     }
@@ -107,22 +101,13 @@ public class BehaviorTree : ScriptableObject
     {
         List<Node> children = new List<Node>();
         DecoratorNode decorator = parent as DecoratorNode;
-        if (decorator && decorator.child != null)
-        {
-            children.Add(decorator.child);
-        }
+        if (decorator && decorator.child != null) children.Add(decorator.child);
 
         RootNode rootNode = parent as RootNode;
-        if (rootNode && rootNode.child != null)
-        {
-            children.Add(rootNode.child);
-        }
+        if (rootNode && rootNode.child != null) children.Add(rootNode.child);
 
         CompositeNode composite = parent as CompositeNode;
-        if (composite)
-        {
-            return composite.children;
-        }
+        if (composite) return composite._children;
 
         return children;
     }
@@ -141,22 +126,16 @@ public class BehaviorTree : ScriptableObject
     public BehaviorTree Clone()
     {
         BehaviorTree tree = Instantiate(this);
-        tree.rootNode = tree.rootNode.Clone();
-        tree.nodes = new List<Node>();
+        tree._rootNode = tree._rootNode.Clone();
+        tree._nodes = new List<Node>();
 
-        Traverse(tree.rootNode, (n) =>
+        Traverse(tree._rootNode, (n) =>
         {
-            tree.nodes.Add(n);
+            tree._nodes.Add(n);
         });
 
         return tree;
     }
 
-    public void Bind()
-    {
-        Traverse(rootNode, node =>
-        {
-            node.blackboard = blackboard;
-        });
-    }
+    public void Bind() => Traverse(_rootNode, node => node._blackboard = _blackboard);
 }

@@ -9,39 +9,36 @@ public abstract class Node : ScriptableObject
         Running, Failure, Success
     }
 
-    [HideInInspector] public State state = State.Running;
-    [HideInInspector] public bool started = false;
-    [HideInInspector] public string guid;
-    [HideInInspector] public Blackboard blackboard;
-    [TextArea] public string description;
+    [HideInInspector] public State _state = State.Running;
+    [HideInInspector] public bool _started = false;
+    [HideInInspector] public string _guid;
+    [HideInInspector] public Blackboard _blackboard;
+    [TextArea] public string _description;
 
     //TODO: Give Access to AI Controller here
 
-    public Vector2 position;
+    public Vector2 _position;
 
     public State Update()
     {
-        if(!started)
+        if(!_started)
         {
             OnStart();
-            started = true;
+            _started = true;
         }
 
-        state = OnUpdate();
+        _state = OnUpdate();
 
-        if (state == State.Failure || state == State.Success)
+        if (_state == State.Failure || _state == State.Success)
         {
             OnStop();
-            started = false;
+            _started = false;
         }
 
-        return state;
+        return _state;
     }
 
-    public virtual Node Clone()
-    {
-        return Instantiate(this);
-    }
+    public virtual Node Clone() => Instantiate(this);
 
     protected abstract void OnStart();
     protected abstract void OnStop();

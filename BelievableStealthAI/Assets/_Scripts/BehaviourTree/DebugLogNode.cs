@@ -12,13 +12,10 @@ public class DebugLogNode : ActionNode
 
     protected override void OnStop()
     {
-        Debug.Log($"OnStop: {message}");
     }
 
     protected override State OnUpdate()
     {
-        Debug.Log($"OnUpdate: {blackboard.moveToPosition}");
-        blackboard.moveToPosition.x += 1f;
         return State.Success;
     }
 }

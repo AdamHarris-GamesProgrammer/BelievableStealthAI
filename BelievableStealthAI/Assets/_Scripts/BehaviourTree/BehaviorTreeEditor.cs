@@ -6,12 +6,12 @@ using System;
 
 public class BehaviorTreeEditor : EditorWindow
 {
-    BehaviorTreeView treeView;
-    InspectorView inspectorView;
-    IMGUIContainer blackboardView;
+    BehaviorTreeView _treeView;
+    InspectorView _inspectorView;
+    IMGUIContainer _blackboardView;
 
-    SerializedObject treeObject;
-    SerializedProperty blackboardProperty;
+    SerializedObject _treeObject;
+    SerializedProperty _blackboardProperty;
 
     [MenuItem("AI/BehaviorTreeEditor")]
     public static void OpenWindow()
@@ -46,18 +46,18 @@ public class BehaviorTreeEditor : EditorWindow
         var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/_Scripts/BehaviourTree/BehaviorTreeEditor.uss");
         root.styleSheets.Add(styleSheet);
 
-        treeView = root.Q<BehaviorTreeView>();
-        inspectorView = root.Q<InspectorView>();
-        blackboardView = root.Q<IMGUIContainer>();
-        blackboardView.onGUIHandler = () =>
+        _treeView = root.Q<BehaviorTreeView>();
+        _inspectorView = root.Q<InspectorView>();
+        _blackboardView = root.Q<IMGUIContainer>();
+        _blackboardView.onGUIHandler = () =>
         {
-            treeObject?.Update();
-            if(blackboardProperty != null)
-                EditorGUILayout.PropertyField(blackboardProperty);
-            treeObject?.ApplyModifiedProperties();
+            _treeObject?.Update();
+            if(_blackboardProperty != null)
+                EditorGUILayout.PropertyField(_blackboardProperty);
+            _treeObject?.ApplyModifiedProperties();
         };
 
-        treeView.OnNodeSelected += OnNodeSelectionChanged;
+        _treeView.OnNodeSelected += OnNodeSelectionChanged;
 
         OnSelectionChange();
     }
@@ -84,10 +84,7 @@ public class BehaviorTreeEditor : EditorWindow
                 break;
         }
     }
-    private void OnDisable()
-    {
-        EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
-    }
+    private void OnDisable() => EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
 
     private void OnSelectionChange()
     {
@@ -109,31 +106,25 @@ public class BehaviorTreeEditor : EditorWindow
         {
             if (tree)
             {
-                treeView.PopulateView(tree);
+                _treeView.PopulateView(tree);
             }
         }
         else
         {
             if (tree && AssetDatabase.CanOpenAssetInEditor(tree.GetInstanceID()))
             {
-                treeView.PopulateView(tree);
+                _treeView.PopulateView(tree);
             }
         }
 
         if(tree != null)
         {
-            treeObject = new SerializedObject(tree);
-            blackboardProperty = treeObject.FindProperty("blackboard");
+            _treeObject = new SerializedObject(tree);
+            _blackboardProperty = _treeObject.FindProperty("blackboard");
         }
     }
 
-    void OnNodeSelectionChanged(NodeView node)
-    {
-        inspectorView.UpdateSelection(node);
-    }
+    private void OnNodeSelectionChanged(NodeView node) => _inspectorView.UpdateSelection(node);
 
-    private void OnInspectorUpdate()
-    {
-        treeView?.UpdateNodeState();
-    }
+    private void OnInspectorUpdate() => _treeView?.UpdateNodeState();
 }

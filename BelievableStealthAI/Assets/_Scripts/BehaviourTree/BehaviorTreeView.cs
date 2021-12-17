@@ -8,9 +8,10 @@ using UnityEngine.UIElements;
 
 public class BehaviorTreeView : GraphView
 {
-    public Action<NodeView> OnNodeSelected;
     public new class UxmlFactory : UxmlFactory<BehaviorTreeView, GraphView.UxmlTraits> { }
-    BehaviorTree tree;
+
+    public Action<NodeView> OnNodeSelected;
+    BehaviorTree _tree;
 
     public BehaviorTreeView()
     {
@@ -27,35 +28,49 @@ public class BehaviorTreeView : GraphView
         Undo.undoRedoPerformed += OnUndoRedo;
     }
 
-    private void OnUndoRedo()
+    public void UpdateNodeState()
     {
-        PopulateView(tree);
-        AssetDatabase.SaveAssets();
+        nodes.ForEach(n =>
+        {
+            NodeView view = n as NodeView;
+            view.UpdateState();
+        });
     }
 
-    NodeView FindNodeView(Node node)
+    public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
     {
-        return GetNodeByGuid(node.guid) as NodeView;
+        return ports.ToList().Where(endPort => endPort.direction != startPort.direction && endPort.node != startPort.node).ToList();
     }
 
-    internal void PopulateView(BehaviorTree tree)
+    public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
     {
-        this.tree = tree;
+        var nodeTypes = TypeCache.GetTypesDerivedFrom<Node>();
+        foreach (var type in nodeTypes)
+        {
+            if (type.BaseType.Name == "Node") continue;
+            evt.menu.AppendAction($"[{type.BaseType.Name}] {type.Name}", (a) => CreateNode(type));
+        }
+        
+    }
+
+    public void PopulateView(BehaviorTree tree)
+    {
+        _tree = tree;
 
         graphViewChanged -= OnGraphViewChanged;
         DeleteElements(graphElements);
         graphViewChanged += OnGraphViewChanged;
 
-        if(tree.rootNode == null)
+        if (tree._rootNode == null)
         {
-            tree.rootNode = tree.CreateNode(typeof(RootNode)) as RootNode;
+            tree._rootNode = tree.CreateNode(typeof(RootNode)) as RootNode;
             EditorUtility.SetDirty(tree);
             AssetDatabase.SaveAssets();
         }
 
-        tree.nodes.ForEach(n => CreateNodeView(n));
+        tree._nodes.ForEach(n => CreateNodeView(n));
 
-        tree.nodes.ForEach(n =>
+        tree._nodes.ForEach(n =>
         {
             var children = tree.GetChildren(n);
             children.ForEach(child =>
@@ -63,15 +78,21 @@ public class BehaviorTreeView : GraphView
                 NodeView parentView = FindNodeView(n);
                 NodeView childView = FindNodeView(child);
 
-                Edge edge  = parentView.output.ConnectTo(childView.input);
+                Edge edge = parentView._output.ConnectTo(childView._input);
                 AddElement(edge);
             });
         });
     }
 
-    public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
+    private void OnUndoRedo()
     {
-        return ports.ToList().Where(endPort => endPort.direction != startPort.direction && endPort.node != startPort.node).ToList();
+        PopulateView(_tree);
+        AssetDatabase.SaveAssets();
+    }
+
+    private NodeView FindNodeView(Node node)
+    {
+        return GetNodeByGuid(node._guid) as NodeView;
     }
 
     private GraphViewChange OnGraphViewChanged(GraphViewChange graphViewChange)
@@ -83,7 +104,7 @@ public class BehaviorTreeView : GraphView
                 NodeView nodeView = elem as NodeView;
                 if (nodeView != null)
                 {
-                    tree.DeleteNode(nodeView.node);
+                    _tree.DeleteNode(nodeView._node);
                 }
 
                 Edge edge = elem as Edge;
@@ -91,7 +112,7 @@ public class BehaviorTreeView : GraphView
                 {
                     NodeView parentView = edge.output.node as NodeView;
                     NodeView childView = edge.input.node as NodeView;
-                    tree.RemoveChild(parentView.node, childView.node);
+                    _tree.RemoveChild(parentView._node, childView._node);
                 }
             });
         }
@@ -102,66 +123,28 @@ public class BehaviorTreeView : GraphView
             {
                 NodeView parentView = edge.output.node as NodeView;
                 NodeView childView = edge.input.node as NodeView;
-                tree.AddChild(parentView.node, childView.node);
+                _tree.AddChild(parentView._node, childView._node);
             });
         }
 
         if(graphViewChange.movedElements != null)
-        {
-            nodes.ForEach((n) =>
-            {
-                NodeView view = n as NodeView;
-                view.SortChildren();
-            });
-        }
+        nodes.ForEach((n) => { NodeView view = n as NodeView; view.SortChildren(); });
         return graphViewChange;
     }
 
-    public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
+    private void CreateNode(System.Type type)
     {
-        //base.BuildContextualMenu(evt);
-
-        var actiondecoratorTypes = TypeCache.GetTypesDerivedFrom<ActionNode>();
-        foreach(var type in actiondecoratorTypes)
+        if(_tree != null)
         {
-            evt.menu.AppendAction($"[{type.BaseType.Name}] {type.Name}", (a) => CreateNode(type));
-        }
-
-        var compositedecoratorTypes = TypeCache.GetTypesDerivedFrom<CompositeNode>();
-        foreach (var type in compositedecoratorTypes)
-        {
-            evt.menu.AppendAction($"[{type.BaseType.Name}] {type.Name}", (a) => CreateNode(type));
-        }
-
-        var decoratorTypes = TypeCache.GetTypesDerivedFrom<DecoratorNode>();
-        foreach (var type in decoratorTypes)
-        {
-            evt.menu.AppendAction($"[{type.BaseType.Name}] {type.Name}", (a) => CreateNode(type));
-        }
-    }
-
-    void CreateNode(System.Type type)
-    {
-        if(tree != null)
-        {
-            Node node = tree.CreateNode(type);
+            Node node = _tree.CreateNode(type);
             CreateNodeView(node);
         }
     }
 
-    void CreateNodeView(Node node)
+    private void CreateNodeView(Node node)
     {
         NodeView nodeView = new NodeView(node);
         nodeView.OnNodeSelected = OnNodeSelected;
         AddElement(nodeView);
-    }
-
-    public void UpdateNodeState()
-    {
-        nodes.ForEach(n =>
-        {
-            NodeView view = n as NodeView;
-            view.UpdateState();
-        });
     }
 }

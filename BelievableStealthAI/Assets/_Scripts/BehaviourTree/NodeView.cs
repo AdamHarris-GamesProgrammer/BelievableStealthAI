@@ -9,20 +9,20 @@ using UnityEditor;
 
 public class NodeView : UnityEditor.Experimental.GraphView.Node
 {
-    public Node node;
+    public Node _node;
 
-    public Port input;
-    public Port output;
+    public Port _input;
+    public Port _output;
 
     public Action<NodeView> OnNodeSelected;
 
     public NodeView(Node node) : base("Assets/_Scripts/BehaviourTree/NodeView.uxml") {
-        this.node = node;
-        this.title = node.name;
-        this.viewDataKey = node.guid;
+        _node = node;
+        title = node.name;
+        viewDataKey = node._guid;
 
-        style.left = node.position.x;
-        style.top = node.position.y;
+        style.left = node._position.x;
+        style.top = node._position.y;
 
         CreateInputPorts();
         CreateOutputPorts();
@@ -31,105 +31,19 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
         Label descriptionLabel = this.Q<Label>("description");
         descriptionLabel.bindingPath = "description";
         descriptionLabel.Bind(new SerializedObject(node));
-
-    }
-
-    private void SetupClasses()
-    {
-        if (node is ActionNode)
-        {
-            AddToClassList("action");
-        }
-        else if (node is CompositeNode)
-        {
-            AddToClassList("composite");
-        }
-        else if (node is DecoratorNode)
-        {
-            AddToClassList("decorator");
-        }
-        else if (node is RootNode)
-        {
-            AddToClassList("root");
-        }
-    }
-
-    private void CreateInputPorts()
-    {
-        if(node is ActionNode)
-        {
-            input = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Single, typeof(bool));
-        }
-        else if(node is CompositeNode)
-        {
-            input = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Single, typeof(bool));
-        }
-        else if(node is DecoratorNode)
-        {
-            input = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Single, typeof(bool));
-        }
-        else if(node is RootNode)
-        {
-            
-        }
-
-        if(input != null)
-        {
-            input.portName = "";
-            input.style.flexDirection = FlexDirection.Column;
-            inputContainer.Add(input);
-        }
-    }
-
-    private void CreateOutputPorts()
-    {
-        if (node is ActionNode)
-        {
-
-        }
-        else if (node is CompositeNode)
-        {
-            output = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Multi, typeof(bool));
-        }
-        else if (node is DecoratorNode)
-        {
-            output = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Single, typeof(bool));
-        }
-        else if (node is RootNode)
-        {
-            output = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Single, typeof(bool));
-        }
-
-        if (output != null)
-        {
-            output.portName = "";
-            output.style.flexDirection = FlexDirection.ColumnReverse;
-            outputContainer.Add(output);
-        }
     }
 
     public override void OnSelected()
     {
         base.OnSelected();
-        if(OnNodeSelected != null)
-        {
+        if (OnNodeSelected != null)
             OnNodeSelected.Invoke(this);
-        }
     }
 
     public void SortChildren()
     {
-        CompositeNode composite = node as CompositeNode;
-
-        if(composite)
-        {
-            composite.children.Sort(SortByHorizontalPosition);
-        }
-    }
-
-    private int SortByHorizontalPosition(Node left, Node right)
-    {
-        return left.position.x < right.position.x ? -1 : 1;
+        CompositeNode composite = _node as CompositeNode;
+        if (composite) composite._children.Sort(SortByHorizontalPosition);
     }
 
     public void UpdateState()
@@ -140,13 +54,10 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
 
         if (Application.isPlaying)
         {
-            switch (node.state)
+            switch (_node._state)
             {
                 case Node.State.Running:
-                    if(node.started)
-                    {
-                        AddToClassList("running");
-                    }
+                    if (_node._started) AddToClassList("running");
                     break;
                 case Node.State.Failure:
                     AddToClassList("failure");
@@ -156,16 +67,60 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
                     break;
             }
         }
-        
+
     }
 
     public override void SetPosition(Rect newPos)
     {
-
         base.SetPosition(newPos);
-        Undo.RecordObject(node, "Behaviour Tree (Set Position)");
-        node.position.x = newPos.xMin;
-        node.position.y = newPos.yMin;
-        EditorUtility.SetDirty(node);
+        Undo.RecordObject(_node, "Behaviour Tree (Set Position)");
+        _node._position.x = newPos.xMin;
+        _node._position.y = newPos.yMin;
+        EditorUtility.SetDirty(_node);
     }
+
+    private void SetupClasses()
+    {
+        if (_node is ActionNode) AddToClassList("action");
+        else if (_node is CompositeNode) AddToClassList("composite");
+        else if (_node is DecoratorNode) AddToClassList("decorator");
+        else if (_node is RootNode) AddToClassList("root");
+    }
+
+    private void CreateInputPorts()
+    {
+        if(_node is ActionNode)
+            _input = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Single, typeof(bool));
+        else if(_node is CompositeNode)
+            _input = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Single, typeof(bool));
+        else if(_node is DecoratorNode)
+            _input = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Single, typeof(bool));
+
+        if(_input != null)
+        {
+            _input.portName = "";
+            _input.style.flexDirection = FlexDirection.Column;
+            inputContainer.Add(_input);
+        }
+    }
+
+    private void CreateOutputPorts()
+    {
+        if (_node is ActionNode) {}
+        else if (_node is CompositeNode)
+            _output = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Multi, typeof(bool));
+        else if (_node is DecoratorNode)
+            _output = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Single, typeof(bool));
+        else if (_node is RootNode)
+            _output = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Single, typeof(bool));
+
+        if (_output != null)
+        {
+            _output.portName = "";
+            _output.style.flexDirection = FlexDirection.ColumnReverse;
+            outputContainer.Add(_output);
+        }
+    }
+
+    private int SortByHorizontalPosition(Node left, Node right) => left._position.x < right._position.x ? -1 : 1;
 }
