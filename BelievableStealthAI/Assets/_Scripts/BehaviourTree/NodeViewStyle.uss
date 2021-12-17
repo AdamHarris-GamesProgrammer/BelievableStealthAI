@@ -1,21 +1,31 @@
 #node-border {
-    -unity-background-image-tint-color: rgba(255, 255, 255, 255);
-    background-color: rgba(56, 56, 56, 255);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-color: rgb(56, 56, 56);
 }
 
 #input {
     align-items: center;
+    position: relative;
+    left: auto;
+    top: auto;
+    right: auto;
+    bottom: auto;
 }
 
 #output {
     align-items: center;
+    position: relative;
+    left: auto;
+    top: auto;
+    right: auto;
+    bottom: 0;
 }
 
 #selection-border {
-    border-left-color: rgba(27, 155, 212, 255);
-    border-right-color: rgba(27, 155, 212, 255);
-    border-top-color: rgba(27, 155, 212, 255);
-    border-bottom-color: rgba(27, 155, 212, 255);
+    border-left-color: rgb(27, 155, 212);
+    border-right-color: rgb(27, 155, 212);
+    border-top-color: rgb(27, 155, 212);
+    border-bottom-color: rgb(27, 155, 212);
     border-left-width: 0;
     border-right-width: 0;
     border-top-width: 0;
@@ -71,24 +81,24 @@
 
 #divider {
     min-height: 1px;
-    background-color: rgba(72, 72, 72, 255);
+    background-color: rgb(72, 72, 72);
 }
 
 .root #input {
-    background-color: rgba(214, 5, 5, 255);
+    background-color: rgb(214, 5, 5);
     min-height: 20px;
 }
 
 .composite #input {
-    background-color: rgba(229, 218, 0, 255);
+    background-color: rgb(229, 218, 0);
 }
 
 .action #input {
-    background-color: rgba(0, 229, 16, 255);
+    background-color: rgb(0, 229, 16);
 }
 
 .decorator #input {
-    background-color: rgba(92, 0, 183, 255);
+    background-color: rgb(92, 0, 183);
 }
 
 #node-state {
@@ -101,15 +111,15 @@
 }
 
 .running #node-state {
-    background-color: rgba(255, 237, 0, 255);
+    background-color: rgb(255, 237, 0);
 }
 
 .success #node-state {
-    -unity-background-image-tint-color: rgba(255, 255, 255, 255);
-    background-color: rgba(4, 255, 0, 255);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-color: rgb(4, 255, 0);
 }
 
 .failure #node-state {
-    -unity-background-image-tint-color: rgba(255, 255, 255, 255);
-    background-color: rgba(0, 255, 46, 255);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-color: rgb(0, 255, 46);
 }
