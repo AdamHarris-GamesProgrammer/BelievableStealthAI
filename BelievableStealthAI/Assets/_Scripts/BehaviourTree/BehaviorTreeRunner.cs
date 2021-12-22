@@ -7,7 +7,7 @@ public class BehaviorTreeRunner : MonoBehaviour
     public BehaviorTree tree;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         tree = tree.Clone();
         tree.Bind();

@@ -8,9 +8,6 @@ public class AILocomotion : MonoBehaviour
     Animator _animator;
     NavMeshAgent _agent;
 
-    [SerializeField] Transform _targetTransform;
-
-
     bool _canUseDoor = false;
     public bool CanUseDoor { get => _canUseDoor; set => _canUseDoor = value; }
 
@@ -51,8 +48,6 @@ public class AILocomotion : MonoBehaviour
     void Update()
     {
         _animator.SetFloat("movementSpeed", _agent.velocity.magnitude);
-
-        _agent.SetDestination(_targetTransform.position);
 
         if (_agent.isOnOffMeshLink)
         {

@@ -102,6 +102,12 @@ public class BehaviorTreeEditor : EditorWindow
             }
         }
 
+        if(_treeView == null)
+        {
+            VisualElement root = rootVisualElement;
+            _treeView = root.Q<BehaviorTreeView>();
+        }
+
         if (Application.isPlaying)
         {
             if (tree)
