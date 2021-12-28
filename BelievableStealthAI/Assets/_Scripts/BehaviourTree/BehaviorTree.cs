@@ -137,5 +137,5 @@ public class BehaviorTree : ScriptableObject
         return tree;
     }
 
-    public void Bind() => Traverse(_rootNode, node => node._blackboard = _blackboard);
+    public void Bind() => Traverse(_rootNode, node => { node._blackboard = _blackboard; node._agent = _blackboard._agent; });
 }

@@ -14,6 +14,7 @@ public abstract class Node : ScriptableObject
     [HideInInspector] public string _guid;
     [HideInInspector] public Blackboard _blackboard;
     [TextArea] public string _description;
+    public AIAgent _agent;
 
     //TODO: Give Access to AI Controller here
 

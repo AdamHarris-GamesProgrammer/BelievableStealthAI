@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SequencerNode : CompositeNode
+public class SelectorNode : CompositeNode
 {
     int _current = 0;
 
@@ -10,6 +10,7 @@ public class SequencerNode : CompositeNode
     {
         _current = 0;
     }
+
     protected override void OnStop() {}
 
     protected override State OnUpdate()
@@ -20,14 +21,16 @@ public class SequencerNode : CompositeNode
         {
             case State.Running:
                 return State.Running;
+                break;
             case State.Failure:
-                return State.Failure;
-            case State.Success:
                 _current++;
+                break;
+            case State.Success:
+                return State.Success;
                 break;
         }
 
         //if current is equal to the amount of children then return success if not return running
-        return _current == _children.Count ? State.Success : State.Running;
+        return _current == _children.Count ? State.Failure : State.Running;
     }
 }
