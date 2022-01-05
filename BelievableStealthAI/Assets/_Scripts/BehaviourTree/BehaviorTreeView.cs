@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 public class BehaviorTreeView : GraphView
@@ -44,11 +45,17 @@ public class BehaviorTreeView : GraphView
 
     public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
     {
+
+        VisualElement contentViewContainer = ElementAt(1);
+        Vector3 screenMousePosition = evt.localMousePosition;
+        Vector2 worldMousePosition = screenMousePosition - contentViewContainer.transform.position;
+        worldMousePosition *= 1 / contentViewContainer.transform.scale.x;
+
         var nodeTypes = TypeCache.GetTypesDerivedFrom<Node>();
         foreach (var type in nodeTypes)
         {
             if (type.BaseType.Name == "Node") continue;
-            evt.menu.AppendAction($"[{type.BaseType.Name}] {type.Name}", (a) => CreateNode(type));
+            evt.menu.AppendAction($"[{type.BaseType.Name}] {type.Name}", (a) => CreateNode(type, worldMousePosition));
         }
         
     }
@@ -132,13 +139,23 @@ public class BehaviorTreeView : GraphView
         return graphViewChange;
     }
 
-    private void CreateNode(System.Type type)
+    private void CreateNode(System.Type type, Vector2 mousePos)
     {
         if(_tree != null)
         {
             Node node = _tree.CreateNode(type);
-            CreateNodeView(node);
+            CreateNodeView(node, mousePos);
         }
+    }
+
+    private void CreateNodeView(Node node, Vector2 mousePos)
+    {
+        NodeView nodeView = new NodeView(node);
+        nodeView.OnNodeSelected = OnNodeSelected;
+        Rect nodePos = new Rect(mousePos, mousePos);
+        nodeView.SetPosition(nodePos);
+        Debug.Log(mousePos);
+        AddElement(nodeView);
     }
 
     private void CreateNodeView(Node node)

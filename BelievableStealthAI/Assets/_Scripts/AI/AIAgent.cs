@@ -11,6 +11,27 @@ public class AIAgent : MonoBehaviour
 
     [SerializeField] Transform _target;
 
+
+    bool _haveBeenAlerted = false;
+    bool _hasSeenPlayer = false;
+    bool _hasHeardSound = false;
+    bool _hasSeenBody = false;
+    bool _currentlyAlert = false;
+    bool _currentlyHearingSound = false;
+    bool _currentlySeeingPlayer = false;
+    bool _hasAnObjectchanged = false;
+
+    AIAgent _agentToCheckOn = null;
+
+    public bool HaveBeenAlerted { get => _haveBeenAlerted;}
+    public bool HasSeenPlayer { get => _hasSeenPlayer; }
+    public bool HasHeardSound { get => _hasHeardSound; }
+    public bool HasSeenBody { get => _hasSeenBody; }
+    public bool CurrentlyAlert { get => _currentlyAlert;}
+    public bool CurrentlyHearingSound { get => _currentlyHearingSound;}
+    public bool CurrentlySeeingPlayer { get => _currentlySeeingPlayer;}
+    public bool HasAnObjectchanged { get => _hasAnObjectchanged; set => _hasAnObjectchanged = value; }
+
     private void Start()
     {
         _behaviorTree = GetComponent<BehaviorTreeRunner>().tree;
