@@ -1,0 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class #SCRIPTNAME# : ActionNode
+{
+    protected override void OnStart()
+    {
+        #NOTRIM#
+    }
+
+    protected override void OnStop()
+    {
+        #NOTRIM#
+    }
+
+    protected override State OnUpdate()
+    {
+        return State.Running;
+    }
+}
