@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1639090203069680716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d2205c1a076d54281f09e8bd838dee, type: 3}
+  m_Name: RootNode
+  m_EditorClassIdentifier: 
+  _state: 2
+  _started: 0
+  _guid: e3920e419ec99f8439951cb5716761c8
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 0, y: 0}
+  child: {fileID: 3713730176794242891}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32c8ccffb8688334ab1e52a57df8fc1f, type: 3}
+  m_Name: SubSubTree
+  m_EditorClassIdentifier: 
+  _rootNode: {fileID: -1639090203069680716}
+  _treeState: 2
+  _nodes:
+  - {fileID: -1639090203069680716}
+  - {fileID: 3713730176794242891}
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+--- !u!114 &3713730176794242891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96eba8da78796e3479e7b3abfda6abf9, type: 3}
+  m_Name: DebugLogNode
+  m_EditorClassIdentifier: 
+  _state: 2
+  _started: 0
+  _guid: 07a2fb2b5eaad4f4d88d5e48e978570d
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: -3.2000446, y: 245.56499}
+  message: Hello from Subtree

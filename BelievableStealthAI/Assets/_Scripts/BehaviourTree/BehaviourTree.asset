@@ -1,5 +1,29 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8814997563070471752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf4555b4e94ba04ba5282e11e04d296, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 741eeebf56e1ffe4a9155268ab9d8778
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 478.5099, y: 1023.1999}
+  _children: []
 --- !u!114 &-8788786253521729501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24,7 +48,7 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: 4.799988, y: 596.5727}
   _children:
-  - {fileID: 7579415466129856661}
+  - {fileID: 0}
   - {fileID: -6776375058535264152}
   - {fileID: -1964962120878575402}
   - {fileID: 5086974825733180859}
@@ -242,8 +266,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: 133.05734, y: 849.59985}
-  child: {fileID: 0}
+  _position: {x: 121.59997, y: 849.6}
+  child: {fileID: 4530519376245123503}
 --- !u!114 &-793408650589746094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,10 +313,13 @@ MonoBehaviour:
   - {fileID: -3253193234988898015}
   - {fileID: 8652391707660331918}
   - {fileID: -8788786253521729501}
-  - {fileID: 7579415466129856661}
+  - {fileID: 0}
   - {fileID: -6776375058535264152}
   - {fileID: -1964962120878575402}
   - {fileID: 5086974825733180859}
+  - {fileID: 3230720824742364611}
+  - {fileID: 4530519376245123503}
+  - {fileID: -8814997563070471752}
   _blackboard:
     moveToPosition: {x: 6.69, y: 0, z: -6.82}
     moveToObject: {fileID: 0}
@@ -370,6 +397,30 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
   child: {fileID: -8779601849048164568}
+--- !u!114 &3230720824742364611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf4555b4e94ba04ba5282e11e04d296, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: ab5459f5b981e7d4d863ebeb48e22b38
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: -613.6623, y: 1069.7649}
+  _children: []
 --- !u!114 &3627305687091036900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,6 +445,30 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
   message: 2
+--- !u!114 &4530519376245123503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf4555b4e94ba04ba5282e11e04d296, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 26d1c517e91fb1c489d2801e6c7c57bd
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 140.79994, y: 1015.0828}
+  _children: []
 --- !u!114 &5086974825733180859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,7 +492,7 @@ MonoBehaviour:
   _description: 
   _agent: {fileID: 0}
   _position: {x: 443.95715, y: 857.59985}
-  child: {fileID: 0}
+  child: {fileID: -8814997563070471752}
 --- !u!114 &6771486649706229791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,30 +517,6 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
   message: Goodbye
---- !u!114 &7579415466129856661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9df36c7a2e84b6f4abdfcf94d70a4c9c, type: 3}
-  m_Name: CanPlayerBeSeen
-  m_EditorClassIdentifier: 
-  _state: 0
-  _started: 0
-  _guid: 5b075ca8305c691408305fb306189f1b
-  _blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-    moveToObject: {fileID: 0}
-    _locomotion: {fileID: 0}
-    _agent: {fileID: 0}
-  _description: 
-  _agent: {fileID: 0}
-  _position: {x: -395.8637, y: 841.59985}
-  child: {fileID: 0}
 --- !u!114 &8652391707660331918
 MonoBehaviour:
   m_ObjectHideFlags: 0

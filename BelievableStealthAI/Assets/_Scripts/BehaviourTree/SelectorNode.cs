@@ -21,13 +21,11 @@ public class SelectorNode : CompositeNode
         {
             case State.Running:
                 return State.Running;
-                break;
             case State.Failure:
                 _current++;
                 break;
             case State.Success:
                 return State.Success;
-                break;
         }
 
         //if current is equal to the amount of children then return success if not return running
