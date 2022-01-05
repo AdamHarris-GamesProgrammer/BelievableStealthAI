@@ -20,6 +20,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 478.5099, y: 1023.1999}
@@ -44,6 +45,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 4.799988, y: 596.5727}
@@ -72,6 +74,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
@@ -96,6 +99,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
@@ -120,6 +124,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
@@ -144,10 +149,11 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 12.799924, y: -65.61557}
-  child: {fileID: 0}
+  child: {fileID: -5924133988522763599}
 --- !u!114 &-6776375058535264152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +174,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: -103.036, y: 841.59985}
@@ -192,6 +199,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 15.199955, y: 95.820786}
@@ -216,6 +224,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: -33.897808, y: 899.9999}
@@ -240,6 +249,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: -25.600008, y: 1074.4801}
@@ -264,6 +274,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 20.799984, y: 452.3886}
@@ -288,6 +299,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: -230.4429, y: 899.9999}
@@ -312,6 +324,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1.6000366, y: 269.62268}
@@ -336,6 +349,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
@@ -360,6 +374,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 121.59997, y: 849.6}
@@ -384,6 +399,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 16.800076, y: 619.1319}
@@ -412,6 +428,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
@@ -437,10 +454,35 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: POI Find and Search
   _agent: {fileID: 0}
   _position: {x: -284.9043, y: 1082.4001}
   _treeToRun: {fileID: 0}
+--- !u!114 &-105923762129853817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a5b2b18a618f5e4187c08c11b8cfad7, type: 3}
+  m_Name: Chase
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 67fe7007d0adac04db54ec1de63266c6
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: -662.6267, y: 1269.9478}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,11 +511,13 @@ MonoBehaviour:
   - {fileID: -3766552573145192086}
   - {fileID: 4292184581911466551}
   - {fileID: -591139372675477122}
+  - {fileID: -105923762129853817}
   _blackboard:
     moveToPosition: {x: 6.69, y: 0, z: -6.82}
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
 --- !u!114 &278964703018174627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,6 +538,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 218.26627, y: 899.9999}
@@ -518,6 +563,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
@@ -542,6 +588,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
@@ -566,6 +613,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
@@ -590,6 +638,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: -613.6623, y: 1069.7649}
@@ -614,6 +663,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
@@ -638,6 +688,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 270.18747, y: 1069.24}
@@ -662,6 +713,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 140.79994, y: 1015.0828}
@@ -686,6 +738,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 443.95715, y: 857.59985}
@@ -710,10 +763,12 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -545.4501, y: 1096.6002}
-  _children: []
+  _position: {x: -545.6453, y: 1082.4}
+  _children:
+  - {fileID: -105923762129853817}
 --- !u!114 &6147066581670669616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,9 +789,10 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -447.46283, y: 892.2977}
+  _position: {x: -460, y: 908.0001}
   child: {fileID: 6106404697250895260}
 --- !u!114 &6771486649706229791
 MonoBehaviour:
@@ -758,6 +814,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
@@ -782,6 +839,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 20.000008, y: 288.57285}
@@ -806,6 +864,7 @@ MonoBehaviour:
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
+    _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1.6000166, y: 427.157}

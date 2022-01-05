@@ -11,6 +11,7 @@ namespace TGP.Control
     {
         [Header("Camera Settings")]
         [SerializeField] GameObject _followCam;
+        [SerializeField] GameObject _visibleMeshes;
         public GameObject FollowCam { get { return _followCam; } }
 
         List<AudioPerception> _audioPercievers;
@@ -20,6 +21,18 @@ namespace TGP.Control
 
         List<Hitbox> _hitboxes;
         public List<Hitbox> Hitboxes { get => _hitboxes; }
+
+        Container _nearbyContainer;
+
+        bool _visible;
+        bool _canMove = true;
+        public bool Visible { get => _visible; }
+        public bool CanMove { get => _canMove; }
+
+        public void SetContainer(Container container)
+        {
+            _nearbyContainer = container;
+        }
 
         private void Awake()
         {
@@ -48,6 +61,27 @@ namespace TGP.Control
             if (Input.GetKeyDown(KeyCode.Alpha5))
             {
                 ProduceSound(1.0f, 50.0f);
+            }
+
+            if(_nearbyContainer)
+            {
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    if(_nearbyContainer.PlayerInside)
+                    {
+                        _nearbyContainer.GetOut();
+                        _visible = true;
+                        _canMove = true;
+                        _visibleMeshes.SetActive(true);
+                    }
+                    else
+                    {
+                        _nearbyContainer.GetIn();
+                        _visible = false;
+                        _canMove = false;
+                        _visibleMeshes.SetActive(false);
+                    }
+                }
             }
         }
 

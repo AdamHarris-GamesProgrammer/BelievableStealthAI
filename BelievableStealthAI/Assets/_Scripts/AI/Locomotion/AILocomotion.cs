@@ -23,6 +23,11 @@ public class AILocomotion : MonoBehaviour
         _otherSide = other;
     }
 
+    public float GetRemainingDistance()
+    {
+        return _agent.remainingDistance;
+    }
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();

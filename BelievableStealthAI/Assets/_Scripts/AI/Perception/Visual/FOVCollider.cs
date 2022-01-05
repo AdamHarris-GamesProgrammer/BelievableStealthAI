@@ -40,6 +40,7 @@ public class FOVCollider : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //TODO: Switch this to notify the AI controller of the observed object rather than handle it here
         if (_observedObjects.Count > 0)
         {
             foreach(ObservableObject obj in _observedObjects)
@@ -82,9 +83,12 @@ public class FOVCollider : MonoBehaviour
                 {
                     if (hit.transform.GetComponent<Hitbox>())
                     {
-                        //Debug.Log("Hit: " + hit.transform.name);
-                        found = true;
-                        _fovController.AddValue(_detectionInrement * hitbox.DetectionMultiplier);
+                        if(_player.Visible)
+                        {
+                            //Debug.Log("Hit: " + hit.transform.name);
+                            found = true;
+                            _fovController.AddValue(_detectionInrement * hitbox.DetectionMultiplier);
+                        }
                     }
                 }
                 yield return new WaitForFixedUpdate();

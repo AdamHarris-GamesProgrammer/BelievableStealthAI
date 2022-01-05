@@ -30,7 +30,7 @@ public class AIAgent : MonoBehaviour
     public bool CurrentlyAlert { get => _currentlyAlert;}
     public bool CurrentlyHearingSound { get => _currentlyHearingSound;}
     public bool CurrentlySeeingPlayer { get => _currentlySeeingPlayer;}
-    public bool HasAnObjectchanged { get => _hasAnObjectchanged; set => _hasAnObjectchanged = value; }
+    public bool HasAnObjectchanged { get => _hasAnObjectchanged; }
 
     private void Start()
     {
@@ -50,4 +50,66 @@ public class AIAgent : MonoBehaviour
     {
         _blackboard.moveToPosition = _target.position;
     }
+
+    public void BodyDetected()
+    {
+        _hasSeenBody = true;
+        if(_currentlyAlert)
+        {
+            return;
+        }
+
+        if(!_haveBeenAlerted)
+        {
+            //TODO: Play Panicked Animation and Dialogue 
+        }
+        else
+        {
+
+        }
+    }
+
+    public void PlayerSeen()
+    {
+        _currentlySeeingPlayer = true;
+
+        if(!_hasSeenPlayer)
+        {
+            //TODO: Play Dialogue
+        }
+        else
+        {
+            //TODO: Play Dialogue
+        }
+        
+        if(!_currentlyAlert)
+        {
+            //TODO: Alert nearby allys
+
+        }
+
+        _hasSeenPlayer = true;
+    }
+
+    public void SoundHeard()
+    {
+        _currentlyHearingSound = true;
+        _hasHeardSound = true;
+
+        if(_currentlyAlert)
+        {
+            return;
+        }
+        else
+        {
+            //TODO: Play Dialogue
+        }
+    }
+
+    public void CheckOn(AIAgent agent)
+    {
+        _agentToCheckOn = agent;
+        //TODO: Play Dialogue
+    }
+
 }

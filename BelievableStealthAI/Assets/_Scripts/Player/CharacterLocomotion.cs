@@ -46,6 +46,14 @@ public class CharacterLocomotion : MonoBehaviour
     {
         if (_health.IsDead) return;
 
+        if (!_player.CanMove)
+        {
+            _animator.SetFloat("InputX", 0.0f);
+            _animator.SetFloat("InputY", 0.0f);
+            return;
+        }
+
+
         //Disables crouching if we are crouching enables crouching if I am standing
         if (Input.GetKeyDown(KeyCode.C))
         {
@@ -75,6 +83,7 @@ public class CharacterLocomotion : MonoBehaviour
     private void FixedUpdate()
     {
         if (_health.IsDead) return;
+        if (!_player.CanMove) return;
 
         if (_isJumping) //In Air state
             UpdateInAir();

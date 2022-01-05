@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TGP.Control;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,4 +11,5 @@ public class Blackboard
     public GameObject moveToObject;
     public AILocomotion _locomotion;
     public AIAgent _agent;
+    public PlayerController _player;
 }
