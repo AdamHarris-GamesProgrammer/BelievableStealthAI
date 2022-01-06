@@ -30,7 +30,10 @@ public class Health : MonoBehaviour
         OnHeal();
     }
 
-
+    public void Kill()
+    {
+        TakeDamage(100000.0f);
+    }
 
     void Start()
     {
@@ -55,6 +58,7 @@ public class Health : MonoBehaviour
         {
             _isDead = true;
             _OnDie.Invoke();
+            GetComponent<Ragdoll>().ActivateRagdoll();
             return;
         }
 

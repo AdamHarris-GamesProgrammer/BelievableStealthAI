@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TGP.Control;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,6 +9,8 @@ public class AIAgent : MonoBehaviour
     BehaviorTree _behaviorTree;
     Blackboard _blackboard;
     AILocomotion _locomotion;
+
+    PlayerController _player;
 
     [SerializeField] Transform _target;
 
@@ -32,6 +35,11 @@ public class AIAgent : MonoBehaviour
     public bool CurrentlySeeingPlayer { get => _currentlySeeingPlayer;}
     public bool HasAnObjectchanged { get => _hasAnObjectchanged; }
 
+    private void Awake()
+    {
+        _player = FindObjectOfType<PlayerController>();
+    }
+
     private void Start()
     {
         _behaviorTree = GetComponent<BehaviorTreeRunner>().tree;
@@ -41,14 +49,13 @@ public class AIAgent : MonoBehaviour
 
         _blackboard._agent = this;
         _blackboard._locomotion = _locomotion;
-        _blackboard.moveToPosition = _target.position;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        _blackboard.moveToPosition = _target.position;
+
     }
 
     public void BodyDetected()
@@ -112,4 +119,21 @@ public class AIAgent : MonoBehaviour
         //TODO: Play Dialogue
     }
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            _player.SetAgent(this);
+        }
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            _player.SetAgent(null);
+        }
+    }
 }

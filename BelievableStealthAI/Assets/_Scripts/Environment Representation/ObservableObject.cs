@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObservableObject : MonoBehaviour
 {
     [SerializeField] protected bool _originalState;
-    bool _currentState;
+    protected bool _currentState;
     [SerializeField] protected bool _changedState;
     [SerializeField] protected bool _changedStateRecently;
     [SerializeField] float _eventDuration = 180.0f;
@@ -19,6 +19,7 @@ public class ObservableObject : MonoBehaviour
     float _timer = 0.0f;
 
     public bool HasRecentlyChanged { get => _changedStateRecently; }
+    public bool CurrentState { get => _currentState; }
 
     private void Awake()
     {

@@ -39,6 +39,7 @@ public class AILocomotion : MonoBehaviour
 
     IEnumerator MoveThroughDoor()
     {
+        //TODO: Move all this stuff into behavior tree system
         _agent.updateRotation = false;
         transform.position = _thisSide.position;
         transform.forward = _otherSide.up;
@@ -60,15 +61,6 @@ public class AILocomotion : MonoBehaviour
             {
                 StartCoroutine(MoveThroughDoor());
             }
-
-            //check if we are at door
-            //is door open
-            //walk through door
-            //else
-            //open door
-            //walk through door
-            //else
-            //at some other nav mesh link, like a window.
         }
     }
 

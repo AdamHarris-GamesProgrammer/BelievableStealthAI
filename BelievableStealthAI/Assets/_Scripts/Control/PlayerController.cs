@@ -12,6 +12,7 @@ namespace TGP.Control
         [Header("Camera Settings")]
         [SerializeField] GameObject _followCam;
         [SerializeField] GameObject _visibleMeshes;
+        [SerializeField] GameObject _uiEPrompt;
         public GameObject FollowCam { get { return _followCam; } }
 
         List<AudioPerception> _audioPercievers;
@@ -23,6 +24,8 @@ namespace TGP.Control
         public List<Hitbox> Hitboxes { get => _hitboxes; }
 
         Container _nearbyContainer;
+        Door _nearbyDoor;
+        AIAgent _nearbyAgent;
 
         bool _visible;
         bool _canMove = true;
@@ -32,6 +35,31 @@ namespace TGP.Control
         public void SetContainer(Container container)
         {
             _nearbyContainer = container;
+            SetPrompt();
+        }
+
+        public void SetDoor(Door door)
+        {
+            _nearbyDoor = door;
+            SetPrompt();
+        }
+
+        public void SetAgent(AIAgent agent)
+        {
+            _nearbyAgent = agent;
+            SetPrompt();
+        }
+
+        private void SetPrompt()
+        {
+            if(_nearbyDoor == null && _nearbyContainer == null && _nearbyAgent == null)
+            {
+                _uiEPrompt.SetActive(false);
+            }
+            else
+            {
+                _uiEPrompt.SetActive(true);
+            }
         }
 
         private void Awake()
@@ -63,6 +91,22 @@ namespace TGP.Control
                 ProduceSound(1.0f, 50.0f);
             }
 
+
+            if(_nearbyAgent)
+            {
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    if (!_isStanding && !_nearbyAgent.CurrentlyAlert)
+                    {
+                        _nearbyAgent.GetComponent<Health>().Kill();
+
+                        //TODO: Play Assassinate animation
+                        //TODO: Disable visual and auditory perception
+                        //TODO: allow player to bag body
+                    }
+                }
+            }
+
             if(_nearbyContainer)
             {
                 if(Input.GetKeyDown(KeyCode.E))
@@ -83,8 +127,18 @@ namespace TGP.Control
                     }
                 }
             }
+
+            if(_nearbyDoor)
+            {
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    _nearbyDoor.DecideAnimation();
+                    _nearbyDoor.InteractWithObject();
+                }
+            }
         }
 
+        //TODO: Take this into a audio producer class
         void ProduceSound(float val, float maxDistance)
         {
             Debug.Log("Producing Sound with value: " + val + " and maxDistance: " + maxDistance);

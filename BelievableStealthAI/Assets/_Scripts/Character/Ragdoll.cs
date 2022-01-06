@@ -25,7 +25,6 @@ public class Ragdoll : MonoBehaviour
 
         //Converts to an array
         _rigidbodies = bodies.ToArray();
-        if(gameObject.name == "Brick") Debug.Log(_rigidbodies.Length);
         //Deativates the ragdoll
         DeactivateRagdoll();
     }
