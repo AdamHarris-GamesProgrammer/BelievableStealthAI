@@ -74,6 +74,9 @@ public class Ragdoll : MonoBehaviour
             if (rb.gameObject.CompareTag("Enemy")) continue;
             //The rigidbody can now react to physics
             rb.isKinematic = false;
+            Vector3 newVel = rb.velocity;
+            newVel.z = 0.0f;
+            rb.velocity = newVel;
         }
     }
 }

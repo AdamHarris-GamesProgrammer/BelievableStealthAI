@@ -13,6 +13,9 @@ namespace TGP.Control
         [SerializeField] GameObject _followCam;
         [SerializeField] GameObject _visibleMeshes;
         [SerializeField] GameObject _uiEPrompt;
+        [SerializeField] GameObject _bodybagAttachment;
+        [SerializeField] GameObject _bodybagPrefab;
+
         public GameObject FollowCam { get { return _followCam; } }
 
         List<AudioPerception> _audioPercievers;
@@ -29,6 +32,8 @@ namespace TGP.Control
 
         bool _visible;
         bool _canMove = true;
+
+        bool _carryingBodybag;
         public bool Visible { get => _visible; }
         public bool CanMove { get => _canMove; }
 
@@ -96,13 +101,28 @@ namespace TGP.Control
             {
                 if(Input.GetKeyDown(KeyCode.E))
                 {
-                    if (!_isStanding && !_nearbyAgent.CurrentlyAlert)
+                    if (_nearbyAgent.GetComponent<Health>().IsDead)
                     {
-                        _nearbyAgent.GetComponent<Health>().Kill();
+                        if (!_carryingBodybag)
+                        {
+                            _carryingBodybag = true;
+                            _bodybagAttachment.SetActive(true);
 
-                        //TODO: Play Assassinate animation
-                        //TODO: Disable visual and auditory perception
-                        //TODO: allow player to bag body
+                            //TODO: Make sure all edge cases are handled when destroying ai agent
+                            Destroy(_nearbyAgent.gameObject);
+                            SetAgent(null);
+                        }
+                    }
+                    else
+                    {
+                        if (!_isStanding && !_nearbyAgent.CurrentlyAlert)
+                        {
+                            _nearbyAgent.GetComponent<Animator>().SetTrigger("stealthAssassinate");
+                            _nearbyAgent.GetComponent<Health>().Kill();
+
+                            //TODO: Play Assassinate animation
+                            //TODO: Disable visual and auditory perception
+                        }
                     }
                 }
             }
@@ -134,6 +154,27 @@ namespace TGP.Control
                 {
                     _nearbyDoor.DecideAnimation();
                     _nearbyDoor.InteractWithObject();
+                }
+            }
+
+            if(_carryingBodybag)
+            {
+                if(Input.GetKeyDown(KeyCode.G))
+                {
+                    _carryingBodybag = false;
+                    _bodybagAttachment.SetActive(false);
+
+                    GameObject bodybag = Instantiate(_bodybagPrefab);
+
+                    Vector3 spawnPos = transform.position + (UnityEngine.Random.insideUnitSphere * 1.5f);
+
+                    NavMeshHit hit;
+                    if(NavMesh.SamplePosition(spawnPos, out hit, 3.0f, ~0))
+                    {
+                        spawnPos = hit.position;
+                    }
+
+                    bodybag.transform.position = spawnPos;
                 }
             }
         }

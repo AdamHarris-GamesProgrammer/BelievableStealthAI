@@ -59,6 +59,7 @@ public class Health : MonoBehaviour
             _isDead = true;
             _OnDie.Invoke();
             GetComponent<Ragdoll>().ActivateRagdoll();
+            gameObject.tag = "DeadBody";
             return;
         }
 
