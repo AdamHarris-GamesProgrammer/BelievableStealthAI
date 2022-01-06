@@ -13,8 +13,9 @@ namespace TGP.Control
         [SerializeField] GameObject _followCam;
         [SerializeField] GameObject _visibleMeshes;
         [SerializeField] GameObject _uiEPrompt;
+        [SerializeField] GameObject _uiGPrompt;
         [SerializeField] GameObject _bodybagAttachment;
-        [SerializeField] GameObject _bodybagPrefab;
+        [SerializeField] Bodybag _bodybagPrefab;
 
         public GameObject FollowCam { get { return _followCam; } }
 
@@ -29,6 +30,7 @@ namespace TGP.Control
         Container _nearbyContainer;
         Door _nearbyDoor;
         AIAgent _nearbyAgent;
+        Bodybag _nearbyBodybag;
 
         bool _visible;
         bool _canMove = true;
@@ -55,9 +57,15 @@ namespace TGP.Control
             SetPrompt();
         }
 
+        public void SetBodybag(Bodybag bodybag)
+        {
+            _nearbyBodybag = bodybag;
+            SetPrompt();
+        }
+
         private void SetPrompt()
         {
-            if(_nearbyDoor == null && _nearbyContainer == null && _nearbyAgent == null)
+            if(_nearbyDoor == null && _nearbyContainer == null && _nearbyAgent == null && _nearbyBodybag == null)
             {
                 _uiEPrompt.SetActive(false);
             }
@@ -111,6 +119,7 @@ namespace TGP.Control
                             //TODO: Make sure all edge cases are handled when destroying ai agent
                             Destroy(_nearbyAgent.gameObject);
                             SetAgent(null);
+                            _uiGPrompt.SetActive(true);
                         }
                     }
                     else
@@ -129,22 +138,71 @@ namespace TGP.Control
 
             if(_nearbyContainer)
             {
-                if(Input.GetKeyDown(KeyCode.E))
+                if (_carryingBodybag)
                 {
-                    if(_nearbyContainer.PlayerInside)
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
-                        _nearbyContainer.GetOut();
-                        _visible = true;
-                        _canMove = true;
-                        _visibleMeshes.SetActive(true);
+                        if (_nearbyContainer.PlayerInside)
+                        {
+                            _nearbyContainer.GetOut();
+                            _visible = true;
+                            _canMove = true;
+                            _visibleMeshes.SetActive(true);
+                        }
+                        else
+                        {
+                            _nearbyContainer.GetIn();
+                            _visible = false;
+                            _canMove = false;
+                            _visibleMeshes.SetActive(false);
+                        }
                     }
-                    else
+                }
+                else
+                {
+                    if(Input.GetKeyDown(KeyCode.G))
                     {
-                        _nearbyContainer.GetIn();
-                        _visible = false;
-                        _canMove = false;
-                        _visibleMeshes.SetActive(false);
+                        if(_nearbyContainer.BodybagInside)
+                        {
+                            if(_carryingBodybag)
+                            {
+                                _nearbyContainer.UnhideBodybag();
+                                _uiGPrompt.SetActive(true);
+                            }
+                            else
+                            {
+                                //TODO: Tell player they cannot have 2 bodybags at the same time
+                            }
+                        }
+                        else
+                        {
+                            _nearbyContainer.HideBoybag();
+                            _uiGPrompt.SetActive(false);
+                        }
                     }
+                }
+
+
+            }
+
+            if(_nearbyBodybag)
+            {
+                if(!_carryingBodybag)
+                {
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        _carryingBodybag = true;
+                        _bodybagAttachment.SetActive(true);
+
+                        //TODO: Make sure all edge cases are handled when destroying ai agent
+                        Destroy(_nearbyBodybag.gameObject);
+                        SetBodybag(null);
+                        _uiGPrompt.SetActive(true);
+                    }
+                }
+                else
+                {
+                    //TODO: Tell player they cannot carry multiple body bags
                 }
             }
 
@@ -163,11 +221,10 @@ namespace TGP.Control
                 {
                     _carryingBodybag = false;
                     _bodybagAttachment.SetActive(false);
+                    _uiGPrompt.SetActive(false);
 
-                    GameObject bodybag = Instantiate(_bodybagPrefab);
-
+                    Bodybag bodybag = Instantiate(_bodybagPrefab);
                     Vector3 spawnPos = transform.position + (UnityEngine.Random.insideUnitSphere * 1.5f);
-
                     NavMeshHit hit;
                     if(NavMesh.SamplePosition(spawnPos, out hit, 3.0f, ~0))
                     {

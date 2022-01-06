@@ -6,8 +6,10 @@ using UnityEngine;
 public class Container : MonoBehaviour
 {
     bool _playerInside = false;
+    bool _bodyBagInside = false;
 
     public bool PlayerInside { get => _playerInside; }
+    public bool BodybagInside { get => _bodyBagInside; }
 
     PlayerController _player;
 
@@ -30,6 +32,16 @@ public class Container : MonoBehaviour
     public void GetOut()
     {
         _playerInside = false;
+    }
+
+    public void HideBoybag()
+    {
+        _bodyBagInside = true;
+    }
+
+    public void UnhideBodybag()
+    {
+        _bodyBagInside = false;
     }
 
     private void OnTriggerEnter(Collider other)
