@@ -12,8 +12,8 @@ namespace TGP.Control
         [Header("Camera Settings")]
         [SerializeField] GameObject _followCam;
         [SerializeField] GameObject _visibleMeshes;
-        [SerializeField] GameObject _uiEPrompt;
-        [SerializeField] GameObject _uiGPrompt;
+        [SerializeField] UIPrompt _uiEPrompt;
+        [SerializeField] UIPrompt _uiGPrompt;
         [SerializeField] GameObject _bodybagAttachment;
         [SerializeField] Bodybag _bodybagPrefab;
 
@@ -65,14 +65,54 @@ namespace TGP.Control
 
         private void SetPrompt()
         {
-            if(_nearbyDoor == null && _nearbyContainer == null && _nearbyAgent == null && _nearbyBodybag == null)
+            if (_carryingBodybag)
             {
-                _uiEPrompt.SetActive(false);
+                _uiGPrompt.SetText("Drop Bodybag");
             }
             else
             {
-                _uiEPrompt.SetActive(true);
+                _uiGPrompt.gameObject.SetActive(false);
             }
+
+            _uiEPrompt.gameObject.SetActive(true);
+            if (_nearbyDoor)
+            {
+                if (_nearbyDoor.CurrentState) _uiEPrompt.SetText("Close Door");
+                else _uiEPrompt.SetText("Open Door");
+            }
+            else if (_nearbyContainer)
+            {
+                if (_nearbyContainer.BodybagInside)
+                {
+                    _uiEPrompt.gameObject.SetActive(false);
+                    _uiGPrompt.gameObject.SetActive(true);
+                    _uiGPrompt.SetText("Unhide Bodybag");
+                }
+                else
+                {
+                    _uiEPrompt.SetText("Hide");
+
+                    if(_carryingBodybag)
+                    {
+                        _uiGPrompt.SetText("Hide bodybag");
+                        _uiGPrompt.gameObject.SetActive(true);
+                    }
+                }
+            }
+            else if(_nearbyAgent)
+            {
+                _uiEPrompt.SetText("Assassinate");
+            }
+            else if(_nearbyBodybag)
+            {
+                _uiEPrompt.SetText("Pickup");
+            }
+            else
+            {
+                _uiEPrompt.gameObject.SetActive(false);
+            }
+
+   
         }
 
         private void Awake()
@@ -91,15 +131,15 @@ namespace TGP.Control
             {
                 ProduceSound(1.0f, 20.0f);
             }
-            if (Input.GetKeyDown(KeyCode.Alpha3))
+            if(Input.GetKeyDown(KeyCode.Alpha3))
             {
                 ProduceSound(1.0f, 30.0f);
             }
-            if (Input.GetKeyDown(KeyCode.Alpha4))
+            if(Input.GetKeyDown(KeyCode.Alpha4))
             {
                 ProduceSound(1.0f, 40.0f);
             }
-            if (Input.GetKeyDown(KeyCode.Alpha5))
+            if(Input.GetKeyDown(KeyCode.Alpha5))
             {
                 ProduceSound(1.0f, 50.0f);
             }
@@ -113,13 +153,13 @@ namespace TGP.Control
                     {
                         if (!_carryingBodybag)
                         {
-                            _carryingBodybag = true;
-                            _bodybagAttachment.SetActive(true);
+                            SetCarryingBodybag(true);
 
                             //TODO: Make sure all edge cases are handled when destroying ai agent
                             Destroy(_nearbyAgent.gameObject);
                             SetAgent(null);
-                            _uiGPrompt.SetActive(true);
+                            _uiGPrompt.gameObject.SetActive(true);
+                            _uiGPrompt.SetText("Drop");
                         }
                     }
                     else
@@ -128,7 +168,8 @@ namespace TGP.Control
                         {
                             _nearbyAgent.GetComponent<Animator>().SetTrigger("stealthAssassinate");
                             _nearbyAgent.GetComponent<Health>().Kill();
-
+                            _uiEPrompt.gameObject.SetActive(true);
+                            _uiEPrompt.SetText("Pickup");
                             //TODO: Play Assassinate animation
                             //TODO: Disable visual and auditory perception
                         }
@@ -136,15 +177,16 @@ namespace TGP.Control
                 }
             }
 
-            if(_nearbyContainer)
+            else if(_nearbyContainer)
             {
-                if (_carryingBodybag)
+                if (!_carryingBodybag)
                 {
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         if (_nearbyContainer.PlayerInside)
                         {
                             _nearbyContainer.GetOut();
+                            _uiEPrompt.SetText("Hide");
                             _visible = true;
                             _canMove = true;
                             _visibleMeshes.SetActive(true);
@@ -152,9 +194,20 @@ namespace TGP.Control
                         else
                         {
                             _nearbyContainer.GetIn();
+                            _uiEPrompt.SetText("Get Out");
                             _visible = false;
                             _canMove = false;
                             _visibleMeshes.SetActive(false);
+                        }
+                    }
+
+                    if(Input.GetKeyDown(KeyCode.G))
+                    {
+                        if (_nearbyContainer.BodybagInside)
+                        {
+                            _nearbyContainer.UnhideBodybag();
+                            _uiGPrompt.SetText("Hide Bodybag");
+                            SetCarryingBodybag(true);
                         }
                     }
                 }
@@ -164,10 +217,12 @@ namespace TGP.Control
                     {
                         if(_nearbyContainer.BodybagInside)
                         {
-                            if(_carryingBodybag)
+                            if(!_carryingBodybag)
                             {
                                 _nearbyContainer.UnhideBodybag();
-                                _uiGPrompt.SetActive(true);
+                                _uiGPrompt.SetText("Hide Bodybag");
+                                _uiGPrompt.gameObject.SetActive(true);
+                                SetCarryingBodybag(true);
                             }
                             else
                             {
@@ -177,7 +232,9 @@ namespace TGP.Control
                         else
                         {
                             _nearbyContainer.HideBoybag();
-                            _uiGPrompt.SetActive(false);
+                            _uiGPrompt.SetText("Unhide Bodybag");
+                            _uiGPrompt.gameObject.SetActive(true);
+                            SetCarryingBodybag(false);
                         }
                     }
                 }
@@ -185,19 +242,18 @@ namespace TGP.Control
 
             }
 
-            if(_nearbyBodybag)
+            else if(_nearbyBodybag)
             {
                 if(!_carryingBodybag)
                 {
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                        _carryingBodybag = true;
-                        _bodybagAttachment.SetActive(true);
-
+                        SetCarryingBodybag(true);
                         //TODO: Make sure all edge cases are handled when destroying ai agent
                         Destroy(_nearbyBodybag.gameObject);
                         SetBodybag(null);
-                        _uiGPrompt.SetActive(true);
+                        _uiGPrompt.gameObject.SetActive(true);
+                        _uiGPrompt.SetText("Drop Bodybag");
                     }
                 }
                 else
@@ -206,22 +262,24 @@ namespace TGP.Control
                 }
             }
 
-            if(_nearbyDoor)
+            else if(_nearbyDoor)
             {
                 if(Input.GetKeyDown(KeyCode.E))
                 {
                     _nearbyDoor.DecideAnimation();
                     _nearbyDoor.InteractWithObject();
+
+                    if (_nearbyDoor.CurrentState) _uiEPrompt.SetText("Close Door");
+                    else _uiEPrompt.SetText("Open Door");
                 }
             }
 
-            if(_carryingBodybag)
+            else if(_carryingBodybag)
             {
                 if(Input.GetKeyDown(KeyCode.G))
                 {
-                    _carryingBodybag = false;
-                    _bodybagAttachment.SetActive(false);
-                    _uiGPrompt.SetActive(false);
+                    SetCarryingBodybag(false);
+                    _uiGPrompt.gameObject.SetActive(false);
 
                     Bodybag bodybag = Instantiate(_bodybagPrefab);
                     Vector3 spawnPos = transform.position + (UnityEngine.Random.insideUnitSphere * 1.5f);
@@ -234,6 +292,12 @@ namespace TGP.Control
                     bodybag.transform.position = spawnPos;
                 }
             }
+        }
+
+        void SetCarryingBodybag(bool val)
+        {
+            _bodybagAttachment.SetActive(val);
+            _carryingBodybag = val;
         }
 
         //TODO: Take this into a audio producer class
@@ -262,8 +326,6 @@ namespace TGP.Control
                 }
             }
         }
-
-
         bool InRange(NavMeshPath path, float maxDistance, ref float distance)
         {
             //TODO: Change to source position, for distraction objects.
@@ -283,4 +345,3 @@ namespace TGP.Control
         }
     }
 }
-
