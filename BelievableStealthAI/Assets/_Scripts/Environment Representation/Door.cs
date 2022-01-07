@@ -39,7 +39,7 @@ public class Door : ObservableObject
         }
         else if(other.CompareTag("Player"))
         {
-            _player.SetDoor(this);
+            _player.NearbyDoor = this;
 
 
             if(GetClosestDoorSide(other.transform.position))
@@ -76,7 +76,7 @@ public class Door : ObservableObject
         }
         else if(other.CompareTag("Player"))
         {
-            _player.SetDoor(null);
+            _player.NearbyDoor = null;
         }
     }
 

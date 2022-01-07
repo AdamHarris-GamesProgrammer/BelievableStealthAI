@@ -8,8 +8,8 @@ public class Container : MonoBehaviour
     bool _playerInside = false;
     bool _bodyBagInside = false;
 
-    public bool PlayerInside { get => _playerInside; }
-    public bool BodybagInside { get => _bodyBagInside; }
+    public bool PlayerInside { get => _playerInside; set { _playerInside = value; } }
+    public bool BodybagInside { get => _bodyBagInside; set { _bodyBagInside = value; } }
 
     PlayerController _player;
 
@@ -24,35 +24,15 @@ public class Container : MonoBehaviour
         
     }
 
-    public void GetIn()
-    {
-        _playerInside = true;
-    }
-
-    public void GetOut()
-    {
-        _playerInside = false;
-    }
-
-    public void HideBoybag()
-    {
-        _bodyBagInside = true;
-    }
-
-    public void UnhideBodybag()
-    {
-        _bodyBagInside = false;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
-            _player.SetContainer(this);
+            _player.NearbyContainer = this;
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
-            _player.SetContainer(null);
+            _player.NearbyContainer = null;
     }
 }

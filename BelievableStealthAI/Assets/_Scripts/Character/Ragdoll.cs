@@ -66,7 +66,6 @@ public class Ragdoll : MonoBehaviour
         _active = true;
         //Disables the animator and lets physics take over
         _animator.enabled = false;
-        Debug.Log(_rigidbodies.Length);
         foreach (var rb in _rigidbodies)
         {
             if (rb == null) continue;

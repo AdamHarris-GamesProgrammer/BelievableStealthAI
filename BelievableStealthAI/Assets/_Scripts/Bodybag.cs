@@ -17,14 +17,14 @@ public class Bodybag : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            _player.SetBodybag(this);
+            _player.NearbyBodybag = this;
         }        
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            _player.SetBodybag(null);
+            _player.NearbyBodybag = null;
         }
     }
 }

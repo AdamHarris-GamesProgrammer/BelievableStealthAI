@@ -124,7 +124,7 @@ public class AIAgent : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            _player.SetAgent(this);
+            _player.NearbyAgent = this;
         }
     }
 
@@ -133,7 +133,7 @@ public class AIAgent : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _player.SetAgent(null);
+            _player.NearbyAgent = null;
         }
     }
 }
