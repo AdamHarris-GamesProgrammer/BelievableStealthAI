@@ -8,6 +8,7 @@ public class Chase : ActionNode
     {
         Debug.Log("Chase Start");
         _blackboard._locomotion.SetDestination(_blackboard._agent.LastKnownPlayerPosition);
+        _blackboard._locomotion.SetMaxSpeed(_blackboard._chaseSpeed);
     }
 
     protected override void OnStop()

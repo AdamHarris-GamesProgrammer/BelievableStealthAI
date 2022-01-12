@@ -15,6 +15,11 @@ public class AIAgent : MonoBehaviour
     [SerializeField] PatrolRoute _patrolRoute;
     int _currentPatrolIndex = 0;
 
+    [SerializeField] float _walkSpeed = 1.5f;
+    [SerializeField] float _patrolSpeed = 1.2f;
+    [SerializeField] float _chaseSpeed = 5.4f;
+
+
     bool _haveBeenAlerted = false;
     bool _hasSeenPlayer = false;
     bool _hasHeardSound = false;
@@ -61,7 +66,13 @@ public class AIAgent : MonoBehaviour
         {
             _blackboard._hasPatrolRoute = true;
         }
+
+        _blackboard._walkSpeed = _walkSpeed;
+        _blackboard._patrolSpeed = _patrolSpeed;
+        _blackboard._chaseSpeed = _chaseSpeed;
     }
+
+    //TODO: Get closest patrol point method, so that ai can resume there patrol from the closest point 
 
     public void GetNextPatrolPoint()
     {

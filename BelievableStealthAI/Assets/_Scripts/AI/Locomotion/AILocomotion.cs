@@ -12,6 +12,11 @@ public class AILocomotion : MonoBehaviour
         return _agent.remainingDistance;
     }
 
+    public void SetMaxSpeed(float speed)
+    {
+        _agent.speed = speed;
+    }
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
