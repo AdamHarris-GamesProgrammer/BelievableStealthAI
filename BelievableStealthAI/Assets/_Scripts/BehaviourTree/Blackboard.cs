@@ -8,6 +8,12 @@ using UnityEngine.AI;
 public class Blackboard
 {
     public Vector3 moveToPosition;
+
+    public Vector3 spawnPosition;
+    public Vector3 spawnOrientation;
+
+    public bool _hasPatrolRoute = false;
+
     public GameObject moveToObject;
     public AILocomotion _locomotion;
     public AIAgent _agent;

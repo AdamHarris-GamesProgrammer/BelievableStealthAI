@@ -30,7 +30,7 @@ namespace TGP.Control
         AIAgent _nearbyAgent;
         Bodybag _nearbyBodybag;
 
-        bool _visible;
+        bool _visible = true;
         bool _canMove = true;
 
         bool _carryingBodybag;
@@ -219,8 +219,7 @@ namespace TGP.Control
 
                     Bodybag bodybag = Instantiate(_bodybagPrefab);
                     Vector3 spawnPos = transform.position + (UnityEngine.Random.insideUnitSphere * 1.5f);
-                    NavMeshHit hit;
-                    if(NavMesh.SamplePosition(spawnPos, out hit, 3.0f, ~0))
+                    if (NavMesh.SamplePosition(spawnPos, out NavMeshHit hit, 3.0f, ~0))
                     {
                         spawnPos = hit.position;
                     }

@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8885461862003316714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ce5bc53abf68b41a5424bd9207b384, type: 3}
+  m_Name: Attack
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: a0c57e3035164724f917c658c834b0ef
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: -454, y: 1277.6}
 --- !u!114 &-8814997563070471752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17,6 +44,9 @@ MonoBehaviour:
   _guid: 741eeebf56e1ffe4a9155268ab9d8778
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -42,6 +72,9 @@ MonoBehaviour:
   _guid: 37ac834937880ae47a379ade95408de2
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -71,6 +104,9 @@ MonoBehaviour:
   _guid: 
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -79,6 +115,34 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
   _children: []
+--- !u!114 &-8553339931234493907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba0176a6d765f548b20051cf6221bd2, type: 3}
+  m_Name: HasNoPatrolRoute
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: bba57d43b36e83849a9d10d46a6cdda3
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 475.99997, y: 1066.3998}
+  child: {fileID: -2635592204251674335}
 --- !u!114 &-8433132442954642932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +160,9 @@ MonoBehaviour:
   _guid: 
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -121,6 +188,9 @@ MonoBehaviour:
   _guid: 
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -146,13 +216,16 @@ MonoBehaviour:
   _guid: eeeaa59fa2e152d43beb84f001410be2
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
     _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: 12.799924, y: -65.61557}
+  _position: {x: 6.4000664, y: 213.72202}
   child: {fileID: -5924133988522763599}
 --- !u!114 &-6776375058535264152
 MonoBehaviour:
@@ -171,6 +244,9 @@ MonoBehaviour:
   _guid: b6f0ad591aaa3384f97bc493a3007c61
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -196,13 +272,16 @@ MonoBehaviour:
   _guid: 9d3291894005c3b48b42b9fe34c03bf4
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
     _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: 15.199955, y: 95.820786}
+  _position: {x: 1.60005, y: 335.95374}
   child: {fileID: 8130634130264815465}
 --- !u!114 &-4908642595397845253
 MonoBehaviour:
@@ -221,6 +300,9 @@ MonoBehaviour:
   _guid: eaaa45d33b863a6499b2cfa3a521c28b
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -246,6 +328,9 @@ MonoBehaviour:
   _guid: 28ce7a4e93929b140bc8eb8c177b6147
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -271,13 +356,16 @@ MonoBehaviour:
   _guid: a0703870302b7764fab942f4b3609844
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
     _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: 20.799984, y: 452.3886}
+  _position: {x: 6.4000664, y: 569.06085}
   child: {fileID: -949457967634457392}
 --- !u!114 &-3262959149031424091
 MonoBehaviour:
@@ -296,13 +384,16 @@ MonoBehaviour:
   _guid: f27f4f02f56348f4b982101d6dd84172
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
     _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -230.4429, y: 899.9999}
+  _position: {x: -219.70226, y: 907.9999}
   child: {fileID: -591139372675477122}
 --- !u!114 &-3253193234988898015
 MonoBehaviour:
@@ -321,6 +412,9 @@ MonoBehaviour:
   _guid: 96fb96bbf3c224c418168aaa70fbbb7d
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -346,6 +440,9 @@ MonoBehaviour:
   _guid: 
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -354,6 +451,33 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
   message: 1
+--- !u!114 &-2635592204251674335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c3cef7e0f2cf374d87b723d05ed68bc, type: 3}
+  m_Name: ReturnToSpawnPosition
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: c53b060ed0643f249ae0ac85c618dc5d
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 452.7999, y: 1200.0599}
 --- !u!114 &-1964962120878575402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,6 +495,9 @@ MonoBehaviour:
   _guid: 0b01e413e93d07143b1646d4671f051c
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -396,18 +523,21 @@ MonoBehaviour:
   _guid: bb62e8deb3fabbd47b6598f1a49f2af9
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
     _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: 16.800076, y: 619.1319}
+  _position: {x: 14.400125, y: 711.7216}
   _children:
   - {fileID: 6147066581670669616}
-  - {fileID: -3262959149031424091}
   - {fileID: -4908642595397845253}
   - {fileID: 278964703018174627}
+  - {fileID: 2773092769167284717}
 --- !u!114 &-793408650589746094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,6 +555,9 @@ MonoBehaviour:
   _guid: 
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -451,6 +584,9 @@ MonoBehaviour:
   _guid: 725018d05427d624db9ab017dd561d52
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -458,7 +594,7 @@ MonoBehaviour:
   _description: POI Find and Search
   _agent: {fileID: 0}
   _position: {x: -284.9043, y: 1082.4001}
-  _treeToRun: {fileID: 0}
+  _treeToRun: {fileID: 11400000, guid: 557eb80843baf094f9873af9438b3fb9, type: 2}
 --- !u!114 &-105923762129853817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,6 +612,9 @@ MonoBehaviour:
   _guid: 67fe7007d0adac04db54ec1de63266c6
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -512,8 +651,16 @@ MonoBehaviour:
   - {fileID: 4292184581911466551}
   - {fileID: -591139372675477122}
   - {fileID: -105923762129853817}
+  - {fileID: -8885461862003316714}
+  - {fileID: -2635592204251674335}
+  - {fileID: 2773092769167284717}
+  - {fileID: -8553339931234493907}
+  - {fileID: 6769040832318622807}
   _blackboard:
     moveToPosition: {x: 6.69, y: 0, z: -6.82}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -535,6 +682,9 @@ MonoBehaviour:
   _guid: 20caa07eaf7bbba4fa8f73ad61e5e3e6
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -560,6 +710,9 @@ MonoBehaviour:
   _guid: 
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -585,6 +738,9 @@ MonoBehaviour:
   _guid: 
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -610,6 +766,9 @@ MonoBehaviour:
   _guid: 
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -618,6 +777,36 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
   child: {fileID: -8779601849048164568}
+--- !u!114 &2773092769167284717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37524c78b092f844e892ccef95a14a9e, type: 3}
+  m_Name: SelectorNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: acf69fa7b32a5a942a550f07d0a8a8e0
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 565.5999, y: 907.9999}
+  _children:
+  - {fileID: -8553339931234493907}
+  - {fileID: 6769040832318622807}
 --- !u!114 &3230720824742364611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -635,6 +824,9 @@ MonoBehaviour:
   _guid: ab5459f5b981e7d4d863ebeb48e22b38
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -660,6 +852,9 @@ MonoBehaviour:
   _guid: 
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -685,6 +880,9 @@ MonoBehaviour:
   _guid: fe75bebd4e0314943874f4d7e2dbee11
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -710,6 +908,9 @@ MonoBehaviour:
   _guid: 26d1c517e91fb1c489d2801e6c7c57bd
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -735,6 +936,9 @@ MonoBehaviour:
   _guid: f58912001ab761548989e52149a05712
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -760,15 +964,19 @@ MonoBehaviour:
   _guid: 9799e2e027b6ca842a1f19818418ae9a
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
     _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -545.6453, y: 1082.4}
+  _position: {x: -535.2, y: 1090.4}
   _children:
   - {fileID: -105923762129853817}
+  - {fileID: -8885461862003316714}
 --- !u!114 &6147066581670669616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -786,6 +994,9 @@ MonoBehaviour:
   _guid: 643a2bc738eea8a4ca93a47d0c80fade
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -794,6 +1005,33 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: -460, y: 908.0001}
   child: {fileID: 6106404697250895260}
+--- !u!114 &6769040832318622807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92a8678ed2c62c246b9ba6781205ef13, type: 3}
+  m_Name: Patrol
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 3f72b4ed28d1a914eb25608f6d7c48e0
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 784.74817, y: 1074.4}
 --- !u!114 &6771486649706229791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -811,6 +1049,9 @@ MonoBehaviour:
   _guid: 
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
@@ -836,13 +1077,16 @@ MonoBehaviour:
   _guid: 5f8ed7bc7c6e7a842ad2388b0ad361c9
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}
     _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: 20.000008, y: 288.57285}
+  _position: {x: 6.4000664, y: 451.93237}
   child: {fileID: -3742005143149163581}
 --- !u!114 &8652391707660331918
 MonoBehaviour:
@@ -861,6 +1105,9 @@ MonoBehaviour:
   _guid: 9f70352fef441bc48bb1be4e62203b27
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
     moveToObject: {fileID: 0}
     _locomotion: {fileID: 0}
     _agent: {fileID: 0}

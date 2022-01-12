@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TGP.Control;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class FOVController : MonoBehaviour
 {
-    [Min(0f)][SerializeField] private float _detectedThreshold = 1.0f;
+    [Min(0f)] [SerializeField] private float _detectedThreshold = 1.0f;
     [SerializeField] private float _detectedValue;
     [SerializeField] bool _seen = false;
 
@@ -22,20 +23,26 @@ public class FOVController : MonoBehaviour
 
     FOVCollider[] _colliderArr;
 
+    AIAgent _aiController;
+    PlayerController _player;
+
     private void Awake()
     {
-       _colliderArr = GetComponentsInChildren<FOVCollider>();
+        _colliderArr = GetComponentsInChildren<FOVCollider>();
+        _aiController = GetComponentInParent<AIAgent>();
+        _player = FindObjectOfType<PlayerController>();
     }
     public void AddValue(float increment)
     {
-        if(_timeBetweenAditions >= _timeBetweenDuration)
+        if (_timeBetweenAditions >= _timeBetweenDuration)
         {
             //Debug.Log("Adding: " + increment);
             _detectedValue = Mathf.Min(_detectedValue + increment, _detectedThreshold);
 
-            if (_detectedValue > _detectedThreshold)
+            if (_detectedValue >= _detectedThreshold)
             {
                 _seen = true;
+                _aiController.PlayerSeen();
             }
 
             _timeBetweenAditions = 0.0f;
@@ -48,9 +55,14 @@ public class FOVController : MonoBehaviour
     {
         _detectedValue = Mathf.Max(_detectedValue - decrement, 0f);
 
-        if(_detectedValue < _detectedThreshold)
+        if (_detectedValue < _detectedThreshold)
         {
             _seen = false;
+            
+        }
+        if(_detectedValue == 0.0f)
+        {
+            _aiController.LostSightOfPlayer();
         }
 
         _detectionMeter.fillAmount = _detectedValue;
@@ -62,7 +74,7 @@ public class FOVController : MonoBehaviour
         //Debug.Log(string.Format("Detected: {0}", _seen));
 
 
-        if(_detectedValue > 0.0f)
+        if (_detectedValue > 0.0f)
         {
             bool visible = false;
             foreach (FOVCollider col in _colliderArr)
@@ -71,6 +83,7 @@ public class FOVController : MonoBehaviour
                 {
                     visible = true;
                     _lostVisibilityTimer = 0.0f;
+                    _aiController.LastKnownPlayerPosition = _player.transform.position;
                     break;
                 }
             }

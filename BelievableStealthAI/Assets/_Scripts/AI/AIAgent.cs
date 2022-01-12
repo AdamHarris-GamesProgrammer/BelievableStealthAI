@@ -12,8 +12,8 @@ public class AIAgent : MonoBehaviour
 
     PlayerController _player;
 
-    [SerializeField] Transform _target;
-
+    [SerializeField] PatrolRoute _patrolRoute;
+    int _currentPatrolIndex = 0;
 
     bool _haveBeenAlerted = false;
     bool _hasSeenPlayer = false;
@@ -26,6 +26,8 @@ public class AIAgent : MonoBehaviour
 
     AIAgent _agentToCheckOn = null;
 
+    Vector3 _lastKnownPlayerPosition;
+
     public bool HaveBeenAlerted { get => _haveBeenAlerted;}
     public bool HasSeenPlayer { get => _hasSeenPlayer; }
     public bool HasHeardSound { get => _hasHeardSound; }
@@ -34,6 +36,8 @@ public class AIAgent : MonoBehaviour
     public bool CurrentlyHearingSound { get => _currentlyHearingSound;}
     public bool CurrentlySeeingPlayer { get => _currentlySeeingPlayer;}
     public bool HasAnObjectchanged { get => _hasAnObjectchanged; }
+
+    public Vector3 LastKnownPlayerPosition { get => _lastKnownPlayerPosition; set => _lastKnownPlayerPosition = value; }
 
     private void Awake()
     {
@@ -49,8 +53,20 @@ public class AIAgent : MonoBehaviour
 
         _blackboard._agent = this;
         _blackboard._locomotion = _locomotion;
+
+        _blackboard.spawnPosition = transform.position;
+        _blackboard.spawnOrientation = transform.forward;
+
+        if(_patrolRoute)
+        {
+            _blackboard._hasPatrolRoute = true;
+        }
     }
 
+    public void GetNextPatrolPoint()
+    {
+        _blackboard.moveToPosition = _patrolRoute.GetNextIndex(ref _currentPatrolIndex);
+    }
 
     // Update is called once per frame
     void Update()
@@ -78,6 +94,7 @@ public class AIAgent : MonoBehaviour
 
     public void PlayerSeen()
     {
+        Debug.Log("Player Seen");
         _currentlySeeingPlayer = true;
 
         if(!_hasSeenPlayer)
@@ -92,10 +109,19 @@ public class AIAgent : MonoBehaviour
         if(!_currentlyAlert)
         {
             //TODO: Alert nearby allys
+            _currentlyAlert = true;
 
         }
 
         _hasSeenPlayer = true;
+    }
+
+    public void LostSightOfPlayer()
+    {
+        _currentlySeeingPlayer = false;
+        
+        //TODO: Currently alert should be set to false at another point
+        _currentlyAlert = false;
     }
 
     public void SoundHeard()
