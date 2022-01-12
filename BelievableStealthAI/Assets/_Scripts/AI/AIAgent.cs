@@ -155,22 +155,4 @@ public class AIAgent : MonoBehaviour
         _agentToCheckOn = agent;
         //TODO: Play Dialogue
     }
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Player"))
-        {
-            _player.NearbyAgent = this;
-        }
-    }
-
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            _player.NearbyAgent = null;
-        }
-    }
 }
