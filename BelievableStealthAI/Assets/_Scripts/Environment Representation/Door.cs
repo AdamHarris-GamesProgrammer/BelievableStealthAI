@@ -22,27 +22,16 @@ public class Door : ObservableObject
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy"))
         {
-            AILocomotion ai = other.GetComponent<AILocomotion>();
-            ai.CanUseDoor = true;
-
-            ai.CurrentDoor = this;
-            if (GetClosestDoorSide(other.transform.position) == sideA)
-            {
-                ai.SetDoorSides(sideA, sideB);
-            }
-            else
-            {
-                ai.SetDoorSides(sideB, sideA);
-            }
+            _animator.SetTrigger("openDoor");
         }
-        else if(other.CompareTag("Player"))
+        else if (other.CompareTag("Player"))
         {
             _player.NearbyDoor = this;
 
 
-            if(GetClosestDoorSide(other.transform.position))
+            if (GetClosestDoorSide(other.transform.position))
             {
                 _startObservePosition = sideA.position;
                 _endObservePositon = sideB.position;
@@ -59,31 +48,28 @@ public class Door : ObservableObject
     {
         if (Vector3.Distance(pos, sideA.position) < Vector3.Distance(pos, sideB.position))
         {
-            //Debug.Log("Close to Side A");
             return sideA;
         }
 
-        //Debug.Log("Close to Side B");
         return sideB;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy"))
         {
-            AILocomotion ai = other.GetComponent<AILocomotion>();
-            ai.CanUseDoor = false;
+            _animator.SetTrigger("closeDoor");
         }
-        else if(other.CompareTag("Player"))
+        else if (other.CompareTag("Player"))
         {
             _player.NearbyDoor = null;
         }
     }
 
-    public void DecideAnimation ()
+    public void DecideAnimation()
     {
         //opened
-        if(_currentState)
+        if (_currentState)
         {
             _animator.SetTrigger("closeDoor");
         }
