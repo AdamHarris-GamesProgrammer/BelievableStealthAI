@@ -74,6 +74,8 @@ public class AIAgent : MonoBehaviour
         _blackboard._walkSpeed = _walkSpeed;
         _blackboard._patrolSpeed = _patrolSpeed;
         _blackboard._chaseSpeed = _chaseSpeed;
+
+        _blackboard._health = GetComponent<Health>();
     }
 
     //TODO: Get closest patrol point method, so that ai can resume there patrol from the closest point 

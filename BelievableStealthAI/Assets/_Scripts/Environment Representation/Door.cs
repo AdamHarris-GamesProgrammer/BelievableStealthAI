@@ -24,7 +24,6 @@ public class Door : ObservableObject
     {
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log(other.name);
             _animator.SetTrigger("openDoor");
             
         }

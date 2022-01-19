@@ -20,6 +20,7 @@ public class RepeatUntilFail : DecoratorNode
 
         if(childState == State.Failure)
         {
+            Debug.Log("Child has failed");
             return State.Success;
         }
         else

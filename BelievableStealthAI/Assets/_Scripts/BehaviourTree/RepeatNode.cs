@@ -19,11 +19,11 @@ public class RepeatNode : DecoratorNode
 
     protected override State OnUpdate()
     {
-        if(currentIterations < iterations)
+        if (iterations == -1)
         {
             Node.State childState = child.Update();
 
-            if(childState == State.Failure || childState == State.Success)
+            if (childState == State.Failure || childState == State.Success)
             {
                 currentIterations++;
             }
@@ -32,7 +32,22 @@ public class RepeatNode : DecoratorNode
         }
         else
         {
-            return State.Success;
+            if (currentIterations < iterations)
+            {
+                Node.State childState = child.Update();
+
+                if (childState == State.Failure || childState == State.Success)
+                {
+                    currentIterations++;
+                }
+
+                return State.Running;
+            }
+            else
+            {
+                return State.Success;
+            }
         }
+
     }
 }

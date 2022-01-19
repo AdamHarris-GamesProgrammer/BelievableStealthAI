@@ -23,6 +23,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -55,6 +56,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -87,6 +89,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -120,6 +123,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -157,6 +161,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -190,6 +195,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -222,6 +228,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -255,6 +262,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -288,6 +296,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -321,6 +330,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -329,8 +339,8 @@ MonoBehaviour:
     _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: 6.4000664, y: 213.72202}
-  child: {fileID: -5924133988522763599}
+  _position: {x: 9.599986, y: 193.54501}
+  child: {fileID: 3446663720370336817}
 --- !u!114 &-7393894627663714364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,6 +364,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -386,6 +397,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -419,6 +431,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -452,6 +465,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -489,6 +503,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -522,6 +537,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -558,6 +574,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -567,7 +584,7 @@ MonoBehaviour:
   _description: 
   _agent: {fileID: 0}
   _position: {x: 6.4000664, y: 569.06085}
-  child: {fileID: -949457967634457392}
+  child: {fileID: 0}
 --- !u!114 &-3262959149031424091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,6 +608,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -624,6 +642,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -657,6 +676,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -690,6 +710,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -722,6 +743,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -755,6 +777,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -787,6 +810,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -824,6 +848,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -858,6 +883,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -891,6 +917,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -899,7 +926,7 @@ MonoBehaviour:
     _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: 148.79999, y: 1256}
+  _position: {x: 164.79987, y: 1256}
   child: {fileID: 5613981657587133909}
 --- !u!114 &-105923762129853817
 MonoBehaviour:
@@ -924,6 +951,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -976,6 +1004,7 @@ MonoBehaviour:
   - {fileID: 9154221184716096740}
   - {fileID: 3120139700780121142}
   - {fileID: -8676169461016593331}
+  - {fileID: 3446663720370336817}
   _blackboard:
     moveToPosition: {x: 6.69, y: 0, z: -6.82}
     spawnPosition: {x: 0, y: 0, z: 0}
@@ -984,6 +1013,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -1013,6 +1043,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -1046,6 +1077,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -1079,6 +1111,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -1112,6 +1145,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -1145,6 +1179,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -1180,6 +1215,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -1212,6 +1248,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -1222,6 +1259,41 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: -613.6623, y: 1069.7649}
   _children: []
+--- !u!114 &3446663720370336817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d543e75c130fe43a4968afe7e52186, type: 3}
+  m_Name: RepeatNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 227c1f034a252f34ba0c215f4efc5307
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 258.15332, y: 461.3878}
+  child: {fileID: -949457967634457392}
+  iterations: -1
 --- !u!114 &3627305687091036900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1245,6 +1317,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -1278,6 +1351,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -1311,6 +1385,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -1344,6 +1419,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -1377,6 +1453,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -1385,7 +1462,7 @@ MonoBehaviour:
     _player: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: 153.59999, y: 1389.7157}
+  _position: {x: 161.60002, y: 1381.8589}
   child: {fileID: -5831236195227128718}
 --- !u!114 &6106404697250895260
 MonoBehaviour:
@@ -1410,6 +1487,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -1445,6 +1523,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -1478,6 +1557,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -1510,6 +1590,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -1543,6 +1624,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -1576,6 +1658,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}
@@ -1609,6 +1692,7 @@ MonoBehaviour:
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
     _chaseSpeed: 5.4
+    _health: {fileID: 0}
     _nearbyPointsOfInterest: []
     _currentPOI: {fileID: 0}
     moveToObject: {fileID: 0}

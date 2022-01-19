@@ -33,6 +33,7 @@ public class OutOfPOI : DecoratorNode
                 _blackboard._nearbyPointsOfInterest.RemoveAt(0);
                 if (_blackboard._nearbyPointsOfInterest.Count <= 0)
                 {
+                    Debug.Log("Out of poi");
                     return State.Failure;
                 }
                 _blackboard._currentPOI = _blackboard._nearbyPointsOfInterest[0];
@@ -40,7 +41,13 @@ public class OutOfPOI : DecoratorNode
                 break;
             case State.Success:
                 _blackboard._nearbyPointsOfInterest.RemoveAt(0);
-                return State.Success;
+                if (_blackboard._nearbyPointsOfInterest.Count <= 0)
+                {
+                    Debug.Log("Out of poi");
+                    return State.Failure;
+                }
+                _blackboard._currentPOI = _blackboard._nearbyPointsOfInterest[0];
+                //return State.Success;
                 break;
         }
 

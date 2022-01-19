@@ -18,6 +18,8 @@ public class Blackboard
     public float _patrolSpeed = 1.2f;
     public float _chaseSpeed = 5.4f;
 
+    public Health _health;
+
     public List<PointOfInterest> _nearbyPointsOfInterest;
     public PointOfInterest _currentPOI;
 
