@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TGP.Control;
 using UnityEngine;
 using UnityEngine.AI;
@@ -29,6 +30,8 @@ public class AIAgent : MonoBehaviour
     bool _currentlySeeingPlayer = false;
     bool _hasAnObjectchanged = false;
 
+    Vector3 _pointOfSound;
+
     AIAgent _agentToCheckOn = null;
 
     Vector3 _lastKnownPlayerPosition;
@@ -38,11 +41,12 @@ public class AIAgent : MonoBehaviour
     public bool HasHeardSound { get => _hasHeardSound; }
     public bool HasSeenBody { get => _hasSeenBody; }
     public bool CurrentlyAlert { get => _currentlyAlert;}
-    public bool CurrentlyHearingSound { get => _currentlyHearingSound;}
+    public bool CurrentlyHearingSound { get => _currentlyHearingSound; set => _currentlyHearingSound = value; }
     public bool CurrentlySeeingPlayer { get => _currentlySeeingPlayer;}
     public bool HasAnObjectchanged { get => _hasAnObjectchanged; }
 
     public Vector3 LastKnownPlayerPosition { get => _lastKnownPlayerPosition; set => _lastKnownPlayerPosition = value; }
+    public Vector3 PointOfSound { get => _pointOfSound; set => _pointOfSound = value; }
 
     private void Awake()
     {
@@ -154,5 +158,27 @@ public class AIAgent : MonoBehaviour
     {
         _agentToCheckOn = agent;
         //TODO: Play Dialogue
+    }
+
+    //TODO: Replace distance with a variable
+    public List<PointOfInterest> GetNearbyPointsOfInterest()
+    {
+        List<PointOfInterest> poi = FindObjectsOfType<PointOfInterest>().ToList();
+        List<PointOfInterest> poiToRemove = new List<PointOfInterest>();
+
+        foreach(PointOfInterest p in poi)
+        {
+            if(Vector3.Distance(p.transform.position, transform.position) > 15.0f)
+            {
+                poiToRemove.Add(p);
+            }
+        }
+
+        foreach(PointOfInterest p in poiToRemove)
+        {
+            poi.Remove(p);
+        }
+
+        return poi;
     }
 }

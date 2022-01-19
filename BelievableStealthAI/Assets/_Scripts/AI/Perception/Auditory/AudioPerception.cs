@@ -10,6 +10,12 @@ public class AudioPerception : MonoBehaviour
 
     float _timeSinceLastSound;
     bool _heardSound;
+    AIAgent _aiAgent;
+
+    private void Awake()
+    {
+        _aiAgent = GetComponentInParent<AIAgent>();
+    }
 
     private void FixedUpdate()
     {
@@ -26,9 +32,8 @@ public class AudioPerception : MonoBehaviour
         }
     }
 
-    public void AddSound(float val)
+    public void AddSound(Vector3 origin, float val)
     {
-        Debug.Log("Perciever heard sound with value: " + val);
         _heardSound = true;
 
         heardValue = Mathf.Min(heardValue + val, 1.0f);
@@ -36,6 +41,9 @@ public class AudioPerception : MonoBehaviour
         if(heardValue >= 1.0f)
         {
             _heard = true;
+            _aiAgent.CurrentlyHearingSound = true;
+            _aiAgent.PointOfSound = origin;
+
         }
     }
 

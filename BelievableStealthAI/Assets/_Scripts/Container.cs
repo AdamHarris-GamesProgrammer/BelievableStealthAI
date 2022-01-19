@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TGP.Control;
 using UnityEngine;
 
-public class Container : MonoBehaviour
+public class Container : PointOfInterest
 {
     bool _playerInside = false;
     bool _bodyBagInside = false;
@@ -28,5 +28,15 @@ public class Container : MonoBehaviour
     {
         if (other.CompareTag("Player"))
             _player.NearbyContainer = null;
+    }
+
+    public override bool Search()
+    {
+        if(_playerInside || _bodyBagInside)
+        {
+            return true;
+        }
+
+        return false;
     }
 }

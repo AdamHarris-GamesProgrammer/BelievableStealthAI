@@ -25,7 +25,7 @@ public class AudioProducer : MonoBehaviour
                 {
                     float percentageOfMaxDistance = totalDistance / maxDistance;
                     float heard = val * (1 - percentageOfMaxDistance);
-                    perciever.AddSound(heard);
+                    perciever.AddSound(transform.position, heard);
                 }
             }
         }
