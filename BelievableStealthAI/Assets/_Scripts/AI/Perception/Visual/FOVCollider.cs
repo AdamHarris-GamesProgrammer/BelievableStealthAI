@@ -11,6 +11,7 @@ public class FOVCollider : MonoBehaviour
     FOVController _fovController;
 
     PlayerController _player;
+    AIAgent _agent;
 
     bool _inside = false;
 
@@ -18,11 +19,15 @@ public class FOVCollider : MonoBehaviour
     public bool Visible { get => _visible; }
 
     public List<ObservableObject> _observedObjects;
+    public List<GameObject> _bodiesInCollider;
 
     private void Awake()
     {
         _fovController = GetComponentInParent<FOVController>();
         _player = FindObjectOfType<PlayerController>();
+        _bodiesInCollider = new List<GameObject>();
+        _observedObjects = new List<ObservableObject>();
+        _agent = GetComponentInParent<AIAgent>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,6 +41,10 @@ public class FOVCollider : MonoBehaviour
         {
             _observedObjects.Add(other.GetComponent<ObservableObject>());
         }
+        else if(other.CompareTag("DeadBody"))
+        {
+            _bodiesInCollider.Add(other.gameObject);
+        }
     }
 
     private void FixedUpdate()
@@ -43,7 +52,32 @@ public class FOVCollider : MonoBehaviour
         //TODO: Switch this to notify the AI controller of the observed object rather than handle it here
         if (_observedObjects.Count > 0)
         {
-            foreach(ObservableObject obj in _observedObjects)
+            if(!_agent.HasAnObjectchanged)
+            {
+                foreach (ObservableObject obj in _observedObjects)
+                {
+                    RaycastHit hit;
+                    Vector3 pos = obj.transform.position;
+                    Vector3 direction = (pos - _fovController.transform.position);
+                    Debug.DrawRay(_fovController.transform.position, direction);
+                    if (Physics.Raycast(_fovController.transform.position, direction, out hit, 25.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
+                    {
+                        if (hit.transform.GetInstanceID() == obj.transform.GetInstanceID())
+                        {
+                            if (obj.HasRecentlyChanged)
+                            {
+                                _agent.SeenChangedObject(obj);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        if(_bodiesInCollider.Count > 0)
+        {
+            foreach(GameObject obj in _bodiesInCollider)
             {
                 RaycastHit hit;
                 Vector3 pos = obj.transform.position;
@@ -53,12 +87,8 @@ public class FOVCollider : MonoBehaviour
                 {
                     if (hit.transform.GetInstanceID() == obj.transform.GetInstanceID())
                     {
-                        Debug.Log("Observing an object");
-                        if (obj.HasRecentlyChanged)
-                        {
-                            GetComponentInParent<AILocomotion>().SetDestination(obj.EndObservePosition);
-                            break;
-                        }
+                        _agent.BodyDetected();
+                        break;
                     }
                 }
             }
@@ -114,6 +144,10 @@ public class FOVCollider : MonoBehaviour
         else if(other.CompareTag("ObservableObject"))
         {
             _observedObjects.Remove(other.GetComponent<ObservableObject>());
+        }
+        else if(other.CompareTag("DeadBody"))
+        {
+            _bodiesInCollider.Remove(other.gameObject);
         }
     }
 

@@ -27,4 +27,6 @@ public class Blackboard
     public AILocomotion _locomotion;
     public AIAgent _agent;
     public PlayerController _player;
+
+    public ObservableObject _changedObservedObject;
 }

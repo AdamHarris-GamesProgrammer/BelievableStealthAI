@@ -14,12 +14,18 @@ public class AIAgent : MonoBehaviour
 
     PlayerController _player;
 
+    [Header("Patrol Settings")]
     [SerializeField] PatrolRoute _patrolRoute;
     int _currentPatrolIndex = 0;
 
+    [Header("Movement Settings")]
     [SerializeField] float _walkSpeed = 1.5f;
     [SerializeField] float _patrolSpeed = 1.2f;
     [SerializeField] float _chaseSpeed = 5.4f;
+
+    [Header("Suspicion Settings")]
+    [SerializeField] float _durationForSuspiscion = 15.0f;
+    float _suspiscionTimer;
 
 
     bool _haveBeenAlerted = false;
@@ -42,7 +48,7 @@ public class AIAgent : MonoBehaviour
     public bool HasHeardSound { get => _hasHeardSound; }
     public bool HasSeenBody { get => _hasSeenBody; }
     public bool CurrentlyAlert { get => _currentlyAlert;}
-    public bool CurrentlyHearingSound { get => _currentlyHearingSound; set => _currentlyHearingSound = value; }
+    public bool CurrentlyHearingSound { get => _currentlyHearingSound; }
     public bool CurrentlySeeingPlayer { get => _currentlySeeingPlayer;}
     public bool HasAnObjectchanged { get => _hasAnObjectchanged; }
 
@@ -97,6 +103,11 @@ public class AIAgent : MonoBehaviour
         _animator.SetTrigger("attack");  
     }
 
+    public void SeenChangedObject(ObservableObject obj)
+    {
+        _blackboard._changedObservedObject = obj;
+        _hasAnObjectchanged = true;
+    }
 
 
     //TODO: Get closest patrol point method, so that ai can resume there patrol from the closest point 
@@ -108,7 +119,19 @@ public class AIAgent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(_currentlyAlert)
+        {
+            if(!_currentlySeeingPlayer && !_currentlyHearingSound)
+            {
+                _suspiscionTimer += Time.deltaTime;
 
+                if(_suspiscionTimer > _durationForSuspiscion)
+                {
+                    _suspiscionTimer = 0.0f;
+                    _currentlyAlert = false;
+                }
+            }
+        }
     }
 
     public void BodyDetected()
@@ -136,11 +159,11 @@ public class AIAgent : MonoBehaviour
 
         if(!_hasSeenPlayer)
         {
-            //TODO: Play Dialogue
+            //TODO: Play Dialogue "Whose there?"
         }
         else
         {
-            //TODO: Play Dialogue
+            //TODO: Play Dialogue "You again."
         }
         
         if(!_currentlyAlert)
@@ -156,9 +179,6 @@ public class AIAgent : MonoBehaviour
     public void LostSightOfPlayer()
     {
         _currentlySeeingPlayer = false;
-        
-        //TODO: Currently alert should be set to false at another point
-        _currentlyAlert = false;
     }
 
     public void SoundHeard()
@@ -172,14 +192,28 @@ public class AIAgent : MonoBehaviour
         }
         else
         {
-            //TODO: Play Dialogue
+            //TODO: Play Dialogue "What was that!"
+        }
+    }
+
+    public void NoLongerHearingSound()
+    {
+        _currentlyHearingSound = false;
+
+        if(_currentlyAlert)
+        {
+            return;
+        }
+        else
+        {
+            //TODO: Play dialogue "Hmm. Must've been nothing"
         }
     }
 
     public void CheckOn(AIAgent agent)
     {
         _agentToCheckOn = agent;
-        //TODO: Play Dialogue
+        //TODO: Play Dialogue "Hey Matt, are you there?"
     }
 
     //TODO: Replace distance with a variable

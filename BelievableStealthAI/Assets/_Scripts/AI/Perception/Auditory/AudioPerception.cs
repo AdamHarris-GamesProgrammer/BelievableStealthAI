@@ -41,7 +41,7 @@ public class AudioPerception : MonoBehaviour
         if(heardValue >= 1.0f)
         {
             _heard = true;
-            _aiAgent.CurrentlyHearingSound = true;
+            _aiAgent.SoundHeard();
             _aiAgent.PointOfSound = origin;
 
         }
@@ -58,7 +58,7 @@ public class AudioPerception : MonoBehaviour
         if(heardValue == 0.0f)
         {
             _heardSound = false;
-            _aiAgent.CurrentlyHearingSound = false;
+            _aiAgent.NoLongerHearingSound();
         }
     }
 }

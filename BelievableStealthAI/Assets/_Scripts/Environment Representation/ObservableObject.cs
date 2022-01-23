@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class ObservableObject : MonoBehaviour
 {
     [SerializeField] protected bool _originalState;
@@ -9,6 +11,13 @@ public class ObservableObject : MonoBehaviour
     [SerializeField] protected bool _changedState;
     [SerializeField] protected bool _changedStateRecently;
     [SerializeField] float _eventDuration = 180.0f;
+
+    [SerializeField] ObservableType _type;
+
+    [SerializeField] Transform _sideA;
+    [SerializeField] Transform _sideB;
+
+    public ObservableType Type { get => _type; }
 
     protected Vector3 _startObservePosition;
     protected Vector3 _endObservePositon;
@@ -38,6 +47,17 @@ public class ObservableObject : MonoBehaviour
                 _changedStateRecently = false;
             }
         }
+    }
+
+    public Transform GetClosestSide(Vector3 pos)
+    {
+        if (_sideA == _sideB) return _sideA;
+
+        if(Vector3.Distance(_sideA.position, pos) < Vector3.Distance(_sideB.position, pos))
+        {
+            return _sideA;
+        }
+        return _sideB;
     }
 
     public void InteractWithObject()
