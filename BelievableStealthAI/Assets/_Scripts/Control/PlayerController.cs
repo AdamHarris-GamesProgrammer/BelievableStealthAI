@@ -248,5 +248,11 @@ namespace TGP.Control
             _bodybagAttachment.SetActive(val);
             _carryingBodybag = val;
         }
+        
+        public void TakeHit()
+        {
+            //Kill player
+            GetComponent<PlayerHealth>().TakeDamage(10000.0f);
+        }
     }
 }

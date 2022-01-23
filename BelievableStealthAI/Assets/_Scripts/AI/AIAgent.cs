@@ -10,6 +10,7 @@ public class AIAgent : MonoBehaviour
     BehaviorTree _behaviorTree;
     Blackboard _blackboard;
     AILocomotion _locomotion;
+    Animator _animator;
 
     PlayerController _player;
 
@@ -51,6 +52,7 @@ public class AIAgent : MonoBehaviour
     private void Awake()
     {
         _player = FindObjectOfType<PlayerController>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -78,8 +80,26 @@ public class AIAgent : MonoBehaviour
         _blackboard._health = GetComponent<Health>();
     }
 
-    //TODO: Get closest patrol point method, so that ai can resume there patrol from the closest point 
 
+    public bool TryAttack()
+    {
+        if(Vector3.Distance(_player.transform.position, transform.position) < 0.5f)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public void Attack()
+    {
+        //Debug.Log("Attack method");
+        _animator.SetTrigger("attack");  
+    }
+
+
+
+    //TODO: Get closest patrol point method, so that ai can resume there patrol from the closest point 
     public void GetNextPatrolPoint()
     {
         _blackboard.moveToPosition = _patrolRoute.GetNextIndex(ref _currentPatrolIndex);
@@ -111,7 +131,7 @@ public class AIAgent : MonoBehaviour
 
     public void PlayerSeen()
     {
-        Debug.Log("Player Seen");
+        //Debug.Log("Player Seen");
         _currentlySeeingPlayer = true;
 
         if(!_hasSeenPlayer)
@@ -182,5 +202,18 @@ public class AIAgent : MonoBehaviour
         }
 
         return poi;
+    }
+
+    //Called by Unity Animator
+    public void Bite()
+    {
+        Vector3 playerDir = (_player.transform.position - transform.position).normalized;
+        if(Physics.Raycast(transform.position + (Vector3.up * 1.5f), playerDir, out RaycastHit hit, 1.0f, ~0, QueryTriggerInteraction.Ignore))
+        {
+            if(hit.transform.GetComponentInParent<PlayerController>())
+            {
+                _player.TakeHit();
+            }
+        }
     }
 }

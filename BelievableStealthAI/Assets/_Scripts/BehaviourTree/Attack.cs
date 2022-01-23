@@ -18,6 +18,14 @@ public class Attack : ActionNode
     {
         //TODO: Implement attack logic
 
-        return State.Failure;
+        if(!_blackboard._agent.TryAttack())
+        {
+            return State.Failure;            
+        }
+
+
+        _blackboard._agent.Attack();
+
+        return State.Success;
     }
 }
