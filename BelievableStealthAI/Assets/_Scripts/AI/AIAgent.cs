@@ -43,14 +43,18 @@ public class AIAgent : MonoBehaviour
 
     Vector3 _lastKnownPlayerPosition;
 
-    public bool HaveBeenAlerted { get => _haveBeenAlerted;}
+    Lightswitch _lightswitch;
+
+    public bool HaveBeenAlerted { get => _haveBeenAlerted; }
     public bool HasSeenPlayer { get => _hasSeenPlayer; }
     public bool HasHeardSound { get => _hasHeardSound; }
     public bool HasSeenBody { get => _hasSeenBody; }
-    public bool CurrentlyAlert { get => _currentlyAlert;}
+    public bool CurrentlyAlert { get => _currentlyAlert; }
     public bool CurrentlyHearingSound { get => _currentlyHearingSound; }
-    public bool CurrentlySeeingPlayer { get => _currentlySeeingPlayer;}
+    public bool CurrentlySeeingPlayer { get => _currentlySeeingPlayer; }
     public bool HasAnObjectchanged { get => _hasAnObjectchanged; }
+
+    public Lightswitch ChangedLightswitch { get => _lightswitch; }
 
     public Vector3 LastKnownPlayerPosition { get => _lastKnownPlayerPosition; set => _lastKnownPlayerPosition = value; }
     public Vector3 PointOfSound { get => _pointOfSound; set => _pointOfSound = value; }
@@ -75,7 +79,7 @@ public class AIAgent : MonoBehaviour
         _blackboard.spawnOrientation = transform.forward;
         _blackboard._player = FindObjectOfType<PlayerController>();
 
-        if(_patrolRoute)
+        if (_patrolRoute)
         {
             _blackboard._hasPatrolRoute = true;
         }
@@ -90,7 +94,7 @@ public class AIAgent : MonoBehaviour
 
     public bool TryAttack()
     {
-        if(Vector3.Distance(_player.transform.position, transform.position) < 0.5f)
+        if (Vector3.Distance(_player.transform.position, transform.position) < 0.5f)
         {
             return true;
         }
@@ -101,7 +105,7 @@ public class AIAgent : MonoBehaviour
     public void Attack()
     {
         //Debug.Log("Attack method");
-        _animator.SetTrigger("attack");  
+        _animator.SetTrigger("attack");
     }
 
     public void SeenChangedObject(ObservableObject obj)
@@ -120,13 +124,13 @@ public class AIAgent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_currentlyAlert)
+        if (_currentlyAlert)
         {
-            if(!_currentlySeeingPlayer && !_currentlyHearingSound)
+            if (!_currentlySeeingPlayer && !_currentlyHearingSound)
             {
                 _suspiscionTimer += Time.deltaTime;
 
-                if(_suspiscionTimer > _durationForSuspiscion)
+                if (_suspiscionTimer > _durationForSuspiscion)
                 {
                     _suspiscionTimer = 0.0f;
                     _currentlyAlert = false;
@@ -138,12 +142,12 @@ public class AIAgent : MonoBehaviour
     public void BodyDetected()
     {
         _hasSeenBody = true;
-        if(_currentlyAlert)
+        if (_currentlyAlert)
         {
             return;
         }
 
-        if(!_haveBeenAlerted)
+        if (!_haveBeenAlerted)
         {
             //TODO: Play Panicked Animation and Dialogue 
         }
@@ -158,7 +162,7 @@ public class AIAgent : MonoBehaviour
         //Debug.Log("Player Seen");
         _currentlySeeingPlayer = true;
 
-        if(!_hasSeenPlayer)
+        if (!_hasSeenPlayer)
         {
             //TODO: Play Dialogue "Whose there?"
         }
@@ -166,8 +170,8 @@ public class AIAgent : MonoBehaviour
         {
             //TODO: Play Dialogue "You again."
         }
-        
-        if(!_currentlyAlert)
+
+        if (!_currentlyAlert)
         {
             //TODO: Alert nearby allys
             _currentlyAlert = true;
@@ -175,6 +179,23 @@ public class AIAgent : MonoBehaviour
         }
 
         _hasSeenPlayer = true;
+    }
+
+    public void LightSwitchChanged(Lightswitch ls)
+    {
+        _lightswitch = ls;
+
+        //Trigger the object investigation branch
+        SeenChangedObject(ls);
+
+        if (!_currentlyAlert)
+        {
+            //TODO: Play dialogue: "That's odd"
+        }
+        else
+        {
+            //TODO: Play dialogue: "I'll find you dammit
+        }
     }
 
     public void LostSightOfPlayer()
@@ -187,7 +208,7 @@ public class AIAgent : MonoBehaviour
         _currentlyHearingSound = true;
         _hasHeardSound = true;
 
-        if(_currentlyAlert)
+        if (_currentlyAlert)
         {
             return;
         }
@@ -201,7 +222,7 @@ public class AIAgent : MonoBehaviour
     {
         _currentlyHearingSound = false;
 
-        if(_currentlyAlert)
+        if (_currentlyAlert)
         {
             return;
         }
@@ -223,15 +244,15 @@ public class AIAgent : MonoBehaviour
         List<PointOfInterest> poi = FindObjectsOfType<PointOfInterest>().ToList();
         List<PointOfInterest> poiToRemove = new List<PointOfInterest>();
 
-        foreach(PointOfInterest p in poi)
+        foreach (PointOfInterest p in poi)
         {
-            if(Vector3.Distance(p.transform.position, transform.position) > 15.0f)
+            if (Vector3.Distance(p.transform.position, transform.position) > 15.0f)
             {
                 poiToRemove.Add(p);
             }
         }
 
-        foreach(PointOfInterest p in poiToRemove)
+        foreach (PointOfInterest p in poiToRemove)
         {
             poi.Remove(p);
         }
@@ -243,9 +264,9 @@ public class AIAgent : MonoBehaviour
     public void Bite()
     {
         Vector3 playerDir = (_player.transform.position - transform.position).normalized;
-        if(Physics.Raycast(transform.position + (Vector3.up * 1.5f), playerDir, out RaycastHit hit, 1.0f, ~0, QueryTriggerInteraction.Ignore))
+        if (Physics.Raycast(transform.position + (Vector3.up * 1.5f), playerDir, out RaycastHit hit, 1.0f, ~0, QueryTriggerInteraction.Ignore))
         {
-            if(hit.transform.GetComponentInParent<PlayerController>())
+            if (hit.transform.GetComponentInParent<PlayerController>())
             {
                 _player.TakeHit();
             }

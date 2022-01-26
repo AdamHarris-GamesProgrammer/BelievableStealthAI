@@ -9,9 +9,21 @@ public class Lightswitch : ObservableObject
 
     PlayerController _controller;
 
+    List<AIAgent> _aiToAlert;
+
+    public void AddAgent(AIAgent agent) {
+        _aiToAlert.Add(agent);
+    }
+
+    public void RemoveAgent(AIAgent agent)
+    {
+        _aiToAlert.Remove(agent);
+    }
+
     private void Awake()
     {
         _controller = FindObjectOfType<PlayerController>();
+        _aiToAlert = new List<AIAgent>();
 
         if(_controlsLight.gameObject.GetComponent<Light>().enabled)
         {
@@ -51,5 +63,10 @@ public class Lightswitch : ObservableObject
     public void HandleLogic()
     {
         _controlsLight.gameObject.GetComponent<Light>().enabled = _currentState;
+
+        foreach(AIAgent agent in _aiToAlert)
+        {
+            agent.LightSwitchChanged(this);
+        }
     }
 }

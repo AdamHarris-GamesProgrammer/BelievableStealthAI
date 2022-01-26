@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IsObjectLightswitch : DecoratorNode
+public class IsObservableType : DecoratorNode
 {
+    public ObservableType type;
+
     protected override void OnStart()
     {
         
@@ -16,7 +18,7 @@ public class IsObjectLightswitch : DecoratorNode
 
     protected override State OnUpdate()
     {
-        if (_blackboard._changedObservedObject.Type == ObservableType.Lightswitch)
+        if (_blackboard._changedObservedObject.Type == type)
         {
             return child.Update();
         }
