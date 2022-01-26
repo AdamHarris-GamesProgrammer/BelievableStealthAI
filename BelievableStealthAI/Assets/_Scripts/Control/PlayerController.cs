@@ -31,6 +31,7 @@ namespace TGP.Control
         AIAgent _nearbyAgent;
         Bodybag _nearbyBodybag;
         Window _nearbyWindow;
+        Lightswitch _nearbySwitch;
 
         bool _visible = true;
         bool _canMove = true;
@@ -39,6 +40,7 @@ namespace TGP.Control
         public bool Visible { get => _visible; }
         public bool CanMove { get => _canMove; }
         public Container NearbyContainer { get => _nearbyContainer; set { _nearbyContainer = value; SetPrompt(); } }
+        public Lightswitch NearbyLightswitch { get => _nearbySwitch; set { _nearbySwitch = value; SetPrompt(); } }
 
         public Window NearbyWindow { get => _nearbyWindow; set { _nearbyWindow = value; SetPrompt(); } }
         public Door NearbyDoor { get => _nearbyDoor; set { _nearbyDoor = value; SetPrompt(); } }
@@ -110,6 +112,11 @@ namespace TGP.Control
             {
                 if (_nearbyWindow.CurrentState) _uiEPrompt.SetText("Close Window");
                 else _uiEPrompt.SetText("Open Window");
+            }
+            else if(_nearbySwitch)
+            {
+                if (_nearbySwitch.CurrentState) _uiEPrompt.SetText("Turn off light");
+                else _uiEPrompt.SetText("Turn on light");
             }
             else
             {
@@ -225,6 +232,14 @@ namespace TGP.Control
                 {
                     _nearbyWindow.DecideAnimation();
                     _nearbyWindow.InteractWithObject();
+                }
+            }
+            else if(_nearbySwitch)
+            {
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    _nearbySwitch.InteractWithObject();
+                    _nearbySwitch.HandleLogic();
                 }
             }
             else if(_carryingBodybag)
