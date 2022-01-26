@@ -704,7 +704,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: 0, y: 0}
+  _position: {x: 371.8325, y: 1424.1777}
 --- !u!114 &-1964962120878575402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1402,6 +1402,7 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: 591.19995, y: 1226.4}
   _children:
+  - {fileID: -2522436917951873898}
   - {fileID: 6161932071056464416}
 --- !u!114 &4530519376245123503
 MonoBehaviour:
@@ -1506,7 +1507,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: 524.3999, y: 1679.2}
+  _position: {x: 530.25085, y: 1679.1997}
   child: {fileID: 0}
 --- !u!114 &5493682938391188002
 MonoBehaviour:
