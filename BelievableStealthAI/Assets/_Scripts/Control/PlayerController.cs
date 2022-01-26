@@ -16,6 +16,7 @@ namespace TGP.Control
         [SerializeField] UIPrompt _uiGPrompt;
         [SerializeField] GameObject _bodybagAttachment;
         [SerializeField] Bodybag _bodybagPrefab;
+        [SerializeField] CanvasGroup _deathScreenGroup;
 
         public GameObject FollowCam { get { return _followCam; } }
 
@@ -268,6 +269,7 @@ namespace TGP.Control
         {
             //Kill player
             GetComponent<PlayerHealth>().TakeDamage(10000.0f);
+            _deathScreenGroup.alpha = 1.0f;
         }
     }
 }

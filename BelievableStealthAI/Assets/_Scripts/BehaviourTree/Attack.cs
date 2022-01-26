@@ -16,6 +16,11 @@ public class Attack : ActionNode
 
     protected override State OnUpdate()
     {
+        if(_blackboard._player.GetComponent<Health>().IsDead)
+        {
+            return State.Success;
+        }
+
         //TODO: Implement attack logic
 
         if(!_blackboard._agent.TryAttack())

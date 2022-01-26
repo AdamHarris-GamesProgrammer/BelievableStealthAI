@@ -31,7 +31,6 @@ public class Window : ObservableObject
     {
         if(other.CompareTag("Enemy"))
         {
-            Debug.Log("Play open animation");
             _animator.SetTrigger("openWindow");
         }
         else if(other.CompareTag("Player"))
@@ -44,7 +43,6 @@ public class Window : ObservableObject
     {
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("Play close animation");
             _animator.SetTrigger("closeWindow");
         }
         else if (other.CompareTag("Player"))

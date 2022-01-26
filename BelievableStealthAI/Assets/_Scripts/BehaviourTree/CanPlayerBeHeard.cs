@@ -14,7 +14,8 @@ public class CanPlayerBeHeard : DecoratorNode
 
     protected override State OnUpdate()
     {
-        if(_blackboard._agent.CurrentlyHearingSound)
+        if (_blackboard._player.GetComponent<Health>().IsDead) return State.Failure;
+        if (_blackboard._agent.CurrentlyHearingSound)
         {
             return child.Update();
         }

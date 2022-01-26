@@ -674,6 +674,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 613930305686664126, guid: 0d690bb10b1b8a24fb4eb70d88cc8ae8, type: 3}
   m_PrefabInstance: {fileID: 47744767}
   m_PrefabAsset: {fileID: 0}
+--- !u!225 &73929645 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 5593835208494574879, guid: 1e61da3a326c7b647aaafc9699ade62f, type: 3}
+  m_PrefabInstance: {fileID: 1581733958}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &77880355
 GameObject:
   m_ObjectHideFlags: 0
@@ -12344,6 +12349,10 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.z
       value: -0.18270652
       objectReference: {fileID: 0}
+    - target: {fileID: 1943245967364093406, guid: 1e61da3a326c7b647aaafc9699ade62f, type: 3}
+      propertyPath: _deathScreenGroup
+      value: 
+      objectReference: {fileID: 73929645}
     - target: {fileID: 1943969994345008571, guid: 1e61da3a326c7b647aaafc9699ade62f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.18151176
@@ -12959,6 +12968,10 @@ PrefabInstance:
     - target: {fileID: 6550160304572709666, guid: 1e61da3a326c7b647aaafc9699ade62f, type: 3}
       propertyPath: m_Name
       value: E Prompt
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808390836585227983, guid: 1e61da3a326c7b647aaafc9699ade62f, type: 3}
+      propertyPath: m_Name
+      value: You died text
       objectReference: {fileID: 0}
     - target: {fileID: 7378264618500672053, guid: 1e61da3a326c7b647aaafc9699ade62f, type: 3}
       propertyPath: m_LocalPosition.x

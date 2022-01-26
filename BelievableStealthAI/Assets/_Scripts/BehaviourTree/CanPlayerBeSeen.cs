@@ -15,6 +15,7 @@ public class CanPlayerBeSeen : DecoratorNode
 
     protected override State OnUpdate()
     {
+        if (_blackboard._player.GetComponent<Health>().IsDead) return State.Failure;
 
         if(_blackboard._agent.CurrentlySeeingPlayer)
         {

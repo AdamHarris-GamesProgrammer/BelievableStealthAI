@@ -73,6 +73,7 @@ public class AIAgent : MonoBehaviour
 
         _blackboard.spawnPosition = transform.position;
         _blackboard.spawnOrientation = transform.forward;
+        _blackboard._player = FindObjectOfType<PlayerController>();
 
         if(_patrolRoute)
         {
