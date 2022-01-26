@@ -9,7 +9,8 @@ public abstract class DecoratorNode : Node
     public override Node Clone()
     {
         DecoratorNode node = Instantiate(this);
-        node.child = child.Clone();
+        if(node.child != null)
+            node.child = child.Clone();
         return node;
     }
 }

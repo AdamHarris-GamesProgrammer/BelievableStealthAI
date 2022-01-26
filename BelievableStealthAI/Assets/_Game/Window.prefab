@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 571422917250741899}
   - component: {fileID: 3312613181341606831}
   - component: {fileID: 5182914489686873116}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +300,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.03, y: 1.67, z: 1.27}
+  m_Size: {x: 1.49, y: 1.67, z: 2.01}
   m_Center: {x: 0, y: 0.99, z: 0}
 --- !u!114 &3761196991715387932
 MonoBehaviour:
@@ -321,6 +321,7 @@ MonoBehaviour:
   _type: 1
   _sideA: {fileID: 4519740459419462162}
   _sideB: {fileID: 734171084994506475}
+  _colliderToDisable: {fileID: 5385539374733987392}
 --- !u!1 &6471771326213616027
 GameObject:
   m_ObjectHideFlags: 0
