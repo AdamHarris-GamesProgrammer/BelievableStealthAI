@@ -1,5 +1,46 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8900497732349975157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf4555b4e94ba04ba5282e11e04d296, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: c3327b5d54598884ea729143fb7ef0b6
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 1057.6, y: 2000.3997}
+  _children:
+  - {fileID: 1834432922353682885}
+  - {fileID: 6383556851447391520}
+  - {fileID: -4231617152061408260}
+  - {fileID: 5342076078498066849}
 --- !u!114 &-8885461862003316714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19,6 +60,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -53,6 +96,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -88,6 +133,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -127,6 +174,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -162,6 +211,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -197,6 +248,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -232,6 +285,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -267,6 +322,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -281,8 +338,8 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: 736.8, y: 1892.8}
-  child: {fileID: 0}
+  _position: {x: 988.98413, y: 1658.4}
+  child: {fileID: -8900497732349975157}
   type: 1
 --- !u!114 &-7801549808582962536
 MonoBehaviour:
@@ -303,6 +360,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -338,6 +397,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -354,6 +415,82 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: -1.6000977, y: 259.68}
   child: {fileID: 3446663720370336817}
+--- !u!114 &-7504304160774079169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf4555b4e94ba04ba5282e11e04d296, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: b2c3ba6130ca4124a9af9e49c769d631
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 1408.8, y: 1836.6118}
+  _children:
+  - {fileID: 7250597735751750588}
+  - {fileID: 4634281430518241089}
+  - {fileID: -1794314320009971397}
+--- !u!114 &-6976016129588264961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85cdb2e23ba093f40a4fa9731f2535c9, type: 3}
+  m_Name: SetObservedToNull
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: f183727e7e0f89946bfab0d9b1d165b3
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 923.3555, y: 1416}
 --- !u!114 &-6776375058535264152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +510,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -389,6 +528,120 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: -103.036, y: 841.59985}
   child: {fileID: 0}
+--- !u!114 &-6374734076956998120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd5bbc181f3231a4589d5c0984af99a1, type: 3}
+  m_Name: SucceederNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 1046be2b056a2234db06b9dde59ef8a8
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 0, y: 0}
+  child: {fileID: 0}
+--- !u!114 &-5385194402569011908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbce325cd6d72ac45a53100e38802c19, type: 3}
+  m_Name: InteractWithObject
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 87bf0d59c74253b469baa5dd304ef374
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 745.4826, y: 2039.2}
+--- !u!114 &-5103510168762291917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf4555b4e94ba04ba5282e11e04d296, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 80f078105cfbf7a41bd9d90da729fe40
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 472, y: 1841.3701}
+  _children:
+  - {fileID: 3196923238885936984}
+  - {fileID: 8305620851374073900}
+  - {fileID: 5235718446326368153}
+  - {fileID: -5385194402569011908}
 --- !u!114 &-4908642595397845253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +661,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -424,6 +679,43 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: -17.600098, y: 720}
   child: {fileID: -3766552573145192086}
+--- !u!114 &-4231617152061408260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd5bbc181f3231a4589d5c0984af99a1, type: 3}
+  m_Name: SucceederNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: d1e99596b6f826043bab7cc169289d9b
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 1201.6002, y: 2246.0002}
+  child: {fileID: 5117987494037089303}
 --- !u!114 &-3766552573145192086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,6 +735,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -480,6 +774,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -515,6 +811,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -531,6 +829,43 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: 1.6000366, y: 269.62268}
   child: {fileID: 8652391707660331918}
+--- !u!114 &-2972270809927214515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c83271d1aee380a409fd915d2b7e5023, type: 3}
+  m_Name: TreeRunnerNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 02891fdc52594dc489ffea6d013e49fd
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 527.2001, y: 2231.2}
+  _treeToRun: {fileID: 11400000, guid: 410abcba7b1fdc54ba50319171efc2fd, type: 2}
 --- !u!114 &-2687075563162140999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,6 +885,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -585,6 +922,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -619,6 +958,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -653,6 +994,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -669,6 +1012,43 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: 121.59997, y: 849.6}
   child: {fileID: 4530519376245123503}
+--- !u!114 &-1794314320009971397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c83271d1aee380a409fd915d2b7e5023, type: 3}
+  m_Name: TreeRunnerNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 17a804901e1a5004fbc4f4915f2a49d0
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 1822.5924, y: 2196.4001}
+  _treeToRun: {fileID: 11400000, guid: 410abcba7b1fdc54ba50319171efc2fd, type: 2}
 --- !u!114 &-961593324422157271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,6 +1068,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -722,6 +1104,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -761,6 +1145,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -797,6 +1183,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -850,10 +1238,30 @@ MonoBehaviour:
   - {fileID: 7171261117919549809}
   - {fileID: -8275045587542209623}
   - {fileID: 1798900875829983063}
+  - {fileID: -5103510168762291917}
+  - {fileID: 3196923238885936984}
+  - {fileID: 8305620851374073900}
+  - {fileID: -2972270809927214515}
+  - {fileID: -5385194402569011908}
+  - {fileID: 1834432922353682885}
+  - {fileID: 6383556851447391520}
+  - {fileID: 5117987494037089303}
+  - {fileID: 5342076078498066849}
+  - {fileID: -8900497732349975157}
+  - {fileID: 7250597735751750588}
+  - {fileID: -7504304160774079169}
+  - {fileID: 4634281430518241089}
+  - {fileID: -1794314320009971397}
+  - {fileID: -6976016129588264961}
+  - {fileID: -4231617152061408260}
+  - {fileID: 5235718446326368153}
+  - {fileID: -6374734076956998120}
   _blackboard:
     moveToPosition: {x: 6.69, y: 0, z: -6.82}
     spawnPosition: {x: 3.93, y: 0.00000047683716, z: -3.37}
     spawnOrientation: {x: 0.000000029802326, y: 0, z: -1}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 1
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -885,6 +1293,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -920,6 +1330,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -955,6 +1367,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -969,8 +1383,8 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: 1007.1999, y: 1892.8}
-  child: {fileID: 0}
+  _position: {x: 1378.3999, y: 1666.4}
+  child: {fileID: -7504304160774079169}
   type: 2
 --- !u!114 &1820955044241947387
 MonoBehaviour:
@@ -991,6 +1405,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -1007,6 +1423,42 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
   _children: []
+--- !u!114 &1834432922353682885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070bde9be0aa8ca428356f9725d4d8d8, type: 3}
+  m_Name: GoToFurthestSide
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 691bc0ff35e1c3f49bddff57ea55f515
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 763.1999, y: 2206.9956}
 --- !u!114 &2207741791602816963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1026,6 +1478,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -1061,6 +1515,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -1079,6 +1535,42 @@ MonoBehaviour:
   _children:
   - {fileID: -8553339931234493907}
   - {fileID: 6769040832318622807}
+--- !u!114 &3196923238885936984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070bde9be0aa8ca428356f9725d4d8d8, type: 3}
+  m_Name: GoToFurthestSide
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: f4a3ececb5894884ba57549062df9a4b
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 98.488174, y: 2031.2}
 --- !u!114 &3230720824742364611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1098,6 +1590,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -1133,6 +1627,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -1169,6 +1665,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -1204,6 +1702,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -1218,10 +1718,11 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: 591.19995, y: 1226.4}
+  _position: {x: 619.2001, y: 1215.635}
   _children:
   - {fileID: -2522436917951873898}
   - {fileID: 6161932071056464416}
+  - {fileID: -6976016129588264961}
 --- !u!114 &4530519376245123503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1241,6 +1742,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -1257,6 +1760,42 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: 140.79994, y: 1015.0828}
   _children: []
+--- !u!114 &4634281430518241089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbce325cd6d72ac45a53100e38802c19, type: 3}
+  m_Name: InteractWithObject
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 557c53651cbde6a45851a7b08fdcf1bd
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 1436.0001, y: 2005.6003}
 --- !u!114 &5086974825733180859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1276,6 +1815,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -1292,6 +1833,116 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: 443.95715, y: 857.59985}
   child: {fileID: -8814997563070471752}
+--- !u!114 &5117987494037089303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c83271d1aee380a409fd915d2b7e5023, type: 3}
+  m_Name: TreeRunnerNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: cc5696a2ffcc7634793bbfca322be665
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 1209.6002, y: 2428.469}
+  _treeToRun: {fileID: 11400000, guid: 410abcba7b1fdc54ba50319171efc2fd, type: 2}
+--- !u!114 &5235718446326368153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd5bbc181f3231a4589d5c0984af99a1, type: 3}
+  m_Name: SucceederNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 1b8c2b1c2d8722e458091e3cf0344743
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 527.2001, y: 2023.2004}
+  child: {fileID: -2972270809927214515}
+--- !u!114 &5342076078498066849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbce325cd6d72ac45a53100e38802c19, type: 3}
+  m_Name: InteractWithObject
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 2281f4c01bd998f45b207ec512620a19
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 1427.4224, y: 2223.2}
 --- !u!114 &6106404697250895260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1311,6 +1962,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -1348,6 +2001,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -1383,6 +2038,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -1397,8 +2054,48 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: 767.19995, y: 1432}
-  _children: []
+  _position: {x: 722.4001, y: 1408}
+  _children:
+  - {fileID: 7171261117919549809}
+  - {fileID: -8275045587542209623}
+  - {fileID: 1798900875829983063}
+--- !u!114 &6383556851447391520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc471ec3052b12e4da9718b5afbfc3ff, type: 3}
+  m_Name: WaitNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 9a28a770d25eda64599ff9a9eb57d932
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 998.7202, y: 2215.2}
+  duration: 1
 --- !u!114 &6769040832318622807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1418,6 +2115,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -1452,6 +2151,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -1487,6 +2188,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -1501,9 +2204,83 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: 493.60004, y: 1884.4238}
-  child: {fileID: 0}
+  _position: {x: 463.9999, y: 1642.0363}
+  child: {fileID: -5103510168762291917}
   type: 0
+--- !u!114 &7250597735751750588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc471ec3052b12e4da9718b5afbfc3ff, type: 3}
+  m_Name: WaitNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 3bfd3bc192f421949ba33c07504afdc7
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 1265.5999, y: 2008}
+  duration: 1
+--- !u!114 &8305620851374073900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc471ec3052b12e4da9718b5afbfc3ff, type: 3}
+  m_Name: WaitNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 386fe07bec5a7704d8b786d1da0bd901
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 352.84772, y: 2024.204}
+  duration: 1
 --- !u!114 &8652391707660331918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1523,6 +2300,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2

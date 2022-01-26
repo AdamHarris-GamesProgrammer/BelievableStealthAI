@@ -31,6 +31,11 @@ public class Lightswitch : ObservableObject
         }
     }
 
+    public override void InteractAction()
+    {
+        _controlsLight.gameObject.GetComponent<Light>().enabled = _currentState;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,7 +69,7 @@ public class Lightswitch : ObservableObject
     {
         _controlsLight.gameObject.GetComponent<Light>().enabled = _currentState;
 
-        foreach(AIAgent agent in _aiToAlert)
+        foreach (AIAgent agent in _aiToAlert)
         {
             agent.LightSwitchChanged(this);
         }

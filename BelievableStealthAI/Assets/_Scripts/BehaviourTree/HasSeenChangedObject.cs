@@ -14,6 +14,7 @@ public class HasSeenChangedObject : DecoratorNode
 
     protected override State OnUpdate()
     {
+        Debug.Log("Testing object changed");
         if(_blackboard._agent.HasAnObjectchanged)
         {
             return child.Update();

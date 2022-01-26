@@ -121,6 +121,11 @@ public class AIAgent : MonoBehaviour
         _blackboard.moveToPosition = _patrolRoute.GetNextIndex(ref _currentPatrolIndex);
     }
 
+    public void InvestigatedObject()
+    {
+        _hasAnObjectchanged = false;
+    }
+
     // Update is called once per frame
     void Update()
     {

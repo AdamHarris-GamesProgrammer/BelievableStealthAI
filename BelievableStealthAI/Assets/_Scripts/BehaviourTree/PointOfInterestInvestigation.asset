@@ -19,6 +19,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -58,6 +60,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -93,6 +97,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -127,6 +133,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -162,6 +170,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -176,7 +186,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -132.26375, y: 915.6394}
+  _position: {x: -121.988594, y: 931.9999}
 --- !u!114 &-2372998424122943979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +206,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -233,6 +245,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -268,6 +282,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -313,6 +329,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -344,6 +362,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2
@@ -378,6 +398,8 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
     spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
     _hasPatrolRoute: 0
     _walkSpeed: 1.5
     _patrolSpeed: 1.2

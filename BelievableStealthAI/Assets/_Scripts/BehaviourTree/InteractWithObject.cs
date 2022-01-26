@@ -2,15 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoToClosestSide : ActionNode
+public class InteractWithObject : ActionNode
 {
     protected override void OnStart()
     {
-        _blackboard.closestInvestigationSide = _blackboard._changedObservedObject.GetClosestSide(_blackboard._agent.transform.position);
-        _blackboard.furthestInvestigationSide = _blackboard._changedObservedObject.GetOppositeSide(_blackboard.closestInvestigationSide);
-
         _blackboard._locomotion.SetDestination(_blackboard.closestInvestigationSide.position);
-
     }
 
     protected override void OnStop()
@@ -22,8 +18,11 @@ public class GoToClosestSide : ActionNode
     {
         if(_blackboard._locomotion.GetRemainingDistance() < 0.5f)
         {
+            _blackboard._changedObservedObject.InteractWithObject();
+            _blackboard._changedObservedObject.InteractAction();
             return State.Success;
         }
+
         return State.Running;
     }
 }

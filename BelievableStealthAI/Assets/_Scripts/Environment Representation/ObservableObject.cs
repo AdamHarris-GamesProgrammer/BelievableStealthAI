@@ -60,6 +60,17 @@ public class ObservableObject : MonoBehaviour
         return _sideB;
     }
 
+    public Transform GetOppositeSide(Transform side)
+    {
+        if(_sideA == side)
+        {
+            return _sideB;
+        }
+        return _sideA;
+    }
+
+    public virtual void InteractAction() { }
+
     public void InteractWithObject()
     {
         _currentState = !_currentState;

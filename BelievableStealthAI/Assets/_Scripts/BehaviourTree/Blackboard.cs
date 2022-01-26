@@ -12,6 +12,9 @@ public class Blackboard
     public Vector3 spawnPosition;
     public Vector3 spawnOrientation;
 
+    public Transform closestInvestigationSide;
+    public Transform furthestInvestigationSide;
+
     public bool _hasPatrolRoute = false;
 
     public float _walkSpeed = 1.5f;

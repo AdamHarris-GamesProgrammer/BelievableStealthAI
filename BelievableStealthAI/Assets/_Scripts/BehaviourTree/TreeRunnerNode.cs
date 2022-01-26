@@ -9,6 +9,7 @@ public class TreeRunnerNode : ActionNode
     protected override void OnStart()
     {
         _treeToRun = _treeToRun.Clone();
+        _treeToRun._blackboard = _blackboard;
         _treeToRun._rootNode._state = State.Running;
         _treeToRun.Bind();
     }
@@ -20,6 +21,11 @@ public class TreeRunnerNode : ActionNode
 
     protected override State OnUpdate()
     {
+        State state = _treeToRun.Update();
+        if(state == State.Failure || state == State.Success)
+        {
+            _blackboard = _treeToRun._blackboard;
+        }
         return _treeToRun.Update();
     }
 }

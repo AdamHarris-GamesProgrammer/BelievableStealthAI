@@ -25,7 +25,7 @@ public class Patrol : ActionNode
             _blackboard._locomotion.SetDestination(_blackboard.moveToPosition);
         }
 
-        if(_blackboard._agent.CurrentlyAlert || _blackboard._agent.CurrentlyHearingSound || _blackboard._agent.CurrentlySeeingPlayer)
+        if(_blackboard._agent.CurrentlyAlert || _blackboard._agent.CurrentlyHearingSound || _blackboard._agent.CurrentlySeeingPlayer || _blackboard._agent.HasAnObjectchanged || _blackboard._agent.HasSeenBody)
         {
             return State.Failure;
         }
