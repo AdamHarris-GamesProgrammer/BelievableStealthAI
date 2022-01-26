@@ -29,6 +29,7 @@ namespace TGP.Control
         Door _nearbyDoor;
         AIAgent _nearbyAgent;
         Bodybag _nearbyBodybag;
+        Window _nearbyWindow;
 
         bool _visible = true;
         bool _canMove = true;
@@ -38,6 +39,7 @@ namespace TGP.Control
         public bool CanMove { get => _canMove; }
         public Container NearbyContainer { get => _nearbyContainer; set { _nearbyContainer = value; SetPrompt(); } }
 
+        public Window NearbyWindow { get => _nearbyWindow; set { _nearbyWindow = value; SetPrompt(); } }
         public Door NearbyDoor { get => _nearbyDoor; set { _nearbyDoor = value; SetPrompt(); } }
 
         public AIAgent NearbyAgent { get => _nearbyAgent; set { _nearbyAgent = value; SetPrompt(); } }
@@ -102,6 +104,11 @@ namespace TGP.Control
             else if(_nearbyBodybag)
             {
                 _uiEPrompt.SetText("Pickup");
+            }
+            else if(_nearbyWindow)
+            {
+                if (_nearbyWindow.CurrentState) _uiEPrompt.SetText("Close Window");
+                else _uiEPrompt.SetText("Open Window");
             }
             else
             {
@@ -209,6 +216,14 @@ namespace TGP.Control
                 {
                     _nearbyDoor.DecideAnimation();
                     _nearbyDoor.InteractWithObject();
+                }
+            }
+            else if(_nearbyWindow)
+            {
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    _nearbyWindow.DecideAnimation();
+                    _nearbyWindow.InteractWithObject();
                 }
             }
             else if(_carryingBodybag)

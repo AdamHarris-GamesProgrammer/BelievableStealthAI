@@ -14,8 +14,8 @@ public class ObservableObject : MonoBehaviour
 
     [SerializeField] ObservableType _type;
 
-    [SerializeField] Transform _sideA;
-    [SerializeField] Transform _sideB;
+    [SerializeField] protected Transform _sideA;
+    [SerializeField] protected Transform _sideB;
 
     public ObservableType Type { get => _type; }
 

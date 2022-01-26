@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Door : ObservableObject
 {
-    [SerializeField] Transform sideA;
-    [SerializeField] Transform sideB;
     PlayerController _player;
     Animator _animator;
 
@@ -32,27 +30,17 @@ public class Door : ObservableObject
             _player.NearbyDoor = this;
 
 
-            if (GetClosestDoorSide(other.transform.position))
+            if (GetClosestSide(other.transform.position))
             {
-                _startObservePosition = sideA.position;
-                _endObservePositon = sideB.position;
+                _startObservePosition = _sideA.position;
+                _endObservePositon = _sideB.position;
             }
             else
             {
-                _startObservePosition = sideB.position;
-                _endObservePositon = sideA.position;
+                _startObservePosition = _sideB.position;
+                _endObservePositon = _sideA.position;
             }
         }
-    }
-
-    private Transform GetClosestDoorSide(Vector3 pos)
-    {
-        if (Vector3.Distance(pos, sideA.position) < Vector3.Distance(pos, sideB.position))
-        {
-            return sideA;
-        }
-
-        return sideB;
     }
 
     private void OnTriggerExit(Collider other)

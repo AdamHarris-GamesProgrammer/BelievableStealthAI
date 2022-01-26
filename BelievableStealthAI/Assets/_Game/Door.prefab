@@ -293,8 +293,9 @@ MonoBehaviour:
   _changedState: 0
   _changedStateRecently: 0
   _eventDuration: 180
-  sideA: {fileID: 4674421531419184429}
-  sideB: {fileID: 5956413814424874112}
+  _type: 0
+  _sideA: {fileID: 4674421531419184429}
+  _sideB: {fileID: 5956413814424874112}
 --- !u!208 &309029957855741174
 NavMeshObstacle:
   m_ObjectHideFlags: 0
