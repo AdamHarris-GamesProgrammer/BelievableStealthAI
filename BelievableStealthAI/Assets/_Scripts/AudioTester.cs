@@ -9,6 +9,7 @@ public class AudioTester : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.G))
         {
+            Debug.Log("Producing Sound");
             GetComponent<AudioProducer>().ProduceSound(30.0f, 20.0f);
         }        
     }

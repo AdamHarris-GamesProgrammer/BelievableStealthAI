@@ -16,7 +16,7 @@ public class GoToPOI : ActionNode
 
     protected override State OnUpdate()
     {
-        if(_blackboard._locomotion.GetRemainingDistance() < 0.5f)
+        if(_blackboard._locomotion.GetRemainingDistance() < 0.2f)
         {
             return State.Success;
             //TODO: Make AI Look at POI

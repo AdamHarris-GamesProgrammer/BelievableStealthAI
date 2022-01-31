@@ -27,6 +27,7 @@ public class Patrol : ActionNode
 
         if(_blackboard._agent.CurrentlyAlert || _blackboard._agent.CurrentlyHearingSound || _blackboard._agent.CurrentlySeeingPlayer || _blackboard._agent.HasAnObjectchanged || _blackboard._agent.HasSeenBody)
         {
+            Debug.Log("Patrol Escape Condition");
             return State.Failure;
         }
 

@@ -262,6 +262,8 @@ public class AIAgent : MonoBehaviour
             poi.Remove(p);
         }
 
+        Debug.Log("Found " + poi.Count + " Points of Interest");
+
         return poi;
     }
 

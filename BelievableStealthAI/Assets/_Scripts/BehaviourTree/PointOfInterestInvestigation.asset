@@ -35,7 +35,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: 37.59991, y: 664.7824}
+  _position: {x: 29.600061, y: 735.7642}
   _children:
   - {fileID: -2776928536084990841}
   - {fileID: -1120126415701622416}
@@ -77,7 +77,7 @@ MonoBehaviour:
   _description: 
   _agent: {fileID: 0}
   _position: {x: 45.59999, y: 469.6091}
-  child: {fileID: -7914097407069598415}
+  child: {fileID: -1388443120249879141}
 --- !u!114 &-6644988193433002732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   _description: 
   _agent: {fileID: 0}
   _position: {x: 37.625175, y: 272.8}
-  child: {fileID: -7116064696260498270}
+  child: {fileID: 4999349004914370365}
 --- !u!114 &-2776928536084990841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -121.988594, y: 931.9999}
+  _position: {x: -112.000015, y: 940}
 --- !u!114 &-2372998424122943979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +263,43 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: -57.547928, y: -157.41096}
   child: {fileID: -2372998424122943979}
+--- !u!114 &-1388443120249879141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd5bbc181f3231a4589d5c0984af99a1, type: 3}
+  m_Name: SucceederNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 80f947bc25e60e54e848489b47095783
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 33.60002, y: 608.706}
+  child: {fileID: -7914097407069598415}
 --- !u!114 &-1120126415701622416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,6 +362,8 @@ MonoBehaviour:
   - {fileID: 3615367835191991609}
   - {fileID: 4257202899079560828}
   - {fileID: -2372998424122943979}
+  - {fileID: 4999349004914370365}
+  - {fileID: -1388443120249879141}
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
@@ -378,7 +417,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: 220, y: 932}
+  _position: {x: 208.79996, y: 932}
 --- !u!114 &4257202899079560828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,4 +453,41 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: 426.29947, y: 940.00006}
+  _position: {x: 372.0002, y: 932}
+--- !u!114 &4999349004914370365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96579c7f6859d4a44adfa215682b800d, type: 3}
+  m_Name: InverterNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: b8253ece4cca56b4bab0e5b2c1c2daad
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: 196.00003, y: 374.39996}
+  child: {fileID: -7116064696260498270}

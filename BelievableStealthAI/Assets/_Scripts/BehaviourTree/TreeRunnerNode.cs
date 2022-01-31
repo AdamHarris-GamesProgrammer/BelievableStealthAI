@@ -24,8 +24,9 @@ public class TreeRunnerNode : ActionNode
         State state = _treeToRun.Update();
         if(state == State.Failure || state == State.Success)
         {
+            //Update the original blackboard
             _blackboard = _treeToRun._blackboard;
         }
-        return _treeToRun.Update();
+        return State.Running;
     }
 }
