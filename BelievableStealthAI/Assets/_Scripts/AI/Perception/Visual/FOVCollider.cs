@@ -59,15 +59,17 @@ public class FOVCollider : MonoBehaviour
                     RaycastHit hit;
                     Vector3 pos = obj.transform.position;
                     Vector3 direction = (pos - _fovController.transform.position);
-                    Debug.DrawRay(_fovController.transform.position, direction);
-                    if (Physics.Raycast(_fovController.transform.position, direction, out hit, 25.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
+                    Debug.DrawRay(_fovController.transform.position + (Vector3.up * 1.8f), direction);
+                    if (Physics.Raycast(_fovController.transform.position + (Vector3.up * 1.8f), direction, out hit, 25.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
                     {
-                        if (hit.transform.GetInstanceID() == obj.transform.GetInstanceID())
+                        Debug.Log(hit.transform.name);
+
+                        ObservableObject observable = hit.transform.GetComponentInParent<ObservableObject>();
+                        if(observable != null)
                         {
-                            if (obj.HasRecentlyChanged)
+                            if(observable.HasRecentlyChanged)
                             {
-                                _agent.SeenChangedObject(obj);
-                                break;
+                                _agent.SeenChangedObject(observable);
                             }
                         }
                     }
@@ -83,7 +85,7 @@ public class FOVCollider : MonoBehaviour
                 Vector3 pos = obj.transform.position;
                 Vector3 direction = (pos - _fovController.transform.position);
                 Debug.DrawRay(_fovController.transform.position, direction);
-                if (Physics.Raycast(_fovController.transform.position, direction, out hit, 25.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
+                if (Physics.Raycast(_fovController.transform.position + (Vector3.up * 1.8f), direction, out hit, 25.0f, _rayCastLayer))
                 {
                     if (hit.transform.GetInstanceID() == obj.transform.GetInstanceID())
                     {
