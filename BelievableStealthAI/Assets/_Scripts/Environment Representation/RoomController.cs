@@ -9,10 +9,13 @@ public class RoomController : MonoBehaviour
     public List<Container> ContainersInRoom { get => _containers; }
     public List<AIAgent> AgentsInRoom { get => _aiInRoom; }
 
+    public List<Transform> LookAroundPoints { get => _lookAroundPoints; }
+
 
     [SerializeField] List<ObservableObject> _observables;
     [SerializeField] List<Container> _containers;
     [SerializeField] List<AIAgent> _aiInRoom;
+    [SerializeField] List<Transform> _lookAroundPoints;
 
     [ExecuteInEditMode]
     public void PerformAllRooms()
@@ -25,19 +28,40 @@ public class RoomController : MonoBehaviour
     }
 
     [ExecuteInEditMode]
+    public void ClearRoom()
+    {
+        _observables = new List<ObservableObject>();
+        _containers = new List<Container>();
+        _aiInRoom = new List<AIAgent>();
+        _lookAroundPoints = new List<Transform>();
+    }
+
+    [ExecuteInEditMode]
+    public void ClearAllRooms()
+    {
+        List<RoomController> rooms = FindObjectsOfType<RoomController>().ToList();
+        foreach (RoomController room in rooms)
+        {
+            room.ClearRoom();
+        }
+    }
+
+
+    [ExecuteInEditMode]
     public void CreateRoomObjects()
     {
         _observables = new List<ObservableObject>();
         _containers = new List<Container>();
         _aiInRoom = new List<AIAgent>();
+        _lookAroundPoints = new List<Transform>();
 
         List<ObservableObject> unfilteredObservables = FindObjectsOfType<ObservableObject>().ToList();
         List<Container> unfilteredContainer = FindObjectsOfType<Container>().ToList();
         List<AIAgent> unfilteredAgents = FindObjectsOfType<AIAgent>().ToList();
 
-        Debug.Log(unfilteredObservables.Count + " observables");
-        Debug.Log(unfilteredContainer.Count + " containers");
-        Debug.Log(unfilteredAgents.Count + " agents");
+        //Gets all transform components in children but skips the transform component on this object
+        _lookAroundPoints = GetComponentsInChildren<Transform>(true)
+            .Where(x => x.gameObject.transform.parent != transform.parent).ToList();
 
         foreach (ObservableObject obv in unfilteredObservables)
         {
@@ -48,7 +72,6 @@ public class RoomController : MonoBehaviour
                 ObservableObject o = hit.transform.GetComponentInParent<ObservableObject>();
                 if (o)
                 {
-                    Debug.Log("Hitting: " + hit.transform.name);
                     if (!_observables.Contains(o))
                         _observables.Add(o);
                     continue;
@@ -56,7 +79,6 @@ public class RoomController : MonoBehaviour
                 o = hit.transform.GetComponentInChildren<ObservableObject>();
                 if (o)
                 {
-                    Debug.Log("Hitting: " + hit.transform.name);
                     if (!_observables.Contains(o))
                         _observables.Add(o);
                     continue;
@@ -73,7 +95,6 @@ public class RoomController : MonoBehaviour
                 Container o = hit.transform.GetComponentInParent<Container>();
                 if (o)
                 {
-                    Debug.Log("Hitting: " + hit.transform.name);
                     if (!_containers.Contains(o))
                         _containers.Add(o);
                     continue;
@@ -81,7 +102,6 @@ public class RoomController : MonoBehaviour
                 o = hit.transform.GetComponentInChildren<Container>();
                 if (o)
                 {
-                    Debug.Log("Hitting: " + hit.transform.name);
                     if (!_containers.Contains(o))
                         _containers.Add(o);
                     continue;
@@ -98,7 +118,6 @@ public class RoomController : MonoBehaviour
                 AIAgent o = hit.transform.GetComponentInParent<AIAgent>();
                 if (o)
                 {
-                    Debug.Log("Hitting: " + hit.transform.name);
                     if (!_aiInRoom.Contains(o))
                         _aiInRoom.Add(o);
                     continue;
@@ -106,7 +125,6 @@ public class RoomController : MonoBehaviour
                 o = hit.transform.GetComponentInChildren<AIAgent>();
                 if (o)
                 {
-                    Debug.Log("Hitting: " + hit.transform.name);
                     if (!_aiInRoom.Contains(o))
                         _aiInRoom.Add(o);
                     continue;

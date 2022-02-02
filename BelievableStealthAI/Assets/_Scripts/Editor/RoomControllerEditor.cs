@@ -13,7 +13,8 @@ public class RoomControllerEditor : Editor
 
         RoomController controller = (RoomController)target;
 
-        if(GUILayout.Button("Perform Room Check on this Room"))
+        GUILayout.Label("Constructing Rooms");
+        if (GUILayout.Button("Perform Room Check on this Room"))
         {
             controller.CreateRoomObjects();
         }
@@ -21,6 +22,16 @@ public class RoomControllerEditor : Editor
         if(GUILayout.Button("Perform Room Check on all Rooms"))
         {
             controller.PerformAllRooms();
+        }
+
+        GUILayout.Label("Clearing Rooms");
+        if(GUILayout.Button("Clear Room"))
+        {
+            controller.ClearRoom();
+        }
+        if(GUILayout.Button("Clear all Rooms"))
+        {
+            controller.ClearAllRooms();
         }
     }
 }

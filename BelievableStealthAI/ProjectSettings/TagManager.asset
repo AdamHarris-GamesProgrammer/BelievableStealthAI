@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - ObservableObject
   - DeadBody
+  - LookAroundPoint
   layers:
   - Default
   - TransparentFX

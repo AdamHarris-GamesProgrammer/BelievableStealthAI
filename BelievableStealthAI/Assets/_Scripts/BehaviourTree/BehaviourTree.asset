@@ -3400,7 +3400,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
   _description: 
   _agent: {fileID: 0}
-  _position: {x: 722.4001, y: 1408}
+  _position: {x: 643.1999, y: 1407.6}
   _children:
   - {fileID: 7171261117919549809}
   - {fileID: -8275045587542209623}
