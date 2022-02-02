@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public class RoomController : MonoBehaviour
@@ -23,6 +24,7 @@ public class RoomController : MonoBehaviour
         List<RoomController> rooms = FindObjectsOfType<RoomController>().ToList();
         foreach(RoomController room in rooms)
         {
+            EditorUtility.SetDirty(room);
             room.CreateRoomObjects();
         }
     }
@@ -42,6 +44,7 @@ public class RoomController : MonoBehaviour
         List<RoomController> rooms = FindObjectsOfType<RoomController>().ToList();
         foreach (RoomController room in rooms)
         {
+            EditorUtility.SetDirty(room);
             room.ClearRoom();
         }
     }
@@ -75,6 +78,7 @@ public class RoomController : MonoBehaviour
                     if (!_observables.Contains(o))
                     {
                         _observables.Add(o);
+                        EditorUtility.SetDirty(o);
                         o.DecideRoom(this);
                     }
                     continue;
@@ -85,6 +89,7 @@ public class RoomController : MonoBehaviour
                     if (!_observables.Contains(o))
                     {
                         _observables.Add(o);
+                        EditorUtility.SetDirty(o);
                         o.DecideRoom(this);
                     }
                     continue;
@@ -104,6 +109,7 @@ public class RoomController : MonoBehaviour
                     if (!_containers.Contains(o))
                     {
                         _containers.Add(o);
+                        EditorUtility.SetDirty(o);
                         o.Room = this;
                     }
                     continue;
@@ -114,6 +120,7 @@ public class RoomController : MonoBehaviour
                     if (!_containers.Contains(o))
                     {
                         _containers.Add(o);
+                        EditorUtility.SetDirty(o);
                         o.Room = this;
                     }
                     continue;
@@ -133,6 +140,7 @@ public class RoomController : MonoBehaviour
                     if (!_aiInRoom.Contains(o))
                     {
                         _aiInRoom.Add(o);
+                        EditorUtility.SetDirty(o);
                         o.CurrentRoom = this;
                     }
                     continue;
@@ -143,6 +151,7 @@ public class RoomController : MonoBehaviour
                     if (!_aiInRoom.Contains(o))
                     {
                         _aiInRoom.Add(o);
+                        EditorUtility.SetDirty(o);
                         o.CurrentRoom = this;
                     }
                     continue;

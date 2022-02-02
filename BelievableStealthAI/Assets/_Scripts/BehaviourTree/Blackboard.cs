@@ -32,4 +32,7 @@ public class Blackboard
     public PlayerController _player;
 
     public ObservableObject _changedObservedObject;
+
+    public Transform _currentLookPoint;
+    public List<Transform> _lookPoints;
 }

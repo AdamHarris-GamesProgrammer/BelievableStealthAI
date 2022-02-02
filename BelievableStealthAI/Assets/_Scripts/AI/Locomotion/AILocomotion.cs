@@ -7,9 +7,11 @@ public class AILocomotion : MonoBehaviour
 {
     Animator _animator;
     NavMeshAgent _agent;
+
     public float GetRemainingDistance()
     {
-        return _agent.remainingDistance;
+        //return _agent.remainingDistance;
+        return Vector3.SqrMagnitude(transform.position - _agent.destination);
     }
 
     public void SetMaxSpeed(float speed)
@@ -33,8 +35,6 @@ public class AILocomotion : MonoBehaviour
 
     public void SetDestination(Vector3 position)
     {
-        //TODO: Adjust the Agent speed based on the context of the game  (E.g. In combat, Patroling, idling, etc).
-
         _agent.SetDestination(position);
     }
 }

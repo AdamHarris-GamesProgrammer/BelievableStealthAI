@@ -33,6 +33,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1057.6, y: 2000.3997}
@@ -74,6 +76,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: -451.19995, y: 1074.4}
@@ -110,6 +114,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 478.5099, y: 1023.1999}
@@ -147,6 +153,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 4.799988, y: 596.5727}
@@ -188,6 +196,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
@@ -225,6 +235,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1856, y: 2160.8003}
@@ -264,6 +276,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 694.3999, y: 879.9999}
@@ -301,6 +315,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
@@ -338,6 +354,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 988.98413, y: 1658.4}
@@ -376,6 +394,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 527.20013, y: 2183.9998}
@@ -415,6 +435,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
@@ -452,6 +474,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: -1.6000977, y: 259.68}
@@ -489,9 +513,11 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -60.800056, y: 1082.4}
+  _position: {x: -210.39992, y: 1068.7999}
   duration: 1
 --- !u!114 &-7504304160774079169
 MonoBehaviour:
@@ -526,6 +552,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1408.8, y: 1836.6118}
@@ -566,6 +594,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1822.0004, y: 2961.2}
@@ -602,6 +632,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 923.3555, y: 1416}
@@ -638,6 +670,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1059.2, y: 2568.8}
@@ -674,6 +708,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: -103.036, y: 841.59985}
@@ -711,6 +747,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1419.2, y: 3146.4}
@@ -747,9 +785,11 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -499.8718, y: 1997.2}
+  _position: {x: -384.0001, y: 1814.7998}
 --- !u!114 &-6374734076956998120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,6 +823,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1846.9926, y: 2008.0002}
@@ -820,6 +862,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 271.73752, y: 1082.4}
@@ -856,6 +900,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1204.8, y: 2398.4}
@@ -895,9 +941,11 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -156.80005, y: 1572.7998}
+  _position: {x: 123.2, y: 1580.7998}
   child: {fileID: -1595294887819367286}
 --- !u!114 &-5916041453073526048
 MonoBehaviour:
@@ -932,9 +980,11 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -132.79991, y: 1240}
+  _position: {x: 100.00009, y: 1079.9999}
   _children:
   - {fileID: -249920806069351336}
   - {fileID: 7607731283357196334}
@@ -971,6 +1021,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 745.4826, y: 2039.2}
@@ -1007,6 +1059,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 792.00006, y: 2918.4004}
@@ -1043,6 +1097,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 472, y: 1841.3701}
@@ -1084,6 +1140,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: -17.600098, y: 720}
@@ -1121,6 +1179,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1201.6002, y: 2246.0002}
@@ -1158,9 +1218,49 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 2169.6, y: 2977.5999}
+--- !u!114 &-3912323086686171704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174962cb17107634cb941db986499ac1, type: 3}
+  m_Name: GoToLookPoint
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: fadaabe5031e75e44823f55e0250fa73
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: -839.4447, y: 2083.1997}
 --- !u!114 &-3766552573145192086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1194,13 +1294,16 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: -68.79992, y: 888.7999}
   _children:
   - {fileID: -961593324422157271}
   - {fileID: -7691931007978733121}
-  - {fileID: -2136938574033554169}
+  - {fileID: -3001342633735987636}
+  - {fileID: -5916041453073526048}
   - {fileID: -6187121357142433940}
 --- !u!114 &-3658144261802093401
 MonoBehaviour:
@@ -1235,9 +1338,11 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -322.93246, y: 2004.3999}
+  _position: {x: -307.2001, y: 1951.1997}
   duration: 1
 --- !u!114 &-3376472033514593609
 MonoBehaviour:
@@ -1272,6 +1377,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1302.4003, y: 2824.8}
@@ -1309,6 +1416,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: -224, y: 728}
@@ -1346,6 +1455,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1.6000366, y: 269.62268}
@@ -1383,6 +1494,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 2011.5999, y: 2969.6}
@@ -1420,6 +1533,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1260.8, y: 3146.4001}
@@ -1457,9 +1572,52 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -1.60009, y: 2004.3999}
+  _position: {x: 0.79997015, y: 2005.6001}
+--- !u!114 &-3001342633735987636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf4555b4e94ba04ba5282e11e04d296, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 35392c5ecfb4efb408ece622c0de615f
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: -143.99997, y: 1181.5997}
+  _children:
+  - {fileID: 6496032808437685204}
+  - {fileID: 8199306534938150461}
 --- !u!114 &-2972270809927214515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1493,6 +1651,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 344.0001, y: 2188.4004}
@@ -1530,6 +1690,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
@@ -1567,6 +1729,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 666.00385, y: 1002.3998}
@@ -1603,6 +1767,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 371.8325, y: 1424.1777}
@@ -1639,47 +1805,12 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1931.2002, y: 2664}
   child: {fileID: 2169437056691234863}
---- !u!114 &-2136938574033554169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd5bbc181f3231a4589d5c0984af99a1, type: 3}
-  m_Name: SucceederNode
-  m_EditorClassIdentifier: 
-  _state: 0
-  _started: 0
-  _guid: 039f7fe906ddbc847bb728bbe5899736
-  _blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-    spawnPosition: {x: 0, y: 0, z: 0}
-    spawnOrientation: {x: 0, y: 0, z: 0}
-    closestInvestigationSide: {fileID: 0}
-    furthestInvestigationSide: {fileID: 0}
-    _hasPatrolRoute: 0
-    _walkSpeed: 1.5
-    _patrolSpeed: 1.2
-    _chaseSpeed: 5.4
-    _health: {fileID: 0}
-    _nearbyPointsOfInterest: []
-    _currentPOI: {fileID: 0}
-    moveToObject: {fileID: 0}
-    _locomotion: {fileID: 0}
-    _agent: {fileID: 0}
-    _player: {fileID: 0}
-    _changedObservedObject: {fileID: 0}
-  _description: 
-  _agent: {fileID: 0}
-  _position: {x: 99.20006, y: 1082.4}
-  child: {fileID: -5916041453073526048}
 --- !u!114 &-1964962120878575402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1713,6 +1844,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 121.59997, y: 849.6}
@@ -1750,6 +1883,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 511.20007, y: 2600.4004}
@@ -1787,9 +1922,11 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -160, y: 1713.1997}
+  _position: {x: 123.2, y: 1738.9019}
   child: {fileID: -1542971152741237708}
 --- !u!114 &-1542971152741237708
 MonoBehaviour:
@@ -1824,14 +1961,55 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -173.59998, y: 1844.8}
+  _position: {x: 115.20003, y: 1849.6}
   _children:
   - {fileID: -6375809169690972488}
   - {fileID: -3658144261802093401}
   - {fileID: -1215371916194209184}
   - {fileID: -3083039111221076278}
+--- !u!114 &-1485287095637910683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc471ec3052b12e4da9718b5afbfc3ff, type: 3}
+  m_Name: WaitNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: dc1714e489b36ae4085034dafad9aa98
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: -673.5998, y: 2083.1997}
+  duration: 2.5
 --- !u!114 &-1215371916194209184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1865,6 +2043,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: -164.80006, y: 2005.6001}
@@ -1901,9 +2081,11 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -278.39996, y: 1080}
+  _position: {x: -292.80014, y: 990.80005}
 --- !u!114 &-949457967634457392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1937,6 +2119,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: -1.6000977, y: 524}
@@ -1978,6 +2162,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
@@ -2016,6 +2202,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1102.9998, y: 3138.699}
@@ -2052,9 +2240,11 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -331.2, y: 1432}
+  _position: {x: -1.5999947, y: 1381.1997}
 --- !u!114 &-105923762129853817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2088,6 +2278,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: -646.4, y: 1074.4}
@@ -2145,7 +2337,6 @@ MonoBehaviour:
   - {fileID: 5235718446326368153}
   - {fileID: -6374734076956998120}
   - {fileID: -6187121357142433940}
-  - {fileID: -2136938574033554169}
   - {fileID: -5916041453073526048}
   - {fileID: -249920806069351336}
   - {fileID: 7607731283357196334}
@@ -2187,6 +2378,15 @@ MonoBehaviour:
   - {fileID: -3229696407854101870}
   - {fileID: -4153297825806917929}
   - {fileID: 3441219585266232038}
+  - {fileID: -3001342633735987636}
+  - {fileID: 6496032808437685204}
+  - {fileID: 8199306534938150461}
+  - {fileID: 2915254443341870256}
+  - {fileID: 8354047941969200081}
+  - {fileID: 3831672777055691257}
+  - {fileID: -3912323086686171704}
+  - {fileID: -1485287095637910683}
+  - {fileID: 4480613880974408641}
   _blackboard:
     moveToPosition: {x: 6.69, y: 0, z: -6.82}
     spawnPosition: {x: 3.93, y: 0.00000047683716, z: -3.37}
@@ -2205,6 +2405,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
 --- !u!114 &156270188959010169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2238,6 +2440,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 507.20004, y: 2732}
@@ -2279,6 +2483,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 377.59985, y: 924.39984}
@@ -2316,6 +2522,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1288.8, y: 2562}
@@ -2353,6 +2561,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
@@ -2390,6 +2600,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1378.3999, y: 1666.4}
@@ -2428,6 +2640,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
@@ -2465,6 +2679,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 763.1999, y: 2206.9956}
@@ -2501,6 +2717,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1931.2, y: 2795.2004}
@@ -2542,6 +2760,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
@@ -2579,12 +2799,53 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 842.14014, y: 728}
   _children:
   - {fileID: -8553339931234493907}
   - {fileID: 6769040832318622807}
+--- !u!114 &2915254443341870256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d490628df93a8149a00d5af13cd93d4, type: 3}
+  m_Name: OutOfLookPoints
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: f7e7183abe3804449bc71d2ab611a4ee
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: -558.4, y: 1682.3998}
+  child: {fileID: 3831672777055691257}
 --- !u!114 &3086900075895745376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2618,6 +2879,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1582.4001, y: 3146.4001}
@@ -2654,6 +2917,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 150.40001, y: 2012.7996}
@@ -2690,6 +2955,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: -613.6623, y: 1069.7649}
@@ -2727,6 +2994,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1738.4, y: 2371.5999}
@@ -2763,6 +3032,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 2332.8003, y: 2969.6006}
@@ -2799,6 +3070,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: -0.8000488, y: 385.12}
@@ -2837,10 +3110,54 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
   message: 2
+--- !u!114 &3831672777055691257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adf4555b4e94ba04ba5282e11e04d296, type: 3}
+  m_Name: SequencerNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 3aa8f50c0ca4a0441b62af87d0c0c1ef
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: -598.4, y: 1865.5997}
+  _children:
+  - {fileID: -3912323086686171704}
+  - {fileID: -1485287095637910683}
+  - {fileID: 4480613880974408641}
 --- !u!114 &4292184581911466551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2874,6 +3191,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 619.2001, y: 1215.635}
@@ -2881,6 +3200,44 @@ MonoBehaviour:
   - {fileID: -2522436917951873898}
   - {fileID: 6161932071056464416}
   - {fileID: -6976016129588264961}
+--- !u!114 &4480613880974408641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce8e027576b10b48a16ca2148330d29, type: 3}
+  m_Name: GetNextLookPoint
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: ec22b2097464d8743b7160278141f503
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: -515.2001, y: 2083.1997}
 --- !u!114 &4530519376245123503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2914,6 +3271,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 140.79994, y: 1015.0828}
@@ -2951,6 +3310,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 470.4001, y: 2910.0002}
@@ -2988,6 +3349,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1436.0001, y: 2005.6003}
@@ -3024,6 +3387,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1293.6001, y: 2693.2002}
@@ -3061,6 +3426,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 443.95715, y: 857.59985}
@@ -3098,6 +3465,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 527.2001, y: 2023.2004}
@@ -3135,6 +3504,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1427.4224, y: 2223.2}
@@ -3171,6 +3542,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 628.80005, y: 2918.4004}
@@ -3207,6 +3580,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1931.2002, y: 2523.5999}
@@ -3244,6 +3619,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 511.20007, y: 2365.6}
@@ -3281,6 +3658,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: -504.80005, y: 908}
@@ -3320,6 +3699,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1301.6, y: 2988}
@@ -3361,6 +3742,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: -459.20007, y: 728}
@@ -3398,6 +3781,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 643.1999, y: 1407.6}
@@ -3438,10 +3823,50 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 998.7202, y: 2215.2}
   duration: 1
+--- !u!114 &6496032808437685204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 509c1d0b459528544bd168d280f7e281, type: 3}
+  m_Name: GetLookPoints
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 7f72377e064ad8a4a957c0a9c2cdd08a
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: -754.3521, y: 1397.1998}
 --- !u!114 &6769040832318622807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3475,6 +3900,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 999.99976, y: 871.7045}
@@ -3511,6 +3938,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
@@ -3548,6 +3977,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 485.60013, y: 1666.4003}
@@ -3586,6 +4017,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1265.5999, y: 2008}
@@ -3623,6 +4056,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1922.9564, y: 2379.2}
@@ -3660,9 +4095,11 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -149.59998, y: 1446.7999}
+  _position: {x: 115.2, y: 1454.7998}
   child: {fileID: -6002777517099123241}
 --- !u!114 &8188408639129305536
 MonoBehaviour:
@@ -3697,9 +4134,50 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 312.5799, y: 2910.0002}
+--- !u!114 &8199306534938150461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be6dd5796d297504ea9f0f028e624978, type: 3}
+  m_Name: RepeatUntilFail
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 191c2faec64e48442bf44d3f2457c6b4
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: -566.40027, y: 1385.1998}
+  child: {fileID: 8354047941969200081}
 --- !u!114 &8305620851374073900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3733,10 +4211,51 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 352, y: 2031.1997}
   duration: 1
+--- !u!114 &8354047941969200081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96579c7f6859d4a44adfa215682b800d, type: 3}
+  m_Name: InverterNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 0e4d8b07aed0b0f44aecd4af4fcfa33c
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: -558.4, y: 1541.9999}
+  child: {fileID: 2915254443341870256}
 --- !u!114 &8422986314145540039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3770,6 +4289,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 511.20007, y: 2484}
@@ -3807,6 +4328,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1.6000166, y: 427.157}
@@ -3844,6 +4367,8 @@ MonoBehaviour:
     _agent: {fileID: 0}
     _player: {fileID: 0}
     _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
   _description: 
   _agent: {fileID: 0}
   _position: {x: 329.6001, y: 2371.6}

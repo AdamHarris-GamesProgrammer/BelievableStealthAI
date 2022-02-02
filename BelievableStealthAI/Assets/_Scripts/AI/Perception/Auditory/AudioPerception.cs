@@ -58,7 +58,7 @@ public class AudioPerception : MonoBehaviour
         if(heardValue == 0.0f)
         {
             _heardSound = false;
-            _aiAgent.NoLongerHearingSound();
+            //_aiAgent.NoLongerHearingSound();
         }
     }
 }

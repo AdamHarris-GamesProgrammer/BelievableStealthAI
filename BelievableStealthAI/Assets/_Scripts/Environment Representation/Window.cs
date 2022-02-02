@@ -44,6 +44,19 @@ public class Window : ObservableObject
         if (other.CompareTag("Enemy"))
         {
             _animator.SetTrigger("closeWindow");
+
+
+            AIAgent enemy = other.GetComponent<AIAgent>();
+
+            Transform closest = GetClosestSide(enemy.transform.position);
+            if (closest == _sideA)
+            {
+                enemy.CurrentRoom = _sideARoom;
+            }
+            else
+            {
+                enemy.CurrentRoom = _sideBRoom;
+            }
         }
         else if (other.CompareTag("Player"))
         {
