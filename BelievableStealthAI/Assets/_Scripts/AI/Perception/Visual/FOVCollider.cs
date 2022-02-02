@@ -62,8 +62,6 @@ public class FOVCollider : MonoBehaviour
                     Debug.DrawRay(_fovController.transform.position + (Vector3.up * 1.8f), direction);
                     if (Physics.Raycast(_fovController.transform.position + (Vector3.up * 1.8f), direction, out hit, 25.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
                     {
-                        Debug.Log(hit.transform.name);
-
                         ObservableObject observable = hit.transform.GetComponentInParent<ObservableObject>();
                         if(observable != null)
                         {
