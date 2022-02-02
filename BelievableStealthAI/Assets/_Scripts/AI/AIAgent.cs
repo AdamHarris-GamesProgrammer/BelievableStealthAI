@@ -45,6 +45,10 @@ public class AIAgent : MonoBehaviour
 
     Lightswitch _lightswitch;
 
+    [SerializeField] RoomController _currentRoom;
+
+    public RoomController CurrentRoom { get => _currentRoom; set => _currentRoom = value; }
+
     public bool HaveBeenAlerted { get => _haveBeenAlerted; }
     public bool HasSeenPlayer { get => _hasSeenPlayer; }
     public bool HasHeardSound { get => _hasHeardSound; }

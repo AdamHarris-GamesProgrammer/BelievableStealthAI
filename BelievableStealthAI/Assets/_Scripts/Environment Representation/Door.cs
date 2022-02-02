@@ -8,6 +8,8 @@ public class Door : ObservableObject
     PlayerController _player;
     Animator _animator;
 
+
+
     private void Awake()
     {
         _player = FindObjectOfType<PlayerController>();
@@ -29,6 +31,7 @@ public class Door : ObservableObject
         {
             _player.NearbyDoor = this;
 
+            //TODO: How does this even work, it returns a transform either way?
 
             if (GetClosestSide(other.transform.position))
             {
@@ -48,6 +51,19 @@ public class Door : ObservableObject
         if (other.CompareTag("Enemy"))
         {
             _animator.SetTrigger("closeDoor");
+
+            AIAgent enemy = other.GetComponent<AIAgent>();
+
+            Transform closest = GetClosestSide(enemy.transform.position);
+            if(closest == _sideA)
+            {
+                enemy.CurrentRoom = _sideARoom;
+            }
+            else
+            {
+                enemy.CurrentRoom = _sideBRoom;
+            }
+
         }
         else if (other.CompareTag("Player"))
         {

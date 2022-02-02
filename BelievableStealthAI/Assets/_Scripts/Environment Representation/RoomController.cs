@@ -73,14 +73,20 @@ public class RoomController : MonoBehaviour
                 if (o)
                 {
                     if (!_observables.Contains(o))
+                    {
                         _observables.Add(o);
+                        o.DecideRoom(this);
+                    }
                     continue;
                 }
                 o = hit.transform.GetComponentInChildren<ObservableObject>();
                 if (o)
                 {
                     if (!_observables.Contains(o))
+                    {
                         _observables.Add(o);
+                        o.DecideRoom(this);
+                    }
                     continue;
                 }
             }
@@ -96,14 +102,20 @@ public class RoomController : MonoBehaviour
                 if (o)
                 {
                     if (!_containers.Contains(o))
+                    {
                         _containers.Add(o);
+                        o.Room = this;
+                    }
                     continue;
                 }
                 o = hit.transform.GetComponentInChildren<Container>();
                 if (o)
                 {
                     if (!_containers.Contains(o))
+                    {
                         _containers.Add(o);
+                        o.Room = this;
+                    }
                     continue;
                 }
             }
@@ -119,14 +131,20 @@ public class RoomController : MonoBehaviour
                 if (o)
                 {
                     if (!_aiInRoom.Contains(o))
+                    {
                         _aiInRoom.Add(o);
+                        o.CurrentRoom = this;
+                    }
                     continue;
                 }
                 o = hit.transform.GetComponentInChildren<AIAgent>();
                 if (o)
                 {
                     if (!_aiInRoom.Contains(o))
+                    {
                         _aiInRoom.Add(o);
+                        o.CurrentRoom = this;
+                    }
                     continue;
                 }
             }

@@ -25,7 +25,33 @@ public class ObservableObject : MonoBehaviour
     public Vector3 StartObservePosition { get => _startObservePosition; }
     public Vector3 EndObservePosition { get => _endObservePositon; }
 
+    [SerializeField] protected RoomController _sideARoom;
+    [SerializeField] protected RoomController _sideBRoom;
+
     float _timer = 0.0f;
+
+    public void SetSideARoom(RoomController room)
+    {
+        _sideARoom = room;
+    }
+
+    public void SetSideBRoom(RoomController room)
+    {
+        _sideBRoom = room;
+    }
+
+    public void DecideRoom(RoomController room)
+    {
+        Transform closestSide = GetClosestSide(room.transform.position);
+        if(closestSide == _sideA)
+        {
+            SetSideARoom(room);
+        }
+        else
+        {
+            SetSideBRoom(room);
+        }
+    }
 
     public bool HasRecentlyChanged { get => _changedStateRecently; }
     public bool CurrentState { get => _currentState; }

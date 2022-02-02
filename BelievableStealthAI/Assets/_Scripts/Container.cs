@@ -11,7 +11,11 @@ public class Container : PointOfInterest
     public bool PlayerInside { get => _playerInside; set { _playerInside = value; } }
     public bool BodybagInside { get => _bodyBagInside; set { _bodyBagInside = value; } }
 
+    public RoomController Room { get => _room; set => _room = value; }
+
     PlayerController _player;
+
+    [SerializeField] RoomController _room;
 
     void Awake()
     {
