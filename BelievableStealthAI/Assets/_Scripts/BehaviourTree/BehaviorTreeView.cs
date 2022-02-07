@@ -79,7 +79,7 @@ public class BehaviorTreeView : GraphView
 
         tree._nodes.ForEach(n =>
         {
-            var children = tree.GetChildren(n);
+            var children = BehaviorTree.GetChildren(n);
             children.ForEach(child =>
             {
                 NodeView parentView = FindNodeView(n);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SelectorNode : CompositeNode
 {
-    int _current = 0;
+    protected int _current = 0;
 
     protected override void OnStart()
     {
@@ -15,20 +15,22 @@ public class SelectorNode : CompositeNode
 
     protected override State OnUpdate()
     {
-        var currentChild = _children[_current];
-
-        switch (currentChild.Update())
+        for (int i = _current; i < _children.Count; ++i)
         {
-            case State.Running:
-                return State.Running;
-            case State.Failure:
-                _current++;
-                break;
-            case State.Success:
-                return State.Success;
+            _current = i;
+            var child = _children[_current];
+
+            switch (child.Update())
+            {
+                case State.Running:
+                    return State.Running;
+                case State.Success:
+                    return State.Success;
+                case State.Failure:
+                    continue;
+            }
         }
 
-        //if current is equal to the amount of children then return success if not return running
-        return _current == _children.Count ? State.Failure : State.Running;
+        return State.Failure;
     }
 }

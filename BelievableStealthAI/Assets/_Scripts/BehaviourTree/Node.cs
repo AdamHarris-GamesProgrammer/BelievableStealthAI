@@ -20,6 +20,15 @@ public abstract class Node : ScriptableObject
 
     public Vector2 _position;
 
+    public void Abort()
+    {
+        BehaviorTree.Traverse(this, (node) =>
+        {
+            node._started = false;
+            node._state = State.Running;
+            node.OnStop();
+        });
+    }
     public State Update()
     {
         if(!_started)

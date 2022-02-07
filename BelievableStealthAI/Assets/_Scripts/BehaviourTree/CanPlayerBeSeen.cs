@@ -17,6 +17,7 @@ public class CanPlayerBeSeen : DecoratorNode
     {
         if (_blackboard._player.GetComponent<Health>().IsDead) return State.Failure;
 
+        //Debug.Log("Seeing player: " + _blackboard._agent.CurrentlySeeingPlayer);
         if(_blackboard._agent.CurrentlySeeingPlayer)
         {
             return child.Update();

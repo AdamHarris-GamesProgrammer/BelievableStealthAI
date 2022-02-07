@@ -97,7 +97,7 @@ public class BehaviorTree : ScriptableObject
         }
     }
 
-    public List<Node> GetChildren(Node parent)
+    public static List<Node> GetChildren(Node parent)
     {
         List<Node> children = new List<Node>();
         DecoratorNode decorator = parent as DecoratorNode;
@@ -112,7 +112,7 @@ public class BehaviorTree : ScriptableObject
         return children;
     }
 
-    public void Traverse(Node node, System.Action<Node> visiter)
+    public static void Traverse(Node node, System.Action<Node> visiter)
     {
         if(node)
         {
