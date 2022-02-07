@@ -16,7 +16,7 @@ public class GoToSoundLocation : ActionNode
 
     protected override State OnUpdate()
     {
-        if(_blackboard._locomotion.GetRemainingDistance() < 1.0f)
+        if(_blackboard._locomotion.GetRemainingDistance() < 0.5f)
         {
             return State.Success;
         }

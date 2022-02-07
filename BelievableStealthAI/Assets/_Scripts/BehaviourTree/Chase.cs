@@ -18,7 +18,7 @@ public class Chase : ActionNode
     protected override State OnUpdate()
     {
         _blackboard._locomotion.SetDestination(_blackboard._agent.LastKnownPlayerPosition);
-        if (_blackboard._locomotion.GetRemainingDistance() < 2.0f)
+        if (_blackboard._locomotion.GetRemainingDistance() < 0.5f)
         {
             return State.Success;
         }

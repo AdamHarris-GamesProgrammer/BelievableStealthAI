@@ -789,7 +789,7 @@ MonoBehaviour:
     _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -384.0001, y: 1814.7998}
+  _position: {x: -445.39996, y: 2230.8}
 --- !u!114 &-6374734076956998120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1144,7 +1144,7 @@ MonoBehaviour:
     _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -17.600098, y: 720}
+  _position: {x: -12.094004, y: 735.99994}
   child: {fileID: -3766552573145192086}
 --- !u!114 &-4231617152061408260
 MonoBehaviour:
@@ -1260,7 +1260,7 @@ MonoBehaviour:
     _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -839.4447, y: 2083.1997}
+  _position: {x: -1292.478, y: 2080.8003}
 --- !u!114 &-3766552573145192086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1342,7 +1342,7 @@ MonoBehaviour:
     _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -307.2001, y: 1951.1997}
+  _position: {x: -283.19998, y: 2230.8}
   duration: 1
 --- !u!114 &-3376472033514593609
 MonoBehaviour:
@@ -1576,7 +1576,7 @@ MonoBehaviour:
     _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: 0.79997015, y: 2005.6001}
+  _position: {x: 38.399998, y: 2231.2}
 --- !u!114 &-3001342633735987636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1965,7 +1965,7 @@ MonoBehaviour:
     _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: 115.20003, y: 1849.6}
+  _position: {x: -216.00002, y: 2023.1997}
   _children:
   - {fileID: -6375809169690972488}
   - {fileID: -3658144261802093401}
@@ -2008,8 +2008,8 @@ MonoBehaviour:
     _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -673.5998, y: 2083.1997}
-  duration: 2.5
+  _position: {x: -708.8001, y: 2073.2002}
+  duration: 20
 --- !u!114 &-1215371916194209184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2047,7 +2047,7 @@ MonoBehaviour:
     _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -164.80006, y: 2005.6001}
+  _position: {x: -124.79998, y: 2231.2}
 --- !u!114 &-961593324422157271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2207,6 +2207,44 @@ MonoBehaviour:
   _description: 
   _agent: {fileID: 0}
   _position: {x: 1102.9998, y: 3138.699}
+--- !u!114 &-356586429341268877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d828ab8f0558b5f40ad08ef50dea79e1, type: 3}
+  m_Name: TurnToLookPoint
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 3a630e318fc15074fb5343113a40d06b
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
+  _description: 
+  _agent: {fileID: 0}
+  _position: {x: -974.9002, y: 2073.2002}
 --- !u!114 &-249920806069351336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2387,6 +2425,7 @@ MonoBehaviour:
   - {fileID: -3912323086686171704}
   - {fileID: -1485287095637910683}
   - {fileID: 4480613880974408641}
+  - {fileID: -356586429341268877}
   _blackboard:
     moveToPosition: {x: 6.69, y: 0, z: -6.82}
     spawnPosition: {x: 3.93, y: 0.00000047683716, z: -3.37}
@@ -2844,7 +2883,7 @@ MonoBehaviour:
     _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -558.4, y: 1682.3998}
+  _position: {x: -577.1999, y: 1681.5999}
   child: {fileID: 3831672777055691257}
 --- !u!114 &3086900075895745376
 MonoBehaviour:
@@ -3153,9 +3192,10 @@ MonoBehaviour:
     _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -598.4, y: 1865.5997}
+  _position: {x: -681.6001, y: 1875.5099}
   _children:
   - {fileID: -3912323086686171704}
+  - {fileID: -356586429341268877}
   - {fileID: -1485287095637910683}
   - {fileID: 4480613880974408641}
 --- !u!114 &4292184581911466551
@@ -3237,7 +3277,7 @@ MonoBehaviour:
     _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -515.2001, y: 2083.1997}
+  _position: {x: -462.39996, y: 2073.2002}
 --- !u!114 &4530519376245123503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3866,7 +3906,7 @@ MonoBehaviour:
     _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -754.3521, y: 1397.1998}
+  _position: {x: -741.6, y: 1388.7999}
 --- !u!114 &6769040832318622807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4254,7 +4294,7 @@ MonoBehaviour:
     _lookPoints: []
   _description: 
   _agent: {fileID: 0}
-  _position: {x: -558.4, y: 1541.9999}
+  _position: {x: -563.5999, y: 1555.9999}
   child: {fileID: 2915254443341870256}
 --- !u!114 &8422986314145540039
 MonoBehaviour:

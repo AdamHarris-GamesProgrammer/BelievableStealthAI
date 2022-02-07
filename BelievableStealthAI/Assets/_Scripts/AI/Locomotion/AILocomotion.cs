@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,11 @@ public class AILocomotion : MonoBehaviour
 {
     Animator _animator;
     NavMeshAgent _agent;
+
+    public void Rotation(bool v)
+    {
+        _agent.updateRotation = v;
+    }
 
     public float GetRemainingDistance()
     {

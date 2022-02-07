@@ -9831,6 +9831,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1858305235}
     - target: {fileID: 4717096647025314118, guid: 2bdb3f9e8c0a6514680f331b29db6789, type: 3}
+      propertyPath: m_Radius
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717096647025314118, guid: 2bdb3f9e8c0a6514680f331b29db6789, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717096647025314120, guid: 2bdb3f9e8c0a6514680f331b29db6789, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}

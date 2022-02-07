@@ -7,8 +7,8 @@ public class GetNextLookPoint : ActionNode
     protected override void OnStart()
     {
         _blackboard._lookPoints.RemoveAt(0);
+        _blackboard._locomotion.Rotation(true);
 
-        
     }
 
     protected override void OnStop()

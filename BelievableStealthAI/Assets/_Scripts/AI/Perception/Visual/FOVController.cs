@@ -11,6 +11,9 @@ public class FOVController : MonoBehaviour
     [SerializeField] bool _seen = false;
 
 
+    Vector3 _raycastOrigin;
+
+    public Vector3 RaycastOrigin { get => _raycastOrigin; }
 
     float _lostVisibilityTimer = 0.0f;
     [SerializeField] float _lostVisibilityDuration = 0.5f;
@@ -70,6 +73,8 @@ public class FOVController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        _raycastOrigin = transform.position + (transform.forward * 0.1f) + (Vector3.up * 1.8f);
+
         _timeBetweenAditions += Time.fixedDeltaTime;
         //Debug.Log(string.Format("Detected: {0}", _seen));
 

@@ -222,6 +222,7 @@ namespace TGP.Control
             {
                 if(Input.GetKeyDown(KeyCode.E))
                 {
+                    Debug.Log("Trying to anim");
                     _nearbyDoor.DecideAnimation();
                     _nearbyDoor.InteractWithObject();
                 }

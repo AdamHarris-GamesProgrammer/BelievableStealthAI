@@ -10,6 +10,8 @@ public class FOVCollider : MonoBehaviour
 
     FOVController _fovController;
 
+    
+
     PlayerController _player;
     AIAgent _agent;
 
@@ -58,9 +60,9 @@ public class FOVCollider : MonoBehaviour
                 {
                     RaycastHit hit;
                     Vector3 pos = obj.transform.position;
-                    Vector3 direction = (pos - _fovController.transform.position);
-                    Debug.DrawRay(_fovController.transform.position + (Vector3.up * 1.8f), direction);
-                    if (Physics.Raycast(_fovController.transform.position + (Vector3.up * 1.8f), direction, out hit, 25.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
+                    Vector3 direction = (pos - _fovController.RaycastOrigin);
+                    Debug.DrawRay(_fovController.RaycastOrigin, direction);
+                    if (Physics.Raycast(_fovController.RaycastOrigin, direction, out hit, 25.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
                     {
                         ObservableObject observable = hit.transform.GetComponentInParent<ObservableObject>();
                         if(observable != null)
@@ -81,9 +83,9 @@ public class FOVCollider : MonoBehaviour
             {
                 RaycastHit hit;
                 Vector3 pos = obj.transform.position;
-                Vector3 direction = (pos - _fovController.transform.position);
-                Debug.DrawRay(_fovController.transform.position, direction);
-                if (Physics.Raycast(_fovController.transform.position + (Vector3.up * 1.8f), direction, out hit, 25.0f, _rayCastLayer))
+                Vector3 direction = (pos - _fovController.RaycastOrigin);
+                Debug.DrawRay(_fovController.RaycastOrigin, direction);
+                if (Physics.Raycast(_fovController.RaycastOrigin, direction, out hit, 25.0f, _rayCastLayer))
                 {
                     if (hit.transform.GetInstanceID() == obj.transform.GetInstanceID())
                     {
@@ -107,9 +109,9 @@ public class FOVCollider : MonoBehaviour
 
                 RaycastHit hit;
                 Vector3 pos = hitbox.transform.position;
-                Vector3 direction = (pos - _fovController.transform.position);
-                Debug.DrawRay(_fovController.transform.position, direction);
-                if (Physics.Raycast(_fovController.transform.position, direction, out hit, 25.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
+                Vector3 direction = (pos - _fovController.RaycastOrigin);
+                Debug.DrawRay(_fovController.RaycastOrigin, direction);
+                if (Physics.Raycast(_fovController.RaycastOrigin, direction, out hit, 25.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
                 {
                     //Debug.Log("Hit: " + hit.transform.gameObject.name);
 

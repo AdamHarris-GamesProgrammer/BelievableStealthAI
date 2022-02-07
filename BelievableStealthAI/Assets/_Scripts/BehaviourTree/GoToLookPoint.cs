@@ -17,7 +17,7 @@ public class GoToLookPoint : ActionNode
 
     protected override State OnUpdate()
     {
-        if (_blackboard._locomotion.GetRemainingDistance() < 1.5f)
+        if (_blackboard._locomotion.GetRemainingDistance() < 0.5f)
         {
             Debug.Log("Arrived At: " + _blackboard._currentLookPoint.name);
             return State.Success;
