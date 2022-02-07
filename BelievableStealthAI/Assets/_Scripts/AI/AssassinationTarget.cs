@@ -27,7 +27,7 @@ public class AssassinationTarget : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _player.NearbyAgent = _agent;
+            _player.NearbyAgent = null;
         }
     }
 }

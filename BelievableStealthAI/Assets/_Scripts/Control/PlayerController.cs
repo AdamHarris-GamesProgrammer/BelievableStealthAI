@@ -33,6 +33,7 @@ namespace TGP.Control
         Window _nearbyWindow;
         Lightswitch _nearbySwitch;
 
+
         bool _visible = true;
         bool _canMove = true;
 
@@ -79,14 +80,14 @@ namespace TGP.Control
                 {
                     _uiEPrompt.SetText("Hide");
 
-                    if(_carryingBodybag)
+                    if (_carryingBodybag)
                     {
                         _uiGPrompt.SetText("Hide bodybag");
                         _uiGPrompt.gameObject.SetActive(true);
                     }
                 }
 
-                if(_nearbyContainer.PlayerInside)
+                if (_nearbyContainer.PlayerInside)
                 {
                     _uiEPrompt.SetText("Get Out");
                 }
@@ -95,25 +96,25 @@ namespace TGP.Control
                     _uiEPrompt.SetText("Hide");
                 }
             }
-            else if(_nearbyAgent)
+            else if (_nearbyAgent)
             {
                 _uiEPrompt.SetText("Assassinate");
 
-                if(_nearbyAgent.GetComponent<Health>().IsDead)
+                if (_nearbyAgent.GetComponent<Health>().IsDead)
                 {
                     _uiEPrompt.SetText("Pickup");
                 }
             }
-            else if(_nearbyBodybag)
+            else if (_nearbyBodybag)
             {
                 _uiEPrompt.SetText("Pickup");
             }
-            else if(_nearbyWindow)
+            else if (_nearbyWindow)
             {
                 if (_nearbyWindow.CurrentState) _uiEPrompt.SetText("Close Window");
                 else _uiEPrompt.SetText("Open Window");
             }
-            else if(_nearbySwitch)
+            else if (_nearbySwitch)
             {
                 if (_nearbySwitch.CurrentState) _uiEPrompt.SetText("Turn off light");
                 else _uiEPrompt.SetText("Turn on light");
@@ -131,10 +132,11 @@ namespace TGP.Control
 
         private void Update()
         {
-            bool stateChanged = true;
-            if(_nearbyAgent)
+            bool stateChanged = false;
+
+            if (_nearbyAgent && !stateChanged)
             {
-                if(Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     if (_nearbyAgent.GetComponent<Health>().IsDead)
                     {
@@ -144,21 +146,36 @@ namespace TGP.Control
                             //TODO: Make sure all edge cases are handled when destroying ai agent
                             Destroy(_nearbyAgent.gameObject);
                             NearbyAgent = null;
+                            stateChanged = true;
                         }
                     }
                     else
                     {
                         if (!_isStanding && !_nearbyAgent.CurrentlyAlert)
                         {
-                            _nearbyAgent.GetComponent<Animator>().SetTrigger("stealthAssassinate");
-                            _nearbyAgent.GetComponent<Health>().Kill();
+                            Vector3 raycastOrigin = transform.position + (Vector3.up * 1.8f) + (transform.forward * 0.05f);
+                            Vector3 direction = ((_nearbyAgent.transform.position + Vector3.up) - raycastOrigin);
+                            if (Physics.Raycast(raycastOrigin, direction, out RaycastHit hit, 2.5f, ~0, QueryTriggerInteraction.Ignore))
+                            {
+                                Debug.Log("Hit: " + hit.transform.name);
+                                Debug.Log("Root: " + hit.transform.root.name);
+                                Vector3 endPoint = raycastOrigin + (direction * 2.5f);
+                                Debug.DrawLine(raycastOrigin, endPoint, Color.red, 5.0f);
+                                if (hit.transform.IsChildOf(_nearbyAgent.transform))
+                                {
+                                    _nearbyAgent.GetComponent<Animator>().SetTrigger("stealthAssassinate");
+                                    _nearbyAgent.GetComponent<Health>().Kill();
+                                    stateChanged = true;
+                                }
+                            }
                             //TODO: Play Assassinate animation
                             //TODO: Disable visual and auditory perception
                         }
                     }
                 }
             }
-            else if(_nearbyContainer)
+            
+            if (_nearbyContainer && !stateChanged)
             {
                 if (!_carryingBodybag)
                 {
@@ -166,27 +183,33 @@ namespace TGP.Control
                     {
                         if (_nearbyContainer.PlayerInside) HandleLocker(false);
                         else HandleLocker(true);
+
+                        stateChanged = true;
                     }
 
-                    if(Input.GetKeyDown(KeyCode.G))
+                    if (Input.GetKeyDown(KeyCode.G))
                     {
                         if (_nearbyContainer.BodybagInside)
                         {
                             _nearbyContainer.BodybagInside = false;
                             SetCarryingBodybag(true);
+
+                            stateChanged = true;
                         }
                     }
                 }
                 else
                 {
-                    if(Input.GetKeyDown(KeyCode.G))
+                    if (Input.GetKeyDown(KeyCode.G))
                     {
-                        if(_nearbyContainer.BodybagInside)
+                        if (_nearbyContainer.BodybagInside)
                         {
-                            if(!_carryingBodybag)
+                            if (!_carryingBodybag)
                             {
                                 _nearbyContainer.BodybagInside = false;
                                 SetCarryingBodybag(true);
+
+                                stateChanged = true;
                             }
                             else
                             {
@@ -197,13 +220,15 @@ namespace TGP.Control
                         {
                             _nearbyContainer.BodybagInside = true;
                             SetCarryingBodybag(false);
+                            stateChanged = true;
                         }
                     }
                 }
             }
-            else if(_nearbyBodybag)
+            
+            if (_nearbyBodybag && !stateChanged)
             {
-                if(!_carryingBodybag)
+                if (!_carryingBodybag)
                 {
                     if (Input.GetKeyDown(KeyCode.E))
                     {
@@ -211,6 +236,7 @@ namespace TGP.Control
                         //TODO: Make sure all edge cases are handled when destroying ai agent
                         Destroy(_nearbyBodybag.gameObject);
                         NearbyBodybag = null;
+                        stateChanged = true;
                     }
                 }
                 else
@@ -218,34 +244,40 @@ namespace TGP.Control
                     //TODO: Tell player they cannot carry multiple body bags
                 }
             }
-            else if(_nearbyDoor)
+            
+            if (_nearbyDoor && !stateChanged)
             {
-                if(Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.E))
                 {
-                    Debug.Log("Trying to anim");
                     _nearbyDoor.DecideAnimation();
                     _nearbyDoor.InteractWithObject();
+                    stateChanged = true;
                 }
             }
-            else if(_nearbyWindow)
+            
+            if (_nearbyWindow && !stateChanged)
             {
-                if(Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     _nearbyWindow.DecideAnimation();
                     _nearbyWindow.InteractWithObject();
+                    stateChanged = true;
                 }
             }
-            else if(_nearbySwitch)
+            
+            if (_nearbySwitch && !stateChanged)
             {
-                if(Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     _nearbySwitch.InteractWithObject();
                     _nearbySwitch.HandleLogic();
+                    stateChanged = true;
                 }
             }
-            else if(_carryingBodybag)
+            
+            if (_carryingBodybag && !stateChanged)
             {
-                if(Input.GetKeyDown(KeyCode.G))
+                if (Input.GetKeyDown(KeyCode.G))
                 {
                     SetCarryingBodybag(false);
 
@@ -257,11 +289,9 @@ namespace TGP.Control
                     }
 
                     bodybag.transform.position = spawnPos;
+
+                    stateChanged = true;
                 }
-            }
-            else
-            {
-                stateChanged = false;
             }
 
             if (stateChanged) SetPrompt();
@@ -280,7 +310,7 @@ namespace TGP.Control
             _bodybagAttachment.SetActive(val);
             _carryingBodybag = val;
         }
-        
+
         public void TakeHit()
         {
             //Kill player
