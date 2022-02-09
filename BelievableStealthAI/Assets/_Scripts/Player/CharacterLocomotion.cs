@@ -4,21 +4,32 @@ using TGP.Control;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
+
+/*
+ Sprint Animation
+ produce different levels of noise while moving in crouch, walk or sprint
+ play footstep sounds
+ */
 public class CharacterLocomotion : MonoBehaviour
 {
     [Min(0f)][SerializeField] private float _jumpHeight = 0.5f;
     [Min(0f)][SerializeField] private float _gravity = -9.81f;
     [SerializeField] private float _stepDown = 0.1f;
     [SerializeField] private float _jumpDamping = 0.1f;
-    [SerializeField] private float _playerSpeed = 1.0f;
+    [SerializeField] private float _walkSpeed = 1.0f;
+    [SerializeField] private float _sprintSpeed = 1.8f;
     [SerializeField] private float _pushPower = 2.0F;
     [SerializeField] private float _airControl = 0.1f;
+
+
+    private float _currentSpeed = 1.0f;
 
     
     AudioSource _audioSource;
 
     bool _isJumping;
     bool _isCrouching = false;
+    bool _isSprinting = false;
 
     public bool IsCrouching { get { return _isCrouching; } }
 
@@ -53,6 +64,26 @@ public class CharacterLocomotion : MonoBehaviour
             return;
         }
 
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            _isSprinting = true;
+            _currentSpeed = _sprintSpeed;
+            _animator.SetBool("isSprinting", true);
+            
+            if(_isCrouching)
+            {
+                _isCrouching = false;
+                _animator.SetBool("isCrouching", false);
+                _controller.height = 1.6f;
+            }
+        }
+        else
+        {
+            _isSprinting = false;
+            _currentSpeed = _walkSpeed;
+            _animator.SetBool("isSprinting", false);
+        }
+
 
         //Disables crouching if we are crouching enables crouching if I am standing
         if (Input.GetKeyDown(KeyCode.C))
@@ -60,6 +91,12 @@ public class CharacterLocomotion : MonoBehaviour
             _isCrouching = !_isCrouching;
 
             _controller.height = _isCrouching ? 1.5f : 1.6f;
+
+            if(_isSprinting)
+            {
+                _isSprinting = false;
+                _animator.SetBool("isSprinting", false);
+            }
         }
 
         //Checks we are crouching and sets the bool in the animator
@@ -153,7 +190,7 @@ public class CharacterLocomotion : MonoBehaviour
     private void UpdateOnGround()
     {
         //Moving along X and Z, and then scale move speed by the players move speed stat. (Modified by equipped armor)
-        Vector3 stepForward = (_rootMotion * _playerSpeed);
+        Vector3 stepForward = (_rootMotion * _currentSpeed);
         Vector3 stepDown = Vector3.down * _stepDown;
 
         _controller.Move(stepForward + stepDown);
@@ -171,7 +208,7 @@ public class CharacterLocomotion : MonoBehaviour
     {
         _isJumping = true;
         _animator.SetBool("isJumping", true);
-        _velocity = _animator.velocity * _jumpDamping * _playerSpeed;
+        _velocity = _animator.velocity * _jumpDamping * _currentSpeed;
         _velocity.y = jumpVelocity;
     }
 
