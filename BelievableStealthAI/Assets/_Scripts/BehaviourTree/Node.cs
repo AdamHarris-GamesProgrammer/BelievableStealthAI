@@ -13,7 +13,7 @@ public abstract class Node : ScriptableObject
     [HideInInspector] public bool _started = false;
     [HideInInspector] public string _guid;
     [HideInInspector] public Blackboard _blackboard;
-    [TextArea] public string _description;
+    [TextArea] public string description;
     public AIAgent _agent;
 
     //TODO: Give Access to AI Controller here

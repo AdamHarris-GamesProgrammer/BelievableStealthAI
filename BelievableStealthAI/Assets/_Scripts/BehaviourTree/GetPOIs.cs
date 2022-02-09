@@ -20,7 +20,7 @@ public class GetPOIs : ActionNode
         {
              Debug.Log("GetPOIs::Error: Agent is null");
         }
-        _blackboard._nearbyPointsOfInterest = _blackboard._agent.GetNearbyPointsOfInterest();
+        _blackboard._nearbyPointsOfInterest = _blackboard._agent.CurrentRoom.PointsOfInterest;
 
         if(_blackboard._nearbyPointsOfInterest.Count == 0)
         {

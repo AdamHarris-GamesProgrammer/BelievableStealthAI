@@ -7,14 +7,14 @@ using UnityEngine;
 public class RoomController : MonoBehaviour
 {
     public List<ObservableObject> ObservablesInRoom { get => _observables; }
-    public List<Container> ContainersInRoom { get => _containers; }
     public List<AIAgent> AgentsInRoom { get => _aiInRoom; }
 
     public List<Transform> LookAroundPoints { get => _lookAroundPoints; }
 
+    public List<PointOfInterest> PointsOfInterest { get => _pois; }
 
     [SerializeField] List<ObservableObject> _observables;
-    [SerializeField] List<Container> _containers;
+    [SerializeField] List<PointOfInterest> _pois;
     [SerializeField] List<AIAgent> _aiInRoom;
     [SerializeField] List<Transform> _lookAroundPoints;
 
@@ -33,7 +33,7 @@ public class RoomController : MonoBehaviour
     public void ClearRoom()
     {
         _observables = new List<ObservableObject>();
-        _containers = new List<Container>();
+        _pois = new List<PointOfInterest>();
         _aiInRoom = new List<AIAgent>();
         _lookAroundPoints = new List<Transform>();
     }
@@ -54,7 +54,7 @@ public class RoomController : MonoBehaviour
     public void CreateRoomObjects()
     {
         _observables = new List<ObservableObject>();
-        _containers = new List<Container>();
+        _pois = new List<PointOfInterest>();
         _aiInRoom = new List<AIAgent>();
         _lookAroundPoints = new List<Transform>();
 
@@ -103,23 +103,23 @@ public class RoomController : MonoBehaviour
 
             if (Physics.Raycast(transform.position, direction, out RaycastHit hit, 35.0f, ~0, QueryTriggerInteraction.Ignore))
             {
-                Container o = hit.transform.GetComponentInParent<Container>();
+                PointOfInterest o = hit.transform.GetComponentInParent<PointOfInterest>();
                 if (o)
                 {
-                    if (!_containers.Contains(o))
+                    if (!_pois.Contains(o))
                     {
-                        _containers.Add(o);
+                        _pois.Add(o);
                         EditorUtility.SetDirty(o);
                         o.Room = this;
                     }
                     continue;
                 }
-                o = hit.transform.GetComponentInChildren<Container>();
+                o = hit.transform.GetComponentInChildren<PointOfInterest>();
                 if (o)
                 {
-                    if (!_containers.Contains(o))
+                    if (!_pois.Contains(o))
                     {
-                        _containers.Add(o);
+                        _pois.Add(o);
                         EditorUtility.SetDirty(o);
                         o.Room = this;
                     }
@@ -159,5 +159,22 @@ public class RoomController : MonoBehaviour
             }
         }
     }
-        
+
+    public void OnDrawGizmosSelected()
+    {
+        var transforms = new HashSet<Transform>(GetComponentsInChildren<Transform>());
+        transforms.Remove(transform);
+        Transform[] lookPoints = transforms.ToArray();
+
+        foreach (Transform point in lookPoints)
+        {
+            Vector3 startPos = point.position + Vector3.up;
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(startPos, 0.5f);
+            Gizmos.color = Color.blue;
+            Vector3 endPoint = startPos + (point.forward * 2.5f);
+            Gizmos.DrawLine(startPos, endPoint);
+        }
+    }
+
 }

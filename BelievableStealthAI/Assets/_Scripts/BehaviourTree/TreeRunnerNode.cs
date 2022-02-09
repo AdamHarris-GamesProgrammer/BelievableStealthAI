@@ -26,6 +26,7 @@ public class TreeRunnerNode : ActionNode
         {
             //Update the original blackboard
             _blackboard = _treeToRun._blackboard;
+            return state;
         }
         return State.Running;
     }
