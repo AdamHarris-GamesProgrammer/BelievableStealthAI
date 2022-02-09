@@ -35,7 +35,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
-  _description: 
+  description: 
   _agent: {fileID: 0}
   _position: {x: -0.00001835823, y: 314.24368}
   child: {fileID: 2143721812894344226}
@@ -74,50 +74,11 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
-  _description: 
+  description: 
   _agent: {fileID: 0}
   _position: {x: -7.999981, y: 154.40863}
   _children:
-  - {fileID: -4213102299449776019}
   - {fileID: -7102728155304814073}
---- !u!114 &-4213102299449776019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 509c1d0b459528544bd168d280f7e281, type: 3}
-  m_Name: GetLookPoints
-  m_EditorClassIdentifier: 
-  _state: 0
-  _started: 0
-  _guid: c94630c347110284b9dfacb9cd28c713
-  _blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-    spawnPosition: {x: 0, y: 0, z: 0}
-    spawnOrientation: {x: 0, y: 0, z: 0}
-    closestInvestigationSide: {fileID: 0}
-    furthestInvestigationSide: {fileID: 0}
-    _hasPatrolRoute: 0
-    _walkSpeed: 1.5
-    _patrolSpeed: 1.2
-    _chaseSpeed: 5.4
-    _health: {fileID: 0}
-    _nearbyPointsOfInterest: []
-    _currentPOI: {fileID: 0}
-    moveToObject: {fileID: 0}
-    _locomotion: {fileID: 0}
-    _agent: {fileID: 0}
-    _player: {fileID: 0}
-    _changedObservedObject: {fileID: 0}
-    _currentLookPoint: {fileID: 0}
-    _lookPoints: []
-  _description: 
-  _agent: {fileID: 0}
-  _position: {x: -241.47415, y: 322.4}
 --- !u!114 &-3829409465256968868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,7 +114,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
-  _description: 
+  description: 
   _agent: {fileID: 0}
   _position: {x: 0, y: 0}
   child: {fileID: -5624501944245146146}
@@ -192,7 +153,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
-  _description: 
+  description: 
   _agent: {fileID: 0}
   _position: {x: -19.200012, y: 652.21985}
   child: {fileID: 1718744553514452023}
@@ -214,7 +175,6 @@ MonoBehaviour:
   - {fileID: -3829409465256968868}
   - {fileID: -5624501944245146146}
   - {fileID: -7102728155304814073}
-  - {fileID: -4213102299449776019}
   - {fileID: 2143721812894344226}
   - {fileID: -1066771115544750568}
   - {fileID: 1718744553514452023}
@@ -277,14 +237,14 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
-  _description: 
+  description: 
   _agent: {fileID: 0}
   _position: {x: -17.59996, y: 812.48737}
   _children:
+  - {fileID: 6589042428463660057}
   - {fileID: 6005582882685413087}
   - {fileID: 6517527621084780547}
   - {fileID: 6814420999539337831}
-  - {fileID: 6589042428463660057}
 --- !u!114 &2143721812894344226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,7 +280,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
-  _description: 
+  description: 
   _agent: {fileID: 0}
   _position: {x: -0.000019073486, y: 479.02783}
   child: {fileID: -1066771115544750568}
@@ -359,7 +319,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
-  _description: 
+  description: 
   _agent: {fileID: 0}
   _position: {x: -283.7005, y: 987.447}
 --- !u!114 &6517527621084780547
@@ -397,7 +357,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
-  _description: 
+  description: 
   _agent: {fileID: 0}
   _position: {x: -117.60004, y: 995.2001}
 --- !u!114 &6589042428463660057
@@ -435,9 +395,9 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
-  _description: 
+  description: 
   _agent: {fileID: 0}
-  _position: {x: 240.64369, y: 995.1999}
+  _position: {x: -491.37964, y: 995.1998}
 --- !u!114 &6814420999539337831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,7 +433,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
-  _description: 
+  description: 
   _agent: {fileID: 0}
   _position: {x: 53.444504, y: 995.2001}
   duration: 5

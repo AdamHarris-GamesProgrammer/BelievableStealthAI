@@ -19,7 +19,7 @@ public class OutOfLookPoints : DecoratorNode
         State state = child.Update();
         if (state == State.Failure || state == State.Success)
         {
-            if (_blackboard._lookPoints.Count == 0)
+            if (_blackboard._agent.CurrentRoom.OutOfLookPoints())
             {
                 return State.Success;
             }

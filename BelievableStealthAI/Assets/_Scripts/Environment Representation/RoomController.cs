@@ -18,6 +18,40 @@ public class RoomController : MonoBehaviour
     [SerializeField] List<AIAgent> _aiInRoom;
     [SerializeField] List<Transform> _lookAroundPoints;
 
+
+    [SerializeField] int _currentLP = 0;
+    [SerializeField] int _currentPOI = 0;
+    [SerializeField] int _currentObservable = 0;
+
+    public void BeginSearch()
+    {
+        if(_currentLP >= _lookAroundPoints.Count) _currentLP = 0;
+        _currentPOI = 0;
+        _currentObservable = 0;
+    }
+
+    public bool OutOfLookPoints()
+    {
+        if (_currentLP > _lookAroundPoints.Count) return true;
+
+        return false;
+    }
+
+    public bool GetNextLookPoint(ref Transform lp)
+    {
+        if(_currentLP > _lookAroundPoints.Count)
+        {
+            Debug.Log("Finished Search");
+            return true;
+        }
+
+        lp = _lookAroundPoints[_currentLP];
+        _currentLP++;
+
+        return false;
+    }
+
+
     [ExecuteInEditMode]
     public void PerformAllRooms()
     {

@@ -6,8 +6,7 @@ public class GoToLookPoint : ActionNode
 {
     protected override void OnStart()
     {
-        _blackboard._locomotion.SetDestination(_blackboard._currentLookPoint.transform.position);
-        Debug.Log("Going to Location: " + _blackboard._currentLookPoint.name);
+        _blackboard._locomotion.SetDestination(_blackboard._currentLookPoint.position);
     }
 
     protected override void OnStop()
@@ -19,7 +18,6 @@ public class GoToLookPoint : ActionNode
     {
         if (_blackboard._locomotion.GetRemainingDistance() < 0.5f)
         {
-            Debug.Log("Arrived At: " + _blackboard._currentLookPoint.name);
             return State.Success;
         }
 

@@ -6,9 +6,7 @@ public class GetNextLookPoint : ActionNode
 {
     protected override void OnStart()
     {
-        _blackboard._lookPoints.RemoveAt(0);
         _blackboard._locomotion.Rotation(true);
-
     }
 
     protected override void OnStop()
@@ -18,13 +16,13 @@ public class GetNextLookPoint : ActionNode
 
     protected override State OnUpdate()
     {
-        if(_blackboard._lookPoints.Count == 0)
+        if(_blackboard._agent.CurrentRoom.GetNextLookPoint(ref _blackboard._currentLookPoint))
         {
             return State.Failure;
         }
-
-        _blackboard._currentLookPoint = _blackboard._lookPoints[0];
-
-        return State.Success;
+        else
+        {
+            return State.Success;
+        }
     }
 }
