@@ -26,20 +26,22 @@ public class RoomController : MonoBehaviour
     public void BeginSearch()
     {
         if(_currentLP >= _lookAroundPoints.Count) _currentLP = 0;
-        _currentPOI = 0;
+        if(_currentPOI >= _pois.Count) _currentPOI = 0;
         _currentObservable = 0;
     }
 
+
+
     public bool OutOfLookPoints()
     {
-        if (_currentLP > _lookAroundPoints.Count) return true;
+        if (_currentLP >= _lookAroundPoints.Count) return true;
 
         return false;
     }
 
     public bool GetNextLookPoint(ref Transform lp)
     {
-        if(_currentLP > _lookAroundPoints.Count)
+        if(_currentLP >= _lookAroundPoints.Count)
         {
             Debug.Log("Finished Search");
             return true;
@@ -47,6 +49,27 @@ public class RoomController : MonoBehaviour
 
         lp = _lookAroundPoints[_currentLP];
         _currentLP++;
+
+        return false;
+    }
+
+    public bool OutOfPOIs()
+    {
+        if (_currentPOI >= _pois.Count) return true;
+
+        return false;
+    }
+
+    public bool GetNextPOI(ref PointOfInterest poi)
+    {
+        if (_currentPOI >= _pois.Count)
+        {
+            Debug.Log("Finished Search");
+            return true;
+        }
+
+        poi = _pois[_currentPOI];
+        _currentPOI++;
 
         return false;
     }

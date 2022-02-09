@@ -397,7 +397,7 @@ MonoBehaviour:
     _lookPoints: []
   description: 
   _agent: {fileID: 0}
-  _position: {x: -491.37964, y: 995.1998}
+  _position: {x: -493.25665, y: 974.7998}
 --- !u!114 &6814420999539337831
 MonoBehaviour:
   m_ObjectHideFlags: 0

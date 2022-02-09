@@ -6,7 +6,7 @@ public class OutOfPOI : DecoratorNode
 {
     protected override void OnStart()
     {
-        _blackboard._currentPOI = _blackboard._nearbyPointsOfInterest[0];
+
     }
 
     protected override void OnStop()
@@ -19,7 +19,7 @@ public class OutOfPOI : DecoratorNode
         State state = child.Update();
         if(state == State.Failure || state == State.Success)
         {
-            if (_blackboard._nearbyPointsOfInterest.Count == 0)
+            if (_blackboard._agent.CurrentRoom.OutOfPOIs())
             {
                 return State.Success;
             }

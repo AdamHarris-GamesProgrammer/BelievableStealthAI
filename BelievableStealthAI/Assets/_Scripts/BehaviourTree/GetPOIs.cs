@@ -16,17 +16,13 @@ public class GetPOIs : ActionNode
 
     protected override State OnUpdate()
     {
-        if(_blackboard._agent == null)
-        {
-             Debug.Log("GetPOIs::Error: Agent is null");
-        }
-        _blackboard._nearbyPointsOfInterest = _blackboard._agent.CurrentRoom.PointsOfInterest;
-
-        if(_blackboard._nearbyPointsOfInterest.Count == 0)
+        if (_blackboard._agent.CurrentRoom.GetNextPOI(ref _blackboard._currentPOI))
         {
             return State.Failure;
         }
-
-        return State.Success;
+        else
+        {
+            return State.Success;
+        }
     }
 }

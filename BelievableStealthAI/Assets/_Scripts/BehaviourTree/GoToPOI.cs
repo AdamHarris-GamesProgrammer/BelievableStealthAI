@@ -19,7 +19,6 @@ public class GoToPOI : ActionNode
         if(_blackboard._locomotion.GetRemainingDistance() < 0.2f)
         {
             return State.Success;
-            //TODO: Make AI Look at POI
         }
 
         return State.Running;
