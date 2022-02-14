@@ -63,6 +63,7 @@ public class AIAgent : MonoBehaviour
     public Vector3 LastKnownPlayerPosition { get => _lastKnownPlayerPosition; set => _lastKnownPlayerPosition = value; }
     public Vector3 PointOfSound { get => _pointOfSound; set => _pointOfSound = value; }
 
+    public AIAgent AgentToCheckOn { get => _agentToCheckOn; set => _agentToCheckOn = value; }
     private void Awake()
     {
         _player = FindObjectOfType<PlayerController>();
@@ -95,6 +96,25 @@ public class AIAgent : MonoBehaviour
         _blackboard._health = GetComponent<Health>();
     }
 
+    public void RadioAllyToCheckOn()
+    {
+        Debug.Log(transform.name + " is checking on: " + _agentToCheckOn.transform.name);
+        _agentToCheckOn.Respond(this);
+    }
+
+    public void Respond(AIAgent caller)
+    {
+        Debug.Log(transform.name + " is being checked on by: " + caller.transform.name);
+        if (GetComponent<Health>().IsDead)
+        {
+            caller._blackboard._response = false;
+        }
+        else
+        {
+            //TODO: Play dialogue
+            caller._blackboard._response = true;
+        }
+    }
 
     public bool TryAttack()
     {
@@ -243,7 +263,15 @@ public class AIAgent : MonoBehaviour
 
     public void CheckOn(AIAgent agent)
     {
-        _agentToCheckOn = agent;
+        //We already have an agent to check on
+        if (_agentToCheckOn != null) return;
+
+        //if we are not currently alert
+        if(!_currentlyAlert)
+        {
+            //Set the new agent to check on
+            _agentToCheckOn = agent;
+        }
         //TODO: Play Dialogue "Hey Matt, are you there?"
     }
 

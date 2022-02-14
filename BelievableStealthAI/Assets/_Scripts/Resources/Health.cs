@@ -35,6 +35,19 @@ public class Health : MonoBehaviour
         TakeDamage(100000.0f);
     }
 
+    private void Update()
+    {
+        if (_isDead) return;
+
+        if(_currentHealth <= 0.0f)
+        {
+            _isDead = true;
+            _OnDie.Invoke();
+            GetComponent<Ragdoll>().ActivateRagdoll();
+            gameObject.tag = "DeadBody";
+        }
+    }
+
     void Start()
     {
         _currentHealth = _maxHealth;

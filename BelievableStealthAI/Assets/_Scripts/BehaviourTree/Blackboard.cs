@@ -35,4 +35,6 @@ public class Blackboard
 
     public Transform _currentLookPoint;
     public List<Transform> _lookPoints;
+
+    public bool _response;
 }

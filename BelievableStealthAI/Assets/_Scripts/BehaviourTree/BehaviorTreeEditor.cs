@@ -126,7 +126,7 @@ public class BehaviorTreeEditor : EditorWindow
         if(tree != null)
         {
             _treeObject = new SerializedObject(tree);
-            _blackboardProperty = _treeObject.FindProperty("blackboard");
+            _blackboardProperty = _treeObject.FindProperty("_blackboard");
         }
     }
 

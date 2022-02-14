@@ -134,6 +134,14 @@ namespace TGP.Control
         {
             bool stateChanged = false;
 
+
+            if(Input.GetKeyDown(KeyCode.L))
+            {
+                List<AIAgent> agents = FindObjectsOfType<AIAgent>().ToList();
+
+                agents[0].CheckOn(agents[1]);
+            }
+
             if (_nearbyAgent && !stateChanged)
             {
                 if (Input.GetKeyDown(KeyCode.E))
