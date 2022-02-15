@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HasNoPatrolRoute : DecoratorNode
+public class HasSeenDeadBody : DecoratorNode
 {
     protected override void OnStart()
     {
@@ -16,7 +16,7 @@ public class HasNoPatrolRoute : DecoratorNode
 
     protected override State OnUpdate()
     {
-        if(_blackboard._hasPatrolRoute)
+        if (_blackboard._agent.HasSeenBody)
         {
             return child.Update();
         }

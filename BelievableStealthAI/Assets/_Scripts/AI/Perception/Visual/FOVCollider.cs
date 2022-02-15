@@ -89,7 +89,7 @@ public class FOVCollider : MonoBehaviour
                 {
                     if (hit.transform.GetInstanceID() == obj.transform.GetInstanceID())
                     {
-                        _agent.BodyDetected();
+                        _agent.BodyDetected(hit.transform.gameObject);
                         break;
                     }
                 }

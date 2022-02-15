@@ -45,14 +45,18 @@ public class AIAgent : MonoBehaviour
 
     Lightswitch _lightswitch;
 
+    GameObject _deadAgent;
+
     [SerializeField] RoomController _currentRoom;
 
     public RoomController CurrentRoom { get => _currentRoom; set => _currentRoom = value; }
 
+    public GameObject DeadAgent { get => _deadAgent; set => _deadAgent = null; }
+
     public bool HaveBeenAlerted { get => _haveBeenAlerted; }
     public bool HasSeenPlayer { get => _hasSeenPlayer; }
     public bool HasHeardSound { get => _hasHeardSound; }
-    public bool HasSeenBody { get => _hasSeenBody; }
+    public bool HasSeenBody { get => _hasSeenBody; set => _hasSeenBody = value; }
     public bool CurrentlyAlert { get => _currentlyAlert; }
     public bool CurrentlyHearingSound { get => _currentlyHearingSound; }
     public bool CurrentlySeeingPlayer { get => _currentlySeeingPlayer; }
@@ -84,9 +88,14 @@ public class AIAgent : MonoBehaviour
         _blackboard.spawnOrientation = transform.forward;
         _blackboard._player = FindObjectOfType<PlayerController>();
 
-        if (_patrolRoute)
+        if (_patrolRoute != null)
         {
+            Debug.Log(gameObject.name);
             _blackboard._hasPatrolRoute = true;
+        }
+        else
+        {
+            _blackboard._hasPatrolRoute = false;
         }
 
         _blackboard._walkSpeed = _walkSpeed;
@@ -168,8 +177,9 @@ public class AIAgent : MonoBehaviour
         }
     }
 
-    public void BodyDetected()
+    public void BodyDetected(GameObject agent)
     {
+        _deadAgent = agent;
         _hasSeenBody = true;
         if (_currentlyAlert)
         {
@@ -259,6 +269,20 @@ public class AIAgent : MonoBehaviour
         {
             //TODO: Play dialogue "Hmm. Must've been nothing"
         }
+    }
+
+    public void ForceAlertAll()
+    {
+        RoomController[] rooms = FindObjectsOfType<RoomController>();
+        foreach (RoomController room in rooms) 
+        {
+            room.AgentsInRoom.ForEach((AIAgent agent) => agent.ForceAlert());
+        }
+    }
+
+    public void ForceAlert()
+    {
+        _currentlyAlert = true;
     }
 
     public void CheckOn(AIAgent agent)
