@@ -173,6 +173,9 @@ namespace TGP.Control
                                 {
                                     _nearbyAgent.GetComponent<Animator>().SetTrigger("stealthAssassinate");
                                     _nearbyAgent.GetComponent<Health>().Kill();
+                                    
+                                    //This would only work with one audio producer 
+                                    AudioProducer.RemovePerciever(_nearbyAgent.GetComponentInChildren<AudioPerception>());
                                     stateChanged = true;
                                 }
                             }

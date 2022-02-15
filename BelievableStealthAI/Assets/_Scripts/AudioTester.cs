@@ -7,10 +7,10 @@ public class AudioTester : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.G))
+        if(Input.GetKeyDown(KeyCode.H))
         {
             Debug.Log("Producing Sound");
-            GetComponent<AudioProducer>().ProduceSound(30.0f, 20.0f);
+            AudioProducer.ProduceSound(transform.position, 30.0f, 20.0f);
         }        
     }
 }

@@ -6,33 +6,51 @@ using UnityEngine.AI;
 
 public class AudioProducer : MonoBehaviour
 {
-    List<AudioPerception> _audioPercievers;
-    private void Awake()
+    static List<AudioPerception> _audioPercievers;
+
+    static void Init()
     {
         _audioPercievers = FindObjectsOfType<AudioPerception>().ToList();
     }
 
-    public void ProduceSound(float val, float maxDistance)
+    private void Awake()
     {
+        Init();
+    }
+
+    public static void AddPerciever(AudioPerception perciever)
+    {
+        _audioPercievers.Add(perciever);
+    }
+
+    public static void RemovePerciever(AudioPerception perciever)
+    {
+        _audioPercievers.Remove(perciever);
+    }
+
+    public static void ProduceSound(Vector3 origin, float val, float maxDistance)
+    {
+
         foreach (AudioPerception perciever in _audioPercievers)
         {
             float totalDistance = 0.0f;
 
             NavMeshPath path = new NavMeshPath();
-            if (NavMesh.CalculatePath(transform.position, perciever.transform.position, ~0, path))
+            if (NavMesh.CalculatePath(origin, perciever.transform.position, ~0, path))
             {
-                if (InRange(path, maxDistance, ref totalDistance))
+                if (InRange(origin, path, maxDistance, ref totalDistance))
                 {
                     float percentageOfMaxDistance = totalDistance / maxDistance;
                     float heard = val * (1 - percentageOfMaxDistance);
-                    perciever.AddSound(transform.position, heard);
+                    perciever.AddSound(origin, heard);
                 }
             }
         }
     }
-    bool InRange(NavMeshPath path, float maxDistance, ref float distance)
+    static bool InRange(Vector3 origin, NavMeshPath path, float maxDistance, ref float distance)
     {
-        Vector3 position = transform.position;
+        
+        Vector3 position = origin;
         foreach (Vector3 corner in path.corners)
         {
             distance += Vector3.Distance(position, corner);
