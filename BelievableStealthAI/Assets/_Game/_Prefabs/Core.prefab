@@ -76,6 +76,49 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &207680630475336293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4228843057477804326}
+  - component: {fileID: 8618087134522499330}
+  m_Layer: 0
+  m_Name: Audio Producer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4228843057477804326
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207680630475336293}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2549679156057239854}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8618087134522499330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207680630475336293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 985d12c7548e3b54d823958e53bc6779, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &418968777525124115
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,7 +805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageMultiplier: 0.5
-  _detectionMultiplier: 0.1
+  _detectionMultiplier: 0.2
 --- !u!1 &1941081258421013899
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,7 +1117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageMultiplier: 0.5
-  _detectionMultiplier: 0.1
+  _detectionMultiplier: 0.4
 --- !u!1 &1941243031877566265
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,7 +1242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageMultiplier: 0.8
-  _detectionMultiplier: 0.1
+  _detectionMultiplier: 0.3
 --- !u!1 &1941263426075185661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1447,7 +1490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageMultiplier: 0.8
-  _detectionMultiplier: 0.1
+  _detectionMultiplier: 0.4
 --- !u!1 &1941317972487790003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1779,7 +1822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageMultiplier: 2
-  _detectionMultiplier: 0.1
+  _detectionMultiplier: 0.2
 --- !u!1 &1941364083683232677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,7 +1947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageMultiplier: 0.8
-  _detectionMultiplier: 0.1
+  _detectionMultiplier: 0.4
 --- !u!1 &1941428510573444007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2173,7 +2216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageMultiplier: 0.5
-  _detectionMultiplier: 0.1
+  _detectionMultiplier: 0.2
 --- !u!1 &1941618596406190811
 GameObject:
   m_ObjectHideFlags: 0
@@ -2360,7 +2403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageMultiplier: 0.5
-  _detectionMultiplier: 0.1
+  _detectionMultiplier: 0.4
 --- !u!1 &1941678041816981445
 GameObject:
   m_ObjectHideFlags: 0
@@ -3112,7 +3155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageMultiplier: 1.2
-  _detectionMultiplier: 0.1
+  _detectionMultiplier: 0.8
 --- !u!1 &1941941947177755563
 GameObject:
   m_ObjectHideFlags: 0
@@ -3238,7 +3281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageMultiplier: 0.8
-  _detectionMultiplier: 0.1
+  _detectionMultiplier: 0.3
 --- !u!1 &1941941989022636465
 GameObject:
   m_ObjectHideFlags: 0
@@ -3591,7 +3634,7 @@ MonoBehaviour:
   _uiGPrompt: {fileID: 1372130426621428909}
   _bodybagAttachment: {fileID: 5420968015342435959}
   _bodybagPrefab: {fileID: 6689911547590488155, guid: 801f7d934e18a5440aa4b7830993339c, type: 3}
-  _deathScreenGroup: {fileID: 0}
+  _deathScreenGroup: {fileID: 5593835208494574879}
 --- !u!82 &3893984193834593137
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3697,7 +3740,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1943245967364093397}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 1
   m_Direction: 1
@@ -3856,6 +3899,7 @@ Transform:
   - {fileID: 6737613757738541777}
   - {fileID: 7845598873604219626}
   - {fileID: 8509235048684846963}
+  - {fileID: 4228843057477804326}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5181,7 +5225,7 @@ GameObject:
   - component: {fileID: 2181531551795924986}
   - component: {fileID: 3326284576407811107}
   m_Layer: 5
-  m_Name: You're dead
+  m_Name: You died text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

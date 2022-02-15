@@ -162,7 +162,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.35
+  m_Radius: 0.15
   m_Height: 1.7
   m_Direction: 1
   m_Center: {x: 0, y: 0.85, z: 0}
@@ -216,6 +216,8 @@ MonoBehaviour:
   _walkSpeed: 1.5
   _patrolSpeed: 1.2
   _chaseSpeed: 5.4
+  _durationForSuspiscion: 15
+  _currentRoom: {fileID: 0}
 --- !u!114 &4717096647025314114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3301,6 +3303,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   _observedObjects: []
+  _bodiesInCollider: []
 --- !u!114 &4717096648155567578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3318,6 +3321,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   _observedObjects: []
+  _bodiesInCollider: []
 --- !u!114 &4717096648296400362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3335,6 +3339,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   _observedObjects: []
+  _bodiesInCollider: []
 --- !u!114 &4717096647687448426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3352,6 +3357,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   _observedObjects: []
+  _bodiesInCollider: []
 --- !u!114 &4717096647840921511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3369,6 +3375,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   _observedObjects: []
+  _bodiesInCollider: []
 --- !u!114 &4717096648039957890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3386,6 +3393,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   _observedObjects: []
+  _bodiesInCollider: []
 --- !u!1001 &4717096647687448429
 PrefabInstance:
   m_ObjectHideFlags: 0
