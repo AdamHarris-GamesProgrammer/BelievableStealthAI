@@ -43,4 +43,9 @@ public class AILocomotion : MonoBehaviour
     {
         _agent.SetDestination(position);
     }
+
+    internal void CanMove(bool v)
+    {
+        _agent.enabled = v;
+    }
 }

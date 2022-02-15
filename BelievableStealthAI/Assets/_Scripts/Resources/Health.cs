@@ -71,6 +71,13 @@ public class Health : MonoBehaviour
         {
             _isDead = true;
             _OnDie.Invoke();
+
+            AILocomotion locomotion = GetComponent<AILocomotion>();
+            if(locomotion)
+            {
+                locomotion.CanMove(false);
+            }
+
             GetComponent<Ragdoll>().ActivateRagdoll();
             gameObject.tag = "DeadBody";
             return;

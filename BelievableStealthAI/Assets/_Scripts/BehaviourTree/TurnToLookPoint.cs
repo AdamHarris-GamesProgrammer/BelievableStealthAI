@@ -11,7 +11,7 @@ public class TurnToLookPoint : ActionNode
 
     protected override void OnStop()
     {
-        
+        _blackboard._locomotion.Rotation(true);
     }
 
     protected override State OnUpdate()
