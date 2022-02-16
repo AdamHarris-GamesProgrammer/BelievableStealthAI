@@ -35,6 +35,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
+    _response: 0
   description: 
   _agent: {fileID: 0}
   _position: {x: 29.6, y: 710.574}
@@ -79,6 +80,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
+    _response: 0
   description: 
   _agent: {fileID: 0}
   _position: {x: 37.6, y: 461.85898}
@@ -118,6 +120,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
+    _response: 0
   description: 
   _agent: {fileID: 0}
   _position: {x: -354.13907, y: 878.4001}
@@ -156,6 +159,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
+    _response: 0
   description: 
   _agent: {fileID: 0}
   _position: {x: 37.6, y: 215.2}
@@ -195,9 +199,10 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
+    _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -176.00005, y: 870.4001}
+  _position: {x: -196.00006, y: 878.4}
 --- !u!114 &-2372998424122943979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,6 +238,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
+    _response: 0
   description: 
   _agent: {fileID: 0}
   _position: {x: 29.599836, y: 99.37296}
@@ -273,6 +279,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
+    _response: 0
   description: 
   _agent: {fileID: 0}
   _position: {x: 36.799946, y: -7.2997055}
@@ -312,6 +319,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
+    _response: 0
   description: 
   _agent: {fileID: 0}
   _position: {x: 28.799992, y: 588.81586}
@@ -351,9 +359,10 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
+    _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -15.9999275, y: 870.4001}
+  _position: {x: -0.00019025803, y: 878.4}
   duration: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -402,6 +411,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
+    _response: 0
 --- !u!114 &3615367835191991609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,6 +447,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
+    _response: 0
   description: 
   _agent: {fileID: 0}
   _position: {x: 142.39989, y: 870.4001}
@@ -475,6 +486,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
+    _response: 0
   description: 
   _agent: {fileID: 0}
   _position: {x: 305.59998, y: 878.39996}
@@ -513,6 +525,7 @@ MonoBehaviour:
     _changedObservedObject: {fileID: 0}
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
+    _response: 0
   description: 
   _agent: {fileID: 0}
   _position: {x: 37.6, y: 340.4239}

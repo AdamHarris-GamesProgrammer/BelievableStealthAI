@@ -6,6 +6,8 @@ public class ReturnToSpawnPosition : ActionNode
 {
     protected override void OnStart()
     {
+        if (_blackboard._health.IsDead) return;
+
         _blackboard._locomotion.SetDestination(_blackboard.spawnPosition);
         _blackboard._locomotion.SetMaxSpeed(_blackboard._walkSpeed);
         

@@ -30,7 +30,6 @@ public class AudioProducer : MonoBehaviour
 
     public static void ProduceSound(Vector3 origin, float val, float maxDistance)
     {
-
         foreach (AudioPerception perciever in _audioPercievers)
         {
             float totalDistance = 0.0f;
