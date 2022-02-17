@@ -24,8 +24,8 @@ public class Door : ObservableObject
     {
         if (other.CompareTag("Enemy"))
         {
-            _animator.SetTrigger("openDoor");
-            
+            _animator.Play("DoorOpen", 0, 0.0f);
+
         }
         else if (other.CompareTag("Player"))
         {
@@ -50,7 +50,7 @@ public class Door : ObservableObject
     {
         if (other.CompareTag("Enemy"))
         {
-            _animator.SetTrigger("closeDoor");
+            _animator.Play("DoorClose", 0, 0.0f);
 
             AIAgent enemy = other.GetComponent<AIAgent>();
 
@@ -74,14 +74,15 @@ public class Door : ObservableObject
     public void DecideAnimation()
     {
         //opened
+        Debug.Log("Deciding animation");
         if (_currentState)
         {
-            _animator.SetTrigger("closeDoor");
+            _animator.Play("DoorClose", 0, 0.0f);
         }
         //closed
         else
         {
-            _animator.SetTrigger("openDoor");
+            _animator.Play("DoorOpen", 0, 0.0f);
         }
     }
 }

@@ -81,6 +81,8 @@ public class FOVCollider : MonoBehaviour
         {
             foreach(GameObject obj in _bodiesInCollider)
             {
+                if (obj == null) continue;
+
                 RaycastHit hit;
                 Vector3 pos = obj.transform.position;
                 Vector3 direction = (pos - _fovController.RaycastOrigin);
