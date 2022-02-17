@@ -90,7 +90,6 @@ public class AIAgent : MonoBehaviour
 
         if (_patrolRoute != null)
         {
-            Debug.Log(gameObject.name);
             _blackboard._hasPatrolRoute = true;
         }
         else
