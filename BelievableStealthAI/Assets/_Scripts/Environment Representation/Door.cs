@@ -8,7 +8,7 @@ public class Door : ObservableObject
     PlayerController _player;
     Animator _animator;
 
-
+    [SerializeField] bool _shouldBeOpen;
 
     private void Awake()
     {
@@ -18,6 +18,12 @@ public class Door : ObservableObject
         //TODO: Figure out a way to have a door automatically detect if it is open or closed. 
         //CLOSED
         _currentState = false;
+
+        if(_shouldBeOpen)
+        {
+            DecideAnimation();
+            _currentState = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -72,7 +78,7 @@ public class Door : ObservableObject
     public void DecideAnimation()
     {
         //opened
-        Debug.Log("Deciding animation");
+        //sDebug.Log(transform.name + " is opening or closing");
         if (_currentState)
         {
             _animator.Play("DoorClose", 0, 0.0f);

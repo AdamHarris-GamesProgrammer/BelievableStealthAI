@@ -146,6 +146,7 @@ public class AIAgent : MonoBehaviour
 
     public void SeenChangedObject(ObservableObject obj)
     {
+        Debug.Log(transform.name + " has seen a changed object");
         if (_currentlyAlert)
         {
             return;
@@ -198,6 +199,7 @@ public class AIAgent : MonoBehaviour
 
     public void BodyDetected(GameObject agent)
     {
+        Debug.Log(transform.name + " has seen a body");
         _deadAgent = agent;
         _hasSeenBody = true;
         if (_currentlyAlert)
@@ -218,6 +220,7 @@ public class AIAgent : MonoBehaviour
 
     public void PlayerSeen()
     {
+        Debug.Log(transform.name + " has seen the player");
         //Debug.Log("Player Seen");
         _currentlySeeingPlayer = true;
 
@@ -242,6 +245,7 @@ public class AIAgent : MonoBehaviour
 
     public void LightSwitchChanged(Lightswitch ls)
     {
+        Debug.Log(transform.name + " has seen a changed lightbulb");
         if(_currentlyAlert)
         {
             return;
@@ -269,6 +273,7 @@ public class AIAgent : MonoBehaviour
 
     public void SoundHeard()
     {
+        Debug.Log(transform.name + " has heard something");
         _currentlyHearingSound = true;
         _hasHeardSound = true;
 
@@ -298,6 +303,7 @@ public class AIAgent : MonoBehaviour
 
     public void ForceAlertAll()
     {
+        Debug.Log("force alert all");
         _dialogueController.PlaySound(SoundType.EveryoneSearchPrompt);
         RoomController[] rooms = FindObjectsOfType<RoomController>();
         foreach (RoomController room in rooms) 
@@ -308,6 +314,7 @@ public class AIAgent : MonoBehaviour
 
     public void ForceAlert(bool playDialoge)
     {
+        Debug.Log("force alerted");
         if(playDialoge) _dialogueController.PlaySound(SoundType.SearchPrompt);
 
         _currentlyAlert = true;
@@ -315,6 +322,8 @@ public class AIAgent : MonoBehaviour
 
     public void CheckOn(AIAgent agent)
     {
+        Debug.Log(transform.name + " needs to check on: " + agent.name);
+
         //We already have an agent to check on
         if (_agentToCheckOn != null) return;
 

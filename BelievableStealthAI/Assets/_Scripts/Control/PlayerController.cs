@@ -165,8 +165,8 @@ namespace TGP.Control
                             Vector3 direction = ((_nearbyAgent.transform.position + Vector3.up) - raycastOrigin);
                             if (Physics.Raycast(raycastOrigin, direction, out RaycastHit hit, 2.5f, ~0, QueryTriggerInteraction.Ignore))
                             {
-                                Debug.Log("Hit: " + hit.transform.name);
-                                Debug.Log("Root: " + hit.transform.root.name);
+                                //Debug.Log("Hit: " + hit.transform.name);
+                                //Debug.Log("Root: " + hit.transform.root.name);
                                 Vector3 endPoint = raycastOrigin + (direction * 2.5f);
                                 Debug.DrawLine(raycastOrigin, endPoint, Color.red, 5.0f);
                                 if (hit.transform.IsChildOf(_nearbyAgent.transform))

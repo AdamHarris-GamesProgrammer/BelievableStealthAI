@@ -9,22 +9,17 @@ public class Window : ObservableObject
     PlayerController _controller;
 
     [SerializeField] Collider _colliderToDisable;
-
+    [SerializeField] bool _shouldBeOpen;
     private void Awake()
     {
         _animator = GetComponentInChildren<Animator>();
         _controller = FindObjectOfType<PlayerController>();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(_shouldBeOpen)
+        {
+            DecideAnimation();
+            _currentState = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

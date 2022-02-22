@@ -25,15 +25,21 @@ public class RoomController : MonoBehaviour
 
     public void BeginSearch()
     {
-        if(_currentLP >= _lookAroundPoints.Count) _currentLP = 0;
-        if(_currentPOI >= _pois.Count) _currentPOI = 0;
+        if(_lookAroundPoints != null)
+        {
+            if(_currentLP >= _lookAroundPoints.Count) _currentLP = 0;
+        }
+        if(_pois != null)
+        {
+            if(_currentPOI >= _pois.Count) _currentPOI = 0;
+        }
         _currentObservable = 0;
     }
 
 
-
     public bool OutOfLookPoints()
     {
+        if (_lookAroundPoints == null) return true;
         if (_currentLP >= _lookAroundPoints.Count) return true;
 
         return false;
@@ -55,6 +61,11 @@ public class RoomController : MonoBehaviour
 
     public bool OutOfPOIs()
     {
+        if (_pois == null)
+        {
+            Debug.Log(transform.name + " POIS is null");
+            return true;
+        }
         if (_currentPOI >= _pois.Count) return true;
 
         return false;
@@ -62,6 +73,11 @@ public class RoomController : MonoBehaviour
 
     public bool GetNextPOI(ref PointOfInterest poi)
     {
+        if(_pois == null)
+        {
+            Debug.Log("[ERROR: RoomController::GetNextPOI]: POIs is null");
+            return true;
+        }
         if (_currentPOI >= _pois.Count)
         {
             Debug.Log("Finished Search");
