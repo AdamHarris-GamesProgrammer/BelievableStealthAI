@@ -27,6 +27,8 @@ public class AIAgent : MonoBehaviour
     [SerializeField] float _durationForSuspiscion = 15.0f;
     float _suspiscionTimer;
 
+    DialogueController _dialogueController;
+
 
     bool _haveBeenAlerted = false;
     bool _hasSeenPlayer = false;
@@ -72,6 +74,7 @@ public class AIAgent : MonoBehaviour
     {
         _player = FindObjectOfType<PlayerController>();
         _animator = GetComponent<Animator>();
+        _dialogueController = GetComponent<DialogueController>();
     }
 
     private void Start()
@@ -107,6 +110,7 @@ public class AIAgent : MonoBehaviour
     public void RadioAllyToCheckOn()
     {
         Debug.Log(transform.name + " is checking on: " + _agentToCheckOn.transform.name);
+        _dialogueController.PlaySound(SoundType.CheckOnAlly);
         _agentToCheckOn.Respond(this);
     }
 
@@ -119,7 +123,7 @@ public class AIAgent : MonoBehaviour
         }
         else
         {
-            //TODO: Play dialogue
+            _dialogueController.PlaySound(SoundType.ReturnCall);
             caller._blackboard._response = true;
         }
     }
@@ -142,6 +146,22 @@ public class AIAgent : MonoBehaviour
 
     public void SeenChangedObject(ObservableObject obj)
     {
+        if (_currentlyAlert)
+        {
+            return;
+        }
+        
+        if(obj.Type == ObservableType.Door)
+        {
+            if (obj.CurrentState) _dialogueController.PlaySound(SoundType.DoorOpen);    
+            else _dialogueController.PlaySound(SoundType.DoorClosed);    
+        }
+        else if(obj.Type == ObservableType.Window)
+        {
+            if (obj.CurrentState) _dialogueController.PlaySound(SoundType.WindowOpen);
+            else _dialogueController.PlaySound(SoundType.WindowClosed);
+        }
+
         _blackboard._changedObservedObject = obj;
         _hasAnObjectchanged = true;
     }
@@ -188,6 +208,7 @@ public class AIAgent : MonoBehaviour
         if (!_haveBeenAlerted)
         {
             //TODO: Play Panicked Animation and Dialogue 
+            _dialogueController.PlaySound(SoundType.FindingBody);
         }
         else
         {
@@ -202,11 +223,11 @@ public class AIAgent : MonoBehaviour
 
         if (!_hasSeenPlayer)
         {
-            //TODO: Play Dialogue "Whose there?"
+            _dialogueController.PlaySound(SoundType.FirstTimeSeeingPlayer);
         }
         else
         {
-            //TODO: Play Dialogue "You again."
+            _dialogueController.PlaySound(SoundType.SeeingPlayerAgain);
         }
 
         if (!_currentlyAlert)
@@ -221,18 +242,23 @@ public class AIAgent : MonoBehaviour
 
     public void LightSwitchChanged(Lightswitch ls)
     {
+        if(_currentlyAlert)
+        {
+            return;
+        }
+
         _lightswitch = ls;
 
         //Trigger the object investigation branch
         SeenChangedObject(ls);
-
-        if (!_currentlyAlert)
+    
+        if(_lightswitch.CurrentState)
         {
-            //TODO: Play dialogue: "That's odd"
+            _dialogueController.PlaySound(SoundType.LightsOn);
         }
         else
         {
-            //TODO: Play dialogue: "I'll find you dammit
+            _dialogueController.PlaySound(SoundType.LightsOff);
         }
     }
 
@@ -252,7 +278,7 @@ public class AIAgent : MonoBehaviour
         }
         else
         {
-            //TODO: Play Dialogue "What was that!"
+            _dialogueController.PlaySound(SoundType.HeardSomething);
         }
     }
 
@@ -266,21 +292,24 @@ public class AIAgent : MonoBehaviour
         }
         else
         {
-            //TODO: Play dialogue "Hmm. Must've been nothing"
+            _dialogueController.PlaySound(SoundType.NothingThere);
         }
     }
 
     public void ForceAlertAll()
     {
+        _dialogueController.PlaySound(SoundType.EveryoneSearchPrompt);
         RoomController[] rooms = FindObjectsOfType<RoomController>();
         foreach (RoomController room in rooms) 
         {
-            room.AgentsInRoom.ForEach((AIAgent agent) => agent.ForceAlert());
+            room.AgentsInRoom.ForEach((AIAgent agent) => agent.ForceAlert(false));
         }
     }
 
-    public void ForceAlert()
+    public void ForceAlert(bool playDialoge)
     {
+        if(playDialoge) _dialogueController.PlaySound(SoundType.SearchPrompt);
+
         _currentlyAlert = true;
     }
 
@@ -295,31 +324,6 @@ public class AIAgent : MonoBehaviour
             //Set the new agent to check on
             _agentToCheckOn = agent;
         }
-        //TODO: Play Dialogue "Hey Matt, are you there?"
-    }
-
-    //TODO: Replace distance with a variable
-    public List<PointOfInterest> GetNearbyPointsOfInterest()
-    {
-        List<PointOfInterest> poi = FindObjectsOfType<PointOfInterest>().ToList();
-        List<PointOfInterest> poiToRemove = new List<PointOfInterest>();
-
-        foreach (PointOfInterest p in poi)
-        {
-            if (Vector3.Distance(p.transform.position, transform.position) > 15.0f)
-            {
-                poiToRemove.Add(p);
-            }
-        }
-
-        foreach (PointOfInterest p in poiToRemove)
-        {
-            poi.Remove(p);
-        }
-
-        Debug.Log("Found " + poi.Count + " Points of Interest");
-
-        return poi;
     }
 
     //Called by Unity Animator

@@ -19,11 +19,11 @@ public class ForceAlert : ActionNode
     {
         if (_alertAll)
         {
-            _blackboard._agent.ForceAlert();
+            _blackboard._agent.ForceAlertAll();
         }
         else
         {
-            _blackboard._agent.ForceAlertAll();
+            _blackboard._agent.ForceAlert(true);
         }
 
         _blackboard._agent.DeadAgent = null;

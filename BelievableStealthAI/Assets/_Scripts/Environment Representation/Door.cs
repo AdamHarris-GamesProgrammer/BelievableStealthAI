@@ -31,9 +31,7 @@ public class Door : ObservableObject
         {
             _player.NearbyDoor = this;
 
-            //TODO: How does this even work, it returns a transform either way?
-
-            if (GetClosestSide(other.transform.position))
+            if (GetClosestSide(other.transform.position) == _sideA)
             {
                 _startObservePosition = _sideA.position;
                 _endObservePositon = _sideB.position;
