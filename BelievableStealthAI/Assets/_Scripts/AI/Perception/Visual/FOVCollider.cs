@@ -115,7 +115,7 @@ public class FOVCollider : MonoBehaviour
                 Debug.DrawRay(_fovController.RaycastOrigin, direction);
                 if (Physics.Raycast(_fovController.RaycastOrigin, direction, out hit, 25.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
                 {
-                    //Debug.Log("Hit: " + hit.transform.gameObject.name);
+                    Debug.Log("Hit: " + hit.transform.gameObject.name);
 
                     if (hit.transform.GetComponent<Hitbox>())
                     {

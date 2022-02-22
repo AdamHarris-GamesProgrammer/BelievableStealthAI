@@ -57,6 +57,9 @@ public class CharacterLocomotion : MonoBehaviour
     {
         if (_health.IsDead) return;
 
+        float noiseLevel = 0.0f;
+        float noiseDistance = 0.0f;
+
         if (!_player.CanMove)
         {
             _animator.SetFloat("InputX", 0.0f);
@@ -69,6 +72,8 @@ public class CharacterLocomotion : MonoBehaviour
             _isSprinting = true;
             _currentSpeed = _sprintSpeed;
             _animator.SetBool("isSprinting", true);
+            noiseLevel = 0.25f;
+            noiseDistance = 15.0f;
             
             if(_isCrouching)
             {
@@ -79,6 +84,8 @@ public class CharacterLocomotion : MonoBehaviour
         }
         else
         {
+            noiseLevel = 0.15f;
+            noiseDistance = 10.0f;
             _isSprinting = false;
             _currentSpeed = _walkSpeed;
             _animator.SetBool("isSprinting", false);
@@ -91,6 +98,9 @@ public class CharacterLocomotion : MonoBehaviour
             _isCrouching = !_isCrouching;
 
             _controller.height = _isCrouching ? 1.5f : 1.6f;
+
+            noiseLevel = 0.05f;
+            noiseDistance = 5.0f;
 
             if(_isSprinting)
             {
@@ -110,6 +120,14 @@ public class CharacterLocomotion : MonoBehaviour
         //Sets our animator values
         _animator.SetFloat("InputX", _input.x);
         _animator.SetFloat("InputY", _input.y);
+
+        if(Mathf.Approximately(_input.x, 0.0f) && Mathf.Approximately(_input.y, 0.0f))
+        {
+            noiseLevel = 0.0f;
+            noiseDistance = 0.0f;
+        }
+
+        AudioProducer.ProduceSound(transform.position, noiseLevel, noiseDistance);
 
         //Checks to see if we are jumping
         if (Input.GetKeyDown(KeyCode.Space)) Jump();

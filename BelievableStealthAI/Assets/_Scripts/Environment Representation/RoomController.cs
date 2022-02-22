@@ -80,7 +80,7 @@ public class RoomController : MonoBehaviour
         }
         if (_currentPOI >= _pois.Count)
         {
-            Debug.Log("Finished Search");
+            //Debug.Log("Finished Search");
             return true;
         }
 

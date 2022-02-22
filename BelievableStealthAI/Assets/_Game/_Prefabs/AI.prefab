@@ -1783,7 +1783,7 @@ MonoBehaviour:
   _detectedValue: 0
   _seen: 0
   _lostVisibilityDuration: 0.5
-  _timeBetweenDuration: 0.25
+  _timeBetweenDuration: 0.1
   _detectionMeter: {fileID: 4717096648512745522}
 --- !u!114 &4717096647626450872
 MonoBehaviour:
@@ -1800,6 +1800,7 @@ MonoBehaviour:
   heardValue: 0
   _heard: 0
   _timeBeforeReducingValue: 1
+  _timeBetweenIncrements: 0.5
 --- !u!1 &4717096647626450875
 GameObject:
   m_ObjectHideFlags: 0

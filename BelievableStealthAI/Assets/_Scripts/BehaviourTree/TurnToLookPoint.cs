@@ -16,6 +16,12 @@ public class TurnToLookPoint : ActionNode
 
     protected override State OnUpdate()
     {
+        if(_blackboard._currentLookPoint == null)
+        {
+            Debug.Log("[ERROR: TurnToLookPoint::OnUpdate]: Lookpoint is null");
+            return State.Failure;
+        }
+
         Quaternion rotation = Quaternion.LookRotation(_blackboard._currentLookPoint.forward, Vector3.up);
         _blackboard._agent.transform.rotation = rotation;
 

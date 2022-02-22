@@ -59,10 +59,14 @@ public class AIAgent : MonoBehaviour
     public bool HasSeenPlayer { get => _hasSeenPlayer; }
     public bool HasHeardSound { get => _hasHeardSound; }
     public bool HasSeenBody { get => _hasSeenBody; set => _hasSeenBody = value; }
-    public bool CurrentlyAlert { get => _currentlyAlert; }
+    public bool CurrentlyAlert { get => _currentlyAlert; set => _currentlyAlert = value; }
     public bool CurrentlyHearingSound { get => _currentlyHearingSound; }
     public bool CurrentlySeeingPlayer { get => _currentlySeeingPlayer; }
     public bool HasAnObjectchanged { get => _hasAnObjectchanged; }
+
+    public bool Suspicious { get => _suspicious; set => _suspicious = false; }
+
+    bool _suspicious;
 
     public Lightswitch ChangedLightswitch { get => _lightswitch; }
 
@@ -184,14 +188,14 @@ public class AIAgent : MonoBehaviour
     {
         if (_currentlyAlert)
         {
-            if (!_currentlySeeingPlayer && !_currentlyHearingSound)
+            if (!_currentlySeeingPlayer)
             {
                 _suspiscionTimer += Time.deltaTime;
 
                 if (_suspiscionTimer > _durationForSuspiscion)
                 {
                     _suspiscionTimer = 0.0f;
-                    _currentlyAlert = false;
+
                 }
             }
         }
@@ -236,6 +240,7 @@ public class AIAgent : MonoBehaviour
         if (!_currentlyAlert)
         {
             //TODO: Alert nearby allys
+            _suspicious = true;
             _currentlyAlert = true;
 
         }
@@ -274,7 +279,6 @@ public class AIAgent : MonoBehaviour
     public void SoundHeard()
     {
         Debug.Log(transform.name + " has heard something");
-        _currentlyHearingSound = true;
         _hasHeardSound = true;
 
         if (_currentlyAlert)
@@ -283,8 +287,12 @@ public class AIAgent : MonoBehaviour
         }
         else
         {
-            _dialogueController.PlaySound(SoundType.HeardSomething);
+            if (!_currentlyHearingSound)
+            {
+                _dialogueController.PlaySound(SoundType.HeardSomething);
+            }
         }
+        _currentlyHearingSound = true;
     }
 
     public void NoLongerHearingSound()
@@ -317,6 +325,7 @@ public class AIAgent : MonoBehaviour
         Debug.Log("force alerted");
         if(playDialoge) _dialogueController.PlaySound(SoundType.SearchPrompt);
 
+        _suspicious = true;
         _currentlyAlert = true;
     }
 
