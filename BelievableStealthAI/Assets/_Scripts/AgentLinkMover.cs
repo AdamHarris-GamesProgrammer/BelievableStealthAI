@@ -46,9 +46,11 @@ public class AgentLinkMover : MonoBehaviour
     IEnumerator NormalSpeed(NavMeshAgent agent)
     {
         OffMeshLinkData data = agent.currentOffMeshLinkData;
-        
+
+        Debug.Log("Normal Speed");
         if(_agent.NearbyObservable)
         {
+            Debug.Log("Handling observable");
             _agent.NearbyObservable.Open();
         }
 

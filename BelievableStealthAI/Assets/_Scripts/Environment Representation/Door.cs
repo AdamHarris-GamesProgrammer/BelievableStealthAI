@@ -78,14 +78,14 @@ public class Door : ObservableObject
 
     public override void Open()
     {
-        if (_currentState) return;
+        //if (_currentState) return;
 
         _animator.Play("DoorOpen", 0, 0.0f);
     }
 
     public override void Close()
     {
-        if (!_currentState) return;
+        //if (!_currentState) return;
             
         _animator.Play("DoorClose", 0, 0.0f);
     }

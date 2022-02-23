@@ -15,7 +15,7 @@ public class Window : ObservableObject
         _animator = GetComponentInChildren<Animator>();
         _controller = FindObjectOfType<PlayerController>();
 
-        if(_shouldBeOpen)
+        if (_shouldBeOpen)
         {
             DecideAnimation();
             _currentState = true;
@@ -24,24 +24,38 @@ public class Window : ObservableObject
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy"))
         {
-            _animator.SetTrigger("openWindow");
+            other.GetComponent<AIAgent>().NearbyObservable = this;
         }
-        else if(other.CompareTag("Player"))
+        else if (other.CompareTag("Player"))
         {
             _controller.NearbyWindow = this;
         }
+    }
+
+    public override void Open()
+    {
+        //if (_currentState) return;
+
+        _animator.Play("WindowOpen", 0, 0.0f);
+    }
+
+    public override void Close()
+    {
+        //if (!_currentState) return;
+
+        _animator.Play("WindowClose", 0, 0.0f);
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
-            _animator.SetTrigger("closeWindow");
-
-
             AIAgent enemy = other.GetComponent<AIAgent>();
+
+            enemy.NearbyObservable = null;
+
 
             Transform closest = GetClosestSide(enemy.transform.position);
             if (closest == _sideA)
@@ -61,7 +75,7 @@ public class Window : ObservableObject
 
     public void DecideAnimation()
     {
-        if(_currentState) 
+        if (_currentState)
         {
             _animator.SetTrigger("closeWindow");
             _colliderToDisable.enabled = true;
