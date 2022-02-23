@@ -19,6 +19,11 @@ public class OutOfLookPoints : DecoratorNode
         State state = child.Update();
         if (state == State.Failure || state == State.Success)
         {
+            if(_blackboard._agent.CurrentRoom == null)
+            {
+                Debug.Log("[ERROR: OutOfLookPoints::OnUpdate]: Current room is null");
+                return State.Success;
+            }
             if (_blackboard._agent.CurrentRoom.OutOfLookPoints())
             {
                 return State.Success;
