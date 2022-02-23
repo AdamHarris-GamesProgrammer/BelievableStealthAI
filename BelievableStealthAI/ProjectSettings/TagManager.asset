@@ -8,6 +8,7 @@ TagManager:
   - ObservableObject
   - DeadBody
   - LookAroundPoint
+  - PlayerHitbox
   layers:
   - Default
   - TransparentFX

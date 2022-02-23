@@ -87,7 +87,7 @@ public class FOVCollider : MonoBehaviour
                 Vector3 pos = obj.transform.position;
                 Vector3 direction = (pos - _fovController.RaycastOrigin);
                 Debug.DrawRay(_fovController.RaycastOrigin, direction);
-                if (Physics.Raycast(_fovController.RaycastOrigin, direction, out hit, 25.0f, _rayCastLayer))
+                if (Physics.Raycast(_fovController.RaycastOrigin, direction, out hit, 25.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
                 {
                     if (hit.transform.GetInstanceID() == obj.transform.GetInstanceID())
                     {
@@ -111,17 +111,16 @@ public class FOVCollider : MonoBehaviour
 
                 RaycastHit hit;
                 Vector3 pos = hitbox.transform.position;
-                Vector3 direction = (pos - _fovController.RaycastOrigin);
+                Vector3 direction = (pos - _fovController.RaycastOrigin).normalized;
                 Debug.DrawRay(_fovController.RaycastOrigin, direction);
-                if (Physics.Raycast(_fovController.RaycastOrigin, direction, out hit, 25.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
+                if (Physics.Raycast(_fovController.RaycastOrigin, direction, out hit, 35.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
                 {
                     //Debug.Log("Hit: " + hit.transform.gameObject.name);
 
-                    if (hit.transform.GetComponent<Hitbox>())
+                    if (hit.transform.CompareTag("PlayerHitbox")) 
                     {
                         if(_player.Visible)
                         {
-                            //Debug.Log("Hit: " + hit.transform.name);
                             found = true;
                             _fovController.AddValue(_detectionInrement * hitbox.DetectionMultiplier);
                         }
