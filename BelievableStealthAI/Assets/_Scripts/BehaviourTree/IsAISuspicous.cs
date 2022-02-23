@@ -21,6 +21,6 @@ public class IsAISuspicous : DecoratorNode
             return child.Update();
         }
 
-        return State.Running;
+        return State.Failure;
     }
 }

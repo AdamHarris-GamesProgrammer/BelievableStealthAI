@@ -275,8 +275,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 4, z: 1.24}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 2, z: 1.99}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &6929109833416768966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,6 +296,9 @@ MonoBehaviour:
   _type: 0
   _sideA: {fileID: 4674421531419184429}
   _sideB: {fileID: 5956413814424874112}
+  _sideARoom: {fileID: 0}
+  _sideBRoom: {fileID: 0}
+  _shouldBeOpen: 0
 --- !u!208 &309029957855741174
 NavMeshObstacle:
   m_ObjectHideFlags: 0

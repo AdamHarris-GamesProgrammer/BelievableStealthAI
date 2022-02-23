@@ -3434,7 +3434,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2.25}
+  m_AnchoredPosition: {x: 0, y: 2}
   m_SizeDelta: {x: 1, y: 0.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4717096648045146449
@@ -3588,7 +3588,7 @@ MonoBehaviour:
   _detectionInrement: 0.15
   _rayCastLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 59
   _observedObjects: []
   _bodiesInCollider: []
 --- !u!114 &4717096648155567578
@@ -3606,7 +3606,7 @@ MonoBehaviour:
   _detectionInrement: 0.1
   _rayCastLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 59
   _observedObjects: []
   _bodiesInCollider: []
 --- !u!114 &4717096648296400362
@@ -3624,7 +3624,7 @@ MonoBehaviour:
   _detectionInrement: 0.05
   _rayCastLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 59
   _observedObjects: []
   _bodiesInCollider: []
 --- !u!114 &4717096647687448426
@@ -3642,7 +3642,7 @@ MonoBehaviour:
   _detectionInrement: 0.1
   _rayCastLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 59
   _observedObjects: []
   _bodiesInCollider: []
 --- !u!114 &4717096647840921511
@@ -3660,7 +3660,7 @@ MonoBehaviour:
   _detectionInrement: 0.05
   _rayCastLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 59
   _observedObjects: []
   _bodiesInCollider: []
 --- !u!114 &4717096648039957890
@@ -3678,7 +3678,7 @@ MonoBehaviour:
   _detectionInrement: 0.25
   _rayCastLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 59
   _observedObjects: []
   _bodiesInCollider: []
 --- !u!1001 &4717096647687448429

@@ -66,7 +66,7 @@ public class AIAgent : MonoBehaviour
 
     public bool Suspicious { get => _suspicious; set => _suspicious = false; }
 
-    bool _suspicious;
+    bool _suspicious = false;
 
     public Lightswitch ChangedLightswitch { get => _lightswitch; }
 
@@ -278,6 +278,8 @@ public class AIAgent : MonoBehaviour
 
     public void SoundHeard()
     {
+        if (_currentlyHearingSound) return; 
+
         Debug.Log(transform.name + " has heard something");
         _hasHeardSound = true;
 
