@@ -16,6 +16,13 @@ public class AgentLinkMover : MonoBehaviour
     public OffMeshLinkMoveMethod m_Method = OffMeshLinkMoveMethod.Parabola;
     public AnimationCurve m_Curve = new AnimationCurve();
 
+    AIAgent _agent;
+
+    private void Awake()
+    {
+        _agent = GetComponent<AIAgent>();
+    }
+
     IEnumerator Start()
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
@@ -39,6 +46,12 @@ public class AgentLinkMover : MonoBehaviour
     IEnumerator NormalSpeed(NavMeshAgent agent)
     {
         OffMeshLinkData data = agent.currentOffMeshLinkData;
+        
+        if(_agent.NearbyObservable)
+        {
+            _agent.NearbyObservable.Open();
+        }
+
         Vector3 endPos = data.endPos + Vector3.up * agent.baseOffset;
         while (agent.transform.position != endPos)
         {
