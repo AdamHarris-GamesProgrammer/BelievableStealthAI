@@ -25,6 +25,9 @@ public class AIAgent : MonoBehaviour
 
     [Header("Suspicion Settings")]
     [SerializeField] float _durationForSuspiscion = 15.0f;
+
+    [Header("Room Details")]
+    [SerializeField] RoomController _currentRoom;
     float _suspiscionTimer;
 
     DialogueController _dialogueController;
@@ -40,16 +43,15 @@ public class AIAgent : MonoBehaviour
     bool _hasAnObjectchanged = false;
 
     Vector3 _pointOfSound;
-
     AIAgent _agentToCheckOn = null;
-
     Vector3 _lastKnownPlayerPosition;
-
     Lightswitch _lightswitch;
-
     GameObject _deadAgent;
 
-    [SerializeField] RoomController _currentRoom;
+
+    ObservableObject _nearbyObservable;
+
+    public ObservableObject NearbyObservable { get => _nearbyObservable; set => _nearbyObservable = value; }
 
     public RoomController CurrentRoom { get => _currentRoom; set => _currentRoom = value; }
 

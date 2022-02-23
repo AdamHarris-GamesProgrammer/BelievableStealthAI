@@ -75,6 +75,16 @@ public class ObservableObject : MonoBehaviour
         }
     }
 
+    public virtual void Open()
+    {
+
+    }
+
+    public virtual void Close()
+    {
+
+    }
+
     public Transform GetClosestSide(Vector3 pos)
     {
         if (_sideA == _sideB) return _sideA;

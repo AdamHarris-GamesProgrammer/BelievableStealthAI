@@ -19,7 +19,7 @@ public class InteractWithObject : ActionNode
         if(_blackboard._locomotion.GetRemainingDistance() < 0.5f)
         {
             _blackboard._changedObservedObject.InteractWithObject();
-            _blackboard._changedObservedObject.InteractAction();
+            _blackboard._changedObservedObject.Close();
             return State.Success;
         }
 
