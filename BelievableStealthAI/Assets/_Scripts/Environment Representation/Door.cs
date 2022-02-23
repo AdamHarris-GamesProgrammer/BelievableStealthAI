@@ -27,11 +27,40 @@ public class Door : ObservableObject
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            AIAgent enemy = other.GetComponent<AIAgent>();
+            enemy.NearbyObservable = this;
+            Transform closest = GetClosestSide(enemy.transform.position);
+            if (closest == _sideA)
+            {
+                enemy.CurrentRoom = _sideARoom;
+            }
+            else
+            {
+                enemy.CurrentRoom = _sideBRoom;
+            }
+
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
-            other.GetComponent<AIAgent>().NearbyObservable = this;
+            AIAgent enemy = other.GetComponent<AIAgent>();
+            enemy.NearbyObservable = this;
+            Transform closest = GetClosestSide(enemy.transform.position);
+            if (closest == _sideA)
+            {
+                enemy.CurrentRoom = _sideARoom;
+            }
+            else
+            {
+                enemy.CurrentRoom = _sideBRoom;
+            }
 
         }
         else if (other.CompareTag("Player"))
