@@ -6,6 +6,12 @@ public class PointOfInterest : MonoBehaviour
 {
     [SerializeField] protected Transform _investigationPoint;
 
+    protected bool _playerInside = false;
+    protected bool _bodyBagInside = false;
+
+    public bool PlayerInside { get => _playerInside; set { _playerInside = value; } }
+    public bool BodybagInside { get => _bodyBagInside; set { _bodyBagInside = value; } }
+
     public Transform InvestigationPoint { get => _investigationPoint; }
 
     public RoomController Room { get => _room; set => _room = value; }

@@ -21,8 +21,6 @@ public class Attack : ActionNode
             return State.Success;
         }
 
-        //TODO: Implement attack logic
-
         if(!_blackboard._agent.TryAttack())
         {
             return State.Failure;            

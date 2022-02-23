@@ -21,6 +21,16 @@ public class InvestigatePOI : ActionNode
         {
             Debug.Log("Something found");
             return State.Success;
+
+            if (_blackboard._currentPOI.PlayerInside)
+            {
+                _blackboard._agent.Attack(true);
+            }
+            else if(_blackboard._currentPOI.BodybagInside)
+            {
+                
+            }
+
         }
         else
         {

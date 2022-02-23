@@ -325,8 +325,8 @@ namespace TGP.Control
         public void TakeHit()
         {
             //Kill player
-            //GetComponent<PlayerHealth>().TakeDamage(10000.0f);
-            //_deathScreenGroup.alpha = 1.0f;
+            GetComponent<PlayerHealth>().TakeDamage(10000.0f);
+            _deathScreenGroup.alpha = 1.0f;
         }
     }
 }

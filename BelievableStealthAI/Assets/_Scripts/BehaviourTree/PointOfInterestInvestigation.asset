@@ -362,7 +362,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -0.00019025803, y: 878.4}
+  _position: {x: -37.200035, y: 878.4}
   duration: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -450,7 +450,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: 142.39989, y: 870.4001}
+  _position: {x: 126.39999, y: 886.4}
 --- !u!114 &4257202899079560828
 MonoBehaviour:
   m_ObjectHideFlags: 0

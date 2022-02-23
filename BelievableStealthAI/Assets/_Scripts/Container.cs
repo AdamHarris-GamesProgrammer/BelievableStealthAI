@@ -5,14 +5,6 @@ using UnityEngine;
 
 public class Container : PointOfInterest
 {
-    bool _playerInside = false;
-    bool _bodyBagInside = false;
-
-    public bool PlayerInside { get => _playerInside; set { _playerInside = value; } }
-    public bool BodybagInside { get => _bodyBagInside; set { _bodyBagInside = value; } }
-
-
-
     PlayerController _player;
 
 

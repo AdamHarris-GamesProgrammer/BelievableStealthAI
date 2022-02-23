@@ -144,10 +144,15 @@ public class AIAgent : MonoBehaviour
         return false;
     }
 
-    public void Attack()
+    public void Attack(bool autoKill = false)
     {
         //Debug.Log("Attack method");
         _animator.SetTrigger("attack");
+
+        if (autoKill)
+        {
+            _player.TakeHit();
+        }
     }
 
     public void SeenChangedObject(ObservableObject obj)
