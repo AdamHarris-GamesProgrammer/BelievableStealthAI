@@ -18,7 +18,8 @@ public class TurnToLookPoint : ActionNode
     {
         if(_blackboard._currentLookPoint == null)
         {
-            Debug.Log("[ERROR: TurnToLookPoint::OnUpdate]: Lookpoint is null");
+            Debug.Log(_blackboard._agent.transform.name + ": [ERROR: TurnToLookPoint::OnUpdate]: Lookpoint is null");
+            Debug.Break();
             return State.Failure;
         }
 

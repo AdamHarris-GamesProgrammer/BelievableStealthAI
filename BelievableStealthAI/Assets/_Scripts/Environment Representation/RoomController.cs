@@ -139,6 +139,7 @@ public class RoomController : MonoBehaviour
         bool reset = true;
         foreach (AIAgent agent in _aiInRoom)
         {
+            if (agent == null) continue;
             if (!agent.StopSearching) reset = false;
         }
 
@@ -262,7 +263,8 @@ public class RoomController : MonoBehaviour
 
         foreach (AIAgent obv in unfilteredAgents)
         {
-            Vector3 direction = (obv.transform.position - transform.position);
+            Vector3 adjustedPos = obv.transform.position + (Vector3.up * 1.5f);
+            Vector3 direction = (adjustedPos - transform.position);
 
             if (Physics.Raycast(transform.position, direction, out RaycastHit hit, 35.0f, ~0, QueryTriggerInteraction.Ignore))
             {
@@ -274,6 +276,7 @@ public class RoomController : MonoBehaviour
                         _aiInRoom.Add(o);
                         EditorUtility.SetDirty(o);
                         o.CurrentRoom = this;
+                        EditorUtility.ClearDirty(o);
                     }
                     continue;
                 }
@@ -285,6 +288,7 @@ public class RoomController : MonoBehaviour
                         _aiInRoom.Add(o);
                         EditorUtility.SetDirty(o);
                         o.CurrentRoom = this;
+                        EditorUtility.ClearDirty(o);
                     }
                     continue;
                 }

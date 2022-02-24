@@ -207,7 +207,6 @@ public class AIAgent : MonoBehaviour
                 if (_suspiscionTimer > _durationForSuspiscion)
                 {
                     _suspiscionTimer = 0.0f;
-
                 }
             }
         }
@@ -236,18 +235,19 @@ public class AIAgent : MonoBehaviour
 
     public void PlayerSeen()
     {
-        Debug.Log(transform.name + " has seen the player");
         //Debug.Log("Player Seen");
 
         if (!_hasSeenPlayer)
         {
             _dialogueController.PlaySound(SoundType.FirstTimeSeeingPlayer);
+            Debug.Log(transform.name + " has seen the player");
         }
         else
         {
             if (!_currentlySeeingPlayer)
             {
                 _dialogueController.PlaySound(SoundType.SeeingPlayerAgain);
+                Debug.Log(transform.name + " has seen the player");
             }
         }
         _currentlySeeingPlayer = true;
@@ -257,7 +257,6 @@ public class AIAgent : MonoBehaviour
             //TODO: Alert nearby allys
             _suspicious = true;
             _currentlyAlert = true;
-
         }
 
         _hasSeenPlayer = true;

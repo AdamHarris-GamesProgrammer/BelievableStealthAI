@@ -16,11 +16,6 @@ public class GetNextLookPoint : ActionNode
 
     protected override State OnUpdate()
     {
-        if(_blackboard._agent.CurrentRoom == null)
-        {
-            Debug.Log("[ERROR: GetNextLookPoint::OnUpdate]: Current room is null");
-            return State.Failure;
-        }
         if(_blackboard._agent.CurrentRoom.GetNextLookPoint(ref _blackboard._currentLookPoint))
         {
             return State.Failure;
