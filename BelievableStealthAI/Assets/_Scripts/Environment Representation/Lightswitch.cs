@@ -9,23 +9,15 @@ public class Lightswitch : ObservableObject
 
     PlayerController _controller;
 
-    List<AIAgent> _aiToAlert;
+    RoomController _room;
 
-    public void AddAgent(AIAgent agent) {
-        _aiToAlert.Add(agent);
-    }
-
-    public void RemoveAgent(AIAgent agent)
-    {
-        _aiToAlert.Remove(agent);
-    }
+    public RoomController Room { get => _room; set => _room = value; }
 
     private void Awake()
     {
         _controller = FindObjectOfType<PlayerController>();
-        _aiToAlert = new List<AIAgent>();
 
-        if(_controlsLight.gameObject.GetComponent<Light>().enabled)
+        if (_controlsLight.gameObject.GetComponent<Light>().enabled)
         {
             InteractWithObject();
         }
@@ -35,19 +27,6 @@ public class Lightswitch : ObservableObject
     {
         _controlsLight.gameObject.GetComponent<Light>().enabled = _currentState;
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -59,7 +38,7 @@ public class Lightswitch : ObservableObject
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             _controller.NearbyLightswitch = null;
         }
@@ -69,7 +48,7 @@ public class Lightswitch : ObservableObject
     {
         _controlsLight.gameObject.GetComponent<Light>().enabled = _currentState;
 
-        foreach (AIAgent agent in _aiToAlert)
+        foreach (AIAgent agent in _room.AgentsInRoom)
         {
             agent.LightSwitchChanged(this);
         }

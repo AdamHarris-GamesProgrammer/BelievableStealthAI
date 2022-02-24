@@ -17,11 +17,13 @@ public class RoomController : MonoBehaviour
     [SerializeField] List<PointOfInterest> _pois;
     [SerializeField] List<AIAgent> _aiInRoom;
     [SerializeField] List<Transform> _lookAroundPoints;
+    [SerializeField] List<Lightswitch> _lightswitches;
 
 
     [SerializeField] int _currentLP = 0;
     [SerializeField] int _currentPOI = 0;
     [SerializeField] int _currentObservable = 0;
+    [SerializeField] int _currentLightSwitch = 0;
 
     public void BeginSearch()
     {
@@ -130,10 +132,12 @@ public class RoomController : MonoBehaviour
         _pois = new List<PointOfInterest>();
         _aiInRoom = new List<AIAgent>();
         _lookAroundPoints = new List<Transform>();
+        _lightswitches = new List<Lightswitch>();
 
         List<ObservableObject> unfilteredObservables = FindObjectsOfType<ObservableObject>().ToList();
         List<Container> unfilteredContainer = FindObjectsOfType<Container>().ToList();
         List<AIAgent> unfilteredAgents = FindObjectsOfType<AIAgent>().ToList();
+        List<Lightswitch> unfilteredLightswitches = FindObjectsOfType<Lightswitch>().ToList();
 
         //Gets all transform components in children but skips the transform component on this object
         _lookAroundPoints = GetComponentsInChildren<Transform>(true)
@@ -226,6 +230,37 @@ public class RoomController : MonoBehaviour
                         _aiInRoom.Add(o);
                         EditorUtility.SetDirty(o);
                         o.CurrentRoom = this;
+                    }
+                    continue;
+                }
+            }
+        }
+
+        foreach (Lightswitch ls in unfilteredLightswitches)
+        {
+            Vector3 direction = (ls.transform.position - transform.position);
+
+            if (Physics.Raycast(transform.position, direction, out RaycastHit hit, 35.0f, ~0, QueryTriggerInteraction.Ignore))
+            {
+                Lightswitch o = hit.transform.GetComponentInParent<Lightswitch>();
+                if (o)
+                {
+                    if (!_lightswitches.Contains(o))
+                    {
+                        _lightswitches.Add(o);
+                        EditorUtility.SetDirty(o);
+                        o.Room = this;
+                    }
+                    continue;
+                }
+                o = hit.transform.GetComponentInChildren<Lightswitch>();
+                if (o)
+                {
+                    if (!_lightswitches.Contains(o))
+                    {
+                        _lightswitches.Add(o);
+                        EditorUtility.SetDirty(o);
+                        o.Room = this;
                     }
                     continue;
                 }
