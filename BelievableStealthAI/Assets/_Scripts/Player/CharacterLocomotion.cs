@@ -12,8 +12,8 @@ using UnityEngine.Animations.Rigging;
  */
 public class CharacterLocomotion : MonoBehaviour
 {
-    [Min(0f)][SerializeField] private float _jumpHeight = 0.5f;
-    [Min(0f)][SerializeField] private float _gravity = -9.81f;
+    [Min(0f)] [SerializeField] private float _jumpHeight = 0.5f;
+    [Min(0f)] [SerializeField] private float _gravity = -9.81f;
     [SerializeField] private float _stepDown = 0.1f;
     [SerializeField] private float _jumpDamping = 0.1f;
     [SerializeField] private float _walkSpeed = 1.0f;
@@ -24,7 +24,7 @@ public class CharacterLocomotion : MonoBehaviour
 
     private float _currentSpeed = 1.0f;
 
-    
+
     AudioSource _audioSource;
 
     bool _isJumping;
@@ -72,10 +72,10 @@ public class CharacterLocomotion : MonoBehaviour
             _isSprinting = true;
             _currentSpeed = _sprintSpeed;
             _animator.SetBool("isSprinting", true);
-            noiseLevel = 0.25f;
-            noiseDistance = 15.0f;
-            
-            if(_isCrouching)
+            noiseLevel = 0.45f;
+            noiseDistance = 25.0f;
+
+            if (_isCrouching)
             {
                 _isCrouching = false;
                 _animator.SetBool("isCrouching", false);
@@ -102,7 +102,7 @@ public class CharacterLocomotion : MonoBehaviour
             noiseLevel = 0.05f;
             noiseDistance = 5.0f;
 
-            if(_isSprinting)
+            if (_isSprinting)
             {
                 _isSprinting = false;
                 _animator.SetBool("isSprinting", false);
@@ -121,13 +121,16 @@ public class CharacterLocomotion : MonoBehaviour
         _animator.SetFloat("InputX", _input.x);
         _animator.SetFloat("InputY", _input.y);
 
-        if(Mathf.Approximately(_input.x, 0.0f) && Mathf.Approximately(_input.y, 0.0f))
+        if (Mathf.Approximately(_input.x, 0.0f) && Mathf.Approximately(_input.y, 0.0f))
         {
             noiseLevel = 0.0f;
             noiseDistance = 0.0f;
         }
 
-        AudioProducer.ProduceSound(transform.position, noiseLevel, noiseDistance);
+        if (noiseLevel != 0.0f)
+        {
+            AudioProducer.ProduceSound(transform.position, noiseLevel, noiseDistance);
+        }
 
         //Checks to see if we are jumping
         if (Input.GetKeyDown(KeyCode.Space)) Jump();
@@ -232,7 +235,7 @@ public class CharacterLocomotion : MonoBehaviour
 
     void Jump()
     {
-        if(!_isJumping)
+        if (!_isJumping)
         {
             float jumpVelocity = Mathf.Sqrt(2 * _gravity * _jumpHeight);
             InheritVelocity(jumpVelocity);

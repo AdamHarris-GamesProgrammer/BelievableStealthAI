@@ -3548,7 +3548,7 @@ MonoBehaviour:
   _stepDown: 0.3
   _jumpDamping: 0.5
   _walkSpeed: 1
-  _sprintSpeed: 2.5
+  _sprintSpeed: 1.8
   _pushPower: 2
   _airControl: 2.5
 --- !u!114 &1943245967364093398
