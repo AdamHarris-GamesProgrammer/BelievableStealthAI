@@ -47,10 +47,8 @@ public class AgentLinkMover : MonoBehaviour
     {
         OffMeshLinkData data = agent.currentOffMeshLinkData;
 
-        Debug.Log("Normal Speed");
         if(_agent.NearbyObservable)
         {
-            Debug.Log("Handling observable");
             _agent.NearbyObservable.Open();
         }
 

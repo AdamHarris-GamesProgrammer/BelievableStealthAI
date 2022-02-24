@@ -76,6 +76,11 @@ public class AIAgent : MonoBehaviour
     public Vector3 PointOfSound { get => _pointOfSound; set => _pointOfSound = value; }
 
     public AIAgent AgentToCheckOn { get => _agentToCheckOn; set => _agentToCheckOn = value; }
+
+    bool _stopSearching;
+    public bool StopSearching { get => _stopSearching; set => _stopSearching = value; }
+
+
     private void Awake()
     {
         _player = FindObjectOfType<PlayerController>();
@@ -162,13 +167,13 @@ public class AIAgent : MonoBehaviour
         {
             return;
         }
-        
-        if(obj.Type == ObservableType.Door)
+
+        if (obj.Type == ObservableType.Door)
         {
-            if (obj.CurrentState) _dialogueController.PlaySound(SoundType.DoorOpen);    
-            else _dialogueController.PlaySound(SoundType.DoorClosed);    
+            if (obj.CurrentState) _dialogueController.PlaySound(SoundType.DoorOpen);
+            else _dialogueController.PlaySound(SoundType.DoorClosed);
         }
-        else if(obj.Type == ObservableType.Window)
+        else if (obj.Type == ObservableType.Window)
         {
             if (obj.CurrentState) _dialogueController.PlaySound(SoundType.WindowOpen);
             else _dialogueController.PlaySound(SoundType.WindowClosed);
@@ -233,7 +238,6 @@ public class AIAgent : MonoBehaviour
     {
         Debug.Log(transform.name + " has seen the player");
         //Debug.Log("Player Seen");
-        _currentlySeeingPlayer = true;
 
         if (!_hasSeenPlayer)
         {
@@ -241,8 +245,12 @@ public class AIAgent : MonoBehaviour
         }
         else
         {
-            _dialogueController.PlaySound(SoundType.SeeingPlayerAgain);
+            if (!_currentlySeeingPlayer)
+            {
+                _dialogueController.PlaySound(SoundType.SeeingPlayerAgain);
+            }
         }
+        _currentlySeeingPlayer = true;
 
         if (!_currentlyAlert)
         {
@@ -258,7 +266,7 @@ public class AIAgent : MonoBehaviour
     public void LightSwitchChanged(Lightswitch ls)
     {
         Debug.Log(transform.name + " has seen a changed lightbulb");
-        if(_currentlyAlert)
+        if (_currentlyAlert)
         {
             return;
         }
@@ -267,8 +275,8 @@ public class AIAgent : MonoBehaviour
 
         //Trigger the object investigation branch
         SeenChangedObject(ls);
-    
-        if(_lightswitch.CurrentState)
+
+        if (_lightswitch.CurrentState)
         {
             _dialogueController.PlaySound(SoundType.LightsOn);
         }
@@ -285,7 +293,7 @@ public class AIAgent : MonoBehaviour
 
     public void SoundHeard()
     {
-        if (_currentlyHearingSound) return; 
+        if (_currentlyHearingSound) return;
 
         Debug.Log(transform.name + " has heard something");
         _hasHeardSound = true;
@@ -323,7 +331,7 @@ public class AIAgent : MonoBehaviour
         Debug.Log("force alert all");
         _dialogueController.PlaySound(SoundType.EveryoneSearchPrompt);
         RoomController[] rooms = FindObjectsOfType<RoomController>();
-        foreach (RoomController room in rooms) 
+        foreach (RoomController room in rooms)
         {
             room.AgentsInRoom.ForEach((AIAgent agent) => agent.ForceAlert(false));
         }
@@ -332,7 +340,7 @@ public class AIAgent : MonoBehaviour
     public void ForceAlert(bool playDialoge)
     {
         Debug.Log("force alerted");
-        if(playDialoge) _dialogueController.PlaySound(SoundType.SearchPrompt);
+        if (playDialoge) _dialogueController.PlaySound(SoundType.SearchPrompt);
 
         _suspicious = true;
         _currentlyAlert = true;
@@ -346,7 +354,7 @@ public class AIAgent : MonoBehaviour
         if (_agentToCheckOn != null) return;
 
         //if we are not currently alert
-        if(!_currentlyAlert)
+        if (!_currentlyAlert)
         {
             //Set the new agent to check on
             _agentToCheckOn = agent;

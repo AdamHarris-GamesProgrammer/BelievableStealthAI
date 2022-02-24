@@ -9,7 +9,7 @@ public class Lightswitch : ObservableObject
 
     PlayerController _controller;
 
-    RoomController _room;
+    [SerializeField] RoomController _room;
 
     public RoomController Room { get => _room; set => _room = value; }
 

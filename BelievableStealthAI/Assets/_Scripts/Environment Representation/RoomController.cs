@@ -36,14 +36,32 @@ public class RoomController : MonoBehaviour
             if(_currentPOI >= _pois.Count) _currentPOI = 0;
         }
         _currentObservable = 0;
+
+        foreach (AIAgent agent in _aiInRoom)
+        {
+            agent.StopSearching = false;
+        }
     }
 
 
     public bool OutOfLookPoints()
     {
-        if (_lookAroundPoints == null) return true;
-        if (_currentLP >= _lookAroundPoints.Count) return true;
-
+        if (_lookAroundPoints == null)
+        {
+            foreach(AIAgent agent in _aiInRoom)
+            {
+                agent.StopSearching = true;
+            }
+            return true;
+        }
+        if (_currentLP >= _lookAroundPoints.Count)
+        {
+            foreach (AIAgent agent in _aiInRoom)
+            {
+                agent.StopSearching = true;
+            }
+            return true;
+        }
         return false;
     }
 
@@ -51,6 +69,10 @@ public class RoomController : MonoBehaviour
     {
         if(_currentLP >= _lookAroundPoints.Count)
         {
+            foreach (AIAgent agent in _aiInRoom)
+            {
+                agent.StopSearching = true;
+            }
             Debug.Log("Finished Search");
             return true;
         }
@@ -66,9 +88,20 @@ public class RoomController : MonoBehaviour
         if (_pois == null)
         {
             Debug.Log(transform.name + " POIS is null");
+            foreach (AIAgent agent in _aiInRoom)
+            {
+                agent.StopSearching = true;
+            }
             return true;
         }
-        if (_currentPOI >= _pois.Count) return true;
+        if (_currentPOI >= _pois.Count) {
+            foreach (AIAgent agent in _aiInRoom)
+            {
+                agent.StopSearching = true;
+            }
+            return true;
+        }
+
 
         return false;
     }
@@ -77,11 +110,19 @@ public class RoomController : MonoBehaviour
     {
         if(_pois == null)
         {
+            foreach (AIAgent agent in _aiInRoom)
+            {
+                agent.StopSearching = true;
+            }
             Debug.Log("[ERROR: RoomController::GetNextPOI]: POIs is null");
             return true;
         }
         if (_currentPOI >= _pois.Count)
         {
+            foreach (AIAgent agent in _aiInRoom)
+            {
+                agent.StopSearching = true;
+            }
             //Debug.Log("Finished Search");
             return true;
         }
@@ -92,6 +133,20 @@ public class RoomController : MonoBehaviour
         return false;
     }
 
+
+    private void Update()
+    {
+        bool reset = true;
+        foreach (AIAgent agent in _aiInRoom)
+        {
+            if (!agent.StopSearching) reset = false;
+        }
+
+        if(reset)
+        {
+            BeginSearch();
+        }
+    }
 
     [ExecuteInEditMode]
     public void PerformAllRooms()

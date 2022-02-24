@@ -16,6 +16,12 @@ public class GoToLookPoint : ActionNode
 
     protected override State OnUpdate()
     {
+        if (_blackboard._agent.StopSearching)
+        {
+            return State.Failure;
+        }
+
+
         if (_blackboard._locomotion.GetRemainingDistance() < 0.5f)
         {
             return State.Success;

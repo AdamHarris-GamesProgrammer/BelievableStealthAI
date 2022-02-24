@@ -121,5 +121,7 @@ public class ObservableObject : MonoBehaviour
             _changedState = false;
             _changedStateRecently = false;
         }
+
+        InteractAction();
     }
 }

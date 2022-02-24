@@ -16,6 +16,11 @@ public class InvestigatePOI : ActionNode
 
     protected override State OnUpdate()
     {
+        if (_blackboard._agent.StopSearching)
+        {
+            return State.Failure;
+        }
+
         Debug.Log("Investigating POI: " + _blackboard._currentPOI.name);
         if(_blackboard._currentPOI.Search())
         {

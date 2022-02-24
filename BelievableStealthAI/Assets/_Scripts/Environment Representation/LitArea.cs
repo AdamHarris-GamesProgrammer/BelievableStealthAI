@@ -16,7 +16,6 @@ public class LitArea : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             AIAgent agent = other.gameObject.GetComponent<AIAgent>();
-            _switch.AddAgent(agent);
         }        
     }
 
@@ -25,7 +24,6 @@ public class LitArea : MonoBehaviour
         if(other.CompareTag("Enemy"))
         {
             AIAgent agent = other.gameObject.GetComponent<AIAgent>();
-            _switch.RemoveAgent(agent);
         }
     }
 }
