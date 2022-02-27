@@ -17,6 +17,7 @@ namespace TGP.Control
         [SerializeField] GameObject _bodybagAttachment;
         [SerializeField] Bodybag _bodybagPrefab;
         [SerializeField] CanvasGroup _deathScreenGroup;
+        [SerializeField] CanvasGroup _victoryScreenGroup;
 
         public GameObject FollowCam { get { return _followCam; } }
 
@@ -25,6 +26,19 @@ namespace TGP.Control
 
         List<Hitbox> _hitboxes;
         public List<Hitbox> Hitboxes { get => _hitboxes; }
+
+        bool _started = false;
+        public bool Started { get => _started; }
+
+        bool _won = false;
+        public bool Won { get => _won; }
+
+
+        public void StartGame()
+        {
+            _started = true;
+            Cursor.visible = false;
+        }
 
         Container _nearbyContainer;
         Door _nearbyDoor;
@@ -128,6 +142,7 @@ namespace TGP.Control
         private void Awake()
         {
             _hitboxes = GetComponentsInChildren<Hitbox>().ToList();
+            Cursor.lockState = CursorLockMode.Confined;
         }
 
         private void Update()
@@ -325,8 +340,16 @@ namespace TGP.Control
         public void TakeHit()
         {
             //Kill player
+            Cursor.visible = true;
             GetComponent<PlayerHealth>().TakeDamage(10000.0f);
             _deathScreenGroup.alpha = 1.0f;
+        }
+
+        public void Win()
+        {
+            Cursor.visible = true;
+            _won = true;
+            _victoryScreenGroup.alpha = 1.0f;
         }
     }
 }

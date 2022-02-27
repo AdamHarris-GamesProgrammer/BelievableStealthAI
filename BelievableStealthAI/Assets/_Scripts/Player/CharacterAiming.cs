@@ -10,6 +10,7 @@ public class CharacterAiming : MonoBehaviour
     public float _aimDuration = 0.3f;
 
     Camera _mainCamera;
+    PlayerController _player;
 
     [SerializeField] GameObject _followCam;
     [SerializeField] GameObject _aimCam;
@@ -18,8 +19,7 @@ public class CharacterAiming : MonoBehaviour
     {
         _mainCamera = Camera.main;
         //Debug.Log("Character Aiming cursor");
-        Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked;
+        _player = FindObjectOfType<PlayerController>();
     }
 
     
@@ -27,6 +27,8 @@ public class CharacterAiming : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!_player.Started || _player.Won) return;
+
         //Gets the cameras Y euler angle
         float yawCamera = _mainCamera.transform.rotation.eulerAngles.y;
 

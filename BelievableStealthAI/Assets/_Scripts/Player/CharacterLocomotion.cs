@@ -55,6 +55,12 @@ public class CharacterLocomotion : MonoBehaviour
 
     void Update()
     {
+        if (!_player.Started || _player.Won)
+        {
+            _animator.SetFloat("InputX", 0.0f);
+            _animator.SetFloat("InputY", 0.0f);
+            return;
+        }
         if (_health.IsDead) return;
 
         float noiseLevel = 0.0f;
