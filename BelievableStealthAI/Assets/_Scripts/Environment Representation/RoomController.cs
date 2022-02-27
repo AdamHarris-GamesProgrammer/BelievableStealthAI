@@ -25,6 +25,14 @@ public class RoomController : MonoBehaviour
     [SerializeField] int _currentObservable = 0;
     [SerializeField] int _currentLightSwitch = 0;
 
+    private void Awake()
+    {
+        foreach (AIAgent agent in _aiInRoom)
+        {
+            agent.CurrentRoom = this;
+        }
+    }
+
     public void BeginSearch()
     {
         if(_lookAroundPoints != null)

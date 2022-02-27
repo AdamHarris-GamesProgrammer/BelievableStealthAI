@@ -347,6 +347,7 @@ MonoBehaviour:
   _walkSpeed: 1.5
   _patrolSpeed: 1.2
   _chaseSpeed: 5.4
+  _checkOnThreshold: 60
   _durationForSuspiscion: 15
   _currentRoom: {fileID: 0}
 --- !u!114 &4717096647025314114

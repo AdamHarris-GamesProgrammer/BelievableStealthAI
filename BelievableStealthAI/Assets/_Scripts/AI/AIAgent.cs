@@ -23,6 +23,9 @@ public class AIAgent : MonoBehaviour
     [SerializeField] float _patrolSpeed = 1.2f;
     [SerializeField] float _chaseSpeed = 5.4f;
 
+    [Header("AI Check on Settings")]
+    [SerializeField] float _checkOnThreshold = 1.0f;
+
     [Header("Suspicion Settings")]
     [SerializeField] float _durationForSuspiscion = 15.0f;
 
@@ -47,6 +50,8 @@ public class AIAgent : MonoBehaviour
     Vector3 _lastKnownPlayerPosition;
     Lightswitch _lightswitch;
     GameObject _deadAgent;
+
+    Dictionary<AIAgent, float> _aiLastSeen = new Dictionary<AIAgent, float>();
 
 
     ObservableObject _nearbyObservable;
@@ -116,6 +121,12 @@ public class AIAgent : MonoBehaviour
         _blackboard._chaseSpeed = _chaseSpeed;
 
         _blackboard._health = GetComponent<Health>();
+
+        foreach(AIAgent agent in _currentRoom.AgentsInRoom)
+        {
+            if (agent == this) continue;
+            _aiLastSeen.Add(agent, 0.0f);
+        }
     }
 
     public void RadioAllyToCheckOn()
@@ -209,6 +220,46 @@ public class AIAgent : MonoBehaviour
                     _suspiscionTimer = 0.0f;
                 }
             }
+        }
+
+
+        if (_agentToCheckOn != null) return;
+
+        Dictionary<AIAgent, float> modifyVals = new Dictionary<AIAgent, float>();
+
+        Vector3 raycastOrigin = transform.position + (Vector3.up * 1.5f);
+        foreach (AIAgent agent in _aiLastSeen.Keys)
+        {
+            Vector3 raycastDestination = agent.transform.position + (Vector3.up * 1.5f);
+            Vector3 direction = raycastDestination - raycastOrigin;
+            if(Physics.Raycast(raycastOrigin, direction, out RaycastHit hit, 35.0f, ~0, QueryTriggerInteraction.Ignore))
+            {
+                if (hit.transform.CompareTag("Enemy"))
+                {
+                    //Can be currently seen
+                    modifyVals.Add(agent, 0.0f);
+                }
+                else
+                {
+                    //Cannot be seen currently
+                    float val = _aiLastSeen[agent];
+                    val += Time.deltaTime;
+                    //_aiLastSeen[agent] = val;
+                    modifyVals.Add(agent, val);
+
+                    if (val > _checkOnThreshold)
+                    {
+                        CheckOn(agent);
+
+                        modifyVals[agent] = 0.0f;
+                    }
+                }
+            }
+        }
+
+        foreach (AIAgent agent in modifyVals.Keys)
+        {
+            _aiLastSeen[agent] = modifyVals[agent];
         }
     }
 
