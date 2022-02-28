@@ -270,7 +270,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 4717096647025314123}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.3
+  m_Radius: 0.6
   m_Speed: 5.7
   m_Acceleration: 8
   avoidancePriority: 50
@@ -347,7 +347,7 @@ MonoBehaviour:
   _walkSpeed: 1.5
   _patrolSpeed: 1.2
   _chaseSpeed: 5.4
-  _checkOnThreshold: 60
+  _checkOnThreshold: 120
   _durationForSuspiscion: 15
   _currentRoom: {fileID: 0}
 --- !u!114 &4717096647025314114

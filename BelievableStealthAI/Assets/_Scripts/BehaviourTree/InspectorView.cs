@@ -2,9 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEngine.UIElements;
 using UnityEditor;
+#endif
 
+#if UNITY_EDITOR
 public class InspectorView : VisualElement
 {
 
@@ -29,3 +32,4 @@ public class InspectorView : VisualElement
 
     }
 }
+#endif

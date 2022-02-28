@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 6131648439899277063}
   - component: {fileID: 6131648439899277056}
   - component: {fileID: 6131648439899277057}
-  m_Layer: 3
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ MonoBehaviour:
   _sideB: {fileID: 6131648440036093927}
   _sideARoom: {fileID: 0}
   _sideBRoom: {fileID: 0}
-  _colliderToDisable: {fileID: 0}
+  _colliderToDisable: {fileID: 5821513576137111758}
   _shouldBeOpen: 0
 --- !u!114 &6755929603117096557
 MonoBehaviour:
@@ -294,6 +294,45 @@ MonoBehaviour:
   m_Bidirectional: 1
   m_AutoUpdatePosition: 0
   m_Area: 0
+--- !u!65 &9111626325709986946
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6473524334089996821}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.43, y: 2.29, z: 0.14}
+  m_Center: {x: -0.7, y: 1.2, z: 0}
+--- !u!65 &706127521663264277
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6473524334089996821}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.43, y: 2.29, z: 0.14}
+  m_Center: {x: 0.7, y: 1.2, z: 0}
+--- !u!65 &5821513576137111758
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6473524334089996821}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.5, z: 0.17}
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!1001 &6131648438330537796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -361,7 +400,8 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3451118302482216456, guid: 21e2b1fec3dc31d4194a9bd8ae72e693, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 21e2b1fec3dc31d4194a9bd8ae72e693, type: 3}
 --- !u!1 &6473524334089996821 stripped
 GameObject:

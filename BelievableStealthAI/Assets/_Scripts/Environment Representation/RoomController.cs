@@ -157,6 +157,7 @@ public class RoomController : MonoBehaviour
         }
     }
 
+#if UNITY_EDITOR
     [ExecuteInEditMode]
     public void PerformAllRooms()
     {
@@ -352,4 +353,5 @@ public class RoomController : MonoBehaviour
         }
     }
 
+#endif
 }

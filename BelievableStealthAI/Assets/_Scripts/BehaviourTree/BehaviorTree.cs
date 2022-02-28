@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [CreateAssetMenu(menuName ="AI/Behavior Tree/New Behavior Tree")]
 public class BehaviorTree : ScriptableObject
@@ -18,6 +20,7 @@ public class BehaviorTree : ScriptableObject
         return _treeState;
     }
 
+#if UNITY_EDITOR
     public Node CreateNode(System.Type type)
     {
         Node node = ScriptableObject.CreateInstance(type) as Node;
@@ -27,12 +30,11 @@ public class BehaviorTree : ScriptableObject
         _nodes.Add(node);
 
         if (!Application.isPlaying) AssetDatabase.AddObjectToAsset(node, this);
-        
+
         Undo.RegisterCreatedObjectUndo(node, "Behaviour Tree (Create Node");
         AssetDatabase.SaveAssets();
         return node;
     }
-
     public void DeleteNode(Node node)
     {
         Undo.RecordObject(this, "Behaviour Tree (Create Node)");
@@ -41,7 +43,6 @@ public class BehaviorTree : ScriptableObject
         Undo.DestroyObjectImmediate(node);
         AssetDatabase.SaveAssets();
     }
-
 
     public void AddChild(Node parent, Node child)
     {
@@ -96,6 +97,7 @@ public class BehaviorTree : ScriptableObject
             EditorUtility.SetDirty(composite);
         }
     }
+#endif
 
     public static List<Node> GetChildren(Node parent)
     {

@@ -2,11 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
 using UnityEditor;
+#endif
 
+#if UNITY_EDITOR
 public class NodeView : UnityEditor.Experimental.GraphView.Node
 {
     public Node _node;
@@ -125,3 +128,4 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
 
     private int SortByHorizontalPosition(Node left, Node right) => left._position.x < right._position.x ? -1 : 1;
 }
+#endif

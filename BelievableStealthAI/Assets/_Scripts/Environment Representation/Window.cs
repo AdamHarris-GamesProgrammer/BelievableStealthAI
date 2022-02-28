@@ -77,12 +77,12 @@ public class Window : ObservableObject
     {
         if (_currentState)
         {
-            _animator.SetTrigger("closeWindow");
+            _animator.Play("WindowClose", 0, 0.0f);
             _colliderToDisable.enabled = true;
         }
         else
         {
-            _animator.SetTrigger("openWindow");
+            _animator.Play("WindowOpen", 0, 0.0f);
             _colliderToDisable.enabled = false;
         }
     }
