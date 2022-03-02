@@ -285,7 +285,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: 3721.6, y: 1180}
+  _position: {x: 3091.1997, y: 1118.3999}
   duration: 2.5
 --- !u!114 &-8553339931234493907
 MonoBehaviour:
@@ -325,7 +325,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: 3589.6, y: 846.4}
+  _position: {x: 2917.6, y: 788.79987}
   child: {fileID: 793530442492662478}
 --- !u!114 &-8439656389913154985
 MonoBehaviour:
@@ -652,7 +652,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: 47.85098, y: -141.34875}
+  _position: {x: -4.800049, y: 282.72003}
   child: {fileID: -3081092209329800292}
 --- !u!114 &-7691931007978733121
 MonoBehaviour:
@@ -977,46 +977,6 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: 700.8, y: 1528.7999}
   _treeToRun: {fileID: 11400000, guid: 410abcba7b1fdc54ba50319171efc2fd, type: 2}
---- !u!114 &-6632922844909464680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96579c7f6859d4a44adfa215682b800d, type: 3}
-  m_Name: InverterNode
-  m_EditorClassIdentifier: 
-  _state: 0
-  _started: 0
-  _guid: 1184dcc3247fb7e42838c699d6187b17
-  _blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-    spawnPosition: {x: 0, y: 0, z: 0}
-    spawnOrientation: {x: 0, y: 0, z: 0}
-    closestInvestigationSide: {fileID: 0}
-    furthestInvestigationSide: {fileID: 0}
-    _hasPatrolRoute: 0
-    _walkSpeed: 1.5
-    _patrolSpeed: 1.2
-    _chaseSpeed: 5.4
-    _health: {fileID: 0}
-    _nearbyPointsOfInterest: []
-    _currentPOI: {fileID: 0}
-    moveToObject: {fileID: 0}
-    _locomotion: {fileID: 0}
-    _agent: {fileID: 0}
-    _player: {fileID: 0}
-    _changedObservedObject: {fileID: 0}
-    _currentLookPoint: {fileID: 0}
-    _lookPoints: []
-    _response: 0
-  description: 
-  _agent: {fileID: 0}
-  _position: {x: 15.199982, y: 225.41325}
-  child: {fileID: -1389543480398708700}
 --- !u!114 &-6441711846498304267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1495,7 +1455,7 @@ MonoBehaviour:
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
     _response: 0
-  description: 
+  description: Look ats
   _agent: {fileID: 0}
   _position: {x: 3158.4, y: 2063.2}
   _treeToRun: {fileID: 11400000, guid: 75f73be53b72ac048b851b4210b67225, type: 2}
@@ -1662,7 +1622,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: 261.22525, y: 152.79999}
+  _position: {x: -4.800049, y: 402.40002}
   child: {fileID: -1655798919037546410}
   iterations: -1
 --- !u!114 &-2687075563162140999
@@ -1743,7 +1703,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: 3863.3281, y: 861.6}
+  _position: {x: 3213.6, y: 795.2}
 --- !u!114 &-2522436917951873898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1990,46 +1950,6 @@ MonoBehaviour:
   - {fileID: 5419762007098541942}
   - {fileID: 278964703018174627}
   - {fileID: 2773092769167284717}
---- !u!114 &-1389543480398708700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b8d0677325e963419d94dcc970d697e, type: 3}
-  m_Name: IsAIDead
-  m_EditorClassIdentifier: 
-  _state: 0
-  _started: 0
-  _guid: 45a2a2c1de73aab41a7d5023fefe29fa
-  _blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-    spawnPosition: {x: 0, y: 0, z: 0}
-    spawnOrientation: {x: 0, y: 0, z: 0}
-    closestInvestigationSide: {fileID: 0}
-    furthestInvestigationSide: {fileID: 0}
-    _hasPatrolRoute: 0
-    _walkSpeed: 1.5
-    _patrolSpeed: 1.2
-    _chaseSpeed: 5.4
-    _health: {fileID: 0}
-    _nearbyPointsOfInterest: []
-    _currentPOI: {fileID: 0}
-    moveToObject: {fileID: 0}
-    _locomotion: {fileID: 0}
-    _agent: {fileID: 0}
-    _player: {fileID: 0}
-    _changedObservedObject: {fileID: 0}
-    _currentLookPoint: {fileID: 0}
-    _lookPoints: []
-    _response: 0
-  description: 
-  _agent: {fileID: 0}
-  _position: {x: -4.80011, y: 377.09814}
-  child: {fileID: 0}
 --- !u!114 &-1185031806189981678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2269,46 +2189,6 @@ MonoBehaviour:
   _position: {x: 0, y: 0}
   child: {fileID: 1820955044241947387}
   iterations: 100
---- !u!114 &-790745686171040331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6dd5796d297504ea9f0f028e624978, type: 3}
-  m_Name: RepeatUntilFail
-  m_EditorClassIdentifier: 
-  _state: 0
-  _started: 0
-  _guid: b4a4dac60d9ccac4c9bfae8bfe28d57b
-  _blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-    spawnPosition: {x: 0, y: 0, z: 0}
-    spawnOrientation: {x: 0, y: 0, z: 0}
-    closestInvestigationSide: {fileID: 0}
-    furthestInvestigationSide: {fileID: 0}
-    _hasPatrolRoute: 0
-    _walkSpeed: 1.5
-    _patrolSpeed: 1.2
-    _chaseSpeed: 5.4
-    _health: {fileID: 0}
-    _nearbyPointsOfInterest: []
-    _currentPOI: {fileID: 0}
-    moveToObject: {fileID: 0}
-    _locomotion: {fileID: 0}
-    _agent: {fileID: 0}
-    _player: {fileID: 0}
-    _changedObservedObject: {fileID: 0}
-    _currentLookPoint: {fileID: 0}
-    _lookPoints: []
-    _response: 0
-  description: 
-  _agent: {fileID: 0}
-  _position: {x: 9.599876, y: 82.33139}
-  child: {fileID: -6632922844909464680}
 --- !u!114 &-639373715754554747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2387,7 +2267,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -2298.963, y: 868.0001}
+  _position: {x: -2181.92, y: 860}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2468,9 +2348,6 @@ MonoBehaviour:
   - {fileID: -7397873948234637479}
   - {fileID: -6441711846498304267}
   - {fileID: -7844112464637047480}
-  - {fileID: -790745686171040331}
-  - {fileID: -1389543480398708700}
-  - {fileID: -6632922844909464680}
   - {fileID: -3081092209329800292}
   - {fileID: 793530442492662478}
   - {fileID: -8681244544803171263}
@@ -2627,7 +2504,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: 3611.2002, y: 990.4}
+  _position: {x: 2922.4, y: 959.60016}
   _children:
   - {fileID: 6769040832318622807}
   - {fileID: -8681244544803171263}
@@ -2669,7 +2546,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -1879.2002, y: 1001.2}
+  _position: {x: -1816.8, y: 928.8}
 --- !u!114 &1598596047300486937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2748,7 +2625,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -1467.2002, y: 1021.60004}
+  _position: {x: -1541.2, y: 928.8}
 --- !u!114 &1785428193037310199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3112,7 +2989,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: 3619.84, y: 640.4}
+  _position: {x: 3091.6, y: 624.8}
   _children:
   - {fileID: -8553339931234493907}
   - {fileID: -2635592204251674335}
@@ -3798,7 +3675,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: 1951.2, y: 1898}
+  _position: {x: 1959.1996, y: 1905.9998}
   duration: 1
 --- !u!114 &6769040832318622807
 MonoBehaviour:
@@ -3838,7 +3715,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: 3522.4001, y: 1193.6}
+  _position: {x: 2771.9995, y: 1122.3997}
 --- !u!114 &6771486649706229791
 MonoBehaviour:
   m_ObjectHideFlags: 0

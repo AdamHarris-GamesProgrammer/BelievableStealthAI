@@ -7,32 +7,35 @@ public class Lightswitch : ObservableObject
 {
     [SerializeField] Light _controlsLight;
 
-    PlayerController _controller;
-
     [SerializeField] RoomController _room;
 
     public RoomController Room { get => _room; set => _room = value; }
 
     private void Awake()
     {
-        _controller = FindObjectOfType<PlayerController>();
+        _player = FindObjectOfType<PlayerController>();
 
-        if (_controlsLight.gameObject.GetComponent<Light>().enabled)
-        {
-            InteractWithObject();
-        }
+        _currentState = _controlsLight.GetComponent<Light>().enabled;
+        _originalState = _currentState;
     }
 
     public override void InteractAction()
     {
         _controlsLight.gameObject.GetComponent<Light>().enabled = _currentState;
+
+        _controlsLight.gameObject.GetComponent<Light>().enabled = _currentState;
+
+        foreach (AIAgent agent in _room.AgentsInRoom)
+        {
+            agent.LightSwitchChanged(this);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            _controller.NearbyLightswitch = this;
+            _player.NearbyLightswitch = this;
         }
     }
 
@@ -40,17 +43,7 @@ public class Lightswitch : ObservableObject
     {
         if (other.CompareTag("Player"))
         {
-            _controller.NearbyLightswitch = null;
-        }
-    }
-
-    public void HandleLogic()
-    {
-        _controlsLight.gameObject.GetComponent<Light>().enabled = _currentState;
-
-        foreach (AIAgent agent in _room.AgentsInRoom)
-        {
-            agent.LightSwitchChanged(this);
+            _player.NearbyLightswitch = null;
         }
     }
 }

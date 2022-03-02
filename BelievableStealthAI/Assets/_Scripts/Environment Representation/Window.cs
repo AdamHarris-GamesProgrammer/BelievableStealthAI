@@ -5,15 +5,12 @@ using TGP.Control;
 
 public class Window : ObservableObject
 {
-    Animator _animator;
-    PlayerController _controller;
-
     [SerializeField] Collider _colliderToDisable;
     [SerializeField] bool _shouldBeOpen;
     private void Awake()
     {
         _animator = GetComponentInChildren<Animator>();
-        _controller = FindObjectOfType<PlayerController>();
+        _player = FindObjectOfType<PlayerController>();
 
         if (_shouldBeOpen)
         {
@@ -30,7 +27,7 @@ public class Window : ObservableObject
         }
         else if (other.CompareTag("Player"))
         {
-            _controller.NearbyWindow = this;
+            _player.NearbyWindow = this;
         }
     }
 
@@ -69,11 +66,11 @@ public class Window : ObservableObject
         }
         else if (other.CompareTag("Player"))
         {
-            _controller.NearbyWindow = null;
+            _player.NearbyWindow = null;
         }
     }
 
-    public void DecideAnimation()
+    public override void DecideAnimation()
     {
         if (_currentState)
         {

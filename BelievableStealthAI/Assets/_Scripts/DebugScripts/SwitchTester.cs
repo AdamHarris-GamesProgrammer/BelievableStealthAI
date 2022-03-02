@@ -12,7 +12,6 @@ public class SwitchTester : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.K))
         {
             _switch.InteractWithObject();
-            _switch.HandleLogic();
         }        
     }
 }

@@ -245,6 +245,7 @@ MonoBehaviour:
   _sideARoom: {fileID: 0}
   _sideBRoom: {fileID: 0}
   _controlsLight: {fileID: 0}
+  _room: {fileID: 0}
 --- !u!65 &5199108820754417636
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -256,5 +257,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.99999994, z: 1}
+  m_Size: {x: 3, y: 0.99999994, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

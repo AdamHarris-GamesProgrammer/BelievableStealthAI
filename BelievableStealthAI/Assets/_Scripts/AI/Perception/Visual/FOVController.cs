@@ -19,9 +19,9 @@ public class FOVController : MonoBehaviour
     [SerializeField] float _lostVisibilityDuration = 0.5f;
 
     float _timeBetweenAditions;
-    [SerializeField] float _timeBetweenDuration = 0.25f;
+    [SerializeField] float _timeBetweenIncrements = 0.25f;
 
-    [Header("UI Test Stuff")]
+    [Header("UI Test")]
     [SerializeField] Image _detectionMeter;
 
     FOVCollider[] _colliderArr;
@@ -35,11 +35,11 @@ public class FOVController : MonoBehaviour
         _aiController = GetComponentInParent<AIAgent>();
         _player = FindObjectOfType<PlayerController>();
     }
+
     public void AddValue(float increment)
     {
-        if (_timeBetweenAditions >= _timeBetweenDuration)
+        if (_timeBetweenAditions >= _timeBetweenIncrements)
         {
-            //Debug.Log("Adding: " + increment);
             _detectedValue = Mathf.Min(_detectedValue + increment, _detectedThreshold);
 
             if (_detectedValue >= _detectedThreshold)
@@ -53,7 +53,6 @@ public class FOVController : MonoBehaviour
             _detectionMeter.fillAmount = _detectedValue;
         }
     }
-
     public void SubtractValue(float decrement)
     {
         _detectedValue = Mathf.Max(_detectedValue - decrement, 0f);
@@ -76,8 +75,6 @@ public class FOVController : MonoBehaviour
         _raycastOrigin = transform.position + (transform.forward * 0.1f) + (Vector3.up * 1.8f);
 
         _timeBetweenAditions += Time.fixedDeltaTime;
-        //Debug.Log(string.Format("Detected: {0}", _seen));
-
 
         if (_detectedValue > 0.0f)
         {

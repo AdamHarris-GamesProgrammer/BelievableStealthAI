@@ -6,15 +6,14 @@ using UnityEngine;
 
 public class Door : ObservableObject
 {
-    PlayerController _player;
     Animator _animator;
 
     [SerializeField] bool _shouldBeOpen;
 
     private void Awake()
     {
-        _player = FindObjectOfType<PlayerController>();
         _animator = GetComponentInChildren<Animator>();
+        _player = FindObjectOfType<PlayerController>();
 
         //TODO: Figure out a way to have a door automatically detect if it is open or closed. 
         //CLOSED
@@ -119,7 +118,7 @@ public class Door : ObservableObject
         _animator.Play("DoorClose", 0, 0.0f);
     }
 
-    public void DecideAnimation()
+    public override void DecideAnimation()
     {
         //opened
         //Debug.Log(transform.name + " is opening or closing");

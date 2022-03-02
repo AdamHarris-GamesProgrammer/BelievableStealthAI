@@ -13,7 +13,6 @@ public class CharacterAiming : MonoBehaviour
     PlayerController _player;
 
     [SerializeField] GameObject _followCam;
-    [SerializeField] GameObject _aimCam;
     // Start is called before the first frame update
     void Awake()
     {
@@ -34,18 +33,5 @@ public class CharacterAiming : MonoBehaviour
 
         //Slerps towards that angle
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, yawCamera, 0), _turnSpeed * Time.fixedDeltaTime);
-
-        //if the right mouse button is down, set the aim camera to be active, and disable the follow camera
-        if (Input.GetMouseButton(1))
-        {
-            _aimCam.SetActive(true);
-            _followCam.SetActive(false);
-        }
-        //Do the opposite as above
-        else
-        {
-            _aimCam.SetActive(false);
-            _followCam.SetActive(true);
-        }
     }
 }

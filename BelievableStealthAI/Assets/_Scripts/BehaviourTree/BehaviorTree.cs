@@ -131,10 +131,7 @@ public class BehaviorTree : ScriptableObject
         tree._rootNode = tree._rootNode.Clone();
         tree._nodes = new List<Node>();
 
-        Traverse(tree._rootNode, (n) =>
-        {
-            tree._nodes.Add(n);
-        });
+        Traverse(tree._rootNode, (n) => { tree._nodes.Add(n); });
 
         return tree;
     }

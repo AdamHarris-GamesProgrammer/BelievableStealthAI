@@ -95,32 +95,37 @@ public class AIAgent : MonoBehaviour
 
     private void Start()
     {
-        _behaviorTree = GetComponent<BehaviorTreeRunner>().tree;
-        _blackboard = _behaviorTree._blackboard;
-
-        _locomotion = GetComponent<AILocomotion>();
-
-        _blackboard._agent = this;
-        _blackboard._locomotion = _locomotion;
-
-        _blackboard.spawnPosition = transform.position;
-        _blackboard.spawnOrientation = transform.forward;
-        _blackboard._player = FindObjectOfType<PlayerController>();
-
-        if (_patrolRoute != null)
+        if(GetComponent<BehaviorTreeRunner>() != null && GetComponent<BehaviorTreeRunner>().tree != null)
         {
-            _blackboard._hasPatrolRoute = true;
-        }
-        else
-        {
-            _blackboard._hasPatrolRoute = false;
+            _behaviorTree = GetComponent<BehaviorTreeRunner>().tree;
+
+            _blackboard = _behaviorTree._blackboard;
+
+            _locomotion = GetComponent<AILocomotion>();
+
+            _blackboard._agent = this;
+            _blackboard._locomotion = _locomotion;
+
+            _blackboard.spawnPosition = transform.position;
+            _blackboard.spawnOrientation = transform.forward;
+            _blackboard._player = FindObjectOfType<PlayerController>();
+
+            if (_patrolRoute != null)
+            {
+                _blackboard._hasPatrolRoute = true;
+            }
+            else
+            {
+                _blackboard._hasPatrolRoute = false;
+            }
+
+            _blackboard._walkSpeed = _walkSpeed;
+            _blackboard._patrolSpeed = _patrolSpeed;
+            _blackboard._chaseSpeed = _chaseSpeed;
+
+            _blackboard._health = GetComponent<Health>();
         }
 
-        _blackboard._walkSpeed = _walkSpeed;
-        _blackboard._patrolSpeed = _patrolSpeed;
-        _blackboard._chaseSpeed = _chaseSpeed;
-
-        _blackboard._health = GetComponent<Health>();
 
         foreach(AIAgent agent in _currentRoom.AgentsInRoom)
         {

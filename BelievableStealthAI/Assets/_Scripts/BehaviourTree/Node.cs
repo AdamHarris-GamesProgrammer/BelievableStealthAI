@@ -16,8 +16,6 @@ public abstract class Node : ScriptableObject
     [TextArea] public string description;
     public AIAgent _agent;
 
-    //TODO: Give Access to AI Controller here
-
     public Vector2 _position;
 
     public void Abort()

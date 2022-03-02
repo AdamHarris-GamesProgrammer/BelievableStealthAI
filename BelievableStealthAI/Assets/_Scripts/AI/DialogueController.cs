@@ -53,8 +53,6 @@ public class DialogueController : MonoBehaviour
     {
         if (_audioSource.isPlaying) return;
 
-        //TODO: Think about having a custom audio clip struct that allows for each sound to have a random pitch increase or decrease, speed changes, etc.
-
         AudioClip[] selectedArr = _firstTimeSeeingPlayer;
 
         switch (type)

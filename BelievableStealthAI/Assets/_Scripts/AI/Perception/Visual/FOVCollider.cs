@@ -32,22 +32,7 @@ public class FOVCollider : MonoBehaviour
         _agent = GetComponentInParent<AIAgent>();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            _inside = true;
-            StartCoroutine("Raycast");
-        }
-        else if(other.CompareTag("ObservableObject"))
-        {
-            _observedObjects.Add(other.GetComponent<ObservableObject>());
-        }
-        else if(other.CompareTag("DeadBody"))
-        {
-            _bodiesInCollider.Add(other.gameObject);
-        }
-    }
+
 
     private void FixedUpdate()
     {
@@ -119,11 +104,16 @@ public class FOVCollider : MonoBehaviour
 
                     if (hit.transform.CompareTag("PlayerHitbox")) 
                     {
-                        if(_player.Visible)
+                        //Debug.DrawLine(_fovController.RaycastOrigin, hit.transform.position, Color.green);
+                        if (_player.Visible)
                         {
                             found = true;
                             _fovController.AddValue(_detectionInrement * hitbox.DetectionMultiplier);
                         }
+                    }
+                    else
+                    {
+                        //Debug.DrawLine(_fovController.RaycastOrigin, hit.point, Color.red);
                     }
                 }
                 yield return new WaitForFixedUpdate();
@@ -135,6 +125,22 @@ public class FOVCollider : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            _inside = true;
+            StartCoroutine("Raycast");
+        }
+        else if (other.CompareTag("ObservableObject"))
+        {
+            _observedObjects.Add(other.GetComponent<ObservableObject>());
+        }
+        else if (other.CompareTag("DeadBody"))
+        {
+            _bodiesInCollider.Add(other.gameObject);
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -144,14 +150,13 @@ public class FOVCollider : MonoBehaviour
             _visible = false;
             StopCoroutine("Raycast");
         }
-        else if(other.CompareTag("ObservableObject"))
+        else if (other.CompareTag("ObservableObject"))
         {
             _observedObjects.Remove(other.GetComponent<ObservableObject>());
         }
-        else if(other.CompareTag("DeadBody"))
+        else if (other.CompareTag("DeadBody"))
         {
             _bodiesInCollider.Remove(other.gameObject);
         }
     }
-
 }

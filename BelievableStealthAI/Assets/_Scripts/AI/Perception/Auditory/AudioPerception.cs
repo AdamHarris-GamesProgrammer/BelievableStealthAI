@@ -32,7 +32,6 @@ public class AudioPerception : MonoBehaviour
             {
                 SubtractSound(0.05f);
                 _timeSinceLastSound = 0.0f;
-
             }
         }
     }
@@ -56,19 +55,11 @@ public class AudioPerception : MonoBehaviour
             }
         }
     }
-
     public void SubtractSound(float val)
     {
         heardValue = Mathf.Max(heardValue - val, 0.0f);
 
-        if(heardValue < 1.0f)
-        {
-            _heard = false;
-        }
-        if(heardValue == 0.0f)
-        {
-            _heardSound = false;
-            //_aiAgent.NoLongerHearingSound();
-        }
+        if(heardValue < 1.0f) _heard = false;
+        if(heardValue == 0.0f) _heardSound = false;
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TGP.Control;
 using UnityEngine;
 
 
@@ -22,11 +23,15 @@ public class ObservableObject : MonoBehaviour
     protected Vector3 _startObservePosition;
     protected Vector3 _endObservePositon;
 
+    protected Animator _animator;
+
     public Vector3 StartObservePosition { get => _startObservePosition; }
     public Vector3 EndObservePosition { get => _endObservePositon; }
 
     [SerializeField] protected RoomController _sideARoom;
     [SerializeField] protected RoomController _sideBRoom;
+
+    protected PlayerController _player;
 
     float _timer = 0.0f;
 
@@ -56,9 +61,11 @@ public class ObservableObject : MonoBehaviour
     public bool HasRecentlyChanged { get => _changedStateRecently; }
     public bool CurrentState { get => _currentState; }
 
-    private void Awake()
+    protected void Awake()
     {
         _currentState = _originalState;
+        _animator = GetComponentInChildren<Animator>();
+        _player = FindObjectOfType<PlayerController>();
     }
 
     void FixedUpdate()
@@ -75,15 +82,9 @@ public class ObservableObject : MonoBehaviour
         }
     }
 
-    public virtual void Open()
-    {
+    public virtual void Open() {}
 
-    }
-
-    public virtual void Close()
-    {
-
-    }
+    public virtual void Close() {}
 
     public Transform GetClosestSide(Vector3 pos)
     {
@@ -106,6 +107,7 @@ public class ObservableObject : MonoBehaviour
     }
 
     public virtual void InteractAction() { }
+    public virtual void DecideAnimation() { }
 
     public void InteractWithObject()
     {

@@ -18,6 +18,7 @@ namespace TGP.Control
         [SerializeField] Bodybag _bodybagPrefab;
         [SerializeField] CanvasGroup _deathScreenGroup;
         [SerializeField] CanvasGroup _victoryScreenGroup;
+        [SerializeField] Cinemachine.CinemachineVirtualCamera _camera;
 
         public GameObject FollowCam { get { return _followCam; } }
 
@@ -36,6 +37,7 @@ namespace TGP.Control
 
         public void StartGame()
         {
+            _camera.enabled = true;
             _started = true;
             Cursor.visible = false;
         }
@@ -141,6 +143,7 @@ namespace TGP.Control
 
         private void Awake()
         {
+            _camera.enabled = false;
             _hitboxes = GetComponentsInChildren<Hitbox>().ToList();
             Cursor.lockState = CursorLockMode.Confined;
         }
@@ -296,7 +299,6 @@ namespace TGP.Control
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     _nearbySwitch.InteractWithObject();
-                    _nearbySwitch.HandleLogic();
                     stateChanged = true;
                 }
             }

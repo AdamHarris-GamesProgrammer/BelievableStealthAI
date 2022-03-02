@@ -8,10 +8,9 @@ public class RoomController : MonoBehaviour
 {
     public List<ObservableObject> ObservablesInRoom { get => _observables; }
     public List<AIAgent> AgentsInRoom { get => _aiInRoom; }
-
     public List<Transform> LookAroundPoints { get => _lookAroundPoints; }
-
     public List<PointOfInterest> PointsOfInterest { get => _pois; }
+
 
     [SerializeField] List<ObservableObject> _observables;
     [SerializeField] List<PointOfInterest> _pois;
