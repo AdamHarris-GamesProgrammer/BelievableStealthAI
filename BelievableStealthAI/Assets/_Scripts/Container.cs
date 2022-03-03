@@ -6,8 +6,6 @@ using UnityEngine;
 public class Container : PointOfInterest
 {
     PlayerController _player;
-
-
     void Awake()
     {
         _player = FindObjectOfType<PlayerController>();
@@ -23,15 +21,5 @@ public class Container : PointOfInterest
     {
         if (other.CompareTag("Player"))
             _player.NearbyContainer = null;
-    }
-
-    public override bool Search()
-    {
-        if(_playerInside || _bodyBagInside)
-        {
-            return true;
-        }
-
-        return false;
     }
 }

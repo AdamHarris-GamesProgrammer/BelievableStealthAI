@@ -296,21 +296,20 @@ public class AIAgent : MonoBehaviour
         if (!_hasSeenPlayer)
         {
             _dialogueController.PlaySound(SoundType.FirstTimeSeeingPlayer);
-            Debug.Log(transform.name + " has seen the player");
+            //Debug.Log(transform.name + " has seen the player for the first time");
         }
         else
         {
             if (!_currentlySeeingPlayer)
             {
                 _dialogueController.PlaySound(SoundType.SeeingPlayerAgain);
-                Debug.Log(transform.name + " has seen the player");
+                //Debug.Log(transform.name + " has seen the player");
             }
         }
         _currentlySeeingPlayer = true;
 
         if (!_currentlyAlert)
         {
-            //TODO: Alert nearby allys
             _suspicious = true;
             _currentlyAlert = true;
         }
@@ -320,7 +319,7 @@ public class AIAgent : MonoBehaviour
 
     public void LightSwitchChanged(Lightswitch ls)
     {
-        Debug.Log(transform.name + " has seen a changed lightbulb");
+        //Debug.Log(transform.name + " has seen a changed lightbulb");
         if (_currentlyAlert)
         {
             return;

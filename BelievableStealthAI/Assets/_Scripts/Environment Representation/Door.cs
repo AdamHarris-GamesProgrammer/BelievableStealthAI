@@ -15,7 +15,6 @@ public class Door : ObservableObject
         _animator = GetComponentInChildren<Animator>();
         _player = FindObjectOfType<PlayerController>();
 
-        //TODO: Figure out a way to have a door automatically detect if it is open or closed. 
         //CLOSED
         _currentState = false;
 

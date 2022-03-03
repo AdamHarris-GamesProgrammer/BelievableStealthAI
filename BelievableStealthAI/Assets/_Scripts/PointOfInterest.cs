@@ -16,8 +16,13 @@ public class PointOfInterest : MonoBehaviour
 
     public RoomController Room { get => _room; set => _room = value; }
     [SerializeField] protected RoomController _room;
-    public virtual bool Search()
+    public bool Search()
     {
+        if (_playerInside || _bodyBagInside)
+        {
+            return true;
+        }
+
         return false;
     }
 

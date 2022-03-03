@@ -10,7 +10,7 @@ public class AudioTester : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.H))
         {
             Debug.Log("Producing Sound");
-            AudioProducer.ProduceSound(transform.position, 30.0f, 20.0f);
+            AudioProducer.ProduceSound(transform.position, 30.0f, 5.0f);
         }        
     }
 }
