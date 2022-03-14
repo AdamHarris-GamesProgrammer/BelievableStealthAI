@@ -28,8 +28,8 @@ public class ModelController : MonoBehaviour
         EditorUtility.SetDirty(renderer);
         renderer.sharedMesh = _meshes[index];
         renderer.BakeMesh(_meshes[index]);
-        //EditorUtility.ClearDirty(renderer);
     }
+
 
 
 }

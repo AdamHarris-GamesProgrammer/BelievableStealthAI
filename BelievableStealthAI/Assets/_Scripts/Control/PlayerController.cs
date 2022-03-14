@@ -19,6 +19,7 @@ namespace TGP.Control
         [SerializeField] CanvasGroup _deathScreenGroup;
         [SerializeField] CanvasGroup _victoryScreenGroup;
         [SerializeField] Cinemachine.CinemachineVirtualCamera _camera;
+        [SerializeField] DistractionObject _distractionPrefab;
 
         public GameObject FollowCam { get { return _followCam; } }
 
@@ -151,6 +152,20 @@ namespace TGP.Control
         private void Update()
         {
             bool stateChanged = false;
+
+            if(Input.GetKeyDown(KeyCode.H))
+            {
+                DistractionObject distractionObject = Instantiate(_distractionPrefab);
+                distractionObject.transform.position = transform.position + (Vector3.up * 1.5f) + (transform.forward);
+                distractionObject.transform.forward = transform.forward;
+                Rigidbody rb = distractionObject.GetComponent<Rigidbody>();
+
+                Vector3 camForward = Camera.main.transform.forward;
+                Vector3 endPoint = transform.position + camForward * 15.0f;
+                Vector3 dir = endPoint - transform.position;
+
+                rb.AddForce(dir * 35.0f, ForceMode.Acceleration);
+            }
 
 
             if(Input.GetKeyDown(KeyCode.L))

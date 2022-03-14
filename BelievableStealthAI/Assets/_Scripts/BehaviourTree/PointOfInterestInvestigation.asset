@@ -1,5 +1,45 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8129792597550419275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7091eac6c8430134da9efff672d7ce0d, type: 3}
+  m_Name: ChanceToFail
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: d589a185c68c39840814056f94a4dacf
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
+    _response: 0
+  description: 
+  _agent: {fileID: 0}
+  _position: {x: -532.86804, y: 866}
+  _chanceToFail: 0.1
 --- !u!114 &-7914097407069598415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40,6 +80,7 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: 29.6, y: 710.574}
   _children:
+  - {fileID: -8129792597550419275}
   - {fileID: -6644988193433002732}
   - {fileID: -2776928536084990841}
   - {fileID: -1120126415701622416}
@@ -391,6 +432,7 @@ MonoBehaviour:
   - {fileID: -2372998424122943979}
   - {fileID: 4999349004914370365}
   - {fileID: -1388443120249879141}
+  - {fileID: -8129792597550419275}
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
