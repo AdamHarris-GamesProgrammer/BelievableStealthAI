@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb93e4e8701b3a49827a619e5677b64, type: 3}
+  m_Name: Male 1
+  m_EditorClassIdentifier: 
+  _firstTimeSeeingPlayer:
+  - {fileID: 8300000, guid: 391957b2a2dd5774093070a22199e3fc, type: 3}
+  _seeingPlayer:
+  - {fileID: 8300000, guid: c21f518d05a22b54ba82d71645324962, type: 3}
+  _heardSomething:
+  - {fileID: 8300000, guid: 58a3ba3e94c413c4c872b10f359df735, type: 3}
+  _searchPrompt:
+  - {fileID: 8300000, guid: 62504396281f9a84a85f3e1f61ad5818, type: 3}
+  _everyoneSearchPrompt:
+  - {fileID: 8300000, guid: a9b9789569ccf074c860a8eea2096896, type: 3}
+  _callAllys:
+  - {fileID: 8300000, guid: 093d4dad0754cbb49ba6291f6dbc16a0, type: 3}
+  _lostPlayer:
+  - {fileID: 8300000, guid: 0d24a83d9eed40b4caa1bac4ab623a9e, type: 3}
+  _findingBody:
+  - {fileID: 8300000, guid: e7c5e4a4ba95b7f4c88cec15328b9998, type: 3}
+  _checkOnAlly:
+  - {fileID: 8300000, guid: cbc0e4d73a819aa4c815a32d72e5638f, type: 3}
+  _returnCall:
+  - {fileID: 8300000, guid: 731a1e836e9ac774e811e320e80e97ff, type: 3}
+  _lightsOn:
+  - {fileID: 8300000, guid: fb0683b88e7d4ce448eb4ad77f1921eb, type: 3}
+  _lightsOff:
+  - {fileID: 8300000, guid: ed81430f2f4ae854cbae96d9d3e16515, type: 3}
+  _doorOpen:
+  - {fileID: 8300000, guid: e2649ece5979bde459f4ceed37d63cff, type: 3}
+  _doorClosed:
+  - {fileID: 8300000, guid: d482a79fd9b2a744189e17c2878dc7d0, type: 3}
+  _windowOpen:
+  - {fileID: 8300000, guid: c0e803351b400b54eb2cea219c9dafb7, type: 3}
+  _windowClosed:
+  - {fileID: 8300000, guid: cb559260579d61a4281c2776a398e8a5, type: 3}
+  _nothing:
+  - {fileID: 8300000, guid: 5299bd24bb9c5194b9321104f6941c19, type: 3}

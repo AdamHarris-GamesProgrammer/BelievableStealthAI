@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class Door : ObservableObject
 {
-    Animator _animator;
-
     [SerializeField] bool _shouldBeOpen;
 
     private void Awake()

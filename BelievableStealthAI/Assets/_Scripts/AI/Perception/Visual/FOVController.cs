@@ -49,7 +49,7 @@ public class FOVController : MonoBehaviour
             }
 
             _timeBetweenAditions = 0.0f;
-
+            
             _detectionMeter.fillAmount = _detectedValue;
         }
     }

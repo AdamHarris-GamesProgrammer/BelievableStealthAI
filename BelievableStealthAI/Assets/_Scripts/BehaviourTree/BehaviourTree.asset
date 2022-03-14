@@ -937,6 +937,46 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: -103.036, y: 841.59985}
   child: {fileID: 0}
+--- !u!114 &-6773243551518193376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc471ec3052b12e4da9718b5afbfc3ff, type: 3}
+  m_Name: WaitNode
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: f1274245edb192143baff6bc7223f106
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
+    _response: 0
+  description: 
+  _agent: {fileID: 0}
+  _position: {x: -1626.3998, y: 932.8}
+  duration: 3
 --- !u!114 &-6666903543376874950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2361,6 +2401,7 @@ MonoBehaviour:
   - {fileID: -3770583882434198583}
   - {fileID: 4838503787428719378}
   - {fileID: -1039961858624043638}
+  - {fileID: -6773243551518193376}
   _blackboard:
     moveToPosition: {x: 6.69, y: 0, z: -6.82}
     spawnPosition: {x: 3.93, y: 0.00000047683716, z: -3.37}
@@ -2546,7 +2587,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -1816.8, y: 928.8}
+  _position: {x: -1899.2, y: 932.8}
 --- !u!114 &1598596047300486937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2625,7 +2666,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -1541.2, y: 928.8}
+  _position: {x: -1459.1997, y: 928.7999}
 --- !u!114 &1785428193037310199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2667,6 +2708,7 @@ MonoBehaviour:
   _position: {x: -1633.6002, y: 779.2001}
   _children:
   - {fileID: 987781212726234221}
+  - {fileID: -6773243551518193376}
   - {fileID: 1676584871406451898}
 --- !u!114 &1798900875829983063
 MonoBehaviour:
