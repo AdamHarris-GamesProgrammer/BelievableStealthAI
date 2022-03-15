@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class TurnToLookPoint : ActionNode
 {
+    Quaternion targetRot;
+
     protected override void OnStart()
     {
+        targetRot = _blackboard._currentLookPoint.rotation;
+
+
         _blackboard._locomotion.Rotation(false);
     }
 
@@ -23,10 +28,17 @@ public class TurnToLookPoint : ActionNode
             return State.Failure;
         }
 
-        Quaternion rotation = Quaternion.LookRotation(_blackboard._currentLookPoint.forward, Vector3.up);
-        _blackboard._agent.transform.rotation = rotation;
+        Quaternion originalRot = _blackboard._agent.transform.rotation;
+        _blackboard._agent.transform.rotation = Quaternion.Lerp(originalRot, targetRot, Time.deltaTime * 5.0f);
 
 
+        float oY = originalRot.eulerAngles.y;
+        float nY = targetRot.eulerAngles.y;
+
+        if (Mathf.Approximately(oY, nY))
+        {
+            return State.Success;
+        }
 
         return State.Success;
     }
