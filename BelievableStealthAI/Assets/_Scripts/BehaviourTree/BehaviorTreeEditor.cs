@@ -29,6 +29,9 @@ public class BehaviorTreeEditor : EditorWindow
         if (Selection.activeObject is BehaviorTree)
         {
             OpenWindow();
+            
+            
+
             return true;
         }
 
@@ -50,6 +53,7 @@ public class BehaviorTreeEditor : EditorWindow
         root.styleSheets.Add(styleSheet);
 
         _treeView = root.Q<BehaviorTreeView>();
+        _treeView.FrameOrigin();
         _inspectorView = root.Q<InspectorView>();
         _blackboardView = root.Q<IMGUIContainer>();
         _blackboardView.onGUIHandler = () =>

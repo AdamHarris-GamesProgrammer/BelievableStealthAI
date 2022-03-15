@@ -6,6 +6,7 @@ public class GoToClosestSide : ActionNode
 {
     protected override void OnStart()
     {
+        _blackboard._locomotion.CanMove(true);
         _blackboard.closestInvestigationSide = _blackboard._changedObservedObject.GetClosestSide(_blackboard._agent.transform.position);
         _blackboard.furthestInvestigationSide = _blackboard._changedObservedObject.GetOppositeSide(_blackboard.closestInvestigationSide);
 

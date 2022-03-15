@@ -6,6 +6,7 @@ public class GoToLookPoint : ActionNode
 {
     protected override void OnStart()
     {
+        _blackboard._locomotion.CanMove(true);
         _blackboard._locomotion.SetDestination(_blackboard._currentLookPoint.position);
     }
 

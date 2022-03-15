@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoToFurthestSide : ActionNode
+public class GoToDistractionPoint : ActionNode
 {
     protected override void OnStart()
     {
         _blackboard._locomotion.CanMove(true);
-        _blackboard._locomotion.SetDestination(_blackboard.furthestInvestigationSide.position);
+        _blackboard._locomotion.SetDestination(_blackboard._agent.DistractionPoint);
     }
 
     protected override void OnStop()
@@ -17,10 +17,11 @@ public class GoToFurthestSide : ActionNode
 
     protected override State OnUpdate()
     {
-        if(_blackboard._locomotion.GetRemainingDistance() < 0.5f)
+        if(_blackboard._locomotion.GetRemainingDistance() < 5.0f)
         {
             return State.Success;
         }
+
         return State.Running;
     }
 }

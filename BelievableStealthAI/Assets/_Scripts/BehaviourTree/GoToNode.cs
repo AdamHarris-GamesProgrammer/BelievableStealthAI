@@ -8,10 +8,10 @@ public class GoToNode : ActionNode
 
     protected override void OnStart()
     {
+        _blackboard._locomotion.CanMove(true);
+
         target = _blackboard.moveToPosition;
-        Debug.Log(target);
         _blackboard._locomotion.SetDestination(_blackboard.moveToPosition);
-        Debug.Log("GoTo: On Start");
     }
 
     protected override void OnStop()

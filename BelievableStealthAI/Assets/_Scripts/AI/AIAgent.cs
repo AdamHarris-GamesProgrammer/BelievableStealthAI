@@ -12,6 +12,8 @@ public class AIAgent : MonoBehaviour
     AILocomotion _locomotion;
     Animator _animator;
 
+
+
     PlayerController _player;
 
     [Header("Patrol Settings")]
@@ -139,6 +141,10 @@ public class AIAgent : MonoBehaviour
         }
     }
 
+    public void PlaySound(SoundType type)
+    {
+        _dialogueController.PlaySound(type);
+    }
     public void RadioAllyToCheckOn()
     {
         Debug.Log(transform.name + " is checking on: " + _agentToCheckOn.transform.name);
