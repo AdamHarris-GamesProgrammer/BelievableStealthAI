@@ -39,10 +39,12 @@ public class AIAgent : MonoBehaviour
     bool _stopSearching = false;
     bool _isDistracted = false;
     bool _isInAnimation = false;
+    bool _halfwaySeeingPlayer = false;
 
     Vector3 _pointOfSound;
     Vector3 _distractedPoint;
     Vector3 _lastKnownPlayerPosition;
+    Vector3 _suspectedSightingLocation;
 
     BehaviorTree _behaviorTree;
     Blackboard _blackboard;
@@ -69,7 +71,10 @@ public class AIAgent : MonoBehaviour
     public bool HasAnObjectchanged { get => _hasAnObjectchanged; }
     public bool StopSearching { get => _stopSearching; set => _stopSearching = value; }
     public bool IsInAnimation { get => _isInAnimation; set => _isInAnimation = value; }
+    public bool HalfwaySeen { get => _halfwaySeeingPlayer; set => _halfwaySeeingPlayer = value; }
 
+
+    public Vector3 SuspectedSightingLocation { get => _suspectedSightingLocation; }
 
     public Vector3 DistractionPoint { get => _distractedPoint; set => _distractedPoint = value; }
     public ObservableObject NearbyObservable { get => _nearbyObservable; set => _nearbyObservable = value; }
@@ -297,6 +302,13 @@ public class AIAgent : MonoBehaviour
         }
     }
 
+    public void PlayerHalfwaySeen(Vector3 point)
+    {
+        Debug.Log("Player halfway seen");
+        _halfwaySeeingPlayer = true;
+        _suspectedSightingLocation = point;
+    }
+
     public void PlayerSeen()
     {
         //Debug.Log("Player Seen");
@@ -315,6 +327,9 @@ public class AIAgent : MonoBehaviour
                 //Debug.Log(transform.name + " has seen the player");
             }
         }
+
+
+        _halfwaySeeingPlayer = false;
         _currentlySeeingPlayer = true;
 
         if (!_currentlyAlert)

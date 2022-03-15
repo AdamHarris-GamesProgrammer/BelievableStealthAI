@@ -9,11 +9,8 @@ public class Turn90Degrees : ActionNode
 
     protected override void OnStart()
     {
-
         targetRot = _blackboard._agent.transform.rotation;
         targetRot *= Quaternion.Euler(0.0f, 90.0f, 0.0f);
-
-        Debug.Log("Original Y Rot: " + _blackboard._agent.transform.rotation.eulerAngles.y + " New Y Rot: " + targetRot.eulerAngles.y);
     }
 
     protected override void OnStop()

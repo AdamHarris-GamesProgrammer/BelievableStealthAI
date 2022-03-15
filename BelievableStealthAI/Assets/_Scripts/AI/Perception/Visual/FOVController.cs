@@ -8,6 +8,8 @@ public class FOVController : MonoBehaviour
 {
     [Min(0f)] [SerializeField] private float _detectedThreshold = 1.0f;
     [SerializeField] private float _detectedValue;
+
+    [SerializeField] bool _halfwaySeen = false;
     [SerializeField] bool _seen = false;
 
 
@@ -47,7 +49,11 @@ public class FOVController : MonoBehaviour
                 _seen = true;
                 _aiController.PlayerSeen();
             }
-
+            else if(_detectedValue >= _detectedThreshold / 2.0f)
+            {
+                _halfwaySeen = true;
+                _aiController.PlayerHalfwaySeen(_player.transform.position);
+            }
             _timeBetweenAditions = 0.0f;
             
             _detectionMeter.fillAmount = _detectedValue;
