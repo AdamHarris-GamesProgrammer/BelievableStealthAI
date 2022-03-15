@@ -5802,6 +5802,7 @@ MonoBehaviour:
   _deathScreenGroup: {fileID: 5593835208494574879}
   _victoryScreenGroup: {fileID: 1732272631}
   _camera: {fileID: 6110863486155479026}
+  _distractionPrefab: {fileID: 0}
 --- !u!82 &3893984193834593137
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6648,7 +6649,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 521f02f329d98fb4a8c14626a53abc4a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0bcb091adcddc334dba92fc56b29eaf1, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.05
   m_Pitch: 1

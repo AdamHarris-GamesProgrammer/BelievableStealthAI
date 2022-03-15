@@ -46,6 +46,8 @@ public class AIAgent : MonoBehaviour
     bool _hasAnObjectchanged = false;
 
     Vector3 _pointOfSound;
+    Vector3 _distractedPoint;
+    bool _isDistracted;
     AIAgent _agentToCheckOn = null;
     Vector3 _lastKnownPlayerPosition;
     Lightswitch _lightswitch;
@@ -55,6 +57,9 @@ public class AIAgent : MonoBehaviour
 
 
     ObservableObject _nearbyObservable;
+
+    public bool IsDistracted { get => _isDistracted; set => _isDistracted = value; }
+    public Vector3 DistractionPoint { get => _distractedPoint; set => _distractedPoint = value; }
 
     public ObservableObject NearbyObservable { get => _nearbyObservable; set => _nearbyObservable = value; }
 
@@ -266,6 +271,14 @@ public class AIAgent : MonoBehaviour
         {
             _aiLastSeen[agent] = modifyVals[agent];
         }
+    }
+
+    public void Distracted(Vector3 impactPoint)
+    {
+        if (_currentlyAlert) return;
+
+        _isDistracted = true;
+        _distractedPoint = impactPoint;
     }
 
     public void BodyDetected(GameObject agent)

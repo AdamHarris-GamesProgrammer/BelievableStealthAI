@@ -13,6 +13,8 @@ public class DistractionObject : MonoBehaviour
     {
         if (_activated) return;
 
+        GetComponent<AudioSource>().Play();
+
         _activated = true;
 
         List<AIAgent> agents = FindObjectsOfType<AIAgent>().ToList();
@@ -33,10 +35,18 @@ public class DistractionObject : MonoBehaviour
 
         if(closestAgent != null)
         {
-            Debug.Log("Closest AI is: " + closestAgent.transform.name);
-            //TODO: Trigger distracted stuff in AIAgent
+            closestAgent.Distracted(collision.GetContact(0).point);
         }
 
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.angularVelocity /= 5.0f;
+        rb.velocity /= 5.0f;
+
+        ParticleSystem ps = GetComponentInChildren<ParticleSystem>();
+        ps.Play();
+
+        Destroy(rb, 5.0f);
+        Destroy(ps, 5.0f);
         Destroy(this, 15.0f);
     }
 }
