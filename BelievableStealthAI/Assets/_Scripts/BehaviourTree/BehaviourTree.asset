@@ -1496,12 +1496,13 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -2348, y: 807.2}
+  _position: {x: -2347.9998, y: 807.2}
   _children:
   - {fileID: 2601881528554896175}
   - {fileID: 6333077177219695434}
   - {fileID: 2081305155419286790}
   - {fileID: -2487210814188308551}
+  - {fileID: -238067366555598378}
   - {fileID: 7267558282482091263}
   - {fileID: -1981016573226372691}
   - {fileID: -7769375306959631587}
@@ -1987,7 +1988,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -2319.2002, y: 1065.6}
+  _position: {x: -2448.7998, y: 1057.6}
 --- !u!114 &-2303832124345919861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2557,6 +2558,46 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: 376.80008, y: 991.6}
   duration: 1
+--- !u!114 &-238067366555598378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f1d7f509cdbd3e419569d83ff94247e, type: 3}
+  m_Name: PlayAnimation
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 74862c1fffbf1bf47af9b0cd053cfa22
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
+    _response: 0
+  description: 
+  _agent: {fileID: 0}
+  _position: {x: -2236, y: 1057.6}
+  animationName: LookAtRock
 --- !u!114 &-105923762129853817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2702,6 +2743,7 @@ MonoBehaviour:
   - {fileID: -7835293586029987964}
   - {fileID: 6547575509967076386}
   - {fileID: -7769375306959631587}
+  - {fileID: -238067366555598378}
   _blackboard:
     moveToPosition: {x: 6.69, y: 0, z: -6.82}
     spawnPosition: {x: 3.93, y: 0.00000047683716, z: -3.37}
@@ -3208,7 +3250,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -2476.8005, y: 1057.6}
+  _position: {x: -2604, y: 1065.6}
   duration: 1
 --- !u!114 &2192899757574039587
 MonoBehaviour:
@@ -3371,7 +3413,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -2793.5227, y: 1065.6}
+  _position: {x: -2920.8, y: 1065.6}
 --- !u!114 &2773092769167284717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4096,7 +4138,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -2635.2, y: 1065.6}
+  _position: {x: -2762.4, y: 1073.6}
   _typeToPlay: 2
 --- !u!114 &6383556851447391520
 MonoBehaviour:

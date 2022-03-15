@@ -17,7 +17,7 @@ public class GoToAILocation : ActionNode
 
     protected override State OnUpdate()
     {
-        if(_blackboard._locomotion.GetRemainingDistance() < 2.5f)
+        if(_blackboard._locomotion.GetRemainingDistance() < 1.2f)
         {
             return State.Success;
         }

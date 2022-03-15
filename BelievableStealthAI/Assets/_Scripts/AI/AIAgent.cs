@@ -7,15 +7,6 @@ using UnityEngine.AI;
 
 public class AIAgent : MonoBehaviour
 {
-    BehaviorTree _behaviorTree;
-    Blackboard _blackboard;
-    AILocomotion _locomotion;
-    Animator _animator;
-
-
-
-    PlayerController _player;
-
     [Header("Patrol Settings")]
     [SerializeField] PatrolRoute _patrolRoute;
     int _currentPatrolIndex = 0;
@@ -33,10 +24,8 @@ public class AIAgent : MonoBehaviour
 
     [Header("Room Details")]
     [SerializeField] RoomController _currentRoom;
+
     float _suspiscionTimer;
-
-    DialogueController _dialogueController;
-
 
     bool _haveBeenAlerted = false;
     bool _hasSeenPlayer = false;
@@ -46,29 +35,30 @@ public class AIAgent : MonoBehaviour
     bool _currentlyHearingSound = false;
     bool _currentlySeeingPlayer = false;
     bool _hasAnObjectchanged = false;
+    bool _suspicious = false;
+    bool _stopSearching = false;
+    bool _isDistracted = false;
+    bool _isInAnimation = false;
 
     Vector3 _pointOfSound;
     Vector3 _distractedPoint;
-    bool _isDistracted;
-    AIAgent _agentToCheckOn = null;
     Vector3 _lastKnownPlayerPosition;
+
+    BehaviorTree _behaviorTree;
+    Blackboard _blackboard;
+    AILocomotion _locomotion;
+    Animator _animator;
+    DialogueController _dialogueController;
+    PlayerController _player;
+    AIAgent _agentToCheckOn = null;
     Lightswitch _lightswitch;
+    ObservableObject _nearbyObservable;
     GameObject _deadAgent;
 
     Dictionary<AIAgent, float> _aiLastSeen = new Dictionary<AIAgent, float>();
 
-
-    ObservableObject _nearbyObservable;
-
     public bool IsDistracted { get => _isDistracted; set => _isDistracted = value; }
-    public Vector3 DistractionPoint { get => _distractedPoint; set => _distractedPoint = value; }
-
-    public ObservableObject NearbyObservable { get => _nearbyObservable; set => _nearbyObservable = value; }
-
-    public RoomController CurrentRoom { get => _currentRoom; set => _currentRoom = value; }
-
-    public GameObject DeadAgent { get => _deadAgent; set => _deadAgent = null; }
-
+    public bool Suspicious { get => _suspicious; set => _suspicious = false; }
     public bool HaveBeenAlerted { get => _haveBeenAlerted; }
     public bool HasSeenPlayer { get => _hasSeenPlayer; }
     public bool HasHeardSound { get => _hasHeardSound; }
@@ -77,20 +67,19 @@ public class AIAgent : MonoBehaviour
     public bool CurrentlyHearingSound { get => _currentlyHearingSound; }
     public bool CurrentlySeeingPlayer { get => _currentlySeeingPlayer; }
     public bool HasAnObjectchanged { get => _hasAnObjectchanged; }
+    public bool StopSearching { get => _stopSearching; set => _stopSearching = value; }
+    public bool IsInAnimation { get => _isInAnimation; set => _isInAnimation = value; }
 
-    public bool Suspicious { get => _suspicious; set => _suspicious = false; }
 
-    bool _suspicious = false;
-
+    public Vector3 DistractionPoint { get => _distractedPoint; set => _distractedPoint = value; }
+    public ObservableObject NearbyObservable { get => _nearbyObservable; set => _nearbyObservable = value; }
+    public RoomController CurrentRoom { get => _currentRoom; set => _currentRoom = value; }
+    public GameObject DeadAgent { get => _deadAgent; set => _deadAgent = null; }
     public Lightswitch ChangedLightswitch { get => _lightswitch; }
-
     public Vector3 LastKnownPlayerPosition { get => _lastKnownPlayerPosition; set => _lastKnownPlayerPosition = value; }
     public Vector3 PointOfSound { get => _pointOfSound; set => _pointOfSound = value; }
-
     public AIAgent AgentToCheckOn { get => _agentToCheckOn; set => _agentToCheckOn = value; }
-
-    bool _stopSearching;
-    public bool StopSearching { get => _stopSearching; set => _stopSearching = value; }
+    public Animator Anim { get => _animator; }
 
 
     private void Awake()
@@ -147,14 +136,14 @@ public class AIAgent : MonoBehaviour
     }
     public void RadioAllyToCheckOn()
     {
-        Debug.Log(transform.name + " is checking on: " + _agentToCheckOn.transform.name);
+        //Debug.Log(transform.name + " is checking on: " + _agentToCheckOn.transform.name);
         _dialogueController.PlaySound(SoundType.CheckOnAlly);
         _agentToCheckOn.Respond(this);
     }
 
     public void Respond(AIAgent caller)
     {
-        Debug.Log(transform.name + " is being checked on by: " + caller.transform.name);
+        //Debug.Log(transform.name + " is being checked on by: " + caller.transform.name);
         if (GetComponent<Health>().IsDead)
         {
             caller._blackboard._response = false;
@@ -189,7 +178,7 @@ public class AIAgent : MonoBehaviour
 
     public void SeenChangedObject(ObservableObject obj)
     {
-        Debug.Log(transform.name + " has seen a changed object");
+        //Debug.Log(transform.name + " has seen a changed object");
         if (_currentlyAlert)
         {
             return;
@@ -299,7 +288,7 @@ public class AIAgent : MonoBehaviour
 
         if (!_haveBeenAlerted)
         {
-            //TODO: Play Panicked Animation and Dialogue 
+            //TODO: Play Panicked Animation
             _dialogueController.PlaySound(SoundType.FindingBody);
         }
         else
@@ -315,6 +304,7 @@ public class AIAgent : MonoBehaviour
         if (!_hasSeenPlayer)
         {
             _dialogueController.PlaySound(SoundType.FirstTimeSeeingPlayer);
+            _animator.Play("Surprised");
             //Debug.Log(transform.name + " has seen the player for the first time");
         }
         else
@@ -433,6 +423,21 @@ public class AIAgent : MonoBehaviour
             _agentToCheckOn = agent;
         }
     }
+
+    public void FinishedAnimation()
+    {
+        _isInAnimation = false;
+        Debug.Log("Finished animation");
+        
+    }
+
+    public void ForceStopAnimtion()
+    {
+        _animator.enabled = false;
+
+        _animator.enabled = true;
+    }
+
 
     //Called by Unity Animator
     public void Bite()

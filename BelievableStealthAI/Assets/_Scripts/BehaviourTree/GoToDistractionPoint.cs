@@ -17,7 +17,7 @@ public class GoToDistractionPoint : ActionNode
 
     protected override State OnUpdate()
     {
-        if(_blackboard._locomotion.GetRemainingDistance() < 5.0f)
+        if(_blackboard._locomotion.GetRemainingDistance() < 1.2f)
         {
             return State.Success;
         }
