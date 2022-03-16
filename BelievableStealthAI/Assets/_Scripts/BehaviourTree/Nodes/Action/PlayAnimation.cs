@@ -9,7 +9,7 @@ public class PlayAnimation : ActionNode
     protected override void OnStart()
     {
         _blackboard._agent.IsInAnimation = true;
-        _blackboard._agent.Anim.Play(animationName);
+        _blackboard._agent.Anim.Play(animationName, -1, 0.0f);
     }
 
     protected override void OnStop()

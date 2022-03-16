@@ -26,7 +26,7 @@ public class BehaviorTreeView : GraphView
         this.AddManipulator(new SelectionDragger());
         this.AddManipulator(new SelectionDropper());
 
-        var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/_Scripts/BehaviourTree/BehaviorTreeEditor.uss");
+        var styleSheet = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/_Scripts/BehaviourTree/BTWindow/BehaviorTreeEditor.uss");
         styleSheets.Add(styleSheet);
 
         Undo.undoRedoPerformed += OnUndoRedo;

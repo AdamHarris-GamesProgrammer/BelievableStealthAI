@@ -14,6 +14,9 @@ public class BehaviorTree : ScriptableObject
     public List<Node> _nodes = new List<Node>();
 
     public Blackboard _blackboard = new Blackboard();
+
+    public string currentNodeName;
+
     public Node.State Update()
     {
         if(_rootNode._state == Node.State.Running) _treeState = _rootNode.Update();

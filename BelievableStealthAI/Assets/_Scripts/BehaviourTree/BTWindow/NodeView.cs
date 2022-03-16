@@ -19,7 +19,7 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
 
     public Action<NodeView> OnNodeSelected;
 
-    public NodeView(Node node) : base("Assets/_Scripts/BehaviourTree/NodeView.uxml") {
+    public NodeView(Node node) : base("Assets/_Scripts/BehaviourTree/BTWindow/NodeView.uxml") {
         _node = node;
         title = node.name;
         viewDataKey = node._guid;

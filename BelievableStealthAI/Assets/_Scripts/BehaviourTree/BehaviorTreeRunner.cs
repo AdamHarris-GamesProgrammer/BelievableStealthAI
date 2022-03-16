@@ -6,6 +6,8 @@ using UnityEngine;
 public class BehaviorTreeRunner : MonoBehaviour
 {
     public BehaviorTree tree;
+    public Node _currentNode;
+
 
     PlayerController _player;
 
@@ -21,6 +23,8 @@ public class BehaviorTreeRunner : MonoBehaviour
     void Update()
     {
         if (_player.Won) return;
+
+        
 
         tree.Update();
     }

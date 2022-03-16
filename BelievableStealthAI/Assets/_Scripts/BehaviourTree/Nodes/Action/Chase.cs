@@ -6,6 +6,7 @@ public class Chase : ActionNode
 {
     protected override void OnStart()
     {
+        _blackboard._locomotion.CanMove(true);
         _blackboard._locomotion.SetDestination(_blackboard._agent.LastKnownPlayerPosition);
         _blackboard._locomotion.SetMaxSpeed(_blackboard._chaseSpeed);
     }

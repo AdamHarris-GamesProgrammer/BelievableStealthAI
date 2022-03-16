@@ -125,6 +125,7 @@ MonoBehaviour:
   - {fileID: 1768003931456150764}
   - {fileID: 2084854710868910882}
   - {fileID: -2364890557801064529}
+  - {fileID: 9098130981602135688}
 --- !u!114 &-8900497732349975157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2923,6 +2924,7 @@ MonoBehaviour:
   - {fileID: -6051574341855976454}
   - {fileID: -5484017317566616823}
   - {fileID: 4670220176642531798}
+  - {fileID: 9098130981602135688}
   _blackboard:
     moveToPosition: {x: 6.69, y: 0, z: -6.82}
     spawnPosition: {x: 3.93, y: 0.00000047683716, z: -3.37}
@@ -3509,7 +3511,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -3290.3994, y: 601.19995}
+  _position: {x: -3128.8, y: 633.60004}
   child: {fileID: -8954925020476321833}
 --- !u!114 &2081305155419286790
 MonoBehaviour:
@@ -5036,3 +5038,42 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: 558.4001, y: 979.99994}
   child: {fileID: 7281687081434020316}
+--- !u!114 &9098130981602135688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909d91a2fbbc6a84896c3df2bddf2f4f, type: 3}
+  m_Name: SetHalfwaySeenToFalse
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: 1057a3046a6524647ac7ae75cfdb39aa
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
+    _response: 0
+  description: 
+  _agent: {fileID: 0}
+  _position: {x: -2604.0002, y: 1200.8002}

@@ -304,7 +304,7 @@ public class AIAgent : MonoBehaviour
 
     public void PlayerHalfwaySeen(Vector3 point)
     {
-        Debug.Log("Player halfway seen");
+        //Debug.Log("Player halfway seen");
         _halfwaySeeingPlayer = true;
         _suspectedSightingLocation = point;
     }
@@ -373,7 +373,7 @@ public class AIAgent : MonoBehaviour
     {
         if (_currentlyHearingSound) return;
 
-        Debug.Log(transform.name + " has heard something");
+        //Debug.Log(transform.name + " has heard something");
         _hasHeardSound = true;
 
         if (_currentlyAlert)
@@ -442,7 +442,7 @@ public class AIAgent : MonoBehaviour
     public void FinishedAnimation()
     {
         _isInAnimation = false;
-        Debug.Log("Finished animation");
+        //Debug.Log("Finished animation");
         
     }
 
