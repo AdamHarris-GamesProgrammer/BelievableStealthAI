@@ -23,9 +23,11 @@ public class Attack : ActionNode
 
         if(!_blackboard._agent.TryAttack())
         {
+            //Debug.Log("Couldn't Attack");
             return State.Failure;            
         }
 
+        //Debug.Log("Attacking");
 
         _blackboard._agent.Attack();
 

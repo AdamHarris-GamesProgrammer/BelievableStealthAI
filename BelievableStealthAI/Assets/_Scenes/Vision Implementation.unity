@@ -1367,12 +1367,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6067976200777227020, guid: 5e9e21308585c3147a5fd4d0d87b67ac, type: 3}
       propertyPath: _aiInRoom.Array.size
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6067976200777227020, guid: 5e9e21308585c3147a5fd4d0d87b67ac, type: 3}
       propertyPath: _aiInRoom.Array.data[0]
       value: 
-      objectReference: {fileID: 1716505265}
+      objectReference: {fileID: 135137889}
     - target: {fileID: 6067976200777227020, guid: 5e9e21308585c3147a5fd4d0d87b67ac, type: 3}
       propertyPath: _aiInRoom.Array.data[1]
       value: 
@@ -2040,17 +2040,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -23.448, z: 0}
---- !u!114 &1716505265 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4717096647025314115, guid: 2bdb3f9e8c0a6514680f331b29db6789, type: 3}
-  m_PrefabInstance: {fileID: 1548280820}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9dee00d1af4c8f43b9752913ca92754, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1892439071
 PrefabInstance:
   m_ObjectHideFlags: 0

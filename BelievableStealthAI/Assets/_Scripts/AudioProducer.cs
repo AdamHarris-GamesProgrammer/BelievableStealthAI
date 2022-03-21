@@ -34,6 +34,20 @@ public class AudioProducer : MonoBehaviour
         {
             float totalDistance = 0.0f;
 
+            float dist = Vector3.Distance(origin, perciever.transform.position);
+
+            //Optimisation check.
+            if (dist > maxDistance)
+            {
+                continue;
+            }
+            //replicate you making a sound with an enemy on the opposite side of the wall. 
+            else if(dist < 1.5f)
+            {
+                perciever.AddSound(origin, val / 3.0f);
+                continue;
+            }
+
             NavMeshPath path = new NavMeshPath();
             if (NavMesh.CalculatePath(origin, perciever.transform.position, ~0, path))
             {

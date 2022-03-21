@@ -25,6 +25,8 @@ public class Lightswitch : ObservableObject
 
         _controlsLight.gameObject.GetComponent<Light>().enabled = _currentState;
 
+        PlaySFX();
+
         foreach (AIAgent agent in _room.AgentsInRoom)
         {
             agent.LightSwitchChanged(this);

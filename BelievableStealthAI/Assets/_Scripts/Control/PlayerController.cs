@@ -11,15 +11,25 @@ namespace TGP.Control
     {
         [Header("Camera Settings")]
         [SerializeField] GameObject _followCam;
+        [SerializeField] Cinemachine.CinemachineVirtualCamera _camera;
+
+        [Header("Mesh Settings")]
         [SerializeField] GameObject _visibleMeshes;
+
+        [Header("UI Settings")]
         [SerializeField] UIPrompt _uiEPrompt;
         [SerializeField] UIPrompt _uiGPrompt;
-        [SerializeField] GameObject _bodybagAttachment;
-        [SerializeField] Bodybag _bodybagPrefab;
         [SerializeField] CanvasGroup _deathScreenGroup;
         [SerializeField] CanvasGroup _victoryScreenGroup;
-        [SerializeField] Cinemachine.CinemachineVirtualCamera _camera;
+
+        [Header("Prefabs")]
+        [SerializeField] GameObject _bodybagAttachment;
+        [SerializeField] Bodybag _bodybagPrefab;
         [SerializeField] DistractionObject _distractionPrefab;
+
+
+        [Header("Audio Clips")]
+        [SerializeField] AudioClip _deathSound;
 
         public GameObject FollowCam { get { return _followCam; } }
 
@@ -49,6 +59,7 @@ namespace TGP.Control
         Bodybag _nearbyBodybag;
         Window _nearbyWindow;
         Lightswitch _nearbySwitch;
+        AudioSource _audioSource;
 
 
         bool _visible = true;
@@ -147,13 +158,14 @@ namespace TGP.Control
             _camera.enabled = false;
             _hitboxes = GetComponentsInChildren<Hitbox>().ToList();
             Cursor.lockState = CursorLockMode.Confined;
+            _audioSource = GetComponent<AudioSource>();
         }
 
         private void Update()
         {
             bool stateChanged = false;
 
-            if(Input.GetKeyDown(KeyCode.H))
+            if(Input.GetKeyDown(KeyCode.R))
             {
                 DistractionObject distractionObject = Instantiate(_distractionPrefab);
                 distractionObject.transform.position = transform.position + (Vector3.up * 1.5f) + (transform.forward);
@@ -165,14 +177,6 @@ namespace TGP.Control
                 Vector3 dir = endPoint - transform.position;
 
                 rb.AddForce(dir * 35.0f, ForceMode.Acceleration);
-            }
-
-
-            if(Input.GetKeyDown(KeyCode.L))
-            {
-                List<AIAgent> agents = FindObjectsOfType<AIAgent>().ToList();
-
-                agents[0].CheckOn(agents[1]);
             }
 
             if (_nearbyAgent && !stateChanged)
@@ -198,8 +202,6 @@ namespace TGP.Control
                             Vector3 direction = ((_nearbyAgent.transform.position + Vector3.up) - raycastOrigin);
                             if (Physics.Raycast(raycastOrigin, direction, out RaycastHit hit, 2.5f, ~0, QueryTriggerInteraction.Ignore))
                             {
-                                //Debug.Log("Hit: " + hit.transform.name);
-                                //Debug.Log("Root: " + hit.transform.root.name);
                                 Vector3 endPoint = raycastOrigin + (direction * 2.5f);
                                 Debug.DrawLine(raycastOrigin, endPoint, Color.red, 5.0f);
                                 if (hit.transform.IsChildOf(_nearbyAgent.transform))
@@ -360,6 +362,7 @@ namespace TGP.Control
             Cursor.visible = true;
             GetComponent<PlayerHealth>().TakeDamage(10000.0f);
             _deathScreenGroup.alpha = 1.0f;
+            _audioSource.PlayOneShot(_deathSound);
         }
 
         public void Win()

@@ -23,6 +23,8 @@ public class ObservableObject : MonoBehaviour
     protected Vector3 _startObservePosition;
     protected Vector3 _endObservePositon;
 
+    protected AudioSource _audioSource;
+
     protected Animator _animator;
 
     public Vector3 StartObservePosition { get => _startObservePosition; }
@@ -43,6 +45,13 @@ public class ObservableObject : MonoBehaviour
     public void SetSideBRoom(RoomController room)
     {
         _sideBRoom = room;
+    }
+
+    protected void PlaySFX()
+    {
+        if (_audioSource == null) _audioSource = GetComponent<AudioSource>();
+
+        _audioSource.Play();
     }
 
     public void DecideRoom(RoomController room)

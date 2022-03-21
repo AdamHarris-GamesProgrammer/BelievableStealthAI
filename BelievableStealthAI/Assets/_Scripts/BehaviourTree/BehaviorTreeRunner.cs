@@ -6,7 +6,7 @@ using UnityEngine;
 public class BehaviorTreeRunner : MonoBehaviour
 {
     public BehaviorTree tree;
-    public Node _currentNode;
+    
 
 
     PlayerController _player;

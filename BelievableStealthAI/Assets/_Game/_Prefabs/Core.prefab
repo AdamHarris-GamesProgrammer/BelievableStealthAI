@@ -173,13 +173,14 @@ MonoBehaviour:
 
     Crouch: C
 
+    Throw Rock: R
 
     Objective:
 
-    Your objective is to get from this point
-    to the grass field on the opposite side of the building. If you are caught and
-    attacked you will die and have to restart the level. You can assassinate enemies
-    to help improve your chances. '
+    Your objective is to
+    get from this point to the grass field on the opposite side of the building.
+    If you are caught and attacked you will die and have to restart the level. You
+    can assassinate enemies to help improve your chances. '
 --- !u!1 &162453706
 GameObject:
   m_ObjectHideFlags: 0
@@ -5794,15 +5795,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _followCam: {fileID: 1291072075773188367}
+  _camera: {fileID: 6110863486155479026}
   _visibleMeshes: {fileID: 1941678041816981445}
   _uiEPrompt: {fileID: 4188248202211998262}
   _uiGPrompt: {fileID: 1372130426621428909}
-  _bodybagAttachment: {fileID: 5420968015342435959}
-  _bodybagPrefab: {fileID: 6689911547590488155, guid: 801f7d934e18a5440aa4b7830993339c, type: 3}
   _deathScreenGroup: {fileID: 5593835208494574879}
   _victoryScreenGroup: {fileID: 1732272631}
-  _camera: {fileID: 6110863486155479026}
-  _distractionPrefab: {fileID: 0}
+  _bodybagAttachment: {fileID: 5420968015342435959}
+  _bodybagPrefab: {fileID: 6689911547590488155, guid: 801f7d934e18a5440aa4b7830993339c, type: 3}
+  _distractionPrefab: {fileID: 1922204449947687466, guid: 3c9d12c54df1a8340be80a840dacf736, type: 3}
+  _deathSound: {fileID: 8300000, guid: 5abdfe29614b38b42877c87931efb52c, type: 3}
 --- !u!82 &3893984193834593137
 AudioSource:
   m_ObjectHideFlags: 0

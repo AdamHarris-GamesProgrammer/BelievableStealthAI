@@ -2946,6 +2946,7 @@ MonoBehaviour:
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
     _response: 0
+  currentNodeName: 
 --- !u!114 &81889322510407518
 MonoBehaviour:
   m_ObjectHideFlags: 0

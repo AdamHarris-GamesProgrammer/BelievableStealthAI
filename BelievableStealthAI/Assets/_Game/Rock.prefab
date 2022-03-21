@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0f68d6825a7776498225eb9bf6fcad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distractionRadius: 15
+  distractionRadius: 10
 --- !u!54 &1922204449947687467
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -36,6 +36,7 @@ public class Window : ObservableObject
         //if (_currentState) return;
 
         _animator.Play("WindowOpen", 0, 0.0f);
+        PlaySFX();
     }
 
     public override void Close()
@@ -43,6 +44,7 @@ public class Window : ObservableObject
         //if (!_currentState) return;
 
         _animator.Play("WindowClose", 0, 0.0f);
+        PlaySFX();
     }
 
     private void OnTriggerExit(Collider other)
@@ -74,12 +76,11 @@ public class Window : ObservableObject
     {
         if (_currentState)
         {
-            _animator.Play("WindowClose", 0, 0.0f);
-            _colliderToDisable.enabled = true;
+            Close();
         }
         else
         {
-            _animator.Play("WindowOpen", 0, 0.0f);
+            Open();
             _colliderToDisable.enabled = false;
         }
     }

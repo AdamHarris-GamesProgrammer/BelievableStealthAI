@@ -106,6 +106,7 @@ public class Door : ObservableObject
         //if (_currentState) return;
 
         _animator.Play("DoorOpen", 0, 0.0f);
+        PlaySFX();
     }
 
     public override void Close()
@@ -113,6 +114,7 @@ public class Door : ObservableObject
         //if (!_currentState) return;
             
         _animator.Play("DoorClose", 0, 0.0f);
+        PlaySFX();
     }
 
     public override void DecideAnimation()
@@ -121,12 +123,12 @@ public class Door : ObservableObject
         //Debug.Log(transform.name + " is opening or closing");
         if (_currentState)
         {
-            _animator.Play("DoorClose", 0, 0.0f);
+            Close();
         }
         //closed
         else
         {
-            _animator.Play("DoorOpen", 0, 0.0f);
+            Open();
         }
     }
 }

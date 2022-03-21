@@ -328,6 +328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _detectedThreshold: 1
   _detectedValue: 0
+  _halfwaySeen: 0
   _seen: 0
   _lostVisibilityDuration: 0.5
   _timeBetweenIncrements: 0.25
@@ -351,6 +352,7 @@ MonoBehaviour:
   _checkOnThreshold: 120
   _durationForSuspiscion: 15
   _currentRoom: {fileID: 0}
+  _attackSound: {fileID: 8300000, guid: 404877ed962a33f4698cd90efaca96ed, type: 3}
 --- !u!114 &4717096647025314114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,6 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tree: {fileID: 11400000, guid: 50d093aeb8fa2a948b0123e82666e915, type: 2}
+  _currentNode: {fileID: 0}
 --- !u!114 &2342201682756719572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1774,6 +1777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _detectedThreshold: 1
   _detectedValue: 0
+  _halfwaySeen: 0
   _seen: 0
   _lostVisibilityDuration: 0.5
   _timeBetweenIncrements: 0.25

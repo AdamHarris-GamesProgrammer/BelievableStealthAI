@@ -36,6 +36,7 @@ public abstract class Node : ScriptableObject
         }
 
         _state = OnUpdate();
+        
 
         if (_state == State.Failure || _state == State.Success)
         {

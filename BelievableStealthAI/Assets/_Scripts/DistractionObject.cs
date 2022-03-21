@@ -7,7 +7,7 @@ public class DistractionObject : MonoBehaviour
 {
     bool _activated = false;
 
-    [SerializeField] float distractionRadius = 15.0f;
+    [SerializeField] float _distractionRadius = 15.0f;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -24,7 +24,7 @@ public class DistractionObject : MonoBehaviour
         foreach (AIAgent agent in agents) 
         {
             float dist = Vector3.Distance(agent.transform.position, transform.position);
-            if (dist > distractionRadius) continue;
+            if (dist > _distractionRadius) continue;
 
             if (dist < currentBest)
             {

@@ -25,6 +25,9 @@ public class AIAgent : MonoBehaviour
     [Header("Room Details")]
     [SerializeField] RoomController _currentRoom;
 
+    [Header("Audio Clips")]
+    [SerializeField] AudioClip _attackSound;
+
     float _suspiscionTimer;
 
     bool _haveBeenAlerted = false;
@@ -56,6 +59,7 @@ public class AIAgent : MonoBehaviour
     Lightswitch _lightswitch;
     ObservableObject _nearbyObservable;
     GameObject _deadAgent;
+    AudioSource _audioSource;
 
     Dictionary<AIAgent, float> _aiLastSeen = new Dictionary<AIAgent, float>();
 
@@ -87,11 +91,13 @@ public class AIAgent : MonoBehaviour
     public Animator Anim { get => _animator; }
 
 
+
     private void Awake()
     {
         _player = FindObjectOfType<PlayerController>();
         _animator = GetComponent<Animator>();
         _dialogueController = GetComponent<DialogueController>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -141,14 +147,13 @@ public class AIAgent : MonoBehaviour
     }
     public void RadioAllyToCheckOn()
     {
-        //Debug.Log(transform.name + " is checking on: " + _agentToCheckOn.transform.name);
+        Debug.Log(transform.name + " is checking on: " + _agentToCheckOn.transform.name);
         _dialogueController.PlaySound(SoundType.CheckOnAlly);
         _agentToCheckOn.Respond(this);
     }
-
     public void Respond(AIAgent caller)
     {
-        //Debug.Log(transform.name + " is being checked on by: " + caller.transform.name);
+        Debug.Log(transform.name + " is being checked on by: " + caller.transform.name);
         if (GetComponent<Health>().IsDead)
         {
             caller._blackboard._response = false;
@@ -162,7 +167,7 @@ public class AIAgent : MonoBehaviour
 
     public bool TryAttack()
     {
-        if (Vector3.Distance(_player.transform.position, transform.position) < 0.5f)
+        if (Vector3.Distance(_player.transform.position, transform.position) < 1.0f)
         {
             return true;
         }
@@ -173,6 +178,8 @@ public class AIAgent : MonoBehaviour
     public void Attack(bool autoKill = false)
     {
         //Debug.Log("Attack method");
+        ForceStopAnimtion();
+
         _animator.SetTrigger("attack");
 
         if (autoKill)
@@ -304,27 +311,27 @@ public class AIAgent : MonoBehaviour
 
     public void PlayerHalfwaySeen(Vector3 point)
     {
-        //Debug.Log("Player halfway seen");
+        Debug.Log("Player halfway seen");
         _halfwaySeeingPlayer = true;
         _suspectedSightingLocation = point;
     }
 
     public void PlayerSeen()
     {
-        //Debug.Log("Player Seen");
+        Debug.Log("Player Seen");
 
         if (!_hasSeenPlayer)
         {
             _dialogueController.PlaySound(SoundType.FirstTimeSeeingPlayer);
             _animator.Play("Surprised");
-            //Debug.Log(transform.name + " has seen the player for the first time");
+            Debug.Log(transform.name + " has seen the player for the first time");
         }
         else
         {
             if (!_currentlySeeingPlayer)
             {
                 _dialogueController.PlaySound(SoundType.SeeingPlayerAgain);
-                //Debug.Log(transform.name + " has seen the player");
+                Debug.Log(transform.name + " has seen the player");
             }
         }
 
@@ -343,7 +350,7 @@ public class AIAgent : MonoBehaviour
 
     public void LightSwitchChanged(Lightswitch ls)
     {
-        //Debug.Log(transform.name + " has seen a changed lightbulb");
+        Debug.Log(transform.name + " has seen a changed lightbulb");
         if (_currentlyAlert)
         {
             return;
@@ -457,6 +464,7 @@ public class AIAgent : MonoBehaviour
     //Called by Unity Animator
     public void Bite()
     {
+        //Debug.Log("Checking for damage");
         Vector3 playerDir = (_player.transform.position - transform.position).normalized;
         if (Physics.Raycast(transform.position + (Vector3.up * 1.5f), playerDir, out RaycastHit hit, 1.0f, ~0, QueryTriggerInteraction.Ignore))
         {
@@ -465,5 +473,10 @@ public class AIAgent : MonoBehaviour
                 _player.TakeHit();
             }
         }
+    }
+
+    public void StartAttack()
+    {
+        _audioSource.PlayOneShot(_attackSound);
     }
 }
