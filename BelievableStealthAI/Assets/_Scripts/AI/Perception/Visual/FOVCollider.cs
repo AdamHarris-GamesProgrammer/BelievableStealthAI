@@ -32,40 +32,41 @@ public class FOVCollider : MonoBehaviour
         _agent = GetComponentInParent<AIAgent>();
     }
 
-    private IEnumerator RaycastToBodies()
+    private void FixedUpdate()
     {
-        if(!_agent.HasSeenBody)
+        if(_bodiesInCollider.Count > 0)
         {
-            foreach (GameObject obj in _bodiesInCollider)
+            if (!_agent.HasSeenBody)
             {
-                if (obj == null) continue;
-
-                RaycastHit hit;
-                Vector3 pos = obj.transform.position;
-                Vector3 direction = (pos - _fovController.RaycastOrigin);
-                //Debug.DrawRay(_fovController.RaycastOrigin, direction);
-                if (Physics.Raycast(_fovController.RaycastOrigin, direction, out hit, 25.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
+                foreach (GameObject obj in _bodiesInCollider)
                 {
-                    if (hit.transform.GetInstanceID() == obj.transform.GetInstanceID())
-                    {
-                        _agent.BodyDetected(hit.transform.gameObject);
-                        break;
-                    }
-                }
+                    if (obj == null) continue;
 
-                yield return new WaitForFixedUpdate();
+                    RaycastHit hit;
+                    Vector3 pos = obj.transform.position;
+                    Vector3 direction = (pos - _fovController.RaycastOrigin);
+                    //Debug.DrawRay(_fovController.RaycastOrigin, direction);
+                    if (Physics.Raycast(_fovController.RaycastOrigin, direction, out hit, 25.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
+                    {
+                        if (hit.transform.GetInstanceID() == obj.transform.GetInstanceID())
+                        {
+                            _agent.BodyDetected(hit.transform.gameObject);
+                            break;
+                        }
+                    }
+
+                    //yield return new WaitForFixedUpdate();
+                }
             }
         }
-
-
-        yield return new WaitForFixedUpdate();
+        
     }
 
     private IEnumerator RaycastToObservables()
     {
         if (!_agent.HasAnObjectchanged)
         {
-            foreach (ObservableObject obj in _observedObjects)
+            foreach (ObservableObject obj in _agent.CurrentRoom.ObservablesInRoom)
             {
                 RaycastHit hit;
                 Vector3 pos = obj.transform.position;
@@ -73,13 +74,12 @@ public class FOVCollider : MonoBehaviour
                 //Debug.DrawRay(_fovController.RaycastOrigin, direction);
                 if (Physics.Raycast(_fovController.RaycastOrigin, direction, out hit, 25.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
                 {
-                    if (hit.transform.GetInstanceID() == obj.transform.GetInstanceID())
+                    ObservableObject observable = hit.transform.GetComponentInParent<ObservableObject>();
+
+                    if (observable)
                     {
-                        if (obj.HasRecentlyChanged)
-                        {
-                            _agent.SeenChangedObject(obj);
-                            break;
-                        }
+                        if(observable.HasRecentlyChanged)
+                            _agent.SeenChangedObject(observable);
                     }
                 }
 
@@ -130,13 +130,13 @@ public class FOVCollider : MonoBehaviour
         }
         else if (other.CompareTag("ObservableObject"))
         {
-            _observedObjects.Add(other.GetComponent<ObservableObject>());
+            //_observedObjects.Add(other.GetComponent<ObservableObject>());
             StartCoroutine(RaycastToObservables());
         }
         else if (other.CompareTag("DeadBody"))
         {
             _bodiesInCollider.Add(other.gameObject);
-            StartCoroutine(RaycastToBodies());
+            //StartCoroutine(RaycastToBodies());
         }
     }
     private void OnTriggerExit(Collider other)
@@ -150,7 +150,7 @@ public class FOVCollider : MonoBehaviour
         }
         else if (other.CompareTag("ObservableObject"))
         {
-            _observedObjects.Remove(other.GetComponent<ObservableObject>());
+           //_observedObjects.Remove(other.GetComponent<ObservableObject>());
 
             if(_observedObjects.Count == 0)
             {
@@ -160,11 +160,6 @@ public class FOVCollider : MonoBehaviour
         else if (other.CompareTag("DeadBody"))
         {
             _bodiesInCollider.Remove(other.gameObject);
-
-            if(_observedObjects.Count == 0)
-            {
-                StopCoroutine(RaycastToBodies());
-            }
         }
     }
 }

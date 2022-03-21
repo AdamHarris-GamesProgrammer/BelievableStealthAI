@@ -190,7 +190,7 @@ public class AIAgent : MonoBehaviour
 
     public void SeenChangedObject(ObservableObject obj)
     {
-        //Debug.Log(transform.name + " has seen a changed object");
+        Debug.Log(transform.name + " has seen a changed object");
         if (_currentlyAlert)
         {
             return;

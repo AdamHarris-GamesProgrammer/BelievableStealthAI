@@ -366,7 +366,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tree: {fileID: 11400000, guid: 50d093aeb8fa2a948b0123e82666e915, type: 2}
-  _currentNode: {fileID: 0}
 --- !u!114 &2342201682756719572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3600,7 +3599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca3a03fec5cebf46ad1da1c2f89c13e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectionInrement: 0.1
+  _detectionInrement: 0.075
   _rayCastLayer:
     serializedVersion: 2
     m_Bits: 59
@@ -3636,7 +3635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca3a03fec5cebf46ad1da1c2f89c13e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _detectionInrement: 0.1
+  _detectionInrement: 0.075
   _rayCastLayer:
     serializedVersion: 2
     m_Bits: 59
