@@ -31,15 +31,20 @@ public class FOVController : MonoBehaviour
     AIAgent _aiController;
     PlayerController _player;
 
+    Health _health;
+
     private void Awake()
     {
         _colliderArr = GetComponentsInChildren<FOVCollider>();
         _aiController = GetComponentInParent<AIAgent>();
         _player = FindObjectOfType<PlayerController>();
+        _health = GetComponentInParent<Health>();
     }
 
     public void AddValue(float increment)
     {
+        if (_health.IsDead) return;
+
         if (_timeBetweenAditions >= _timeBetweenIncrements)
         {
             _detectedValue = Mathf.Min(_detectedValue + increment, _detectedThreshold);
@@ -61,6 +66,8 @@ public class FOVController : MonoBehaviour
     }
     public void SubtractValue(float decrement)
     {
+        if (_health.IsDead) return;
+
         _detectedValue = Mathf.Max(_detectedValue - decrement, 0f);
 
         if (_detectedValue < _detectedThreshold)
@@ -78,6 +85,8 @@ public class FOVController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_health.IsDead) return;
+
         _raycastOrigin = transform.position + (transform.forward * 0.1f) + (Vector3.up * 1.8f);
 
         _timeBetweenAditions += Time.fixedDeltaTime;

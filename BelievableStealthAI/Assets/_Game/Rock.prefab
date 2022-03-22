@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -7699646030860136368}
   - component: {fileID: 1472572143200897249}
   - component: {fileID: 2343306270862876578}
+  - component: {fileID: 3923686509283664008}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Untagged
@@ -49,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0f68d6825a7776498225eb9bf6fcad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distractionRadius: 10
+  _distractionRadius: 15
 --- !u!54 &1922204449947687467
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -283,6 +284,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3923686509283664008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922204449947687464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_IgnoreFromBuild: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &1922204450359211134
 GameObject:
   m_ObjectHideFlags: 0

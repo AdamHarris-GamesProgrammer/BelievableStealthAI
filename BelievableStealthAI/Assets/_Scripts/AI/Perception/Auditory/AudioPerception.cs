@@ -15,14 +15,18 @@ public class AudioPerception : MonoBehaviour
     float _timeSinceLastSound;
     bool _heardSound;
     AIAgent _aiAgent;
+    Health _health;
 
     private void Awake()
     {
         _aiAgent = GetComponentInParent<AIAgent>();
+        _health = GetComponentInParent<Health>();
     }
 
     private void FixedUpdate()
     {
+        if (_health.IsDead) return;
+
         _timerBetweenIncrements += Time.fixedDeltaTime;
         if(_heardSound)
         {
@@ -38,6 +42,8 @@ public class AudioPerception : MonoBehaviour
 
     public void AddSound(Vector3 origin, float val)
     {
+        if (_health.IsDead) return;
+
         _heardSound = true;
 
         if(_timerBetweenIncrements > _timeBetweenIncrements)

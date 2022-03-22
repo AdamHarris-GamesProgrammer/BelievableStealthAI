@@ -98,6 +98,8 @@ public class AIAgent : MonoBehaviour
         _animator = GetComponent<Animator>();
         _dialogueController = GetComponent<DialogueController>();
         _audioSource = GetComponent<AudioSource>();
+
+        
     }
 
     private void Start()
@@ -226,6 +228,7 @@ public class AIAgent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (_currentlyAlert)
         {
             if (!_currentlySeeingPlayer)

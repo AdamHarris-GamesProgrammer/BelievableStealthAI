@@ -29,6 +29,7 @@ public class AILocomotion : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
+        _agent.autoTraverseOffMeshLink = false;
     }
 
     void Update()

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TGP.Control;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
 
 
@@ -79,6 +80,9 @@ public class Health : MonoBehaviour
             }
 
             GetComponent<Ragdoll>().ActivateRagdoll();
+
+            GetComponent<AIAgent>().CurrentRoom.AgentsInRoom.Remove(GetComponent<AIAgent>());
+
             gameObject.tag = "DeadBody";
             return;
         }
