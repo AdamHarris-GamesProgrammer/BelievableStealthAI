@@ -81,8 +81,6 @@ public class Health : MonoBehaviour
 
             GetComponent<Ragdoll>().ActivateRagdoll();
 
-            GetComponent<AIAgent>().CurrentRoom.AgentsInRoom.Remove(GetComponent<AIAgent>());
-
             gameObject.tag = "DeadBody";
             return;
         }
