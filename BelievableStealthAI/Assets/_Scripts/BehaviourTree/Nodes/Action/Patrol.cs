@@ -7,6 +7,7 @@ public class Patrol : ActionNode
     protected override void OnStart()
     {
         _blackboard._locomotion.Rotation(true);
+        _blackboard._locomotion.CanMove(true);
         _blackboard._locomotion.SetMaxSpeed(_blackboard._patrolSpeed);
         _blackboard._agent.GetNextPatrolPoint();
         _blackboard._locomotion.SetDestination(_blackboard.moveToPosition);

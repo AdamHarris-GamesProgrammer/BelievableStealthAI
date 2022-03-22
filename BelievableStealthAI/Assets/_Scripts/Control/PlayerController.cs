@@ -31,6 +31,10 @@ namespace TGP.Control
         [Header("Audio Clips")]
         [SerializeField] AudioClip _deathSound;
 
+
+        [Header("Debug Settings")]
+        [SerializeField] bool _immortal;
+
         public GameObject FollowCam { get { return _followCam; } }
 
         bool _isStanding = true;
@@ -359,6 +363,8 @@ namespace TGP.Control
         public void TakeHit()
         {
             //Kill player
+            if (_immortal) return;
+
             Cursor.visible = true;
             GetComponent<PlayerHealth>().TakeDamage(10000.0f);
             _deathScreenGroup.alpha = 1.0f;
