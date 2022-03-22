@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+#if UNITY_EDITOR
+
 [CustomEditor(typeof(ModelController))]
 public class ModelControllerEditor : Editor
 {
@@ -23,3 +25,4 @@ public class ModelControllerEditor : Editor
         }
     }
 }
+#endif

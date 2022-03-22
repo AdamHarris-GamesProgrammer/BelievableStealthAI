@@ -8,6 +8,7 @@ public class ModelController : MonoBehaviour
     [SerializeField] Mesh[] _meshes;
 
 
+#if UNITY_EDITOR
     [ExecuteInEditMode]
     public void SetAllModels()
     {
@@ -29,7 +30,7 @@ public class ModelController : MonoBehaviour
         renderer.sharedMesh = _meshes[index];
         renderer.BakeMesh(_meshes[index]);
     }
-
+#endif
 
 
 }

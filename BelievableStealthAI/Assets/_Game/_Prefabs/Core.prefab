@@ -5805,6 +5805,7 @@ MonoBehaviour:
   _bodybagPrefab: {fileID: 6689911547590488155, guid: 801f7d934e18a5440aa4b7830993339c, type: 3}
   _distractionPrefab: {fileID: 1922204449947687466, guid: 3c9d12c54df1a8340be80a840dacf736, type: 3}
   _deathSound: {fileID: 8300000, guid: 5abdfe29614b38b42877c87931efb52c, type: 3}
+  _immortal: 0
 --- !u!82 &3893984193834593137
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7088,6 +7089,7 @@ GameObject:
   - component: {fileID: 7119787658495559119}
   - component: {fileID: 428150206425155497}
   - component: {fileID: 3650921385855991503}
+  - component: {fileID: 4110515286960065933}
   m_Layer: 0
   m_Name: Bodybag
   m_TagString: DeadBody
@@ -7173,6 +7175,22 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &4110515286960065933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5420968015342435959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_IgnoreFromBuild: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &5739114166268592228
 GameObject:
   m_ObjectHideFlags: 0

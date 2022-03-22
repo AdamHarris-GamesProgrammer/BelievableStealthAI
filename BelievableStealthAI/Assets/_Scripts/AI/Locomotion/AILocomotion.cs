@@ -16,7 +16,6 @@ public class AILocomotion : MonoBehaviour
 
     public float GetRemainingDistance()
     {
-        //return _agent.remainingDistance;
         return Vector3.SqrMagnitude(transform.position - _agent.destination);
     }
 
@@ -29,7 +28,6 @@ public class AILocomotion : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
-        //_agent.autoTraverseOffMeshLink = false;
     }
 
     void Update()
@@ -44,6 +42,6 @@ public class AILocomotion : MonoBehaviour
 
     internal void CanMove(bool v)
     {
-        _agent.enabled = v;
+        _agent.updatePosition = v;
     }
 }

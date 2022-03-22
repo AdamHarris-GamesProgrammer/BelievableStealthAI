@@ -169,6 +169,7 @@ namespace TGP.Control
         {
             bool stateChanged = false;
 
+            //Throw Rock
             if(Input.GetKeyDown(KeyCode.R))
             {
                 DistractionObject distractionObject = Instantiate(_distractionPrefab);
@@ -187,17 +188,22 @@ namespace TGP.Control
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    //Pickup bodybag
                     if (_nearbyAgent.GetComponent<Health>().IsDead)
                     {
                         if (!_carryingBodybag)
                         {
                             SetCarryingBodybag(true);
                             //TODO: Make sure all edge cases are handled when destroying ai agent
+
+                            //_nearbyAgent.gameObject.SetActive(false);
+                            
                             Destroy(_nearbyAgent.gameObject);
                             NearbyAgent = null;
                             stateChanged = true;
                         }
                     }
+                    //Kill Enemy
                     else
                     {
                         if (!_isStanding && !_nearbyAgent.CurrentlyAlert)
