@@ -194,12 +194,24 @@ namespace TGP.Control
                         if (!_carryingBodybag)
                         {
                             SetCarryingBodybag(true);
-                            //TODO: Make sure all edge cases are handled when destroying ai agent
 
-                            //_nearbyAgent.gameObject.SetActive(false);
-                            
-                            Destroy(_nearbyAgent.gameObject);
-                            NearbyAgent = null;
+                            //Destroy(_nearbyAgent.gameObject);
+
+                            _nearbyAgent.GetComponent<AILocomotion>().CanMove(false);
+                            _nearbyAgent.GetComponent<AILocomotion>().Rotation(false);
+                            _nearbyAgent.GetComponent<CapsuleCollider>().enabled = false;
+
+                            foreach (Collider col in _nearbyAgent.GetComponentsInChildren<Collider>())
+                            {
+                                col.enabled = false;
+                            }
+
+                            Destroy(_nearbyAgent.GetComponentInChildren<SkinnedMeshRenderer>());
+
+                            Destroy(_nearbyAgent);
+
+                            _nearbyAgent = null;
+
                             stateChanged = true;
                         }
                     }

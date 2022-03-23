@@ -9,6 +9,17 @@ public class AILocomotion : MonoBehaviour
     Animator _animator;
     NavMeshAgent _agent;
 
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+        _agent = GetComponent<NavMeshAgent>();
+    }
+
+    void Update()
+    {
+        _animator.SetFloat("movementSpeed", _agent.velocity.magnitude);
+    }
+
     public void Rotation(bool v)
     {
         _agent.updateRotation = v;
@@ -22,17 +33,6 @@ public class AILocomotion : MonoBehaviour
     public void SetMaxSpeed(float speed)
     {
         _agent.speed = speed;
-    }
-
-    private void Awake()
-    {
-        _animator = GetComponent<Animator>();
-        _agent = GetComponent<NavMeshAgent>();
-    }
-
-    void Update()
-    {
-        _animator.SetFloat("movementSpeed", _agent.velocity.magnitude);
     }
 
     public void SetDestination(Vector3 position)

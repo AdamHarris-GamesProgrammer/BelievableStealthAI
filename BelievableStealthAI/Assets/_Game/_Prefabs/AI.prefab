@@ -207,7 +207,6 @@ GameObject:
   - component: {fileID: 7933080661343325433}
   - component: {fileID: 1526762551878077959}
   - component: {fileID: 6068295744318608402}
-  - component: {fileID: 3047397648272576183}
   m_Layer: 0
   m_Name: AI
   m_TagString: Enemy
@@ -552,22 +551,6 @@ MonoBehaviour:
   - {fileID: 4300008, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
   - {fileID: 4300004, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
   - {fileID: 4300036, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
---- !u!114 &3047397648272576183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4717096647025314123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 0
-  m_IgnoreFromBuild: 1
-  m_AffectedAgents: ffffffff
 --- !u!1 &4717096647626450465
 GameObject:
   m_ObjectHideFlags: 0
