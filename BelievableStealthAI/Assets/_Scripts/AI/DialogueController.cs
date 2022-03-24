@@ -25,18 +25,22 @@ public class DialogueController : MonoBehaviour
 {
     AudioSource _audioSource;
 
-    [SerializeField] SoundSet _soundSet;
+    [SerializeField] SoundSet[] _soundSets;
+    [SerializeField] SoundSet _selectedSoundSet;
 
     private void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
-        _soundSet.Init();
+
+        _selectedSoundSet = _soundSets[(int)Random.Range(0, _soundSets.Length)];
+
+        _selectedSoundSet.Init();
     }
     public void PlaySound(SoundType type)
     {
         if (_audioSource.isPlaying) return;
 
-        int index = Random.Range(0, _soundSet._sounds[type].Length - 1);
-        _audioSource.PlayOneShot(_soundSet._sounds[type][index]);
+        int index = Random.Range(0, _selectedSoundSet._sounds[type].Length - 1);
+        _audioSource.PlayOneShot(_selectedSoundSet._sounds[type][index]);
     }
 }

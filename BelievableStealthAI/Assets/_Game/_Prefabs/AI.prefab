@@ -283,7 +283,7 @@ NavMeshAgent:
   avoidancePriority: 50
   m_AngularSpeed: 360
   m_StoppingDistance: 0.1
-  m_AutoTraverseOffMeshLink: 0
+  m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
@@ -513,7 +513,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b4b2645e530214cbfdd5fb3fb45bb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundSet: {fileID: 11400000, guid: adf51e300affc8d468b206742ea5eb1d, type: 2}
+  _soundSets:
+  - {fileID: 11400000, guid: adf51e300affc8d468b206742ea5eb1d, type: 2}
+  - {fileID: 11400000, guid: 1eb4c41417f67c14d8b9cf9b3fcbe33f, type: 2}
+  - {fileID: 11400000, guid: a9c05501116613f4cbb94b946ea89f65, type: 2}
+  _selectedSoundSet: {fileID: 0}
 --- !u!114 &1526762551878077959
 MonoBehaviour:
   m_ObjectHideFlags: 0

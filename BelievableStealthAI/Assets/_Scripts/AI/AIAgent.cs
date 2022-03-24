@@ -321,12 +321,9 @@ public class AIAgent : MonoBehaviour
 
     public void PlayerSeen()
     {
-        Debug.Log("Player Seen");
-
         if (!_hasSeenPlayer)
         {
             _dialogueController.PlaySound(SoundType.FirstTimeSeeingPlayer);
-            _animator.Play("Surprised");
             Debug.Log(transform.name + " has seen the player for the first time");
         }
         else
@@ -459,6 +456,8 @@ public class AIAgent : MonoBehaviour
     public void ForceStopAnimtion()
     {
         _animator.enabled = false;
+
+        _isInAnimation = false;
 
         _animator.enabled = true;
     }

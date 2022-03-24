@@ -206,9 +206,12 @@ namespace TGP.Control
                                 col.enabled = false;
                             }
 
-                            Destroy(_nearbyAgent.GetComponentInChildren<SkinnedMeshRenderer>());
+                            foreach (Rigidbody rb in _nearbyAgent.GetComponentsInChildren<Rigidbody>())
+                            {
+                                rb.isKinematic = true;
+                            }
 
-                            Destroy(_nearbyAgent);
+                            Destroy(_nearbyAgent.GetComponentInChildren<SkinnedMeshRenderer>());
 
                             _nearbyAgent = null;
 
