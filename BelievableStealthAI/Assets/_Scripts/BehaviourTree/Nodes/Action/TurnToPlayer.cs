@@ -6,6 +6,8 @@ public class TurnToPlayer : ActionNode
 {
     Quaternion targetRot;
 
+    public float _rotationSpeed = 10.0f;
+
 
     protected override void OnStart()
     {
@@ -23,7 +25,7 @@ public class TurnToPlayer : ActionNode
     protected override State OnUpdate()
     {
         Quaternion originalRot = _blackboard._agent.transform.rotation;
-        _blackboard._agent.transform.rotation = Quaternion.Lerp(originalRot, targetRot, Time.deltaTime * 5.0f);
+        _blackboard._agent.transform.rotation = Quaternion.Lerp(originalRot, targetRot, Time.deltaTime * _rotationSpeed);
 
 
         float oY = originalRot.eulerAngles.y;

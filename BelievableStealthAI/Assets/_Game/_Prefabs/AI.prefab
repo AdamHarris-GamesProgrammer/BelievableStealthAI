@@ -338,7 +338,7 @@ MonoBehaviour:
   _seen: 0
   _lostVisibilityDuration: 0.5
   _timeBetweenIncrements: 0.25
-  _detectionMeter: {fileID: 0}
+  _detectionMeter: {fileID: 4717096648512745522}
 --- !u!114 &4717096647025314115
 MonoBehaviour:
   m_ObjectHideFlags: 0

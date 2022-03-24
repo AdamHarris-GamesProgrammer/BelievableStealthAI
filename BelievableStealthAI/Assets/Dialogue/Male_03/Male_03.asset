@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6eb93e4e8701b3a49827a619e5677b64, type: 3}
-  m_Name: Male 3
+  m_Name: Male_03
   m_EditorClassIdentifier: 
   _firstTimeSeeingPlayer:
   - {fileID: 8300000, guid: c9c0bf73d51fe4b439ba3816762e1631, type: 3}

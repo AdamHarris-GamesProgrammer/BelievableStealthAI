@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 namespace TGP.Control
 {
@@ -134,7 +135,10 @@ namespace TGP.Control
 
                 if (_nearbyAgent.GetComponent<Health>().IsDead)
                 {
-                    _uiEPrompt.SetText("Pickup");
+                    if (!_carryingBodybag)
+                    {
+                        _uiEPrompt.SetText("Pickup");
+                    }
                 }
             }
             else if (_nearbyBodybag)
@@ -195,11 +199,15 @@ namespace TGP.Control
                         {
                             SetCarryingBodybag(true);
 
-                            //Destroy(_nearbyAgent.gameObject);
-
                             _nearbyAgent.GetComponent<AILocomotion>().CanMove(false);
                             _nearbyAgent.GetComponent<AILocomotion>().Rotation(false);
                             _nearbyAgent.GetComponent<CapsuleCollider>().enabled = false;
+
+                            foreach (Image img in _nearbyAgent.GetComponentsInChildren<Image>())
+                            {
+                                img.gameObject.SetActive(false);
+                            }
+
 
                             foreach (Collider col in _nearbyAgent.GetComponentsInChildren<Collider>())
                             {

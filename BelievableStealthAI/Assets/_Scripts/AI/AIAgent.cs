@@ -373,6 +373,7 @@ public class AIAgent : MonoBehaviour
 
     public void LostSightOfPlayer()
     {
+        _halfwaySeeingPlayer = false;
         _currentlySeeingPlayer = false;
     }
 

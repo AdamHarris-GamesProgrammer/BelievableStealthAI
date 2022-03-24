@@ -25,6 +25,7 @@ public class FOVController : MonoBehaviour
 
     [Header("UI Test")]
     [SerializeField] Image _detectionMeter;
+    public Image DetectionMeter { get => _detectionMeter; }
 
     FOVCollider[] _colliderArr;
 
@@ -75,7 +76,7 @@ public class FOVController : MonoBehaviour
             _seen = false;
             
         }
-        if(_detectedValue == 0.0f)
+        if(_detectedValue < 0.3f)
         {
             _aiController.LostSightOfPlayer();
         }

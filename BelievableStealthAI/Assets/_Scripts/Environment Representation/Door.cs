@@ -18,9 +18,12 @@ public class Door : ObservableObject
 
         if(_shouldBeOpen)
         {
-            DecideAnimation();
+            //DecideAnimation();
             _currentState = true;
+            _animator.Play("DoorOpen", 0, 0.0f);
         }
+
+        _originalState = _currentState;
     }
 
     private void OnTriggerStay(Collider other)

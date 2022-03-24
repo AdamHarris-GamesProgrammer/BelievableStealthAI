@@ -14,9 +14,12 @@ public class Window : ObservableObject
 
         if (_shouldBeOpen)
         {
-            DecideAnimation();
+            //DecideAnimation();
+            _animator.Play("WindowOpen", 0, 0.0f);
             _currentState = true;
         }
+
+        _originalState = _currentState;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,16 +36,12 @@ public class Window : ObservableObject
 
     public override void Open()
     {
-        //if (_currentState) return;
-
         _animator.Play("WindowOpen", 0, 0.0f);
         PlaySFX();
     }
 
     public override void Close()
     {
-        //if (!_currentState) return;
-
         _animator.Play("WindowClose", 0, 0.0f);
         PlaySFX();
     }
