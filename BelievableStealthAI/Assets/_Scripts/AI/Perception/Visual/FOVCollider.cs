@@ -28,8 +28,12 @@ public class FOVCollider : MonoBehaviour
         _fovController = GetComponentInParent<FOVController>();
         _player = FindObjectOfType<PlayerController>();
         _bodiesInCollider = new List<GameObject>();
-        _observedObjects = new List<ObservableObject>();
         _agent = GetComponentInParent<AIAgent>();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(RaycastToObservables());
     }
 
     private void FixedUpdate()
@@ -54,8 +58,6 @@ public class FOVCollider : MonoBehaviour
                             break;
                         }
                     }
-
-                    //yield return new WaitForFixedUpdate();
                 }
             }
         }
@@ -64,36 +66,39 @@ public class FOVCollider : MonoBehaviour
 
     private IEnumerator RaycastToObservables()
     {
-        if (!_agent.HasAnObjectchanged)
+        while (true)
         {
-            foreach (ObservableObject obj in _agent.CurrentRoom.ObservablesInRoom)
+            if (!_agent.HasAnObjectchanged)
             {
-                if (!obj.HasRecentlyChanged)
+                foreach (ObservableObject obj in _agent.CurrentRoom.ObservablesInRoom)
                 {
-                    continue;
-                }
-
-                RaycastHit hit;
-                Vector3 pos = obj.transform.position;
-                Vector3 direction = (pos - _fovController.RaycastOrigin);
-                Debug.DrawRay(_fovController.RaycastOrigin, direction);
-
-                if (Physics.Raycast(_fovController.RaycastOrigin, direction, out hit, 25.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
-                {
-                    ObservableObject observable = hit.transform.GetComponentInParent<ObservableObject>();
-        
-                    if (observable)
+                    if (!obj.HasRecentlyChanged)
                     {
-                        if(observable.HasRecentlyChanged)
-                            _agent.SeenChangedObject(observable);
+                        continue;
                     }
+
+                    RaycastHit hit;
+                    Vector3 pos = obj.transform.position;
+                    Vector3 direction = (pos - _fovController.RaycastOrigin);
+                    Debug.DrawRay(_fovController.RaycastOrigin, direction);
+                    if (Physics.Raycast(_fovController.RaycastOrigin, direction, out hit, 25.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
+                    {
+                        ObservableObject observable = hit.transform.GetComponentInParent<ObservableObject>();
+
+                        if (observable)
+                        {
+                            if (observable.HasRecentlyChanged)
+                                _agent.SeenChangedObject(observable);
+                        }
+                    }
+
+                    yield return new WaitForFixedUpdate();
                 }
-        
-                yield return new WaitForFixedUpdate();
             }
+            yield return new WaitForFixedUpdate();
         }
-        yield return new WaitForFixedUpdate();
     }
+       
 
     private IEnumerator RaycastToPlayer()
     {
@@ -134,15 +139,9 @@ public class FOVCollider : MonoBehaviour
             _inside = true;
             StartCoroutine(RaycastToPlayer());
         }
-        else if (other.CompareTag("ObservableObject"))
-        {
-            //_observedObjects.Add(other.GetComponent<ObservableObject>());
-            StartCoroutine(RaycastToObservables());
-        }
         else if (other.CompareTag("DeadBody"))
         {
             _bodiesInCollider.Add(other.gameObject);
-            //StartCoroutine(RaycastToBodies());
         }
     }
     private void OnTriggerExit(Collider other)
@@ -153,15 +152,6 @@ public class FOVCollider : MonoBehaviour
 
             _visible = false;
             StopCoroutine(RaycastToPlayer());
-        }
-        else if (other.CompareTag("ObservableObject"))
-        {
-           //_observedObjects.Remove(other.GetComponent<ObservableObject>());
-
-            if(_observedObjects.Count == 0)
-            {
-                StopCoroutine(RaycastToObservables());
-            }
         }
         else if (other.CompareTag("DeadBody"))
         {

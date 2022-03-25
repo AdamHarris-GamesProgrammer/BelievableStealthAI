@@ -38,7 +38,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -532.86804, y: 866}
+  _position: {x: -445.21967, y: 866}
   _chanceToFail: 0.1
 --- !u!114 &-7914097407069598415
 MonoBehaviour:
@@ -164,7 +164,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -354.13907, y: 878.4001}
+  _position: {x: -277.2395, y: 866}
 --- !u!114 &-4046753501683979779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,7 +243,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -196.00006, y: 878.4}
+  _position: {x: -112.80004, y: 866}
 --- !u!114 &-2372998424122943979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,6 +414,7 @@ MonoBehaviour:
     _currentLookPoint: {fileID: 0}
     _lookPoints: []
     _response: 0
+  currentNodeName: 
 --- !u!114 &3615367835191991609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,7 +453,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: 388.0059, y: 886.39996}
+  _position: {x: 204.00002, y: 866.00006}
 --- !u!114 &4257202899079560828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,7 +492,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: 554.9629, y: 886.39996}
+  _position: {x: 367.20013, y: 874.4001}
 --- !u!114 &4777105293751418154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,7 +531,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: 37.60004, y: 894.4}
+  _position: {x: 36.799953, y: 866.00006}
   animationName: SearchLocker
 --- !u!114 &4999349004914370365
 MonoBehaviour:

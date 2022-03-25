@@ -16,13 +16,7 @@ public class GetNextLookPoint : ActionNode
 
     protected override State OnUpdate()
     {
-        if(_blackboard._agent.CurrentRoom.GetNextLookPoint(ref _blackboard._currentLookPoint))
-        {
-            return State.Failure;
-        }
-        else
-        {
-            return State.Success;
-        }
+        _blackboard._agent.CurrentRoom.GetNextLookPoint(ref _blackboard._currentLookPoint);  
+        return State.Success;
     }
 }

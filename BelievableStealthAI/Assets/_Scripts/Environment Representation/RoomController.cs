@@ -32,128 +32,54 @@ public class RoomController : MonoBehaviour
         }
     }
 
-    public void BeginSearch()
+    public void AlertAllEnemies()
     {
-        if(_lookAroundPoints != null)
+        foreach(AIAgent agent in _aiInRoom)
         {
-            if(_currentLP >= _lookAroundPoints.Count) _currentLP = 0;
-        }
-        if(_pois != null)
-        {
-            if(_currentPOI >= _pois.Count) _currentPOI = 0;
-        }
-        _currentObservable = 0;
-
-        foreach (AIAgent agent in _aiInRoom)
-        {
-            agent.StopSearching = false;
+            agent.ForceAlert(false);
         }
     }
 
-
     public bool OutOfLookPoints()
     {
-        if (_lookAroundPoints == null)
-        {
-            foreach(AIAgent agent in _aiInRoom)
-            {
-                agent.StopSearching = true;
-            }
-            return true;
-        }
         if (_currentLP >= _lookAroundPoints.Count)
         {
             foreach (AIAgent agent in _aiInRoom)
             {
                 agent.StopSearching = true;
             }
+            _currentLP = 0;
+
             return true;
         }
         return false;
     }
 
-    public bool GetNextLookPoint(ref Transform lp)
+    public void GetNextLookPoint(ref Transform lp)
     {
-        if(_currentLP >= _lookAroundPoints.Count)
-        {
-            foreach (AIAgent agent in _aiInRoom)
-            {
-                agent.StopSearching = true;
-            }
-            Debug.Log("Finished Search");
-            return true;
-        }
-
         lp = _lookAroundPoints[_currentLP];
         _currentLP++;
-
-        return false;
     }
 
     public bool OutOfPOIs()
     {
-        if (_pois == null)
-        {
-            Debug.Log(transform.name + " POIS is null");
-            foreach (AIAgent agent in _aiInRoom)
-            {
-                agent.StopSearching = true;
-            }
-            return true;
-        }
         if (_currentPOI >= _pois.Count) {
             foreach (AIAgent agent in _aiInRoom)
             {
                 agent.StopSearching = true;
             }
+            _currentPOI = 0;
+
             return true;
         }
-
 
         return false;
     }
 
-    public bool GetNextPOI(ref PointOfInterest poi)
+    public void GetNextPOI(ref PointOfInterest poi)
     {
-        if(_pois == null)
-        {
-            foreach (AIAgent agent in _aiInRoom)
-            {
-                agent.StopSearching = true;
-            }
-            Debug.Log("[ERROR: RoomController::GetNextPOI]: POIs is null");
-            return true;
-        }
-        if (_currentPOI >= _pois.Count)
-        {
-            foreach (AIAgent agent in _aiInRoom)
-            {
-                agent.StopSearching = true;
-            }
-            //Debug.Log("Finished Search");
-            return true;
-        }
-
         poi = _pois[_currentPOI];
         _currentPOI++;
-
-        return false;
-    }
-
-
-    private void Update()
-    {
-        bool reset = true;
-        foreach (AIAgent agent in _aiInRoom)
-        {
-            if (agent == null) continue;
-            if (!agent.StopSearching) reset = false;
-        }
-
-        if(reset)
-        {
-            BeginSearch();
-        }
     }
 
 #if UNITY_EDITOR

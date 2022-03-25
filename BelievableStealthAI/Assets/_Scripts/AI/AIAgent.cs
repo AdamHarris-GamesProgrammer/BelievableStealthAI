@@ -82,7 +82,17 @@ public class AIAgent : MonoBehaviour
 
     public Vector3 DistractionPoint { get => _distractedPoint; set => _distractedPoint = value; }
     public ObservableObject NearbyObservable { get => _nearbyObservable; set => _nearbyObservable = value; }
-    public RoomController CurrentRoom { get => _currentRoom; set => _currentRoom = value; }
+    public RoomController CurrentRoom { get => _currentRoom; set
+        {
+            _currentRoom = value;
+         
+            if(_currentlyAlert)
+            {
+                _dialogueController.PlaySound(SoundType.CallAllys);
+                _currentRoom.AlertAllEnemies();
+            }
+        }
+    }
     public GameObject DeadAgent { get => _deadAgent; set => _deadAgent = null; }
     public Lightswitch ChangedLightswitch { get => _lightswitch; }
     public Vector3 LastKnownPlayerPosition { get => _lastKnownPlayerPosition; set => _lastKnownPlayerPosition = value; }
