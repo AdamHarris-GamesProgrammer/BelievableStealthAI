@@ -9,6 +9,9 @@ public class AILocomotion : MonoBehaviour
     Animator _animator;
     NavMeshAgent _agent;
 
+    public float Multiplier { get => _multiplier; set => _multiplier = value; }
+    float _multiplier = 1.0f;
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -32,7 +35,7 @@ public class AILocomotion : MonoBehaviour
 
     public void SetMaxSpeed(float speed)
     {
-        _agent.speed = speed;
+        _agent.speed = speed * _multiplier;
     }
 
     public void SetDestination(Vector3 position)

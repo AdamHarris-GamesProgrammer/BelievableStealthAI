@@ -23,6 +23,7 @@ public class SoundSet : ScriptableObject
     [SerializeField] AudioClip[] _windowOpen;
     [SerializeField] AudioClip[] _windowClosed;
     [SerializeField] AudioClip[] _nothing;
+    [SerializeField] AudioClip[] _soundAlly;
 
     public void Init()
     {
@@ -44,6 +45,7 @@ public class SoundSet : ScriptableObject
         _sounds.Add(SoundType.WindowOpen, _windowOpen);
         _sounds.Add(SoundType.WindowClosed, _windowClosed);
         _sounds.Add(SoundType.NothingThere, _nothing);
+        _sounds.Add(SoundType.SoundAlly, _soundAlly);
     }
 }
 

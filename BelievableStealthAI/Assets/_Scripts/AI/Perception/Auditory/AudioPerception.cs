@@ -12,6 +12,9 @@ public class AudioPerception : MonoBehaviour
     float _timerBetweenIncrements = 0.0f;
 
 
+    public float Multiplier { get => _multiplier; set => _multiplier = value; }
+    float _multiplier = 1.0f;
+
     float _timeSinceLastSound;
     bool _heardSound;
     AIAgent _aiAgent;
@@ -50,7 +53,7 @@ public class AudioPerception : MonoBehaviour
         {
             _timerBetweenIncrements = 0.0f;
 
-            heardValue = Mathf.Min(heardValue + val, 1.0f);
+            heardValue = Mathf.Min(heardValue + (val * _multiplier), 1.0f);
 
             if (heardValue >= 1.0f)
             {

@@ -17,25 +17,11 @@ public class DistractionObject : MonoBehaviour
 
         _activated = true;
 
-        List<AIAgent> agents = FindObjectsOfType<AIAgent>().ToList();
+        AudioPerception perc = AudioProducer.PathToPercievers(transform.position, _distractionRadius);
 
-        AIAgent closestAgent = null;
-        float currentBest = 1000.0f;
-        foreach (AIAgent agent in agents) 
+        if(perc != null)
         {
-            float dist = Vector3.Distance(agent.transform.position, transform.position);
-            if (dist > _distractionRadius) continue;
-
-            if (dist < currentBest)
-            {
-                currentBest = dist;
-                closestAgent = agent;
-            }
-        }
-
-        if(closestAgent != null)
-        {
-            closestAgent.Distracted(collision.GetContact(0).point);
+            perc.GetComponentInParent<AIAgent>().Distracted(transform.position);
         }
 
         Rigidbody rb = GetComponent<Rigidbody>();

@@ -46,3 +46,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 318bb5c5d3469da42b37ead1176e1e3b, type: 3}
   _nothing:
   - {fileID: 8300000, guid: a3141658cb5533f4882fab99429fef18, type: 3}
+  _soundAlly:
+  - {fileID: 8300000, guid: 5e961e3fdafab0a42a8190654724d367, type: 3}

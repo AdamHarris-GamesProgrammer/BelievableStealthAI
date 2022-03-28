@@ -34,6 +34,7 @@ public class FOVCollider : MonoBehaviour
     private void Start()
     {
         StartCoroutine(RaycastToObservables());
+        StartCoroutine(RaycastToPlayer());
     }
 
     private void FixedUpdate()
@@ -102,33 +103,35 @@ public class FOVCollider : MonoBehaviour
 
     private IEnumerator RaycastToPlayer()
     {
-        while (_inside)
+        while (true)
         {
-            bool found = false;
-
-            foreach (Hitbox hitbox in _player.Hitboxes)
+            while (_inside)
             {
-                RaycastHit hit;
-                Vector3 pos = hitbox.transform.position;
-                Vector3 direction = (pos - _fovController.RaycastOrigin).normalized;
-                Debug.DrawRay(_fovController.RaycastOrigin, direction);
-                if (Physics.Raycast(_fovController.RaycastOrigin, direction, out hit, 35.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
+                foreach (Hitbox hitbox in _player.Hitboxes)
                 {
-                    if (hit.transform.CompareTag("PlayerHitbox"))
+                    RaycastHit hit;
+                    Vector3 pos = hitbox.transform.position;
+                    Vector3 direction = (pos - _fovController.RaycastOrigin).normalized;
+                    Debug.DrawRay(_fovController.RaycastOrigin, direction);
+                    if (Physics.Raycast(_fovController.RaycastOrigin, direction, out hit, 35.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
                     {
-                        if (_player.Visible)
+                        if (hit.transform.CompareTag("PlayerHitbox"))
                         {
-                            found = true;
-                            _fovController.AddValue(_detectionInrement * hitbox.DetectionMultiplier);
+                            if (_player.Visible)
+                            {
+                                _visible = true;
+                                _fovController.AddValue(_detectionInrement * hitbox.DetectionMultiplier);
+                            }
                         }
                     }
+                    yield return new WaitForEndOfFrame();
                 }
-                yield return new WaitForFixedUpdate();
+
+                yield return new WaitForEndOfFrame();
             }
 
-            _visible = found;
-
-            yield return new WaitForFixedUpdate();
+            _visible = false;
+            yield return new WaitForEndOfFrame();
         }
     }
 
@@ -137,7 +140,6 @@ public class FOVCollider : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _inside = true;
-            StartCoroutine(RaycastToPlayer());
         }
         else if (other.CompareTag("DeadBody"))
         {
@@ -151,7 +153,6 @@ public class FOVCollider : MonoBehaviour
             _inside = false;
 
             _visible = false;
-            StopCoroutine(RaycastToPlayer());
         }
         else if (other.CompareTag("DeadBody"))
         {

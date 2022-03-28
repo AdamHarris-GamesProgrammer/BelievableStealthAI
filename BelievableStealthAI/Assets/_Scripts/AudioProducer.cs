@@ -60,6 +60,40 @@ public class AudioProducer : MonoBehaviour
             }
         }
     }
+
+    public static AudioPerception PathToPercievers(Vector3 origin, float maxDistance)
+    {
+        AudioPerception closestPerciever = null;
+        float closestDistance = float.MaxValue;
+
+        foreach (AudioPerception perciever in _audioPercievers)
+        {
+            float totalDistance = 0.0f;
+
+            float dist = Vector3.Distance(origin, perciever.transform.position);
+
+            //Optimisation check.
+            if (dist > maxDistance)
+            {
+                continue;
+            }
+
+            NavMeshPath path = new NavMeshPath();
+            if (NavMesh.CalculatePath(origin, perciever.transform.position, ~0, path))
+            {
+                if (InRange(origin, path, maxDistance, ref totalDistance))
+                {
+                    if(totalDistance < closestDistance)
+                    {
+                        closestPerciever = perciever;
+                        closestDistance = totalDistance;
+                    }
+                }
+            }
+        }
+
+        return closestPerciever;
+    }
     static bool InRange(Vector3 origin, NavMeshPath path, float maxDistance, ref float distance)
     {
         

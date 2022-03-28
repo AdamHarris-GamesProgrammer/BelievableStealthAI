@@ -18,7 +18,8 @@ public enum SoundType
     DoorClosed,
     WindowOpen,
     WindowClosed,
-    NothingThere
+    NothingThere,
+    SoundAlly
 }
 
 public class DialogueController : MonoBehaviour

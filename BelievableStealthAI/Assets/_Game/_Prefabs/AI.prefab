@@ -1808,7 +1808,7 @@ MonoBehaviour:
   _detectedValue: 0
   _halfwaySeen: 0
   _seen: 0
-  _lostVisibilityDuration: 0.5
+  _lostVisibilityDuration: 0.3
   _timeBetweenIncrements: 0.25
   _detectionMeter: {fileID: 4717096648512745522}
 --- !u!114 &4717096647626450872

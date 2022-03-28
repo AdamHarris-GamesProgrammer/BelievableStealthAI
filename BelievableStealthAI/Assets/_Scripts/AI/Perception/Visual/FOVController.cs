@@ -27,6 +27,10 @@ public class FOVController : MonoBehaviour
     [SerializeField] Image _detectionMeter;
     public Image DetectionMeter { get => _detectionMeter; }
 
+
+    public float Multiplier { get => _multiplier; set => _multiplier = value; }
+    float _multiplier = 1.0f;
+
     FOVCollider[] _colliderArr;
 
     AIAgent _aiController;
@@ -48,7 +52,7 @@ public class FOVController : MonoBehaviour
 
         if (_timeBetweenAditions >= _timeBetweenIncrements)
         {
-            _detectedValue = Mathf.Min(_detectedValue + increment, _detectedThreshold);
+            _detectedValue = Mathf.Min(_detectedValue + (increment * _multiplier), _detectedThreshold);
 
             if (_detectedValue >= _detectedThreshold)
             {
@@ -67,6 +71,8 @@ public class FOVController : MonoBehaviour
     }
     public void SubtractValue(float decrement)
     {
+        Debug.Log("Subtracting value");
+
         if (_health.IsDead) return;
 
         _detectedValue = Mathf.Max(_detectedValue - decrement, 0f);
@@ -76,7 +82,7 @@ public class FOVController : MonoBehaviour
             _seen = false;
             
         }
-        if(_detectedValue < 0.3f)
+        if(_detectedValue < 0.5f)
         {
             _aiController.LostSightOfPlayer();
         }

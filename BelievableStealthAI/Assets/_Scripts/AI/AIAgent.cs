@@ -14,7 +14,7 @@ public class AIAgent : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] float _walkSpeed = 1.5f;
     [SerializeField] float _patrolSpeed = 1.2f;
-    [SerializeField] float _chaseSpeed = 5.4f;
+    [SerializeField] float _chaseSpeed = 4.0f;
 
     [Header("AI Check on Settings")]
     [SerializeField] float _checkOnThreshold = 1.0f;
@@ -27,6 +27,11 @@ public class AIAgent : MonoBehaviour
 
     [Header("Audio Clips")]
     [SerializeField] AudioClip _attackSound;
+
+    [Header("Once Seen Modifiers")]
+    [Min(1f)][SerializeField] float _movementSpeedIncreaseFactor = 1.2f;
+    [Min(1f)] [SerializeField] float _detectionIncrementFactor = 1.2f;
+    [Min(1f)] [SerializeField] float _hearingIncrementFactor = 1.2f;
 
     float _suspiscionTimer;
 
@@ -108,8 +113,6 @@ public class AIAgent : MonoBehaviour
         _animator = GetComponent<Animator>();
         _dialogueController = GetComponent<DialogueController>();
         _audioSource = GetComponent<AudioSource>();
-
-        
     }
 
     private void Start()
@@ -202,6 +205,8 @@ public class AIAgent : MonoBehaviour
 
     public void SeenChangedObject(ObservableObject obj)
     {
+        if (_hasAnObjectchanged) return;
+
         Debug.Log(transform.name + " has seen a changed object");
         if (_currentlyAlert)
         {
@@ -358,6 +363,13 @@ public class AIAgent : MonoBehaviour
         _hasSeenPlayer = true;
     }
 
+    private void AlertModifiers()
+    {
+        _locomotion.Multiplier = _movementSpeedIncreaseFactor;
+        GetComponentInChildren<FOVController>().Multiplier = _detectionIncrementFactor;
+        GetComponentInChildren<AudioPerception>().Multiplier = _hearingIncrementFactor;
+    }
+
     public void LightSwitchChanged(Lightswitch ls)
     {
         Debug.Log(transform.name + " has seen a changed lightbulb");
@@ -391,6 +403,9 @@ public class AIAgent : MonoBehaviour
     {
         if (_currentlyHearingSound) return;
 
+        
+
+
         //Debug.Log(transform.name + " has heard something");
         _hasHeardSound = true;
 
@@ -402,7 +417,15 @@ public class AIAgent : MonoBehaviour
         {
             if (!_currentlyHearingSound)
             {
-                _dialogueController.PlaySound(SoundType.HeardSomething);
+                if(_currentRoom.AgentsInRoom.Count > 1)
+                {
+                    _dialogueController.PlaySound(SoundType.SoundAlly);
+                }
+                else
+                {
+                    _dialogueController.PlaySound(SoundType.HeardSomething);
+                }
+
             }
         }
         _currentlyHearingSound = true;
@@ -441,6 +464,10 @@ public class AIAgent : MonoBehaviour
         if (playDialoge) _dialogueController.PlaySound(SoundType.SearchPrompt);
 
         _currentlyAlert = true;
+
+        AlertModifiers();
+
+        
     }
 
     public void CheckOn(AIAgent agent)
