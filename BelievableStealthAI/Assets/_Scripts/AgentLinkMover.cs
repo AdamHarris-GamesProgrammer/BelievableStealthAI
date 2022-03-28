@@ -55,7 +55,9 @@ public class AgentLinkMover : MonoBehaviour
         Vector3 endPos = data.endPos + Vector3.up * agent.baseOffset;
         while (agent.transform.position != endPos)
         {
-            agent.transform.position = Vector3.MoveTowards(agent.transform.position, endPos, agent.speed * Time.deltaTime);
+            float movementSpeed = (agent.speed / 2.0f) * Time.deltaTime;
+            agent.GetComponent<Animator>().SetFloat("movementSpeed", movementSpeed);
+            agent.transform.position = Vector3.MoveTowards(agent.transform.position, endPos, movementSpeed);
             yield return null;
         }
     }

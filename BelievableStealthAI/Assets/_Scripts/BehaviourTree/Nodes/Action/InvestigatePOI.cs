@@ -21,25 +21,25 @@ public class InvestigatePOI : ActionNode
             return State.Failure;
         }
 
-        Debug.Log("Investigating POI: " + _blackboard._currentPOI.name);
         if(_blackboard._currentPOI.Search())
         {
-            Debug.Log("Something found");
-            return State.Success;
-
             if (_blackboard._currentPOI.PlayerInside)
             {
+                Debug.Log("Player found in locker");
                 _blackboard._agent.Attack(true);
             }
             else if(_blackboard._currentPOI.BodybagInside)
             {
-                
+                Debug.Log("Body found");
+                //Alerts all AI that a body has been found
+                _blackboard._agent.ForceAlertAll();
             }
 
+            return State.Success;
         }
         else
         {
-            Debug.Log("Nothing found");
+            Debug.Log("Nothing found in POI");
             return State.Failure;
         }
     }

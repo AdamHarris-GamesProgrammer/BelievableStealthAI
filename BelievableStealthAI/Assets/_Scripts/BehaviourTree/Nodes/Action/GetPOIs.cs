@@ -16,7 +16,11 @@ public class GetPOIs : ActionNode
 
     protected override State OnUpdate()
     {
-        _blackboard._agent.CurrentRoom.GetNextPOI(ref _blackboard._currentPOI);
-        return State.Success;
+        if(_blackboard._agent.CurrentRoom.GetNextPOI(ref _blackboard._currentPOI))
+        {
+            return State.Success;
+        }
+
+        return State.Failure;
     }
 }

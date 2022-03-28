@@ -55,10 +55,17 @@ public class RoomController : MonoBehaviour
         return false;
     }
 
-    public void GetNextLookPoint(ref Transform lp)
+    public bool GetNextLookPoint(ref Transform lp)
     {
+        if(_currentLP >= _lookAroundPoints.Count)
+        {
+            return false;
+        }
+
         lp = _lookAroundPoints[_currentLP];
         _currentLP++;
+
+        return true;
     }
 
     public bool OutOfPOIs()
@@ -76,10 +83,17 @@ public class RoomController : MonoBehaviour
         return false;
     }
 
-    public void GetNextPOI(ref PointOfInterest poi)
+    public bool GetNextPOI(ref PointOfInterest poi)
     {
+        if(_currentPOI >= _pois.Count)
+        {
+            return false;
+        }
+
         poi = _pois[_currentPOI];
         _currentPOI++;
+
+        return true;
     }
 
 #if UNITY_EDITOR

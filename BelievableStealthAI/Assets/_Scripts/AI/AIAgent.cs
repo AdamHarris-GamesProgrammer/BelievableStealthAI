@@ -424,6 +424,8 @@ public class AIAgent : MonoBehaviour
 
     public void ForceAlertAll()
     {
+        _dialogueController.PlaySound(SoundType.CallAllys);
+
         Debug.Log("force alert all");
         _dialogueController.PlaySound(SoundType.EveryoneSearchPrompt);
         RoomController[] rooms = FindObjectsOfType<RoomController>();
@@ -438,7 +440,6 @@ public class AIAgent : MonoBehaviour
         Debug.Log("force alerted");
         if (playDialoge) _dialogueController.PlaySound(SoundType.SearchPrompt);
 
-        _suspicious = true;
         _currentlyAlert = true;
     }
 
