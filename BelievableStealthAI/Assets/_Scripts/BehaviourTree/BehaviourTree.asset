@@ -3886,7 +3886,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -2920.8, y: 1065.6}
+  _position: {x: -2942.4, y: 1073.6}
 --- !u!114 &2773092769167284717
 MonoBehaviour:
   m_ObjectHideFlags: 0

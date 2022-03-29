@@ -358,6 +358,7 @@ public class AIAgent : MonoBehaviour
         {
             _suspicious = true;
             _currentlyAlert = true;
+            AlertModifiers();
         }
 
         _hasSeenPlayer = true;
@@ -449,7 +450,7 @@ public class AIAgent : MonoBehaviour
     {
         _dialogueController.PlaySound(SoundType.CallAllys);
 
-        Debug.Log("force alert all");
+        //Debug.Log("force alert all");
         _dialogueController.PlaySound(SoundType.EveryoneSearchPrompt);
         RoomController[] rooms = FindObjectsOfType<RoomController>();
         foreach (RoomController room in rooms)
@@ -460,7 +461,9 @@ public class AIAgent : MonoBehaviour
 
     public void ForceAlert(bool playDialoge)
     {
-        Debug.Log("force alerted");
+        if (_currentlyAlert) return;
+
+        //Debug.Log("force alerted");
         if (playDialoge) _dialogueController.PlaySound(SoundType.SearchPrompt);
 
         _currentlyAlert = true;
