@@ -360,6 +360,9 @@ MonoBehaviour:
   _durationForSuspiscion: 15
   _currentRoom: {fileID: 0}
   _attackSound: {fileID: 8300000, guid: 404877ed962a33f4698cd90efaca96ed, type: 3}
+  _movementSpeedIncreaseFactor: 1.2
+  _detectionIncrementFactor: 1.2
+  _hearingIncrementFactor: 1.2
 --- !u!114 &4717096647025314114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,7 +430,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 30
+  MaxDistance: 15
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
