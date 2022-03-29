@@ -9,8 +9,7 @@ public class TurnToLookPoint : ActionNode
     protected override void OnStart()
     {
         targetRot = _blackboard._currentLookPoint.rotation;
-
-
+        
         _blackboard._locomotion.Rotation(false);
     }
 
@@ -40,6 +39,6 @@ public class TurnToLookPoint : ActionNode
             return State.Success;
         }
 
-        return State.Success;
+        return State.Running;
     }
 }

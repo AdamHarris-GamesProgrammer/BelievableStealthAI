@@ -36,7 +36,7 @@ public class TurnToPlayer : ActionNode
             return State.Success;
         }
 
-        return State.Success;
+        return State.Running;
 
     }
 }

@@ -69,32 +69,36 @@ public class FOVCollider : MonoBehaviour
     {
         while (true)
         {
-            if (!_agent.HasAnObjectchanged)
+            if (_agent.CurrentRoom != null)
             {
-                foreach (ObservableObject obj in _agent.CurrentRoom.ObservablesInRoom)
+                if (!_agent.HasAnObjectchanged)
                 {
-                    if (!obj.HasRecentlyChanged)
+                    foreach (ObservableObject obj in _agent.CurrentRoom.ObservablesInRoom)
                     {
-                        continue;
-                    }
-
-                    RaycastHit hit;
-                    Vector3 pos = obj.transform.position;
-                    Vector3 direction = (pos - _fovController.RaycastOrigin);
-                    Debug.DrawRay(_fovController.RaycastOrigin, direction);
-                    if (Physics.Raycast(_fovController.RaycastOrigin, direction, out hit, 25.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
-                    {
-                        ObservableObject observable = hit.transform.GetComponentInParent<ObservableObject>();
-
-                        if (observable)
+                        if (!obj.HasRecentlyChanged)
                         {
-                            if (observable.HasRecentlyChanged)
-                                _agent.SeenChangedObject(observable);
+                            continue;
                         }
-                    }
 
-                    yield return new WaitForFixedUpdate();
+                        RaycastHit hit;
+                        Vector3 pos = obj.transform.position;
+                        Vector3 direction = (pos - _fovController.RaycastOrigin);
+                        Debug.DrawRay(_fovController.RaycastOrigin, direction);
+                        if (Physics.Raycast(_fovController.RaycastOrigin, direction, out hit, 25.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
+                        {
+                            ObservableObject observable = hit.transform.GetComponentInParent<ObservableObject>();
+
+                            if (observable)
+                            {
+                                if (observable.HasRecentlyChanged)
+                                    _agent.SeenChangedObject(observable);
+                            }
+                        }
+
+                        yield return new WaitForFixedUpdate();
+                    }
                 }
+                yield return new WaitForFixedUpdate();
             }
             yield return new WaitForFixedUpdate();
         }

@@ -469,8 +469,6 @@ public class AIAgent : MonoBehaviour
         _currentlyAlert = true;
 
         AlertModifiers();
-
-        
     }
 
     public void CheckOn(AIAgent agent)

@@ -38,7 +38,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -445.21967, y: 866}
+  _position: {x: -618.3408, y: 874.4}
   _chanceToFail: 0.1
 --- !u!114 &-7914097407069598415
 MonoBehaviour:
@@ -83,6 +83,7 @@ MonoBehaviour:
   - {fileID: -8129792597550419275}
   - {fileID: -6644988193433002732}
   - {fileID: -2776928536084990841}
+  - {fileID: -3294747945231364894}
   - {fileID: 4777105293751418154}
   - {fileID: 3615367835191991609}
   - {fileID: 4257202899079560828}
@@ -164,7 +165,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -277.2395, y: 866}
+  _position: {x: -460.00003, y: 874.4}
 --- !u!114 &-4046753501683979779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +206,45 @@ MonoBehaviour:
   _agent: {fileID: 0}
   _position: {x: 37.6, y: 215.2}
   child: {fileID: 4999349004914370365}
+--- !u!114 &-3294747945231364894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 110d3da2600d9fc44a3212a096a3df46, type: 3}
+  m_Name: TurnToPOI
+  m_EditorClassIdentifier: 
+  _state: 0
+  _started: 0
+  _guid: bd3fb81ae3c78ef419f4d67f33743589
+  _blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+    spawnPosition: {x: 0, y: 0, z: 0}
+    spawnOrientation: {x: 0, y: 0, z: 0}
+    closestInvestigationSide: {fileID: 0}
+    furthestInvestigationSide: {fileID: 0}
+    _hasPatrolRoute: 0
+    _walkSpeed: 1.5
+    _patrolSpeed: 1.2
+    _chaseSpeed: 5.4
+    _health: {fileID: 0}
+    _nearbyPointsOfInterest: []
+    _currentPOI: {fileID: 0}
+    moveToObject: {fileID: 0}
+    _locomotion: {fileID: 0}
+    _agent: {fileID: 0}
+    _player: {fileID: 0}
+    _changedObservedObject: {fileID: 0}
+    _currentLookPoint: {fileID: 0}
+    _lookPoints: []
+    _response: 0
+  description: 
+  _agent: {fileID: 0}
+  _position: {x: -131.20003, y: 874.4}
 --- !u!114 &-2776928536084990841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,7 +283,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -112.80004, y: 866}
+  _position: {x: -288.8259, y: 874.4}
 --- !u!114 &-2372998424122943979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,6 +433,7 @@ MonoBehaviour:
   - {fileID: -1388443120249879141}
   - {fileID: -8129792597550419275}
   - {fileID: 4777105293751418154}
+  - {fileID: -3294747945231364894}
   _blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
     spawnPosition: {x: 0, y: 0, z: 0}
