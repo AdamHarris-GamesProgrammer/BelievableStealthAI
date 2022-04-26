@@ -16,6 +16,7 @@ public class HasNoPatrolRoute : DecoratorNode
 
     protected override State OnUpdate()
     {
+        //checks if the agent has a patrol route
         if(_blackboard._hasPatrolRoute)
         {
             return child.Update();

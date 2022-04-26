@@ -8,9 +8,13 @@ public class TreeRunnerNode : ActionNode
 
     protected override void OnStart()
     {
+        //clones the behaviour tree selected
         _treeToRun = _treeToRun.Clone();
+
+        //sets the blackboard for the new tree
         _treeToRun._blackboard = _blackboard;
         _treeToRun._rootNode._state = State.Running;
+        //binds the tree
         _treeToRun.Bind();
     }
 
@@ -21,6 +25,7 @@ public class TreeRunnerNode : ActionNode
 
     protected override State OnUpdate()
     {
+        //Update the subtree
         State state = _treeToRun.Update();
         if(state == State.Failure || state == State.Success)
         {
@@ -28,6 +33,7 @@ public class TreeRunnerNode : ActionNode
             _blackboard = _treeToRun._blackboard;
             return state;
         }
+
         return State.Running;
     }
 }

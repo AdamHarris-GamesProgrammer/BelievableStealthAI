@@ -16,6 +16,7 @@ public class RadioAlly : ActionNode
 
     protected override State OnUpdate()
     {
+        //Call the agents radio ally method
         _blackboard._agent.RadioAllyToCheckOn();
 
         return State.Success;

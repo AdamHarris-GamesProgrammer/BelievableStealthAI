@@ -18,6 +18,7 @@ public class ExecuteOnce : DecoratorNode
 
     protected override State OnUpdate()
     {
+        //if the node has been activated before then pass this node
         if (_activated) return State.Success;
 
 

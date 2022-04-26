@@ -16,6 +16,7 @@ public class HasSeenDeadBody : DecoratorNode
 
     protected override State OnUpdate()
     {
+        //Checks if the agent has seen a dead body
         if (_blackboard._agent.HasSeenBody)
         {
             return child.Update();

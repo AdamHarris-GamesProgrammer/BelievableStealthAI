@@ -16,13 +16,15 @@ public class RepeatUntilFail : DecoratorNode
 
     protected override State OnUpdate()
     {
+        //Update the child's update
         Node.State childState = child.Update();
 
+        //if the child failed then return sucess
         if(childState == State.Failure)
         {
-            //Debug.Log("Child has failed");
             return State.Success;
         }
+        //if the child does not fail then return running
         else
         {
             return State.Running;

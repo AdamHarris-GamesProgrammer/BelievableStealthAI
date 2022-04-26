@@ -41,7 +41,9 @@ public class DialogueController : MonoBehaviour
     {
         if (_audioSource.isPlaying) return;
 
+        //Get the audio clip array accosiated with this sound type and get a random index within that size
         int index = Random.Range(0, _selectedSoundSet._sounds[type].Length - 1);
+        //play a dialogue line from this array
         _audioSource.PlayOneShot(_selectedSoundSet._sounds[type][index]);
     }
 }

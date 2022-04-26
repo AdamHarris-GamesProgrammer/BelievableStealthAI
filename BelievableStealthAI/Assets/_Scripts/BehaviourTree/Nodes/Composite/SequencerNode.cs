@@ -14,8 +14,10 @@ public class SequencerNode : CompositeNode
 
     protected override State OnUpdate()
     {
+        //Get the current child node
         var currentChild = _children[_current];
 
+        //update the current child
         switch (currentChild.Update())
         {
             case State.Running:

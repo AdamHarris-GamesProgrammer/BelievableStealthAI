@@ -1,14 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using TGP.Control;
 using UnityEngine;
 
 public class BehaviorTreeRunner : MonoBehaviour
 {
     public BehaviorTree tree;
     
-
-
     PlayerController _player;
 
     Health _health;
@@ -28,8 +25,6 @@ public class BehaviorTreeRunner : MonoBehaviour
     {
         if (_health.IsDead) return;
         if (_player.Won) return;
-
-        
 
         tree.Update();
     }

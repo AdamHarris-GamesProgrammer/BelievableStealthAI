@@ -29,9 +29,6 @@ public class BehaviorTreeEditor : EditorWindow
         if (Selection.activeObject is BehaviorTree)
         {
             OpenWindow();
-            
-            
-
             return true;
         }
 
@@ -97,11 +94,16 @@ public class BehaviorTreeEditor : EditorWindow
     {
         BehaviorTree tree = Selection.activeObject as BehaviorTree;
 
+        //if we do not have a tree 
         if (!tree)
         {
+            //if we have a selected game object
             if (Selection.activeGameObject)
             {
+                //if that object has a behaviour tree
                 BehaviorTreeRunner runner = Selection.activeGameObject.GetComponent<BehaviorTreeRunner>();
+
+                //Display the tree of that agent.
                 if (runner)
                 {
                     tree = runner.tree;
@@ -117,21 +119,27 @@ public class BehaviorTreeEditor : EditorWindow
 
         if (Application.isPlaying)
         {
+            //if we have a tree
             if (tree)
             {
+                //populate the tree view with the content of the tree
                 _treeView?.PopulateView(tree);
             }
         }
         else
         {
+            //if we have a tree and can open the editor
             if (tree && AssetDatabase.CanOpenAssetInEditor(tree.GetInstanceID()))
             {
+                //populate the view with the contents of the tree.
                 _treeView?.PopulateView(tree);
             }
         }
 
+        //if we have a tree
         if(tree != null)
         {
+            //Serialize the object allowing us to modify it and display the blackboard in the editor
             _treeObject = new SerializedObject(tree);
             _blackboardProperty = _treeObject.FindProperty("_blackboard");
         }

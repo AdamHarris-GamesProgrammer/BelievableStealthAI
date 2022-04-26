@@ -26,70 +26,71 @@ public class RoomController : MonoBehaviour
 
     private void Awake()
     {
-        foreach (AIAgent agent in _aiInRoom)
-        {
-            agent.CurrentRoom = this;
-        }
+        //Sets the current room for each AI to this room
+        _aiInRoom.ForEach(agent => agent.CurrentRoom = this);
     }
 
     public void AlertAllEnemies()
     {
-        foreach(AIAgent agent in _aiInRoom)
-        {
-            agent.ForceAlert(false);
-        }
+        //Force alerts all enemies in the room without playing dialogue
+        _aiInRoom.ForEach(agent => agent.ForceAlert(false));
     }
 
     public bool OutOfLookPoints()
     {
+        //If the current look point is greater than the count
         if (_currentLP >= _lookAroundPoints.Count)
         {
-            foreach (AIAgent agent in _aiInRoom)
-            {
-                agent.StopSearching = true;
-            }
+            //Loop through each agent and tell them to stop searching
+            _aiInRoom.ForEach(agent => agent.StopSearching = true);
+
+            //Reset the look point to index 0
             _currentLP = 0;
 
+            //Returns true (we are out of look point)
             return true;
         }
+
+        //Returns false (we have more look points)
         return false;
     }
 
     public bool GetNextLookPoint(ref Transform lp)
     {
-        if(_currentLP >= _lookAroundPoints.Count)
-        {
-            return false;
-        }
+        //If the current look point is greater than the amount of look points
+        if(_currentLP >= _lookAroundPoints.Count) return false;
 
+        //Set the passed in look point to the one for this index
         lp = _lookAroundPoints[_currentLP];
         _currentLP++;
 
+        //Return true
         return true;
     }
 
     public bool OutOfPOIs()
     {
+        //If the current poi index is greater than the amount of poi 
         if (_currentPOI >= _pois.Count) {
-            foreach (AIAgent agent in _aiInRoom)
-            {
-                agent.StopSearching = true;
-            }
+            //Stop the ais in this room from searching
+            _aiInRoom.ForEach(agent => agent.StopSearching = true);
+
+            //Resets the current poi index to 0
             _currentPOI = 0;
 
+            //Returns true (we are out of POI)
             return true;
         }
-
+        //Returns false (we still have POI)
         return false;
     }
 
     public bool GetNextPOI(ref PointOfInterest poi)
     {
-        if(_currentPOI >= _pois.Count)
-        {
-            return false;
-        }
+        //If we are out of POI
+        if(_currentPOI >= _pois.Count) return false;
 
+        //Set the passed in POI to the current one
         poi = _pois[_currentPOI];
         _currentPOI++;
 
@@ -100,8 +101,8 @@ public class RoomController : MonoBehaviour
     [ExecuteInEditMode]
     public void PerformAllRooms()
     {
-        List<RoomController> rooms = FindObjectsOfType<RoomController>().ToList();
-        foreach(RoomController room in rooms)
+        //Cycle through every room controller in the scene and find the rooms objects
+        foreach(RoomController room in FindObjectsOfType<RoomController>())
         {
             EditorUtility.SetDirty(room);
             room.CreateRoomObjects();
@@ -111,6 +112,7 @@ public class RoomController : MonoBehaviour
     [ExecuteInEditMode]
     public void ClearRoom()
     {
+        //resets all of the lists
         _observables = new List<ObservableObject>();
         _pois = new List<PointOfInterest>();
         _aiInRoom = new List<AIAgent>();
@@ -120,8 +122,8 @@ public class RoomController : MonoBehaviour
     [ExecuteInEditMode]
     public void ClearAllRooms()
     {
-        List<RoomController> rooms = FindObjectsOfType<RoomController>().ToList();
-        foreach (RoomController room in rooms)
+        //Cycles through each room controller in the scene and clears them
+        foreach (RoomController room in FindObjectsOfType<RoomController>())
         {
             EditorUtility.SetDirty(room);
             room.ClearRoom();
@@ -132,12 +134,14 @@ public class RoomController : MonoBehaviour
     [ExecuteInEditMode]
     public void CreateRoomObjects()
     {
+        //Creates each list
         _observables = new List<ObservableObject>();
         _pois = new List<PointOfInterest>();
         _aiInRoom = new List<AIAgent>();
         _lookAroundPoints = new List<Transform>();
         _lightswitches = new List<Lightswitch>();
 
+        //Get the unfiltered objects
         List<ObservableObject> unfilteredObservables = FindObjectsOfType<ObservableObject>().ToList();
         List<Container> unfilteredContainer = FindObjectsOfType<Container>().ToList();
         List<AIAgent> unfilteredAgents = FindObjectsOfType<AIAgent>().ToList();
@@ -149,13 +153,17 @@ public class RoomController : MonoBehaviour
 
         foreach (ObservableObject obv in unfilteredObservables)
         {
+            //Finds the direction between this observable and the room controller
             Vector3 direction = (obv.transform.position - transform.position);
 
+            //Checks for raycast
             if (Physics.Raycast(transform.position, direction, out RaycastHit hit, 35.0f, ~0, QueryTriggerInteraction.Ignore))
             {
+                //Gets the observable object attached to the hit
                 ObservableObject o = hit.transform.GetComponentInParent<ObservableObject>();
                 if (o)
                 {
+                    //Adds the observable to the list if possible
                     if (!_observables.Contains(o))
                     {
                         _observables.Add(o);
@@ -178,6 +186,7 @@ public class RoomController : MonoBehaviour
             }
         }
 
+        //Same pattern as above
         foreach (Container obv in unfilteredContainer)
         {
             Vector3 direction = (obv.transform.position - transform.position);
@@ -208,7 +217,7 @@ public class RoomController : MonoBehaviour
                 }
             }
         }
-
+        //Same pattern as above
         foreach (AIAgent obv in unfilteredAgents)
         {
             Vector3 adjustedPos = obv.transform.position + (Vector3.up * 1.5f);
@@ -242,7 +251,7 @@ public class RoomController : MonoBehaviour
                 }
             }
         }
-
+        //Same pattern as above
         foreach (Lightswitch ls in unfilteredLightswitches)
         {
             Vector3 direction = (ls.transform.position - transform.position);

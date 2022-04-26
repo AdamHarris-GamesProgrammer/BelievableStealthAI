@@ -4,8 +4,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="Create Sound Set")]
 public class SoundSet : ScriptableObject
 {
+    //Holds the audio clip arrays for each type of sound
     public Dictionary<SoundType, AudioClip[]> _sounds;
 
+    [Header("Sound Options")]
     [SerializeField] AudioClip[] _firstTimeSeeingPlayer;
     [SerializeField] AudioClip[] _seeingPlayer;
     [SerializeField] AudioClip[] _heardSomething;
@@ -25,8 +27,10 @@ public class SoundSet : ScriptableObject
     [SerializeField] AudioClip[] _nothing;
     [SerializeField] AudioClip[] _soundAlly;
 
+
     public void Init()
     {
+        //Loads each audio clip array into the dictionary
         _sounds = new Dictionary<SoundType, AudioClip[]>();
         _sounds.Add(SoundType.FirstTimeSeeingPlayer, _firstTimeSeeingPlayer);
         _sounds.Add(SoundType.SeeingPlayerAgain, _seeingPlayer);

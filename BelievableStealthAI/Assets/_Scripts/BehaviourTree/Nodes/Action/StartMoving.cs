@@ -6,6 +6,7 @@ public class StartMoving : ActionNode
 {
     protected override void OnStart()
     {
+        //alow movement
         _blackboard._locomotion.CanMove(true);
     }
 

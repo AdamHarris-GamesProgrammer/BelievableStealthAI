@@ -48,12 +48,12 @@ public class BehaviorTreeView : GraphView
 
     public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
     {
-
         VisualElement contentViewContainer = ElementAt(1);
         Vector3 screenMousePosition = evt.localMousePosition;
         Vector2 worldMousePosition = screenMousePosition - contentViewContainer.transform.position;
         worldMousePosition *= 1 / contentViewContainer.transform.scale.x;
 
+        //Gets all of the types derived from the node class.
         var nodeTypes = TypeCache.GetTypesDerivedFrom<Node>();
         foreach (var type in nodeTypes)
         {
@@ -78,8 +78,10 @@ public class BehaviorTreeView : GraphView
             AssetDatabase.SaveAssets();
         }
 
+        //Create each of the children in the editor
         tree._nodes.ForEach(n => CreateNodeView(n));
 
+        //Create the edges between the node and their children
         tree._nodes.ForEach(n =>
         {
             var children = BehaviorTree.GetChildren(n);
@@ -111,15 +113,18 @@ public class BehaviorTreeView : GraphView
         {
             graphViewChange.elementsToRemove.ForEach(elem =>
             {
+                //casts the element to a node view and deletes it if needed
                 NodeView nodeView = elem as NodeView;
                 if (nodeView != null)
                 {
                     _tree.DeleteNode(nodeView._node);
                 }
 
+                //Casts the element to an edge
                 Edge edge = elem as Edge;
                 if (edge != null)
                 {
+                    //Removes the edge 
                     NodeView parentView = edge.output.node as NodeView;
                     NodeView childView = edge.input.node as NodeView;
                     _tree.RemoveChild(parentView._node, childView._node);
@@ -127,8 +132,10 @@ public class BehaviorTreeView : GraphView
             });
         }
 
+        //if we have edges to create
         if(graphViewChange.edgesToCreate != null)
         {
+            //Cycle through each edge
             graphViewChange.edgesToCreate.ForEach(edge =>
             {
                 NodeView parentView = edge.output.node as NodeView;
@@ -137,6 +144,7 @@ public class BehaviorTreeView : GraphView
             });
         }
 
+        //Sorts the children of a composite node if needed
         if(graphViewChange.movedElements != null)
         nodes.ForEach((n) => { NodeView view = n as NodeView; view.SortChildren(); });
         return graphViewChange;
@@ -151,18 +159,19 @@ public class BehaviorTreeView : GraphView
         }
     }
 
+    //Creates a node view at the mouse pos
     private void CreateNodeView(Node node, Vector2 mousePos)
     {
         NodeView nodeView = new NodeView(node);
         nodeView.OnNodeSelected = OnNodeSelected;
         Rect nodePos = new Rect(mousePos, mousePos);
         nodeView.SetPosition(nodePos);
-        Debug.Log(mousePos);
         AddElement(nodeView);
     }
 
     private void CreateNodeView(Node node)
     {
+        //Creates a new node view and adds it as an element
         NodeView nodeView = new NodeView(node);
         nodeView.OnNodeSelected = OnNodeSelected;
         AddElement(nodeView);

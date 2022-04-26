@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RepeatNode : DecoratorNode
 {
+    //Keep track of the current iterations
     public int iterations = 0;
     int currentIterations = 0;
 
@@ -19,11 +20,14 @@ public class RepeatNode : DecoratorNode
 
     protected override State OnUpdate()
     {
+        //Repeat infinitely
         if (iterations == -1)
         {
+            //Execute child
             Node.State childState = child.Update();
 
-            if (childState == State.Failure || childState == State.Success)
+            //if the child has finished then increment the iterations
+            if (childState != Node.State.Running)
             {
                 currentIterations++;
             }
@@ -32,11 +36,14 @@ public class RepeatNode : DecoratorNode
         }
         else
         {
+            //Do we have remaining iterations
             if (currentIterations < iterations)
             {
+                //Execute child
                 Node.State childState = child.Update();
 
-                if (childState == State.Failure || childState == State.Success)
+                //if child is not running
+                if (childState != State.Running)
                 {
                     currentIterations++;
                 }
@@ -45,6 +52,7 @@ public class RepeatNode : DecoratorNode
             }
             else
             {
+                //Finished all iterations
                 return State.Success;
             }
         }

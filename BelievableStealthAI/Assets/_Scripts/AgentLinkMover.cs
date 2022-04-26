@@ -2,20 +2,10 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 
-public enum OffMeshLinkMoveMethod
-{
-    Teleport,
-    NormalSpeed,
-    Parabola,
-    Curve
-}
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class AgentLinkMover : MonoBehaviour
 {
-    public OffMeshLinkMoveMethod m_Method = OffMeshLinkMoveMethod.Parabola;
-    public AnimationCurve m_Curve = new AnimationCurve();
-
     AIAgent _agent;
 
     private void Awake()
@@ -27,16 +17,17 @@ public class AgentLinkMover : MonoBehaviour
     {
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.autoTraverseOffMeshLink = false;
+
+        //Eternally loops
         while (true)
         {
+            //If the agent is currently on a offmeshlink 
             if (agent.isOnOffMeshLink)
             {
-                if (m_Method == OffMeshLinkMoveMethod.NormalSpeed)
-                    yield return StartCoroutine(NormalSpeed(agent));
-                else if (m_Method == OffMeshLinkMoveMethod.Parabola)
-                    yield return StartCoroutine(Parabola(agent, 2.0f, 0.5f));
-                else if (m_Method == OffMeshLinkMoveMethod.Curve)
-                    yield return StartCoroutine(Curve(agent, 0.5f));
+                //Starts the movement coroutine 
+                yield return StartCoroutine(NormalSpeed(agent));
+
+                //Completes the off mesh link
                 agent.CompleteOffMeshLink();
             }
             yield return null;
@@ -47,47 +38,25 @@ public class AgentLinkMover : MonoBehaviour
     {
         OffMeshLinkData data = agent.currentOffMeshLinkData;
 
+        //Opens the nearby observable (door or window) if available
         if(_agent.NearbyObservable)
         {
             _agent.NearbyObservable.Open();
         }
 
+        //Calculates an end position based on end position of the off mesh link and the agents offset
         Vector3 endPos = data.endPos + Vector3.up * agent.baseOffset;
+
+        //Loops while the agents position is not the same as the end position
         while (agent.transform.position != endPos)
         {
+            //Calculates a movement speed based on half the agents speed
             float movementSpeed = (agent.speed / 2.0f) * Time.deltaTime;
+            //Applies the movement speed to the animation
             agent.GetComponent<Animator>().SetFloat("movementSpeed", movementSpeed);
+
+            //Sets the agents position based on moving towards the end pos
             agent.transform.position = Vector3.MoveTowards(agent.transform.position, endPos, movementSpeed);
-            yield return null;
-        }
-    }
-
-    IEnumerator Parabola(NavMeshAgent agent, float height, float duration)
-    {
-        OffMeshLinkData data = agent.currentOffMeshLinkData;
-        Vector3 startPos = agent.transform.position;
-        Vector3 endPos = data.endPos + Vector3.up * agent.baseOffset;
-        float normalizedTime = 0.0f;
-        while (normalizedTime < 1.0f)
-        {
-            float yOffset = height * 4.0f * (normalizedTime - normalizedTime * normalizedTime);
-            agent.transform.position = Vector3.Lerp(startPos, endPos, normalizedTime) + yOffset * Vector3.up;
-            normalizedTime += Time.deltaTime / duration;
-            yield return null;
-        }
-    }
-
-    IEnumerator Curve(NavMeshAgent agent, float duration)
-    {
-        OffMeshLinkData data = agent.currentOffMeshLinkData;
-        Vector3 startPos = agent.transform.position;
-        Vector3 endPos = data.endPos + Vector3.up * agent.baseOffset;
-        float normalizedTime = 0.0f;
-        while (normalizedTime < 1.0f)
-        {
-            float yOffset = m_Curve.Evaluate(normalizedTime);
-            agent.transform.position = Vector3.Lerp(startPos, endPos, normalizedTime) + yOffset * Vector3.up;
-            normalizedTime += Time.deltaTime / duration;
             yield return null;
         }
     }

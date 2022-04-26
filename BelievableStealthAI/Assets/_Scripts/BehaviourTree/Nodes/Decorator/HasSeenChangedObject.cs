@@ -14,6 +14,7 @@ public class HasSeenChangedObject : DecoratorNode
 
     protected override State OnUpdate()
     {
+        //has the agent seen a changed object
         if(_blackboard._agent.HasAnObjectchanged)
         {
             return child.Update();

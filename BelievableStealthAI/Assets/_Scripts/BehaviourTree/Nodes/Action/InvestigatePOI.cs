@@ -16,18 +16,23 @@ public class InvestigatePOI : ActionNode
 
     protected override State OnUpdate()
     {
+        //if the agent should stop searching then fail the node
         if (_blackboard._agent.StopSearching)
         {
             return State.Failure;
         }
 
+        //checks if the current POI has suspicious contents
         if(_blackboard._currentPOI.Search())
         {
+            //if the player is inside
             if (_blackboard._currentPOI.PlayerInside)
             {
+                //Attack and insta kill the player
                 Debug.Log("Player found in locker");
                 _blackboard._agent.Attack(true);
             }
+            //if there is a body inside
             else if(_blackboard._currentPOI.BodybagInside)
             {
                 Debug.Log("Body found");

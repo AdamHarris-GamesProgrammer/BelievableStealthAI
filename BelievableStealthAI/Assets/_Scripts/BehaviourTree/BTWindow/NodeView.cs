@@ -14,6 +14,7 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
 {
     public Node _node;
 
+    //ports at the top and bottom of the node
     public Port _input;
     public Port _output;
 
@@ -45,18 +46,22 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
 
     public void SortChildren()
     {
+        //if the node is a composite then sort the list by their position
         CompositeNode composite = _node as CompositeNode;
         if (composite) composite._children.Sort(SortByHorizontalPosition);
     }
 
     public void UpdateState()
     {
+        //removes the class specifier in the editor, this stops them from being a different colour
         RemoveFromClassList("running");
         RemoveFromClassList("success");
         RemoveFromClassList("failure");
 
+        //if we are playing
         if (Application.isPlaying)
         {
+            //add a class specifier depending on the state the node is in
             switch (_node._state)
             {
                 case Node.State.Running:
@@ -75,6 +80,7 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
 
     public override void SetPosition(Rect newPos)
     {
+        //Sets the position of the node
         base.SetPosition(newPos);
         Undo.RecordObject(_node, "Behaviour Tree (Set Position)");
         
@@ -85,6 +91,7 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
 
     private void SetupClasses()
     {
+        //This allows for the top bar to be the desired colour
         if (_node is ActionNode) AddToClassList("action");
         else if (_node is CompositeNode) AddToClassList("composite");
         else if (_node is DecoratorNode) AddToClassList("decorator");
@@ -93,6 +100,8 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
 
     private void CreateInputPorts()
     {
+        //Adds input ports to the node
+
         if(_node is ActionNode)
             _input = InstantiatePort(Orientation.Vertical, Direction.Input, Port.Capacity.Single, typeof(bool));
         else if(_node is CompositeNode)
@@ -110,6 +119,7 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
 
     private void CreateOutputPorts()
     {
+        //Creates a output port based on the type of node this is. Composite nodes have multiple children so they have a multi port.
         if (_node is ActionNode) {}
         else if (_node is CompositeNode)
             _output = InstantiatePort(Orientation.Vertical, Direction.Output, Port.Capacity.Multi, typeof(bool));

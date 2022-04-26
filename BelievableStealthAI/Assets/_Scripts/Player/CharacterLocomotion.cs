@@ -1,15 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using TGP.Control;
 using UnityEngine;
-using UnityEngine.Animations.Rigging;
 
 
-/*
- Sprint Animation
- produce different levels of noise while moving in crouch, walk or sprint
- play footstep sounds
- */
 public class CharacterLocomotion : MonoBehaviour
 {
     [Min(0f)] [SerializeField] private float _jumpHeight = 0.5f;
@@ -21,9 +12,6 @@ public class CharacterLocomotion : MonoBehaviour
 
 
     private float _currentSpeed = 1.0f;
-
-
-    AudioSource _audioSource;
 
     bool _isCrouching = false;
     bool _isSprinting = false;
@@ -47,22 +35,21 @@ public class CharacterLocomotion : MonoBehaviour
         _animator = GetComponent<Animator>();
         _health = GetComponent<PlayerHealth>();
         _player = GetComponent<PlayerController>();
-        _audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
+        //Stops the player animations if we have not started the game or the player has won
         if (!_player.Started || _player.Won)
         {
             _animator.SetFloat("InputX", 0.0f);
             _animator.SetFloat("InputY", 0.0f);
             return;
         }
+        //Stops this method if we are dead
         if (_health.IsDead) return;
 
-        float noiseLevel = 0.0f;
-        float noiseDistance = 0.0f;
-
+        //If the player can't move, then stop the animation. The player cant move when in containers/lockers
         if (!_player.CanMove)
         {
             _animator.SetFloat("InputX", 0.0f);
@@ -70,6 +57,11 @@ public class CharacterLocomotion : MonoBehaviour
             return;
         }
 
+        //Holds the noise level and the distance that sound should travel. Variables are used intellisense is just acting up.
+        float noiseLevel = 0.0f;
+        float noiseDistance = 0.0f;
+
+        //If we are sprinting
         if (Input.GetKey(KeyCode.LeftShift))
         {
             _isSprinting = true;
@@ -78,8 +70,10 @@ public class CharacterLocomotion : MonoBehaviour
             noiseLevel = 0.45f;
             noiseDistance = 25.0f;
 
+            //If we are currently croucing
             if (_isCrouching)
             {
+                //Stop crouching
                 _isCrouching = false;
                 _animator.SetBool("isCrouching", false);
                 _controller.height = 1.6f;
@@ -87,6 +81,7 @@ public class CharacterLocomotion : MonoBehaviour
         }
         else
         {
+            //We are not sprinting
             noiseLevel = 0.15f;
             noiseDistance = 10.0f;
             _isSprinting = false;
@@ -100,8 +95,10 @@ public class CharacterLocomotion : MonoBehaviour
         {
             _isCrouching = !_isCrouching;
 
+            //Sets the controller height. Different when crouching or standing
             _controller.height = _isCrouching ? 1.5f : 1.6f;
 
+            //Crouching makes less noise
             noiseLevel = 0.05f;
             noiseDistance = 5.0f;
 
@@ -124,14 +121,19 @@ public class CharacterLocomotion : MonoBehaviour
         _animator.SetFloat("InputX", _input.x);
         _animator.SetFloat("InputY", _input.y);
 
+
+        //If we are not moving at all
         if (Mathf.Approximately(_input.x, 0.0f) && Mathf.Approximately(_input.y, 0.0f))
         {
+            //Produce no noise
             noiseLevel = 0.0f;
             noiseDistance = 0.0f;
         }
 
+        //If we are producing a noise
         if (noiseLevel != 0.0f)
         {
+            //Then produce a sound
             AudioProducer.ProduceSound(transform.position, noiseLevel, noiseDistance);
         }
 
@@ -152,7 +154,6 @@ public class CharacterLocomotion : MonoBehaviour
 
         //Accumulates our root motion this frame
         _rootMotion += _animator.deltaPosition;
-        //Debug.Log(_rootMotion);
     }
 
     #endregion

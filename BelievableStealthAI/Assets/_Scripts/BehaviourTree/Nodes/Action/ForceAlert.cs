@@ -17,12 +17,15 @@ public class ForceAlert : ActionNode
 
     protected override State OnUpdate()
     {
+        //if this node is set to alert all
         if (_alertAll)
         {
+            //force alert all enemies
             _blackboard._agent.ForceAlertAll();
         }
         else
         {
+            //only force alert this agent
             _blackboard._agent.ForceAlert(true);
         }
 

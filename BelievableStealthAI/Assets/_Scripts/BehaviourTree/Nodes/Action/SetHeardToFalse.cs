@@ -16,7 +16,7 @@ public class SetHeardToFalse : ActionNode
 
     protected override State OnUpdate()
     {
-
+        //Stops the agent from hearing a sound
         _blackboard._agent.NoLongerHearingSound();
 
         return State.Success;

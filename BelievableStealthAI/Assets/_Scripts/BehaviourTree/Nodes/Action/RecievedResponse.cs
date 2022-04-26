@@ -16,6 +16,7 @@ public class RecievedResponse : DecoratorNode
 
     protected override State OnUpdate()
     {
+        //Checks if the agent has recieved a response
         if(_blackboard._response)
         {
             return State.Success;

@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TGP.Control;
 using UnityEngine;
 
 public class Door : ObservableObject
@@ -30,17 +29,13 @@ public class Door : ObservableObject
     {
         if (other.CompareTag("Enemy"))
         {
+            //Get the AIAgent component and set the nearby observable to this
             AIAgent enemy = other.GetComponent<AIAgent>();
             enemy.NearbyObservable = this;
+
+            //Find the closest side to the enemy
             Transform closest = GetClosestSide(enemy.transform.position);
-            if (closest == _sideA)
-            {
-                enemy.CurrentRoom = _sideARoom;
-            }
-            else
-            {
-                enemy.CurrentRoom = _sideBRoom;
-            }
+            enemy.CurrentRoom = closest == _sideA ? _sideARoom : _sideBRoom;
 
         }
     }
@@ -49,17 +44,13 @@ public class Door : ObservableObject
     {
         if (other.CompareTag("Enemy"))
         {
+            //Get the AIAgent component and set the nearby observable to this
             AIAgent enemy = other.GetComponent<AIAgent>();
             enemy.NearbyObservable = this;
+
+            //Find the closest side to the enemy
             Transform closest = GetClosestSide(enemy.transform.position);
-            if (closest == _sideA)
-            {
-                enemy.CurrentRoom = _sideARoom;
-            }
-            else
-            {
-                enemy.CurrentRoom = _sideBRoom;
-            }
+            enemy.CurrentRoom = closest == _sideA ? _sideARoom : _sideBRoom;
 
         }
         else if (other.CompareTag("Player"))
@@ -81,23 +72,19 @@ public class Door : ObservableObject
 
     private void OnTriggerExit(Collider other)
     {
+        //If the enemy exists this trigger
         if (other.CompareTag("Enemy"))
         {
+            //Get the AIAgent component and set the nearby ovservable to null
             AIAgent enemy = other.GetComponent<AIAgent>();
             enemy.NearbyObservable = null;
 
-
             Transform closest = GetClosestSide(enemy.transform.position);
-            if(closest == _sideA)
-            {
-                enemy.CurrentRoom = _sideARoom;
-            }
-            else
-            {
-                enemy.CurrentRoom = _sideBRoom;
-            }
+            //Selects the current room for the enemy 
+            enemy.CurrentRoom = closest == _sideA ? _sideARoom : _sideBRoom;
 
         }
+        //If the player exists this trigger then set the nearby door variable to null
         else if (other.CompareTag("Player"))
         {
             _player.NearbyDoor = null;
@@ -106,16 +93,18 @@ public class Door : ObservableObject
 
     public override void Open()
     {
-        //if (_currentState) return;
+        if (_currentState) return;
 
+        //Play the door open animation
         _animator.Play("DoorOpen", 0, 0.0f);
         PlaySFX();
     }
 
     public override void Close()
     {
-        //if (!_currentState) return;
+        if (!_currentState) return;
             
+        //Play the door close animation
         _animator.Play("DoorClose", 0, 0.0f);
         PlaySFX();
     }
@@ -123,15 +112,8 @@ public class Door : ObservableObject
     public override void DecideAnimation()
     {
         //opened
-        //Debug.Log(transform.name + " is opening or closing");
-        if (_currentState)
-        {
-            Close();
-        }
+        if (_currentState) Close();
         //closed
-        else
-        {
-            Open();
-        }
+        else Open();
     }
 }

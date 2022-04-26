@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TGP.Control;
 using UnityEngine;
 
 public class AssassinationTarget : MonoBehaviour

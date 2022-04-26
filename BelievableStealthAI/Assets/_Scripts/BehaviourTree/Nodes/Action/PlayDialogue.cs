@@ -19,6 +19,7 @@ public class PlayDialogue : ActionNode
 
     protected override State OnUpdate()
     {
+        //Plays dialogue of the specified type
         _blackboard._agent.PlaySound(_typeToPlay);
 
         return State.Success;

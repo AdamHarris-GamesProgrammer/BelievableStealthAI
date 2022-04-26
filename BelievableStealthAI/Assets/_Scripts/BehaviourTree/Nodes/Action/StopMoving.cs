@@ -6,6 +6,7 @@ public class StopMoving : ActionNode
 {
     protected override void OnStart()
     {
+        //Set can move to false
         _blackboard._locomotion.CanMove(false);
     }
 

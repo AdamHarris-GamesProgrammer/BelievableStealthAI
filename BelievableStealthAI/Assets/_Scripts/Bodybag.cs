@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TGP.Control;
 using UnityEngine;
 
 public class Bodybag : MonoBehaviour
@@ -15,6 +14,7 @@ public class Bodybag : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //If the player enters this trigger then set the nearby bodybag variable to this 
         if(other.CompareTag("Player"))
         {
             _player.NearbyBodybag = this;
@@ -22,6 +22,7 @@ public class Bodybag : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        //If the player leaves this trigger then set the nearby bodybag variable to null
         if (other.CompareTag("Player"))
         {
             _player.NearbyBodybag = null;

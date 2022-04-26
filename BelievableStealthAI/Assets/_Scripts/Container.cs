@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TGP.Control;
 using UnityEngine;
 
 public class Container : PointOfInterest
@@ -13,12 +12,14 @@ public class Container : PointOfInterest
 
     private void OnTriggerEnter(Collider other)
     {
+        //if the player enters this trigger then set the nearby container to this 
         if(other.CompareTag("Player"))
             _player.NearbyContainer = this;
     }
 
     private void OnTriggerExit(Collider other)
     {
+        //if the player leaves this trigger then set the nearby container to null
         if (other.CompareTag("Player"))
             _player.NearbyContainer = null;
     }

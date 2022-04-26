@@ -6,16 +6,19 @@ public class #SCRIPTNAME# : CompositeNode
 {
     protected override void OnStart()
     {
+        //Initialize data here
         #NOTRIM#
     }
 
     protected override void OnStop()
     {
+        //Uninitialize data here if needed
         #NOTRIM#
     }
 
     protected override State OnUpdate()
     {
+        //Add node logic here
         return State.Running;
     }
 }

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TGP.Control;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
@@ -17,7 +16,6 @@ public class CharacterAiming : MonoBehaviour
     void Awake()
     {
         _mainCamera = Camera.main;
-        //Debug.Log("Character Aiming cursor");
         _player = FindObjectOfType<PlayerController>();
     }
 
@@ -26,6 +24,7 @@ public class CharacterAiming : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //Stops the camera from rotating when the game is not started or the game is won
         if (!_player.Started || _player.Won) return;
 
         //Gets the cameras Y euler angle

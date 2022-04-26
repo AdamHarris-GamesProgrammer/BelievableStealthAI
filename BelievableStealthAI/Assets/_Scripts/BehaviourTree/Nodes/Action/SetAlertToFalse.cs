@@ -16,6 +16,7 @@ public class SetAlertToFalse : ActionNode
 
     protected override State OnUpdate()
     {
+        //stops the agent from being currently alert
         _blackboard._agent.CurrentlyAlert = false; ;
         return State.Success;
     }

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using TGP.Control;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -106,7 +105,6 @@ public class AIAgent : MonoBehaviour
     public Animator Anim { get => _animator; }
 
 
-
     private void Awake()
     {
         _player = FindObjectOfType<PlayerController>();
@@ -132,14 +130,7 @@ public class AIAgent : MonoBehaviour
             _blackboard.spawnOrientation = transform.forward;
             _blackboard._player = FindObjectOfType<PlayerController>();
 
-            if (_patrolRoute != null)
-            {
-                _blackboard._hasPatrolRoute = true;
-            }
-            else
-            {
-                _blackboard._hasPatrolRoute = false;
-            }
+            _blackboard._hasPatrolRoute = _patrolRoute != null;
 
             _blackboard._walkSpeed = _walkSpeed;
             _blackboard._patrolSpeed = _patrolSpeed;
@@ -182,12 +173,7 @@ public class AIAgent : MonoBehaviour
 
     public bool TryAttack()
     {
-        if (Vector3.Distance(_player.transform.position, transform.position) < 1.0f)
-        {
-            return true;
-        }
-
-        return false;
+        return Vector3.Distance(_player.transform.position, transform.position) < 1.0f;
     }
 
     public void Attack(bool autoKill = false)
@@ -208,10 +194,7 @@ public class AIAgent : MonoBehaviour
         if (_hasAnObjectchanged) return;
 
         Debug.Log(transform.name + " has seen a changed object");
-        if (_currentlyAlert)
-        {
-            return;
-        }
+        if (_currentlyAlert) return;
 
         if (obj.Type == ObservableType.Door)
         {
@@ -229,7 +212,6 @@ public class AIAgent : MonoBehaviour
     }
 
 
-    //TODO: Get closest patrol point method, so that ai can resume there patrol from the closest point 
     public void GetNextPatrolPoint()
     {
         _blackboard.moveToPosition = _patrolRoute.GetNextIndex(ref _currentPatrolIndex);
@@ -311,19 +293,11 @@ public class AIAgent : MonoBehaviour
         Debug.Log(transform.name + " has seen a body");
         _deadAgent = agent;
         _hasSeenBody = true;
-        if (_currentlyAlert)
-        {
-            return;
-        }
+        if (_currentlyAlert) return;
 
         if (!_haveBeenAlerted)
         {
-            //TODO: Play Panicked Animation
             _dialogueController.PlaySound(SoundType.FindingBody);
-        }
-        else
-        {
-
         }
     }
 
@@ -350,7 +324,6 @@ public class AIAgent : MonoBehaviour
             }
         }
 
-
         _halfwaySeeingPlayer = false;
         _currentlySeeingPlayer = true;
 
@@ -374,24 +347,16 @@ public class AIAgent : MonoBehaviour
     public void LightSwitchChanged(Lightswitch ls)
     {
         Debug.Log(transform.name + " has seen a changed lightbulb");
-        if (_currentlyAlert)
-        {
-            return;
-        }
+        if (_currentlyAlert) return;
 
         _lightswitch = ls;
 
         //Trigger the object investigation branch
         SeenChangedObject(ls);
 
-        if (_lightswitch.CurrentState)
-        {
-            _dialogueController.PlaySound(SoundType.LightsOn);
-        }
-        else
-        {
-            _dialogueController.PlaySound(SoundType.LightsOff);
-        }
+        //Finds the correct prompt
+        SoundType prompt = _lightswitch.CurrentState ? SoundType.LightsOn : SoundType.LightsOff;
+        _dialogueController.PlaySound(prompt);
     }
 
     public void LostSightOfPlayer()
@@ -404,28 +369,17 @@ public class AIAgent : MonoBehaviour
     {
         if (_currentlyHearingSound) return;
 
-        
-
-
         //Debug.Log(transform.name + " has heard something");
         _hasHeardSound = true;
 
-        if (_currentlyAlert)
-        {
-            return;
-        }
+        if (_currentlyAlert) return;
         else
         {
             if (!_currentlyHearingSound)
             {
-                if(_currentRoom.AgentsInRoom.Count > 1)
-                {
-                    _dialogueController.PlaySound(SoundType.SoundAlly);
-                }
-                else
-                {
-                    _dialogueController.PlaySound(SoundType.HeardSomething);
-                }
+                //Pick the appropriate dialogue prompt
+                SoundType prompt = _currentRoom.AgentsInRoom.Count > 1 ? SoundType.SoundAlly : SoundType.HeardSomething;
+                _dialogueController.PlaySound(prompt);
 
             }
         }
@@ -436,10 +390,7 @@ public class AIAgent : MonoBehaviour
     {
         _currentlyHearingSound = false;
 
-        if (_currentlyAlert)
-        {
-            return;
-        }
+        if (_currentlyAlert) return;
         else
         {
             _dialogueController.PlaySound(SoundType.NothingThere);
@@ -448,11 +399,13 @@ public class AIAgent : MonoBehaviour
 
     public void ForceAlertAll()
     {
+        //Play dialogue for radioing all allies
         _dialogueController.PlaySound(SoundType.CallAllys);
 
         //Debug.Log("force alert all");
         _dialogueController.PlaySound(SoundType.EveryoneSearchPrompt);
         RoomController[] rooms = FindObjectsOfType<RoomController>();
+        //Force alert all ai in all rooms
         foreach (RoomController room in rooms)
         {
             room.AgentsInRoom.ForEach((AIAgent agent) => agent.ForceAlert(false));
@@ -496,9 +449,7 @@ public class AIAgent : MonoBehaviour
     public void ForceStopAnimtion()
     {
         _animator.enabled = false;
-
         _isInAnimation = false;
-
         _animator.enabled = true;
     }
 
@@ -508,10 +459,14 @@ public class AIAgent : MonoBehaviour
     {
         //Debug.Log("Checking for damage");
         Vector3 playerDir = (_player.transform.position - transform.position).normalized;
+
+        //if a raycast between the agent and the player is successful
         if (Physics.Raycast(transform.position + (Vector3.up * 1.5f), playerDir, out RaycastHit hit, 1.0f, ~0, QueryTriggerInteraction.Ignore))
         {
+            //if the hit object has a player controller in a parent object
             if (hit.transform.GetComponentInParent<PlayerController>())
             {
+                //Take a hit 
                 _player.TakeHit();
             }
         }
@@ -519,6 +474,7 @@ public class AIAgent : MonoBehaviour
 
     public void StartAttack()
     {
+        //Play the attack sound "a grunt"
         _audioSource.PlayOneShot(_attackSound);
     }
 }

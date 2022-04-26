@@ -5749,7 +5749,7 @@ MonoBehaviour:
   _maxHealth: 200
   _currentHealth: 0
   _canBeHarmed: 1
-  _OnDie:
+  _OnDeath:
     m_PersistentCalls:
       m_Calls: []
   _OnDamage:
@@ -6404,52 +6404,6 @@ Transform:
   m_Father: {fileID: 1937679847892740789}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 7.326, y: 0, z: -77.698}
---- !u!1 &2549679157979625878
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2549679157979625961}
-  - component: {fileID: 2549679157979625960}
-  m_Layer: 0
-  m_Name: CrosshairTarget
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2549679157979625961
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2549679157979625878}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 471046419944249330}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2549679157979625960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2549679157979625878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94df9f085bb268e4e919a81d8d62c9e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!1 &2778314482477216701
 GameObject:
   m_ObjectHideFlags: 0
@@ -7293,7 +7247,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2549679157462705872}
-  - {fileID: 2549679157979625961}
   m_Father: {fileID: 2549679156373137405}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

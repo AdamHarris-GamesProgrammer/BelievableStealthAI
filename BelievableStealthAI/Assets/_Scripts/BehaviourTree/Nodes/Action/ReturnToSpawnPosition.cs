@@ -8,10 +8,9 @@ public class ReturnToSpawnPosition : ActionNode
     {
         if (_blackboard._health.IsDead) return;
 
+        //Set the destination and max speed
         _blackboard._locomotion.SetDestination(_blackboard.spawnPosition);
         _blackboard._locomotion.SetMaxSpeed(_blackboard._walkSpeed);
-        
-        //TODO: Make AI turn to their original orientation when they get back to it
     }
 
     protected override void OnStop()
@@ -21,11 +20,14 @@ public class ReturnToSpawnPosition : ActionNode
 
     protected override State OnUpdate()
     {
+        //if the ai is within one metre of there destination
         if(_blackboard._locomotion.GetRemainingDistance() < 1.0)
         {
             _blackboard._locomotion.Rotation(false);
             Quaternion rotation = Quaternion.LookRotation(_blackboard.spawnOrientation, Vector3.up);
             _blackboard._agent.transform.rotation = rotation;
+
+            //Successfully moved
             return State.Success;
         }
 

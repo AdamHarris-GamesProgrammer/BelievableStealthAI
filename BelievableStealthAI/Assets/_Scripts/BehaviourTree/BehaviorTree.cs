@@ -104,13 +104,16 @@ public class BehaviorTree : ScriptableObject
 
     public static List<Node> GetChildren(Node parent)
     {
+        //if the parent is a decorator node then add the child
         List<Node> children = new List<Node>();
         DecoratorNode decorator = parent as DecoratorNode;
         if (decorator && decorator.child != null) children.Add(decorator.child);
 
+        //if the parent is a root node then add the child
         RootNode rootNode = parent as RootNode;
         if (rootNode && rootNode.child != null) children.Add(rootNode.child);
 
+        //If the parent is a composite node then add all the children
         CompositeNode composite = parent as CompositeNode;
         if (composite) return composite._children;
 
@@ -130,10 +133,14 @@ public class BehaviorTree : ScriptableObject
 
     public BehaviorTree Clone()
     {
+        //Creates a new object of this tree
         BehaviorTree tree = Instantiate(this);
+
+        //Clones all nodes into the new tree
         tree._rootNode = tree._rootNode.Clone();
         tree._nodes = new List<Node>();
 
+        //Traverses the tree
         Traverse(tree._rootNode, (n) => { tree._nodes.Add(n); });
 
         return tree;

@@ -1,23 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
-using TGP.Control;
 using UnityEngine;
 
 
 
 public class ObservableObject : MonoBehaviour
 {
+    [Header("Debugging Details")]
     [SerializeField] protected bool _originalState;
-    protected bool _currentState;
     [SerializeField] protected bool _changedState;
     [SerializeField] protected bool _changedStateRecently;
+
+    [Header("General")]
     [SerializeField] float _eventDuration = 180.0f;
-
     [SerializeField] ObservableType _type;
-
     [SerializeField] protected Transform _sideA;
     [SerializeField] protected Transform _sideB;
+    [SerializeField] protected RoomController _sideBRoom;
+    [SerializeField] protected RoomController _sideARoom;
 
+    protected bool _currentState;
     public ObservableType Type { get => _type; }
 
     protected Vector3 _startObservePosition;
@@ -30,45 +32,12 @@ public class ObservableObject : MonoBehaviour
     public Vector3 StartObservePosition { get => _startObservePosition; }
     public Vector3 EndObservePosition { get => _endObservePositon; }
 
-    [SerializeField] protected RoomController _sideARoom;
-    [SerializeField] protected RoomController _sideBRoom;
+    public bool HasRecentlyChanged { get => _changedStateRecently; }
+    public bool CurrentState { get => _currentState; }
 
     protected PlayerController _player;
 
     float _timer = 0.0f;
-
-    public void SetSideARoom(RoomController room)
-    {
-        _sideARoom = room;
-    }
-
-    public void SetSideBRoom(RoomController room)
-    {
-        _sideBRoom = room;
-    }
-
-    protected void PlaySFX()
-    {
-        if (_audioSource == null) _audioSource = GetComponent<AudioSource>();
-
-        _audioSource.Play();
-    }
-
-    public void DecideRoom(RoomController room)
-    {
-        Transform closestSide = GetClosestSide(room.transform.position);
-        if(closestSide == _sideA)
-        {
-            SetSideARoom(room);
-        }
-        else
-        {
-            SetSideBRoom(room);
-        }
-    }
-
-    public bool HasRecentlyChanged { get => _changedStateRecently; }
-    public bool CurrentState { get => _currentState; }
 
     protected void Awake()
     {
@@ -91,38 +60,43 @@ public class ObservableObject : MonoBehaviour
         }
     }
 
-    public virtual void Open() {}
+    //Plays the sound effect for this object
+    protected void PlaySFX()
+    {
+        if (_audioSource == null) _audioSource = GetComponent<AudioSource>();
 
-    public virtual void Close() {}
+        _audioSource.Play();
+    }
+
+    //Decide which side the passed in room is on
+    public void DecideRoom(RoomController room)
+    {
+        Transform closestSide = GetClosestSide(room.transform.position);
+
+        if(closestSide == _sideA) _sideARoom = room;
+        else _sideBRoom = room;
+    }
+
 
     public Transform GetClosestSide(Vector3 pos)
     {
         if (_sideA == _sideB) return _sideA;
 
-        if(Vector3.Distance(_sideA.position, pos) < Vector3.Distance(_sideB.position, pos))
-        {
-            return _sideA;
-        }
-        return _sideB;
+        return Vector3.Distance(_sideA.position, pos) < Vector3.Distance(_sideB.position, pos) ? _sideA : _sideB;
     }
 
     public Transform GetOppositeSide(Transform side)
     {
-        if(_sideA == side)
-        {
-            return _sideB;
-        }
-        return _sideA;
+        //If side is side A then return side B 
+        return side == _sideA ? _sideB : _sideA;
     }
-
-    public virtual void InteractAction() { }
-    public virtual void DecideAnimation() { }
 
     public void InteractWithObject()
     {
         _currentState = !_currentState;
 
-        if(_currentState != _originalState)
+        //if the current state is not the original state then the object has changed state.
+        if (_currentState != _originalState)
         {
             _changedState = true;
             _changedStateRecently = true;
@@ -135,4 +109,9 @@ public class ObservableObject : MonoBehaviour
 
         InteractAction();
     }
+
+    public virtual void Open() {}
+    public virtual void Close() {}
+    public virtual void InteractAction() { }
+    public virtual void DecideAnimation() { }
 }

@@ -49,14 +49,18 @@ public class AudioPerception : MonoBehaviour
 
         _heardSound = true;
 
+        //if the time since the last increment is greater than the time between threshold
         if(_timerBetweenIncrements > _timeBetweenIncrements)
         {
             _timerBetweenIncrements = 0.0f;
 
+            //Calculate the new heard value
             heardValue = Mathf.Min(heardValue + (val * _multiplier), 1.0f);
 
-            if (heardValue >= 1.0f)
+            //if the heard value is equal to one
+            if (heardValue == 1.0f)
             {
+                //Agent hears the sound
                 _heard = true;
                 _aiAgent.SoundHeard();
                 _aiAgent.PointOfSound = origin;
@@ -66,6 +70,7 @@ public class AudioPerception : MonoBehaviour
     }
     public void SubtractSound(float val)
     {
+        //Calculates the new heard value
         heardValue = Mathf.Max(heardValue - val, 0.0f);
 
         if(heardValue < 1.0f) _heard = false;

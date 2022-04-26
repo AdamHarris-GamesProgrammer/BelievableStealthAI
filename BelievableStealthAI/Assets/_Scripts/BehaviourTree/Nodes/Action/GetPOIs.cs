@@ -16,6 +16,7 @@ public class GetPOIs : ActionNode
 
     protected override State OnUpdate()
     {
+        //Sets the current poi to the next poi that needs to be investigated
         if(_blackboard._agent.CurrentRoom.GetNextPOI(ref _blackboard._currentPOI))
         {
             return State.Success;

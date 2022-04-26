@@ -9,6 +9,8 @@ public class Patrol : ActionNode
         _blackboard._locomotion.Rotation(true);
         _blackboard._locomotion.CanMove(true);
         _blackboard._locomotion.SetMaxSpeed(_blackboard._patrolSpeed);
+
+        //gets the next patrol point and sets it as the destination
         _blackboard._agent.GetNextPatrolPoint();
         _blackboard._locomotion.SetDestination(_blackboard.moveToPosition);
     }
@@ -21,11 +23,10 @@ public class Patrol : ActionNode
 
     protected override State OnUpdate()
     {
+        //If the remaining distance between the agent and destination is less than half a metre 
         if(_blackboard._locomotion.GetRemainingDistance() < 0.5f)
         {
             return State.Success;
-            //_blackboard._agent.GetNextPatrolPoint();
-            //_blackboard._locomotion.SetDestination(_blackboard.moveToPosition);
         }
         return State.Running;
     }

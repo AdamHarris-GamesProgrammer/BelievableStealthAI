@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TGP.Control;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -48,17 +47,22 @@ public class FOVController : MonoBehaviour
 
     public void AddValue(float increment)
     {
+        //if the ai is dead
         if (_health.IsDead) return;
 
+        //if the time since the last addition is greater than the threshold
         if (_timeBetweenAditions >= _timeBetweenIncrements)
         {
+            //Calculate the new detected value
             _detectedValue = Mathf.Min(_detectedValue + (increment * _multiplier), _detectedThreshold);
 
+            //if the detected value is above the threshold
             if (_detectedValue >= _detectedThreshold)
             {
                 _seen = true;
                 _aiController.PlayerSeen();
             }
+            //if the detected value is above the halfway detected threshold
             else if(_detectedValue >= _detectedThreshold / 2.0f)
             {
                 _halfwaySeen = true;
@@ -66,6 +70,7 @@ public class FOVController : MonoBehaviour
             }
             _timeBetweenAditions = 0.0f;
             
+            //Fill the detection meter
             _detectionMeter.fillAmount = _detectedValue;
         }
     }

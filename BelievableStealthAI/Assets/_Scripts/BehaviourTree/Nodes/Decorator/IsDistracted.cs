@@ -16,8 +16,10 @@ public class IsDistracted : DecoratorNode
 
     protected override State OnUpdate()
     {
+        //if the agent is distracted
         if(_blackboard._agent.IsDistracted)
         {
+            //update the child
             return child.Update();
         }
 

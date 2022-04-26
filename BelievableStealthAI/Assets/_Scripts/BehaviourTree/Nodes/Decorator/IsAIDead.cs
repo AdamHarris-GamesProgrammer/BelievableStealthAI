@@ -16,7 +16,6 @@ public class IsAIDead : DecoratorNode
 
     protected override State OnUpdate()
     {
-        //TODO Switch so if AI is dead then return success
         if (_blackboard._health.IsDead)
         {
             return State.Success;

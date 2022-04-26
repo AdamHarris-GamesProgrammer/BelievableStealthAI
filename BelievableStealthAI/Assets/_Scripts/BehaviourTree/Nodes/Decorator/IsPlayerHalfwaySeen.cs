@@ -16,6 +16,7 @@ public class IsPlayerHalfwaySeen : DecoratorNode
 
     protected override State OnUpdate()
     {
+        //if agent is halfway seeing the player
         if (_blackboard._agent.HalfwaySeen)
         {
             return child.Update();

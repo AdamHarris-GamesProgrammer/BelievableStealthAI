@@ -16,6 +16,7 @@ public class SetObservedToNull : ActionNode
 
     protected override State OnUpdate()
     {
+        //Set the observed object to null
         _blackboard._changedObservedObject = null;
         _blackboard._agent.InvestigatedObject();
         return State.Success;

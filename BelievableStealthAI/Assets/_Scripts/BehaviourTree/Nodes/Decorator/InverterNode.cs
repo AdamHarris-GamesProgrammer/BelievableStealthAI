@@ -16,14 +16,17 @@ public class InverterNode : DecoratorNode
 
     protected override State OnUpdate()
     {
+        //executes the child
         State state = child.Update();
+
+        //Inverts the state that the child returned. 
         switch (state)
         {
-            case State.Running:
+            case State.Running: //Running is turned into running
                 return State.Running;
-            case State.Failure:
+            case State.Failure: //Failure is turned into success
                 return State.Success;
-            case State.Success:
+            case State.Success: //Success is turned into failure
                 return State.Failure;
         }
 

@@ -16,6 +16,7 @@ public class GetNextLookPoint : ActionNode
 
     protected override State OnUpdate()
     {
+        //sets the current look point to the next one 
         if (_blackboard._agent.CurrentRoom.GetNextLookPoint(ref _blackboard._currentLookPoint))
         {
             return State.Success;

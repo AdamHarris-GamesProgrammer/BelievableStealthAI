@@ -16,6 +16,7 @@ public class IsAIAlert : DecoratorNode
 
     protected override State OnUpdate()
     {
+        //checks if agent is currently alerted
         if(_blackboard._agent.CurrentlyAlert)
         {
             return child.Update();

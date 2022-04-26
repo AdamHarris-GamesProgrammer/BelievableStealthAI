@@ -16,6 +16,7 @@ public class SetDistractedToFalse : ActionNode
 
     protected override State OnUpdate()
     {
+        //Sets the agent to no longer be distracted
         _blackboard._agent.IsDistracted = false;
 
         return State.Success;

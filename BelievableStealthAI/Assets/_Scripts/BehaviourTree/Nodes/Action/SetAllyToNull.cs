@@ -6,6 +6,7 @@ public class SetAllyToNull : ActionNode
 {
     protected override void OnStart()
     {
+        //Sets the agent to check on to null
         _blackboard._agent.AgentToCheckOn = null;
     }
 

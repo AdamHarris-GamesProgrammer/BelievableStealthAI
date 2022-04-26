@@ -18,6 +18,7 @@ public class IsObservableType : DecoratorNode
 
     protected override State OnUpdate()
     {
+        //Checks if the current observable is the required type
         if (_blackboard._changedObservedObject.Type == type)
         {
             return child.Update();

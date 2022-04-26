@@ -1,9 +1,5 @@
 
-using System.Collections;
-using System.Collections.Generic;
-using TGP.Control;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.Events;
 
 
@@ -22,15 +18,11 @@ public class Health : MonoBehaviour
     protected bool _isDead = false;
     public bool IsDead { get { return _isDead; } }
 
-    public UnityEvent _OnDie;
+    public UnityEvent _OnDeath;
     public UnityEvent _OnDamage;
-    public void Heal(float amount) {
-        Debug.Log("Healing by: " + amount);
-        //Stops the health from going above maximum.
-        _currentHealth = Mathf.Min(_currentHealth += amount, _maxHealth);
-        OnHeal();
-    }
 
+
+    //Auto Kills the character this is attached to
     public void Kill()
     {
         TakeDamage(100000.0f);
@@ -38,13 +30,26 @@ public class Health : MonoBehaviour
 
     private void Update()
     {
+        //Stop updating if we are dead
         if (_isDead) return;
 
+        //If out health is less than 0
         if(_currentHealth <= 0.0f)
         {
+            //character is dead
             _isDead = true;
-            _OnDie.Invoke();
+            //Invoke the on death event.
+            _OnDeath.Invoke();
+            //Activates the ragdoll for this character
             GetComponent<Ragdoll>().ActivateRagdoll();
+
+            AILocomotion locomotion = GetComponent<AILocomotion>();
+            if (locomotion)
+            {
+                locomotion.CanMove(false);
+            }
+
+            //Sets the tag for this object. This allows AI to see a corpse on the ground
             gameObject.tag = "DeadBody";
         }
     }
@@ -52,7 +57,8 @@ public class Health : MonoBehaviour
     void Start()
     {
         _currentHealth = _maxHealth;
-        _OnDie.AddListener(OnDeath);
+        _OnDeath.AddListener(OnDeath);
+        _OnDamage.AddListener(OnDamage);
         
         OnStart();
     }
@@ -63,30 +69,13 @@ public class Health : MonoBehaviour
         if (_isDead) return;
         if (!_canBeHarmed) return;
 
-        
-
         //Take away the left over damage and get the minimum from damage or 0 and set health to this
         _currentHealth = Mathf.Max(_currentHealth -= amount, 0f);
 
-        if (_currentHealth == 0.0f)
-        {
-            _isDead = true;
-            _OnDie.Invoke();
+        if (_currentHealth == 0.0f) return;
 
-            AILocomotion locomotion = GetComponent<AILocomotion>();
-            if(locomotion)
-            {
-                locomotion.CanMove(false);
-            }
-
-            GetComponent<Ragdoll>().ActivateRagdoll();
-
-            gameObject.tag = "DeadBody";
-            return;
-        }
-
+        //Invoke the on damage event
         _OnDamage.Invoke();
-        OnDamage();
     }
 
     protected virtual void OnHeal() {}

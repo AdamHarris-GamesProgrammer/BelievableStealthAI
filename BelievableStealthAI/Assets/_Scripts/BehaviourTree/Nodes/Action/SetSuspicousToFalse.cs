@@ -16,6 +16,7 @@ public class SetSuspicousToFalse : ActionNode
 
     protected override State OnUpdate()
     {
+        //Makes the agent no longer suspicious
         _blackboard._agent.Suspicious = false;
 
         return State.Success;

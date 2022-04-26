@@ -17,7 +17,7 @@ public class GoToLastKnownLocation : ActionNode
 
     protected override State OnUpdate()
     {
-        if (_blackboard._locomotion.GetRemainingDistance() < 6.0f)
+        if (_blackboard._locomotion.GetRemainingDistance() < 3.0f)
         {
             return State.Success;
         }

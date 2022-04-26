@@ -16,8 +16,10 @@ public class IsAISuspicous : DecoratorNode
 
     protected override State OnUpdate()
     {
+        //if the agent is suspicious
         if(_blackboard._agent.Suspicious)
         {
+            //then update the child
             return child.Update();
         }
 

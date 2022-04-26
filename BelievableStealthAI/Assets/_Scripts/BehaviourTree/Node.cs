@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Node : ScriptableObject
 {
+    //States that a node can be in
     public enum State
     {
         Running, Failure, Success
@@ -18,6 +19,7 @@ public abstract class Node : ScriptableObject
 
     public Vector2 _position;
 
+    //Stops the current node
     public void Abort()
     {
         BehaviorTree.Traverse(this, (node) =>
@@ -27,17 +29,22 @@ public abstract class Node : ScriptableObject
             node.OnStop();
         });
     }
+
+    //Handles state update logic
     public State Update()
     {
+        //If not started then call onstart
         if(!_started)
         {
             OnStart();
             _started = true;
         }
 
+        //Call update logic
         _state = OnUpdate();
         
 
+        //if state failed or succeeded then call stop logic
         if (_state == State.Failure || _state == State.Success)
         {
             OnStop();
