@@ -8,6 +8,8 @@ public class PlayAnimation : ActionNode
 
     protected override void OnStart()
     {
+        Debug.Log("Playing Anim");
+
         //Sets the in animation value
         _blackboard._agent.IsInAnimation = true;
         //play the animation with the desired name

@@ -270,8 +270,8 @@ MonoBehaviour:
   _type: 0
   _sideA: {fileID: 5057623171722238200}
   _sideB: {fileID: 5057623171144528672}
-  _sideARoom: {fileID: 0}
   _sideBRoom: {fileID: 0}
+  _sideARoom: {fileID: 0}
   _shouldBeOpen: 0
 --- !u!114 &5057623171526333173
 MonoBehaviour:

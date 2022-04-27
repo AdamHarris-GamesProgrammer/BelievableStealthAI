@@ -58,7 +58,10 @@ public class RoomController : MonoBehaviour
     public bool GetNextLookPoint(ref Transform lp)
     {
         //If the current look point is greater than the amount of look points
-        if(_currentLP >= _lookAroundPoints.Count) return false;
+        if (_currentLP >= _lookAroundPoints.Count)
+        {
+            return false;
+        }
 
         //Set the passed in look point to the one for this index
         lp = _lookAroundPoints[_currentLP];
@@ -78,9 +81,12 @@ public class RoomController : MonoBehaviour
             //Resets the current poi index to 0
             _currentPOI = 0;
 
+            Debug.Log("OUT OF POI");
+
             //Returns true (we are out of POI)
             return true;
         }
+        Debug.Log("NOT OUT OF POI");
         //Returns false (we still have POI)
         return false;
     }
@@ -88,7 +94,10 @@ public class RoomController : MonoBehaviour
     public bool GetNextPOI(ref PointOfInterest poi)
     {
         //If we are out of POI
-        if(_currentPOI >= _pois.Count) return false;
+        if (_currentPOI >= _pois.Count)
+        {
+            return false;
+        }
 
         //Set the passed in POI to the current one
         poi = _pois[_currentPOI];
