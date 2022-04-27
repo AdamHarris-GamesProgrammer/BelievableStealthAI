@@ -79,8 +79,12 @@ public class FOVCollider : MonoBehaviour
                         if (!obj.HasRecentlyChanged) continue;
 
                         //Calculate direction vector
-                        Vector3 pos = obj.transform.position + (Vector3.up * 2.0f);
+                        Vector3 pos = obj.transform.position + (Vector3.up * 1.8f);
                         Vector3 direction = (pos - _fovController.RaycastOrigin);
+
+                        float dot = Vector3.Dot(direction, _fovController.transform.forward);
+                        if (dot < 0.0f) continue;
+
                         Debug.DrawRay(_fovController.RaycastOrigin, direction);
 
                         RaycastHit hit;

@@ -4207,7 +4207,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -4804.9243, y: 872}
+  _position: {x: -4825.601, y: 865.60004}
   _rotationSpeed: 10
 --- !u!114 &4292184581911466551
 MonoBehaviour:
@@ -4854,7 +4854,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -4675.2, y: 1245.6}
+  _position: {x: -4673.201, y: 1254.4}
   _typeToPlay: 0
 --- !u!114 &6333077177219695434
 MonoBehaviour:
