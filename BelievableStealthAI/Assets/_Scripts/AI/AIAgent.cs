@@ -67,6 +67,8 @@ public class AIAgent : MonoBehaviour
 
     Dictionary<AIAgent, float> _aiLastSeen = new Dictionary<AIAgent, float>();
 
+    static List<AIAgent> _deadAgents = new List<AIAgent>();
+
     public bool IsDistracted { get => _isDistracted; set => _isDistracted = value; }
     public bool Suspicious { get => _suspicious; set => _suspicious = false; }
     public bool HaveBeenAlerted { get => _haveBeenAlerted; }
@@ -290,6 +292,13 @@ public class AIAgent : MonoBehaviour
 
     public void BodyDetected(GameObject agent)
     {
+        if (_deadAgents.Contains(agent.GetComponent<AIAgent>()))
+        {
+            return;
+        }
+
+        _deadAgents.Add(agent.GetComponent<AIAgent>());
+
         Debug.Log(transform.name + " has seen a body");
         _deadAgent = agent;
         _hasSeenBody = true;

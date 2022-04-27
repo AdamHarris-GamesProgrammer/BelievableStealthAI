@@ -181,4 +181,15 @@ public class FOVCollider : MonoBehaviour
             _bodiesInCollider.Remove(other.gameObject);
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("DeadBody"))
+        {
+            if (!_bodiesInCollider.Contains(other.gameObject))
+            {
+                _bodiesInCollider.Add(other.gameObject);
+            }
+        }
+    }
 }
