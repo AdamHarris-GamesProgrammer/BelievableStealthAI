@@ -110,6 +110,18 @@ public class ObservableObject : MonoBehaviour
         InteractAction();
     }
 
+    public void ReturnToOriginalState()
+    {
+        if (!_originalState)
+        {
+            Close();
+        }
+
+        _changedStateRecently = false;
+        _changedState = false;
+        _currentState = _originalState;
+    }
+
     public virtual void Open() {}
     public virtual void Close() {}
     public virtual void InteractAction() { }

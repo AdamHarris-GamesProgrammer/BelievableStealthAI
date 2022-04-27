@@ -34,10 +34,9 @@ public class TurnToPlayer : ActionNode
         float oY = originalRot.eulerAngles.y;
         float nY = targetRot.eulerAngles.y;
 
-        //if the old and new is approximately the same then they are the same
-        if (Mathf.Approximately(oY, nY))
+        float diff = Mathf.Abs(nY - oY);
+        if (diff < 1.0f)
         {
-            //return successful.
             return State.Success;
         }
 

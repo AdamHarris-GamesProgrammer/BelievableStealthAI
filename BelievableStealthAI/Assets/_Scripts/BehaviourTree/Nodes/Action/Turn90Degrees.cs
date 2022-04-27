@@ -31,8 +31,8 @@ public class Turn90Degrees : ActionNode
         float oY = originalRot.eulerAngles.y;
         float nY = targetRot.eulerAngles.y;
 
-        //check if the values are approximate
-        if(Mathf.Approximately(oY, nY))
+        float diff = Mathf.Abs(nY - oY);
+        if (diff < 1.0f)
         {
             return State.Success;
         }

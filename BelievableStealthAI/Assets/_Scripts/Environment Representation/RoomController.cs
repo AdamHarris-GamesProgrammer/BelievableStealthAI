@@ -42,7 +42,11 @@ public class RoomController : MonoBehaviour
         if (_currentLP >= _lookAroundPoints.Count)
         {
             //Loop through each agent and tell them to stop searching
-            _aiInRoom.ForEach(agent => agent.StopSearching = true);
+            //_aiInRoom.ForEach(agent => agent.StopSearching = true);
+            foreach (AIAgent agent in _aiInRoom)
+            {
+                agent.StopSearching = true;
+            }
 
             //Reset the look point to index 0
             _currentLP = 0;
@@ -76,7 +80,11 @@ public class RoomController : MonoBehaviour
         //If the current poi index is greater than the amount of poi 
         if (_currentPOI >= _pois.Count) {
             //Stop the ais in this room from searching
-            _aiInRoom.ForEach(agent => agent.StopSearching = true);
+            //_aiInRoom.ForEach(agent => agent.StopSearching = true);
+            foreach (AIAgent agent in  _aiInRoom)
+            {
+                agent.StopSearching = true;
+            }
 
             //Resets the current poi index to 0
             _currentPOI = 0;

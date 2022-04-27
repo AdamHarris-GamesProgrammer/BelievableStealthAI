@@ -79,7 +79,7 @@ public class FOVCollider : MonoBehaviour
                         if (!obj.HasRecentlyChanged) continue;
 
                         //Calculate direction vector
-                        Vector3 pos = obj.transform.position;
+                        Vector3 pos = obj.transform.position + (Vector3.up * 2.0f);
                         Vector3 direction = (pos - _fovController.RaycastOrigin);
                         Debug.DrawRay(_fovController.RaycastOrigin, direction);
 
@@ -87,6 +87,7 @@ public class FOVCollider : MonoBehaviour
                         if (Physics.Raycast(_fovController.RaycastOrigin, direction, out hit, 25.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
                         {
                             ObservableObject observable = hit.transform.GetComponentInParent<ObservableObject>();
+                            Debug.Log(hit.transform.name);
 
                             //If we have an observable
                             if (observable)

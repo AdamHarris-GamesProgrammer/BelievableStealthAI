@@ -40,10 +40,9 @@ public class TurnToLookPoint : ActionNode
         float oY = originalRot.eulerAngles.y;
         float nY = targetRot.eulerAngles.y;
 
-        //if these are approximately the same
-        if (Mathf.Approximately(oY, nY))
+        float diff = Mathf.Abs(nY - oY);
+        if (diff < 1.0f)
         {
-            //then return successul
             return State.Success;
         }
 

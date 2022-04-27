@@ -39,13 +39,12 @@ public class TurnToPOI : ActionNode
         _blackboard._agent.transform.rotation = Quaternion.Lerp(originalRot, targetRot, Time.deltaTime * 5.0f);
 
         //Gets the y axis value of the original and new value
-        float oY = originalRot.eulerAngles.y;
+        float oY = _blackboard._agent.transform.rotation.eulerAngles.y;
         float nY = targetRot.eulerAngles.y;
 
-        //if the values are approximately the same
-        if (Mathf.Approximately(oY, nY))
+        float diff = Mathf.Abs(nY - oY);
+        if(diff < 1.0f)
         {
-            //rotation successful
             return State.Success;
         }
 
