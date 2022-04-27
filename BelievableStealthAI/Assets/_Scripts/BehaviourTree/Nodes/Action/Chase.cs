@@ -23,7 +23,7 @@ public class Chase : ActionNode
         _blackboard._locomotion.SetDestination(_blackboard._agent.LastKnownPlayerPosition);
 
         //if the remaining distance is less than half a meter
-        if (_blackboard._locomotion.GetRemainingDistance() < 0.5f)
+        if (_blackboard._locomotion.GetRemainingDistance() < 1.5f)
         {
             return State.Success;
         }

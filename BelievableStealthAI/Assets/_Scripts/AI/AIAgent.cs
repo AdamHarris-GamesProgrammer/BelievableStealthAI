@@ -175,7 +175,7 @@ public class AIAgent : MonoBehaviour
 
     public bool TryAttack()
     {
-        return Vector3.Distance(_player.transform.position, transform.position) < 1.0f;
+        return Vector3.Distance(_player.transform.position, transform.position) < 1.5f;
     }
 
     public void Attack(bool autoKill = false)
@@ -195,7 +195,7 @@ public class AIAgent : MonoBehaviour
     {
         if (_hasAnObjectchanged) return;
 
-        Debug.Log(transform.name + " has seen a changed object");
+        //Debug.Log(transform.name + " has seen a changed object");
         if (_currentlyAlert) return;
 
         if (obj.Type == ObservableType.Door)
@@ -467,23 +467,33 @@ public class AIAgent : MonoBehaviour
     public void Bite()
     {
         //Debug.Log("Checking for damage");
-        Vector3 playerDir = (_player.transform.position - transform.position).normalized;
+        Vector3 playerDir = (_player.transform.position - transform.position);
+
+
+        float dot = Vector3.Dot(playerDir, transform.forward);
+        float dist = Vector3.Distance(_player.transform.position, transform.position);
+        if(dot > 0.0f && dist < 1.5f)
+        {
+            _player.TakeHit();
+        }
+        _locomotion.Rotation(true);
 
         //if a raycast between the agent and the player is successful
-        if (Physics.Raycast(transform.position + (Vector3.up * 1.5f), playerDir, out RaycastHit hit, 1.0f, ~0, QueryTriggerInteraction.Ignore))
-        {
-            //if the hit object has a player controller in a parent object
-            if (hit.transform.GetComponentInParent<PlayerController>())
-            {
-                //Take a hit 
-                _player.TakeHit();
-            }
-        }
+        //if (Physics.Raycast(transform.position + (Vector3.up * 1.5f), playerDir, out RaycastHit hit, 1.0f, ~0, QueryTriggerInteraction.Ignore))
+        //{
+        //    //if the hit object has a player controller in a parent object
+        //    if (hit.transform.GetComponentInParent<PlayerController>())
+        //    {
+        //        //Take a hit 
+        //        _player.TakeHit();
+        //    }
+        //}
     }
 
     public void StartAttack()
     {
         //Play the attack sound "a grunt"
+        _locomotion.Rotation(false);
         _audioSource.PlayOneShot(_attackSound);
     }
 }

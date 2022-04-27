@@ -14,6 +14,7 @@ public class TurnToPlayer : ActionNode
     {
         //Gets the rotation of the player and sets it as our target rotation
         targetRot = _blackboard._player.transform.rotation;
+        targetRot.eulerAngles = -targetRot.eulerAngles;
 
         _blackboard._locomotion.Rotation(false);
     }

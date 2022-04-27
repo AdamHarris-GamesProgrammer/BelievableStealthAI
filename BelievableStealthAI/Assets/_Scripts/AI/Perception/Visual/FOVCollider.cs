@@ -91,7 +91,7 @@ public class FOVCollider : MonoBehaviour
                         if (Physics.Raycast(_fovController.RaycastOrigin, direction, out hit, 25.0f, _rayCastLayer, QueryTriggerInteraction.Ignore))
                         {
                             ObservableObject observable = hit.transform.GetComponentInParent<ObservableObject>();
-                            Debug.Log(hit.transform.name);
+                            //Debug.Log(hit.transform.name);
 
                             //If we have an observable
                             if (observable)
