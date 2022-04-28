@@ -18,8 +18,11 @@ public class AILocomotion : MonoBehaviour
 
     void Update()
     {
-        //Sets the movement speed variable for the animator
-        _animator.SetFloat("movementSpeed", _agent.velocity.magnitude);
+        if (!_agent.isOnOffMeshLink)
+        {
+            //Sets the movement speed variable for the animator
+            _animator.SetFloat("movementSpeed", _agent.velocity.magnitude);
+        }
     }
 
     //Sets the agent ability to rotate

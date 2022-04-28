@@ -469,25 +469,29 @@ public class AIAgent : MonoBehaviour
         //Debug.Log("Checking for damage");
         Vector3 playerDir = (_player.transform.position - transform.position);
 
-
+        //Attack attempt 1
         float dot = Vector3.Dot(playerDir, transform.forward);
         float dist = Vector3.Distance(_player.transform.position, transform.position);
         if(dot > 0.0f && dist < 1.5f)
         {
             _player.TakeHit();
+            _locomotion.Rotation(true);
+            return;
         }
-        _locomotion.Rotation(true);
 
+        //Attack attempt 2
         //if a raycast between the agent and the player is successful
-        //if (Physics.Raycast(transform.position + (Vector3.up * 1.5f), playerDir, out RaycastHit hit, 1.0f, ~0, QueryTriggerInteraction.Ignore))
-        //{
-        //    //if the hit object has a player controller in a parent object
-        //    if (hit.transform.GetComponentInParent<PlayerController>())
-        //    {
-        //        //Take a hit 
-        //        _player.TakeHit();
-        //    }
-        //}
+        if (Physics.Raycast(transform.position + (Vector3.up * 1.5f), playerDir, out RaycastHit hit, 1.0f, ~0, QueryTriggerInteraction.Ignore))
+        {
+            //if the hit object has a player controller in a parent object
+            if (hit.transform.GetComponentInParent<PlayerController>())
+            {
+                //Take a hit 
+                _player.TakeHit();
+                _locomotion.Rotation(true);
+                return;
+            }
+        }
     }
 
     public void StartAttack()

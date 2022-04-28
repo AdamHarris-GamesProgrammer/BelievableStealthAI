@@ -85,6 +85,13 @@ public class ObservableObject : MonoBehaviour
         return Vector3.Distance(_sideA.position, pos) < Vector3.Distance(_sideB.position, pos) ? _sideA : _sideB;
     }
 
+    public Transform GetFurthestSide(Vector3 pos)
+    {
+        if (_sideA == _sideB) return _sideA;
+
+        return Vector3.Distance(_sideA.position, pos) < Vector3.Distance(_sideB.position, pos) ? _sideB : _sideA;
+    }
+
     public Transform GetOppositeSide(Transform side)
     {
         //If side is side A then return side B 

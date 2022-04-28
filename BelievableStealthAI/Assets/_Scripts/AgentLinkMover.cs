@@ -47,16 +47,26 @@ public class AgentLinkMover : MonoBehaviour
         //Calculates an end position based on end position of the off mesh link and the agents offset
         Vector3 endPos = data.endPos + Vector3.up * agent.baseOffset;
 
+        Vector3 targetRot = _agent.NearbyObservable.GetFurthestSide(endPos).forward;
+
         //Loops while the agents position is not the same as the end position
         while (agent.transform.position != endPos)
         {
             //Calculates a movement speed based on half the agents speed
-            float movementSpeed = (agent.speed / 2.0f) * Time.deltaTime;
+            float movementSpeed = agent.speed * Time.deltaTime;
             //Applies the movement speed to the animation
-            agent.GetComponent<Animator>().SetFloat("movementSpeed", movementSpeed);
+            //Debug.Log("Move Speed: " + movementSpeed);
+            agent.GetComponent<Animator>().SetFloat("movementSpeed", agent.speed);
 
             //Sets the agents position based on moving towards the end pos
             agent.transform.position = Vector3.MoveTowards(agent.transform.position, endPos, movementSpeed);
+
+            if (_agent.NearbyObservable)
+            {
+                //lerp between the original and the target rotation
+                _agent.transform.rotation = Quaternion.Slerp(_agent.transform.rotation, Quaternion.LookRotation(-targetRot, Vector3.up), 4.5f * Time.deltaTime);
+            }
+
             yield return null;
         }
     }

@@ -165,7 +165,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -460.00003, y: 874.4}
+  _position: {x: -459.99994, y: 874.4}
 --- !u!114 &-4046753501683979779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,7 +283,7 @@ MonoBehaviour:
     _response: 0
   description: 
   _agent: {fileID: 0}
-  _position: {x: -288.8259, y: 874.4}
+  _position: {x: -301.59985, y: 874.4}
 --- !u!114 &-2372998424122943979
 MonoBehaviour:
   m_ObjectHideFlags: 0
